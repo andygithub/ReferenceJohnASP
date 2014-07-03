@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Reference.John.Repository.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Reference.John.Repository.Fakes.StubIFormContactZeroRepository">
+            <summary>Stub type of Reference.John.Repository.IFormContactZeroRepository</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.#ctor">
+            <summary>Initializes a new instance of type StubIFormContactZeroRepository</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.AddOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Add(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.AttachOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Attach(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.CountOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Int32})">
+            <summary>Sets stubs of Count()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.CountOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Int32})">
+            <summary>Sets stubs of Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.DeleteOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">
+            <summary>Sets stubs of Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Delete(!!0 entity)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindByNameStringString">
+            <summary>Sets the stub of IFormContactZeroRepository.FindByName(String firstName, String lastName)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindOneOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FirstOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetByKeyOf1Object``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Object,``0})">
+            <summary>Sets stubs of GetByKey(Object keyValue)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetOf2ExpressionOfFuncOfM0BooleanExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetQueryOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetQueryOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.NewlyCreated">
+            <summary>Sets the stub of IFormContactZeroRepository.NewlyCreated()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IFormContactZeroRepository#FindByName(System.String,System.String)">
+            <summary>Sets the stub of IFormContactZeroRepository.FindByName(String firstName, String lastName)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IFormContactZeroRepository#NewlyCreated">
+            <summary>Sets the stub of IFormContactZeroRepository.NewlyCreated()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Add``1(``0)">
+            <summary>Sets the stub of IRepository.Add(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Attach``1(``0)">
+            <summary>Sets the stub of IRepository.Attach(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Count``1">
+            <summary>Sets the stub of IRepository.Count()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(``0)">
+            <summary>Sets the stub of IRepository.Delete(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAll``1">
+            <summary>Sets the stub of IRepository.GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
+            <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1">
+            <summary>Sets the stub of IRepository.GetQuery()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Update``1(``0)">
+            <summary>Sets the stub of IRepository.Update(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.SingleOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.UnitOfWorkGet">
+            <summary>Sets the stub of IRepository.get_UnitOfWork()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.UpdateOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Update(!!0 entity)</summary>
+        </member>
+        <member name="P:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#UnitOfWork">
+            <summary>Sets the stub of IRepository.get_UnitOfWork()</summary>
+        </member>
+        <member name="T:Reference.John.Repository.Fakes.StubIRepository">
+            <summary>Stub type of Reference.John.Repository.IRepository</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.#ctor">
+            <summary>Initializes a new instance of type StubIRepository</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.AddOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Add(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.AttachOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Attach(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.CountOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Int32})">
+            <summary>Sets stubs of Count()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.CountOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Int32})">
+            <summary>Sets stubs of Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.DeleteOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">
+            <summary>Sets stubs of Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Delete(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOneOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FirstOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetByKeyOf1Object``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Object,``0})">
+            <summary>Sets stubs of GetByKey(Object keyValue)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetOf2ExpressionOfFuncOfM0BooleanExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetQueryOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetQueryOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Add``1(``0)">
+            <summary>Sets the stub of IRepository.Add(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Attach``1(``0)">
+            <summary>Sets the stub of IRepository.Attach(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Count``1">
+            <summary>Sets the stub of IRepository.Count()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Delete``1(``0)">
+            <summary>Sets the stub of IRepository.Delete(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAll``1">
+            <summary>Sets the stub of IRepository.GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
+            <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1">
+            <summary>Sets the stub of IRepository.GetQuery()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Update``1(``0)">
+            <summary>Sets the stub of IRepository.Update(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.SingleOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
+            <summary>Sets stubs of Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIRepository.UnitOfWorkGet">
+            <summary>Sets the stub of IRepository.get_UnitOfWork()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.UpdateOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets stubs of Update(!!0 entity)</summary>
+        </member>
+        <member name="P:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#UnitOfWork">
+            <summary>Sets the stub of IRepository.get_UnitOfWork()</summary>
+        </member>
+        <member name="T:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextBuilder`1">
+            <summary>Stub type of Reference.John.Repository.Infrastructure.IDbContextBuilder`1</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextBuilder`1.#ctor">
+            <summary>Initializes a new instance of type StubIDbContextBuilder</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextBuilder`1.BuildDbContextType">
+            <summary>Sets the stub of IDbContextBuilder`1.BuildDbContext(Type modelType)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextBuilder`1.rjr::Reference#John#Repository#Infrastructure#IDbContextBuilder{T}#BuildDbContext(System.Type)">
+            <summary>Sets the stub of IDbContextBuilder`1.BuildDbContext(Type modelType)</summary>
+        </member>
+        <member name="T:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage">
+            <summary>Stub type of Reference.John.Repository.Infrastructure.IDbContextStorage</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.#ctor">
+            <summary>Initializes a new instance of type StubIDbContextStorage</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.GetAllDbContexts">
+            <summary>Sets the stub of IDbContextStorage.GetAllDbContexts()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.GetDbContextForKeyString">
+            <summary>Sets the stub of IDbContextStorage.GetDbContextForKey(String key)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.rjr::Reference#John#Repository#Infrastructure#IDbContextStorage#GetAllDbContexts">
+            <summary>Sets the stub of IDbContextStorage.GetAllDbContexts()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.rjr::Reference#John#Repository#Infrastructure#IDbContextStorage#GetDbContextForKey(System.String)">
+            <summary>Sets the stub of IDbContextStorage.GetDbContextForKey(String key)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.rjr::Reference#John#Repository#Infrastructure#IDbContextStorage#SetDbContextForKey(System.String,System.Data.Entity.DbContext)">
+            <summary>Sets the stub of IDbContextStorage.SetDbContextForKey(String key, DbContext objectContext)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIDbContextStorage.SetDbContextForKeyStringDbContext">
+            <summary>Sets the stub of IDbContextStorage.SetDbContextForKey(String key, DbContext objectContext)</summary>
+        </member>
+        <member name="T:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork">
+            <summary>Stub type of Reference.John.Repository.Infrastructure.IUnitOfWork</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.#ctor">
+            <summary>Initializes a new instance of type StubIUnitOfWork</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.BeginTransaction">
+            <summary>Sets the stub of IUnitOfWork.BeginTransaction()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.BeginTransactionIsolationLevel">
+            <summary>Sets the stub of IUnitOfWork.BeginTransaction(IsolationLevel isolationLevel)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.CommitTransaction">
+            <summary>Sets the stub of IUnitOfWork.CommitTransaction()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.IsInTransactionGet">
+            <summary>Sets the stub of IUnitOfWork.get_IsInTransaction()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#BeginTransaction">
+            <summary>Sets the stub of IUnitOfWork.BeginTransaction()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#BeginTransaction(System.Data.IsolationLevel)">
+            <summary>Sets the stub of IUnitOfWork.BeginTransaction(IsolationLevel isolationLevel)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#CommitTransaction">
+            <summary>Sets the stub of IUnitOfWork.CommitTransaction()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#RollBackTransaction">
+            <summary>Sets the stub of IUnitOfWork.RollBackTransaction()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#SaveChanges">
+            <summary>Sets the stub of IUnitOfWork.SaveChanges()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#SaveChanges(System.Data.Entity.Core.Objects.SaveOptions)">
+            <summary>Sets the stub of IUnitOfWork.SaveChanges(SaveOptions saveOptions)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.RollBackTransaction">
+            <summary>Sets the stub of IUnitOfWork.RollBackTransaction()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.SaveChanges">
+            <summary>Sets the stub of IUnitOfWork.SaveChanges()</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.SaveChangesSaveOptions">
+            <summary>Sets the stub of IUnitOfWork.SaveChanges(SaveOptions saveOptions)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.global::System#IDisposable#Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="P:Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork.rjr::Reference#John#Repository#Infrastructure#IUnitOfWork#IsInTransaction">
+            <summary>Sets the stub of IUnitOfWork.get_IsInTransaction()</summary>
+        </member>
+    </members>
+</doc>

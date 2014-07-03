@@ -1,0 +1,10 @@
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\bin\Debug\Reference.John.Core.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\bin\Debug\Reference.John.Core.pdb
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\bin\Debug\Reference.John.Core.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\bin\Debug\Reference.John.Core.dll.CodeAnalysisLog.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\bin\Debug\Reference.John.Core.dll.lastcodeanalysissucceeded
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.Resources.resources
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.vbproj.GenerateResource.Cache
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.pdb

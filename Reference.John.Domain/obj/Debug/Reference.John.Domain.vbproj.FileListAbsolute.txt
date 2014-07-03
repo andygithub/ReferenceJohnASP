@@ -1,0 +1,15 @@
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.dll.config
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.pdb
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.dll.CodeAnalysisLog.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\Reference.John.Domain.dll.lastcodeanalysissucceeded
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\EntityFramework.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\EntityFramework.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\obj\Debug\Reference.John.Domain.Resources.resources
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\obj\Debug\Reference.John.Domain.vbproj.GenerateResource.Cache
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\obj\Debug\Reference.John.Domain.dll
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\obj\Debug\Reference.John.Domain.xml
+C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Domain\obj\Debug\Reference.John.Domain.pdb

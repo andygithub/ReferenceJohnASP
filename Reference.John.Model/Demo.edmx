@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Reference.John.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FormSimpleZeroId" Type="int" Nullable="false" />
+          <Property Name="AddressTypeId" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressLine3" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AddressOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AddressTypeOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EthnicityOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormSimpleZero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="RaceId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="EthnicityId" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormSimpleZeroHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="RaceId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="EthnicityId" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenderOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RaceOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegionOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Address_AddressTypeOptionList">
+          <End Role="AddressTypeOptionList" Type="Self.AddressTypeOptionList" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressTypeOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="AddressTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_FormSimpleZeroId">
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="FormSimpleZeroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_EthnicityOptionList">
+          <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EthnicityOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_GenderOptionList">
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_RaceOptionList">
+          <End Role="RaceOptionList" Type="Self.RaceOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="RaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_RegionOptionList">
+          <End Role="RegionOptionList" Type="Self.RegionOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_EthnicityOptionList">
+          <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EthnicityOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_GenderOptionList">
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_RaceOptionList">
+          <End Role="RaceOptionList" Type="Self.RaceOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="RaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_RegionOptionList">
+          <End Role="RegionOptionList" Type="Self.RegionOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReferenceJohnModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddressOptionList" EntityType="Self.AddressOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Self.FK_Address_AddressTypeOptionList">
+            <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionList" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Self.FK_Address_FormSimpleZeroId">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_EthnicityOptionList" Association="Self.FK_FormSimpleZero_EthnicityOptionList">
+            <End Role="EthnicityOptionList" EntitySet="EthnicityOptionList" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_GenderOptionList" Association="Self.FK_FormSimpleZero_GenderOptionList">
+            <End Role="GenderOptionList" EntitySet="GenderOptionList" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_RaceOptionList" Association="Self.FK_FormSimpleZero_RaceOptionList">
+            <End Role="RaceOptionList" EntitySet="RaceOptionList" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_RegionOptionList" Association="Self.FK_FormSimpleZero_RegionOptionList">
+            <End Role="RegionOptionList" EntitySet="RegionOptionList" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_EthnicityOptionList" Association="Self.FK_FormSimpleZeroHistory_EthnicityOptionList">
+            <End Role="EthnicityOptionList" EntitySet="EthnicityOptionList" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_GenderOptionList" Association="Self.FK_FormSimpleZeroHistory_GenderOptionList">
+            <End Role="GenderOptionList" EntitySet="GenderOptionList" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_RaceOptionList" Association="Self.FK_FormSimpleZeroHistory_RaceOptionList">
+            <End Role="RaceOptionList" EntitySet="RaceOptionList" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_RegionOptionList" Association="Self.FK_FormSimpleZeroHistory_RegionOptionList">
+            <End Role="RegionOptionList" EntitySet="RegionOptionList" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Reference.John.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EthnicityOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_EthnicityOptionList" FromRole="EthnicityOptionList" ToRole="FormSimpleZero" />
+          <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_EthnicityOptionList" FromRole="EthnicityOptionList" ToRole="FormSimpleZeroHistory" />
+        </EntityType>
+        <EntityType Name="FormSimpleZero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="RaceId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="EthnicityId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EthnicityOptionList" Relationship="Self.FK_FormSimpleZero_EthnicityOptionList" FromRole="FormSimpleZero" ToRole="EthnicityOptionList" />
+          <NavigationProperty Name="GenderOptionList" Relationship="Self.FK_FormSimpleZero_GenderOptionList" FromRole="FormSimpleZero" ToRole="GenderOptionList" />
+          <NavigationProperty Name="RaceOptionList" Relationship="Self.FK_FormSimpleZero_RaceOptionList" FromRole="FormSimpleZero" ToRole="RaceOptionList" />
+          <NavigationProperty Name="RegionOptionList" Relationship="Self.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
+          <NavigationProperty Name="Addresses" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="FormSimpleZero" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="FormSimpleZeroHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="RaceId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="EthnicityId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EthnicityOptionList" Relationship="Self.FK_FormSimpleZeroHistory_EthnicityOptionList" FromRole="FormSimpleZeroHistory" ToRole="EthnicityOptionList" />
+          <NavigationProperty Name="GenderOptionList" Relationship="Self.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="FormSimpleZeroHistory" ToRole="GenderOptionList" />
+          <NavigationProperty Name="RaceOptionList" Relationship="Self.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="FormSimpleZeroHistory" ToRole="RaceOptionList" />
+          <NavigationProperty Name="RegionOptionList" Relationship="Self.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="FormSimpleZeroHistory" ToRole="RegionOptionList" />
+        </EntityType>
+        <EntityType Name="GenderOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_GenderOptionList" FromRole="GenderOptionList" ToRole="FormSimpleZero" />
+          <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="GenderOptionList" ToRole="FormSimpleZeroHistory" />
+        </EntityType>
+        <EntityType Name="RaceOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_RaceOptionList" FromRole="RaceOptionList" ToRole="FormSimpleZero" />
+          <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="RaceOptionList" ToRole="FormSimpleZeroHistory" />
+        </EntityType>
+        <EntityType Name="RegionOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_RegionOptionList" FromRole="RegionOptionList" ToRole="FormSimpleZero" />
+          <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="RegionOptionList" ToRole="FormSimpleZeroHistory" />
+        </EntityType>
+        <Association Name="FK_FormSimpleZero_EthnicityOptionList">
+          <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EthnicityOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_EthnicityOptionList">
+          <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EthnicityOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_GenderOptionList">
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_RaceOptionList">
+          <End Role="RaceOptionList" Type="Self.RaceOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="RaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZero_RegionOptionList">
+          <End Role="RegionOptionList" Type="Self.RegionOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZero">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_GenderOptionList">
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_RaceOptionList">
+          <End Role="RaceOptionList" Type="Self.RaceOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="RaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormSimpleZeroHistory_RegionOptionList">
+          <End Role="RegionOptionList" Type="Self.RegionOptionList" Multiplicity="0..1" />
+          <End Role="FormSimpleZeroHistory" Type="Self.FormSimpleZeroHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormSimpleZeroHistory">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Reference_JohnEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EthnicityOptionLists" EntityType="Self.EthnicityOptionList" />
+          <EntitySet Name="FormSimpleZeroes" EntityType="Self.FormSimpleZero" />
+          <EntitySet Name="FormSimpleZeroHistories" EntityType="Self.FormSimpleZeroHistory" />
+          <EntitySet Name="GenderOptionLists" EntityType="Self.GenderOptionList" />
+          <EntitySet Name="RaceOptionLists" EntityType="Self.RaceOptionList" />
+          <EntitySet Name="RegionOptionLists" EntityType="Self.RegionOptionList" />
+          <AssociationSet Name="FK_FormSimpleZero_EthnicityOptionList" Association="Self.FK_FormSimpleZero_EthnicityOptionList">
+            <End Role="EthnicityOptionList" EntitySet="EthnicityOptionLists" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_EthnicityOptionList" Association="Self.FK_FormSimpleZeroHistory_EthnicityOptionList">
+            <End Role="EthnicityOptionList" EntitySet="EthnicityOptionLists" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_GenderOptionList" Association="Self.FK_FormSimpleZero_GenderOptionList">
+            <End Role="GenderOptionList" EntitySet="GenderOptionLists" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_RaceOptionList" Association="Self.FK_FormSimpleZero_RaceOptionList">
+            <End Role="RaceOptionList" EntitySet="RaceOptionLists" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZero_RegionOptionList" Association="Self.FK_FormSimpleZero_RegionOptionList">
+            <End Role="RegionOptionList" EntitySet="RegionOptionLists" />
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_GenderOptionList" Association="Self.FK_FormSimpleZeroHistory_GenderOptionList">
+            <End Role="GenderOptionList" EntitySet="GenderOptionLists" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_RaceOptionList" Association="Self.FK_FormSimpleZeroHistory_RaceOptionList">
+            <End Role="RaceOptionList" EntitySet="RaceOptionLists" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormSimpleZeroHistory_RegionOptionList" Association="Self.FK_FormSimpleZeroHistory_RegionOptionList">
+            <End Role="RegionOptionList" EntitySet="RegionOptionLists" />
+            <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
+          </AssociationSet>
+          <EntitySet Name="Addresses" EntityType="Reference.John.Model.Address" />
+          <EntitySet Name="AddressOptionLists" EntityType="Reference.John.Model.AddressOptionList" />
+          <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Reference.John.Model.FK_Address_FormSimpleZeroId">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <EntitySet Name="AddressTypeOptionLists" EntityType="Reference.John.Model.AddressTypeOptionList" />
+          <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Reference.John.Model.FK_Address_AddressTypeOptionList">
+            <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionLists" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FormSimpleZeroId" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
+          <Property Name="AddressTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
+        </EntityType>
+        <EntityType Name="AddressOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Address_FormSimpleZeroId">
+          <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
+          <End Type="Reference.John.Model.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="FormSimpleZeroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AddressTypeOptionList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Addresses" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="AddressTypeOptionList" ToRole="Address" />
+        </EntityType>
+        <Association Name="FK_Address_AddressTypeOptionList">
+          <End Type="Reference.John.Model.AddressTypeOptionList" Role="AddressTypeOptionList" Multiplicity="1" />
+          <End Type="Reference.John.Model.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressTypeOptionList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="AddressTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReferenceJohnModelStoreContainer" CdmEntityContainer="Reference_JohnEntities">
+          <EntitySetMapping Name="EthnicityOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.EthnicityOptionList">
+              <MappingFragment StoreEntitySet="EthnicityOptionList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormSimpleZeroes">
+            <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZero">
+              <MappingFragment StoreEntitySet="FormSimpleZero">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormSimpleZeroHistories">
+            <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZeroHistory">
+              <MappingFragment StoreEntitySet="FormSimpleZeroHistory">
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenderOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.GenderOptionList">
+              <MappingFragment StoreEntitySet="GenderOptionList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaceOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.RaceOptionList">
+              <MappingFragment StoreEntitySet="RaceOptionList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegionOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.RegionOptionList">
+              <MappingFragment StoreEntitySet="RegionOptionList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="Reference.John.Model.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="FormSimpleZeroId" ColumnName="FormSimpleZeroId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.AddressOptionList">
+              <MappingFragment StoreEntitySet="AddressOptionList">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressTypeOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.AddressTypeOptionList">
+              <MappingFragment StoreEntitySet="AddressTypeOptionList">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

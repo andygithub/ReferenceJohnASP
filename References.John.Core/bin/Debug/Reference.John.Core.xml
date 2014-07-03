@@ -1,0 +1,605 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Reference.John.Core
+</name>
+</assembly>
+<members>
+<member name="M:Reference.John.Core.Logging.ELLogger.#ctor(System.Object)">
+	<summary>
+ Initializes a new instance of the enterprise library logging class.
+ </summary>
+	<param name="logger">The logger.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Trace(System.String)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Debug(System.String)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Info(System.String)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Warn(System.String)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Error(System.String)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Fatal(System.String)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Trace(System.String,System.Exception)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Debug(System.String,System.Exception)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Info(System.String,System.Exception)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Warn(System.String,System.Exception)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Error(System.String,System.Exception)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ELLogger.Fatal(System.String,System.Exception)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="T:Reference.John.Core.Logging.ELLogger">
+	<summary>
+ An implementation of <see cref="T:Reference.John.Core.Logging.ILogger"/> for a specific logging library.
+ </summary>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.#ctor">
+	<summary>
+ Initializes a new instance of the trace logging class.
+ </summary>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Trace(System.String)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Debug(System.String)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Info(System.String)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Warn(System.String)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Error(System.String)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Fatal(System.String)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Trace(System.String,System.Exception)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Debug(System.String,System.Exception)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Info(System.String,System.Exception)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Warn(System.String,System.Exception)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Error(System.String,System.Exception)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.TrageLogger.Fatal(System.String,System.Exception)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Trace(System.String)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Debug(System.String)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Info(System.String)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Warn(System.String)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Error(System.String)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Fatal(System.String)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Trace(System.String,System.Exception)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Debug(System.String,System.Exception)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Info(System.String,System.Exception)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Warn(System.String,System.Exception)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Error(System.String,System.Exception)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Fatal(System.String,System.Exception)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Trace(System.String,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Debug(System.String,System.Object[])">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Info(System.String,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Warn(System.String,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Error(System.String,System.Object[])">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Fatal(System.String,System.Object[])">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Trace(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Debug(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Info(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Warn(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Error(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.NullLogger.Fatal(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="T:Reference.John.Core.Logging.NullLogger">
+	<summary>
+ An <see cref="T:Reference.John.Core.Logging.ILogger"/> implementation of the Null Object pattern for use when configured to not use logging.
+ </summary>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Trace(System.String)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Debug(System.String)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Info(System.String)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Warn(System.String)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Error(System.String)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Fatal(System.String)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Trace(System.String,System.Exception)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Debug(System.String,System.Exception)">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Info(System.String,System.Exception)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Warn(System.String,System.Exception)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Error(System.String,System.Exception)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Fatal(System.String,System.Exception)">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Trace(System.String,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Debug(System.String,System.Object[])">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Info(System.String,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Warn(System.String,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Error(System.String,System.Object[])">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Fatal(System.String,System.Object[])">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Trace(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Debug(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Debug level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Info(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Warn(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Error(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.LoggerBase.Fatal(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="P:Reference.John.Core.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Reference.John.Core.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Reference.John.Core.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Trace(System.String)">
+	<summary>
+ Log message at Trace level. 
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Debug(System.String)">
+	<summary>
+ Log message at Debug level. 
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Info(System.String)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Warn(System.String)">
+	<summary>
+ Log message at Warn level. 
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Error(System.String)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Fatal(System.String)">
+	<summary>
+ Log message at Fatal level. 
+ </summary>
+	<param name="message">The message.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Trace(System.String,System.Exception)">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Debug(System.String,System.Exception)">
+	<summary>
+ Log message at Debug level. 
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Info(System.String,System.Exception)">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Warn(System.String,System.Exception)">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Error(System.String,System.Exception)">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Fatal(System.String,System.Exception)">
+	<summary>
+ Log message at Fatal level. 
+ </summary>
+	<param name="message">The message.</param>
+	<param name="exception">The exception.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Trace(System.String,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Debug(System.String,System.Object[])">
+	<summary>
+ Log message at Debug level. 
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Info(System.String,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Warn(System.String,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Error(System.String,System.Object[])">
+	<summary>
+ Log message at Error level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Fatal(System.String,System.Object[])">
+	<summary>
+ Log message at Fatal level. 
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Trace(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Trace level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Debug(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Debug level. 
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Info(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Info level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Warn(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Warn level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Error(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Error level. 
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member><member name="M:Reference.John.Core.Logging.ILogger.Fatal(System.String,System.Exception,System.Object[])">
+	<summary>
+ Log message at Fatal level.
+ </summary>
+	<param name="messageFormat">The message format.</param>
+	<param name="exception">The exception.</param>
+	<param name="args">The args.</param>
+</member>
+</members>
+</doc>

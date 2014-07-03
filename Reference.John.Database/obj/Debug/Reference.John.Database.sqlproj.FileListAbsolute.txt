@@ -1,0 +1,9 @@
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\bin\Debug\Reference.John.Database.dacpac
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\Model.xml
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\refactor.xml
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\postdeploy.sql
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\predeploy.sql
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\Reference.John.Database.dll
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\Reference.John.Database.pdb
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\bin\Debug\Reference.John.Database.dll
+C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\bin\Debug\Reference.John.Database.pdb

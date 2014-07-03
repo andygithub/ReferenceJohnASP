@@ -1,0 +1,27 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Address] (Table)
+       [dbo].[AddressOptionList] (Table)
+       Default Constraint on [dbo].[AddressOptionList].[SortOrder] (Default Constraint)
+       Default Constraint on [dbo].[AddressOptionList].[IsActive] (Default Constraint)
+       [dbo].[FK_Address_FormSimpleZeroId] (Foreign Key)
+       [dbo].[AddressOptionList].[Id].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[Name].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[SortOrder].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[IsActive].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[StartDate].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[EndDate].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[LastChangeUser].[MS_Description] (Extended Property)
+       [dbo].[AddressOptionList].[LastChangeDate].[MS_Description] (Extended Property)
+
+** Supporting actions

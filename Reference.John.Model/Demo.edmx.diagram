@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1615a289b860478f87fa260e1f34e271" Name="Diagram1">
+        <EntityTypeShape EntityType="Reference.John.Model.EthnicityOptionList" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZero" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZeroHistory" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.GenderOptionList" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.RaceOptionList" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.RegionOptionList" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZero_EthnicityOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_EthnicityOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZero_GenderOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZero_RaceOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZero_RegionOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_GenderOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RaceOptionList" ManuallyRouted="false" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RegionOptionList" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Reference.John.Model.Address" Width="1.5" PointX="8.625" PointY="3.875" />
+        <EntityTypeShape EntityType="Reference.John.Model.AddressOptionList" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="Reference.John.Model.FK_Address_FormSimpleZeroId" />
+        <EntityTypeShape EntityType="Reference.John.Model.AddressTypeOptionList" Width="1.5" PointX="6.375" PointY="9" />
+        <AssociationConnector Association="Reference.John.Model.FK_Address_AddressTypeOptionList" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
