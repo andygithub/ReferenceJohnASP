@@ -7,3 +7,8 @@ C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.Joh
 C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\obj\Debug\Reference.John.Database.pdb
 C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\bin\Debug\Reference.John.Database.dll
 C:\Users\jinx\Documents\Visual Studio 2013\Projects\Reference.John\Reference.John.Database\bin\Debug\Reference.John.Database.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Database\bin\Debug\Reference.John.Database.dacpac
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Database\bin\Debug\Reference.John.Database.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Database\bin\Debug\Reference.John.Database.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Database\obj\Debug\Reference.John.Database.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Database\obj\Debug\Reference.John.Database.pdb

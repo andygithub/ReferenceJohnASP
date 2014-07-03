@@ -46,7 +46,7 @@ Namespace Container
             Dim command As New Cache.CacheCommand(input)
 
             If Not _configuration.DefaultCachingPolicy.CanBeCached(command) Then
-                _logger.Info("CanBeCached False")
+                _logger.Info("CanBeCached False {0}", command.FullMethodName)
                 'result shouldn't be cached just pass through and execute method.
                 Return getNext.Invoke(input, getNext)
             End If

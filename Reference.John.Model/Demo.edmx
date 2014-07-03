@@ -22,19 +22,6 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="AddressOptionList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SortOrder" Type="int" Nullable="false" />
-          <Property Name="IsActive" Type="int" Nullable="false" />
-          <Property Name="StartDate" Type="datetime" Nullable="false" />
-          <Property Name="EndDate" Type="datetime" />
-          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="AddressTypeOptionList">
           <Key>
             <PropertyRef Name="Id" />
@@ -47,6 +34,17 @@
           <Property Name="EndDate" Type="datetime" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationExtendedProperties">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="ApplicationId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateExpired" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="EthnicityOptionList">
           <Key>
@@ -130,6 +128,17 @@
           <Property Name="EndDate" Type="datetime" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserExtendedProperties">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateExpired" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_AddressTypeOptionList">
           <End Role="AddressTypeOptionList" Type="Self.AddressTypeOptionList" Multiplicity="1" />
@@ -253,14 +262,15 @@
         </Association>
         <EntityContainer Name="ReferenceJohnModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AddressOptionList" EntityType="Self.AddressOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserExtendedProperties" EntityType="Self.UserExtendedProperties" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Self.FK_Address_AddressTypeOptionList">
             <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionList" />
             <End Role="Address" EntitySet="Address" />
@@ -542,7 +552,6 @@
             <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
           </AssociationSet>
           <EntitySet Name="Addresses" EntityType="Reference.John.Model.Address" />
-          <EntitySet Name="AddressOptionLists" EntityType="Reference.John.Model.AddressOptionList" />
           <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Reference.John.Model.FK_Address_FormSimpleZeroId">
             <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
             <End Role="Address" EntitySet="Addresses" />
@@ -552,6 +561,8 @@
             <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionLists" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
+          <EntitySet Name="ApplicationExtendedProperties" EntityType="Reference.John.Model.ApplicationExtendedProperty" />
+          <EntitySet Name="UserExtendedProperties" EntityType="Reference.John.Model.UserExtendedProperty" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -571,19 +582,6 @@
           <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
           <Property Name="AddressTypeId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
-        </EntityType>
-        <EntityType Name="AddressOptionList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SortOrder" Type="Int32" Nullable="false" />
-          <Property Name="IsActive" Type="Int32" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" />
-          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_Address_FormSimpleZeroId">
           <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
@@ -623,6 +621,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ApplicationExtendedProperty">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="ApplicationId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KeyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserExtendedProperty">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KeyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -736,20 +756,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AddressOptionLists">
-            <EntityTypeMapping TypeName="Reference.John.Model.AddressOptionList">
-              <MappingFragment StoreEntitySet="AddressOptionList">
-                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
-                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AddressTypeOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.AddressTypeOptionList">
               <MappingFragment StoreEntitySet="AddressTypeOptionList">
@@ -761,6 +767,28 @@
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationExtendedProperties">
+            <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
+              <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserExtendedProperties">
+            <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
+              <MappingFragment StoreEntitySet="UserExtendedProperties">
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

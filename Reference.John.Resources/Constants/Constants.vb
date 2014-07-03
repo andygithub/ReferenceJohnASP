@@ -4,7 +4,7 @@
 
     End Sub
 
-    Public Const ConnectionStringKey As String = "SimpleEntities"
+    Public Const ConnectionStringKey As String = "Reference_JohnEntities"
 
     Public Const CacheProviderConfigurationIsCachingEnabled As String = "CacheProviderConfiguration.IsCachingEnabled"
     Public Const CacheProviderConfigurationDefaultCache As String = "CacheProviderConfiguration.DefaultCache"

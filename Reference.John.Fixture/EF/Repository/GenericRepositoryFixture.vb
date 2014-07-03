@@ -22,7 +22,11 @@ Imports Reference.John.Repository.Infrastructure
         Catch ex As ApplicationException
             'catch this in case the storage has already been pinned for the app doamin.  This handles the tests being run in any order.  Currently the storage can't be torn down.
         End Try
-        DbContextManager.Init(DbContextManager.DefaultConnectionStringName, True)
+        Try
+            DbContextManager.Init(DbContextManager.DefaultConnectionStringName, True)
+            'catch this in case the connection string has already been registered.  This handles the tests being run in any order.  Currently the storage can't be torn down.
+        Catch ex As ArgumentException
+        End Try
 
         formRepository = New FormContactZeroRepository()
         repository = New GenericRepository()

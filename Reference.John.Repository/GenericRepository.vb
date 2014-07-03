@@ -13,6 +13,7 @@ Imports System.Data.Entity.Core.Metadata.Edm
 ''' </summary>
 Public Class GenericRepository
     Implements IRepository
+
     Private ReadOnly _connectionStringName As String
     Private _context As DbContext
 
@@ -101,8 +102,16 @@ Public Class GenericRepository
         Return GetQuery(Of TEntity)().Single(criteria)
     End Function
 
+    Public Async Function SingleAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity) Implements IRepository.SingleAsync
+        Return Await GetQuery(Of TEntity)().SingleAsync(criteria)
+    End Function
+
     Public Function First(Of TEntity As Class)(predicate As Expression(Of Func(Of TEntity, Boolean))) As TEntity Implements IRepository.First
         Return GetQuery(Of TEntity)().First(predicate)
+    End Function
+
+    Public Async Function FirstAsync(Of TEntity As Class)(predicate As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity) Implements IRepository.FirstAsync
+        Return Await GetQuery(Of TEntity)().FirstAsync(predicate)
     End Function
 
     Public Sub Add(Of TEntity As Class)(entity As TEntity) Implements IRepository.Add
@@ -139,6 +148,10 @@ Public Class GenericRepository
         Return GetQuery(Of TEntity)().AsEnumerable()
     End Function
 
+    Public Async Function GetAllAsync(Of TEntity As Class)() As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAllAsync
+        Return Await GetQuery(Of TEntity)().ToListAsync()
+    End Function
+
     Public Function Save(Of TEntity As Class)(entity As TEntity) As TEntity
         Add(Of TEntity)(entity)
         DbContext.SaveChanges()
@@ -163,22 +176,50 @@ Public Class GenericRepository
         Return GetQuery(Of TEntity)().Where(criteria).FirstOrDefault()
     End Function
 
+    Public Async Function FindOneAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity) Implements IRepository.FindOneAsync
+        Return Await GetQuery(Of TEntity)().Where(criteria).FirstOrDefaultAsync()
+    End Function
+
     Public Function Count(Of TEntity As Class)() As Integer Implements IRepository.Count
         Return GetQuery(Of TEntity)().Count()
+    End Function
+
+    Public Async Function CountAsync(Of TEntity As Class)() As Task(Of Integer) Implements IRepository.CountAsync
+        Return Await GetQuery(Of TEntity)().CountAsync()
     End Function
 
     Public Function Count(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Integer Implements IRepository.Count
         Return GetQuery(Of TEntity)().Count(criteria)
     End Function
 
+    Public Async Function CountAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of Integer) Implements IRepository.CountAsync
+        Return Await GetQuery(Of TEntity)().CountAsync(criteria)
+    End Function
+
+    Public Function Contains(Of TEntity As Class)(value As TEntity) As Boolean Implements IRepository.Contains
+        Return GetQuery(Of TEntity)().Contains(value)
+    End Function
+
+    Public Async Function ContainsAsync(Of TEntity As Class)(value As TEntity) As Task(Of Boolean) Implements IRepository.ContainsAsync
+        Return Await GetQuery(Of TEntity)().ContainsAsync(value)
+    End Function
+
     Public ReadOnly Property UnitOfWork() As Infrastructure.IUnitOfWork Implements IRepository.UnitOfWork
         Get
-            If m_unitOfWork Is Nothing Then
-                m_unitOfWork = New Infrastructure.UnitOfWork(Me.DbContext)
+            If _unitOfWork Is Nothing Then
+                _unitOfWork = New Infrastructure.UnitOfWork(Me.DbContext)
             End If
-            Return m_unitOfWork
+            Return _unitOfWork
         End Get
     End Property
+
+    Public Sub ExecuteProcedure(procedureCommand As String, parameters() As SqlClient.SqlParameter) Implements IRepository.ExecuteProcedure
+        _context.Database.ExecuteSqlCommand(procedureCommand, parameters)
+    End Sub
+
+    Public Async Sub ExecuteProcedureAsync(procedureCommand As String, parameters() As SqlClient.SqlParameter) Implements IRepository.ExecuteProcedureAsync
+        Await _context.Database.ExecuteSqlCommandAsync(procedureCommand, parameters)
+    End Sub
 
     Private Function GetEntityKey(Of TEntity As Class)(keyValue As Object) As EntityKey
         Dim entitySetName = GetEntityName(Of TEntity)()
@@ -209,5 +250,6 @@ Public Class GenericRepository
         End Get
     End Property
 
-    Private m_unitOfWork As Infrastructure.IUnitOfWork
+    Private _unitOfWork As Infrastructure.IUnitOfWork
+
 End Class

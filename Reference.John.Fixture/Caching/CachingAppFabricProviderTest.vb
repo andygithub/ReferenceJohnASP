@@ -158,7 +158,7 @@ Imports Microsoft.ApplicationServer.Caching
             _getParameter = -300
             _list = repos.GetItemsById(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter, _list(0).Id)
+            Assert.AreEqual(_getParameter, _list(0).FormSimpleZeroId)
             Assert.AreEqual(2, repos.ExecutionCount)
             Assert.IsInstanceOfType(cachesettings.DefaultCache, GetType(Reference.John.Infrastructure.Cache.AppFabricCache))
         End Using

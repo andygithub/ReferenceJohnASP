@@ -108,20 +108,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AddressOptionLists">
-      <EntityTypeMapping TypeName="Reference.John.Model.AddressOptionList">
-        <MappingFragment StoreEntitySet="AddressOptionList">
-          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
-          <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AddressTypeOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.AddressTypeOptionList">
         <MappingFragment StoreEntitySet="AddressTypeOptionList">
@@ -133,6 +119,28 @@
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationExtendedProperties">
+      <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
+        <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserExtendedProperties">
+      <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
+        <MappingFragment StoreEntitySet="UserExtendedProperties">
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

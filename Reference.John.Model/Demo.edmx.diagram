@@ -20,10 +20,11 @@
         <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RaceOptionList" ManuallyRouted="false" />
         <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RegionOptionList" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Reference.John.Model.Address" Width="1.5" PointX="8.625" PointY="3.875" />
-        <EntityTypeShape EntityType="Reference.John.Model.AddressOptionList" Width="1.5" PointX="0.75" PointY="8.75" />
         <AssociationConnector Association="Reference.John.Model.FK_Address_FormSimpleZeroId" />
         <EntityTypeShape EntityType="Reference.John.Model.AddressTypeOptionList" Width="1.5" PointX="6.375" PointY="9" />
         <AssociationConnector Association="Reference.John.Model.FK_Address_AddressTypeOptionList" />
+        <EntityTypeShape EntityType="Reference.John.Model.ApplicationExtendedProperty" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Reference.John.Model.UserExtendedProperty" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

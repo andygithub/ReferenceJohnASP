@@ -8,3 +8,11 @@ C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.Joh
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.dll
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.xml
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll.CodeAnalysisLog.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll.lastcodeanalysissucceeded
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.pdb

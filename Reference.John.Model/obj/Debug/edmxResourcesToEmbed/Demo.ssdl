@@ -17,19 +17,6 @@
     <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="AddressOptionList">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SortOrder" Type="int" Nullable="false" />
-    <Property Name="IsActive" Type="int" Nullable="false" />
-    <Property Name="StartDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" />
-    <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="AddressTypeOptionList">
     <Key>
       <PropertyRef Name="Id" />
@@ -42,6 +29,17 @@
     <Property Name="EndDate" Type="datetime" />
     <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationExtendedProperties">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="KeyId" />
+    </Key>
+    <Property Name="ApplicationId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="EthnicityOptionList">
     <Key>
@@ -125,6 +123,17 @@
     <Property Name="EndDate" Type="datetime" />
     <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserExtendedProperties">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="KeyId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_Address_AddressTypeOptionList">
     <End Role="AddressTypeOptionList" Type="Self.AddressTypeOptionList" Multiplicity="1" />
@@ -248,14 +257,15 @@
   </Association>
   <EntityContainer Name="ReferenceJohnModelStoreContainer">
     <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AddressOptionList" EntityType="Self.AddressOptionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserExtendedProperties" EntityType="Self.UserExtendedProperties" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Self.FK_Address_AddressTypeOptionList">
       <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionList" />
       <End Role="Address" EntitySet="Address" />

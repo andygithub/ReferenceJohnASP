@@ -45,7 +45,7 @@
         Public Shared Function LoadCommandDefinitions() As ICollection(Of CacheCommandDefinition)
             'embedded hard coded list
             Return New List(Of CacheCommandDefinition) From {New CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue,
-                                                                                              .CacheMethodName = New List(Of String) From {"Reference.EIM.Repository.ISimpleRepository.GetItems"},
+                                                                                              .CacheMethodName = New List(Of String) From {"Reference.John.Fixture.Mocks.ISimpleRepository.GetItems"},
                                                     .DependentEntities = New List(Of String) From {"SimpleRepository", "Address"}, .EntityName = "SimpleRepository",
                                                      .SlidingExpiration = New TimeSpan(0, 10, 0)}}
         End Function

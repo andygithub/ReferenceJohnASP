@@ -64,7 +64,6 @@ Namespace Infrastructure
                 Throw New ApplicationException("A transaction is running. Call CommitTransaction instead.")
             End If
             _dbContext.SaveChanges()
-            'DirectCast(_dbContext, IObjectContextAdapter).ObjectContext.SaveChanges()
         End Sub
 
         Public Sub SaveChanges(saveOptions As System.Data.Entity.Core.Objects.SaveOptions) Implements IUnitOfWork.SaveChanges

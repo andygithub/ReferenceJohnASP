@@ -88,6 +88,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -120,6 +122,10 @@
     <Content Include="DataSetup\DataCreation.sql" />
     <Compile Include="Caching\CachingAppFabricProviderTest.vb" />
     <Compile Include="Caching\CachingInterceptorTest.vb" />
+    <Compile Include="Caching\MsCacheFixture.vb" />
+    <Compile Include="Container\InstallerFixture.vb" />
+    <Compile Include="Core\TypeExtensionFixture.vb" />
+    <Compile Include="Domain\InitializeObjects.vb" />
     <Compile Include="EF\Context\ContextTraceFixture.vb" />
     <Compile Include="EF\Context\ContextFixture.vb" />
     <Compile Include="EF\Repository\FakeGenericRepositoryFixture.vb" />
@@ -133,9 +139,7 @@
     <Fakes Include="Fakes\Reference.John.Repository.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Container\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Reference.John.Domain\Reference.John.Domain.vbproj">
       <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>

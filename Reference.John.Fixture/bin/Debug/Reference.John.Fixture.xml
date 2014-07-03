@@ -6,7 +6,7 @@ Reference.John.Fixture
 </name>
 </assembly>
 <members>
-<member name="T:Reference.John.Fixture.GenericRepositoryFixture">
+<member name="T:Reference.John.Fixture.GenericRepositoryTraceFixture">
 	<summary>
  This class is used to test the repository implementation
  </summary>
@@ -15,7 +15,7 @@ Reference.John.Fixture
  This test class is used to show how it it possible to run the same tests as in the <see cref="T:Reference.John.Fixture.GenericRepositoryFixture"/> while using stubs for the repository.
  </summary>
 	<remarks></remarks>
-</member><member name="T:Reference.John.Fixture.GenericRepositoryTraceFixture">
+</member><member name="T:Reference.John.Fixture.GenericRepositoryFixture">
 	<summary>
  This class is used to test the repository implementation
  </summary>

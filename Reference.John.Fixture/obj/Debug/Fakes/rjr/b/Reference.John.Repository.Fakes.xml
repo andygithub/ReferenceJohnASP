@@ -16,6 +16,18 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.AttachOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
             <summary>Sets stubs of Attach(!!0 entity)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.ContainsAsyncOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>Sets stubs of ContainsAsync(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.ContainsOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Boolean})">
+            <summary>Sets stubs of Contains(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.CountAsyncOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>Sets stubs of CountAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.CountAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.Int32}})">
+            <summary>Sets stubs of CountAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.CountOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Int32})">
             <summary>Sets stubs of Count()</summary>
         </member>
@@ -28,17 +40,32 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
             <summary>Sets stubs of Delete(!!0 entity)</summary>
         </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.ExecuteProcedureAsyncStringSqlParameterArray">
+            <summary>Sets the stub of IRepository.ExecuteProcedureAsync(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.ExecuteProcedureStringSqlParameterArray">
+            <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
         <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindByNameStringString">
             <summary>Sets the stub of IFormContactZeroRepository.FindByName(String firstName, String lastName)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindOneAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of FindOneAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindOneOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FirstAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of FirstAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FirstOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAllAsyncOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAllAsync()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of GetAll()</summary>
@@ -73,11 +100,23 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Attach``1(``0)">
             <summary>Sets the stub of IRepository.Attach(!!0 entity)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Contains``1(``0)">
+            <summary>Sets the stub of IRepository.Contains(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#ContainsAsync``1(``0)">
+            <summary>Sets the stub of IRepository.ContainsAsync(!!0 value)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Count``1">
             <summary>Sets the stub of IRepository.Count()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#CountAsync``1">
+            <summary>Sets the stub of IRepository.CountAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#CountAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.CountAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
@@ -85,14 +124,26 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(``0)">
             <summary>Sets the stub of IRepository.Delete(!!0 entity)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#ExecuteProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#ExecuteProcedureAsync(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>Sets the stub of IRepository.ExecuteProcedureAsync(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FindOneAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindOneAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FirstAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FirstAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
             <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
@@ -102,6 +153,9 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAll``1">
             <summary>Sets the stub of IRepository.GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAllAsync``1">
+            <summary>Sets the stub of IRepository.GetAllAsync()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
@@ -115,8 +169,14 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#SingleAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.SingleAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Update``1(``0)">
             <summary>Sets the stub of IRepository.Update(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.SingleAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of SingleAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.SingleOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
@@ -142,6 +202,18 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.AttachOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
             <summary>Sets stubs of Attach(!!0 entity)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.ContainsAsyncOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>Sets stubs of ContainsAsync(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.ContainsOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Boolean})">
+            <summary>Sets stubs of Contains(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.CountAsyncOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>Sets stubs of CountAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.CountAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.Int32}})">
+            <summary>Sets stubs of CountAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.CountOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Int32})">
             <summary>Sets stubs of Count()</summary>
         </member>
@@ -154,14 +226,29 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
             <summary>Sets stubs of Delete(!!0 entity)</summary>
         </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIRepository.ExecuteProcedureAsyncStringSqlParameterArray">
+            <summary>Sets the stub of IRepository.ExecuteProcedureAsync(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
+        <member name="F:Reference.John.Repository.Fakes.StubIRepository.ExecuteProcedureStringSqlParameterArray">
+            <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOneAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of FindOneAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOneOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FirstAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of FirstAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.FirstOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAllAsyncOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAllAsync()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of GetAll()</summary>
@@ -187,11 +274,23 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Attach``1(``0)">
             <summary>Sets the stub of IRepository.Attach(!!0 entity)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Contains``1(``0)">
+            <summary>Sets the stub of IRepository.Contains(!!0 value)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#ContainsAsync``1(``0)">
+            <summary>Sets the stub of IRepository.ContainsAsync(!!0 value)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Count``1">
             <summary>Sets the stub of IRepository.Count()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Count(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#CountAsync``1">
+            <summary>Sets the stub of IRepository.CountAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#CountAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.CountAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Delete``1(``0)">
             <summary>Sets the stub of IRepository.Delete(!!0 entity)</summary>
@@ -199,14 +298,26 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#ExecuteProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#ExecuteProcedureAsync(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>Sets the stub of IRepository.ExecuteProcedureAsync(String procedureCommand, SqlParameter[] parameters)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FindOneAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindOneAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.First(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FirstAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FirstAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Get``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
             <summary>Sets the stub of IRepository.Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
@@ -216,6 +327,9 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAll``1">
             <summary>Sets the stub of IRepository.GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAllAsync``1">
+            <summary>Sets the stub of IRepository.GetAllAsync()</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
@@ -229,8 +343,14 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#SingleAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.SingleAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Update``1(``0)">
             <summary>Sets the stub of IRepository.Update(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.SingleAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets stubs of SingleAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.SingleOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},``0})">
             <summary>Sets stubs of Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>

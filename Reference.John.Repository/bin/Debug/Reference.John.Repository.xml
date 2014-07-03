@@ -6,7 +6,38 @@ Reference.John.Repository
 </name>
 </assembly>
 <members>
-<member name="M:Reference.John.Repository.Infrastructure.SimpleDbContextStorage.#ctor">
+<member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.GetDbContextForKey(System.String)">
+	<summary>
+ Gets the db context for key.
+ </summary>
+	<param name="key">The key.</param>
+	<returns></returns>
+</member><member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.SetDbContextForKey(System.String,System.Data.Entity.DbContext)">
+	<summary>
+ Sets the db context for key.
+ </summary>
+	<param name="key">The key.</param>
+	<param name="objectContext">The object context.</param>
+</member><member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.GetAllDbContexts">
+	<summary>
+ Gets all db contexts.
+ </summary>
+	<returns></returns>
+</member><member name="T:Reference.John.Repository.Infrastructure.IDbContextStorage">
+	<summary>
+ Stores object context
+ </summary>
+</member><member name="M:Reference.John.Repository.Infrastructure.DbContextBuilder`1.BuildDbContext(System.Type)">
+	<summary>
+ Creates a new DbContext.  This maps back to the default generated context type.  This could be overridden with a type parameter or specifying a context on the repository. "/&gt;.
+ </summary>
+	<returns></returns>
+</member><member name="M:Reference.John.Repository.FormContactZeroReadOnlyRepository.#ctor(System.String)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
+ </summary>
+	<param name="connectionStringName">Name of the connection string.</param>
+</member><member name="M:Reference.John.Repository.Infrastructure.SimpleDbContextStorage.#ctor">
 	<summary>
  Initializes a new instance of the <see cref="T:Reference.John.Repository.Infrastructure.SimpleDbContextStorage"/> class.
  </summary>
@@ -30,34 +61,6 @@ Reference.John.Repository
  Returns all the values of the internal dictionary of db contexts.
  </summary>
 	<returns></returns>
-</member><member name="M:Reference.John.Repository.Infrastructure.DbContextBuilder`1.BuildDbContext(System.Type)">
-	<summary>
- Creates a new DbContext.  This maps back to the default generated context type.  This could be overridden with a type parameter or specifying a context on the repository. "/&gt;.
- </summary>
-	<returns></returns>
-</member><member name="M:Reference.John.Repository.GenericRepository.#ctor">
-	<summary>
- Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
- </summary>
-</member><member name="M:Reference.John.Repository.GenericRepository.#ctor(System.String)">
-	<summary>
- Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
- </summary>
-	<param name="connectionStringName">Name of the connection string.</param>
-</member><member name="M:Reference.John.Repository.GenericRepository.#ctor(System.Data.Entity.DbContext)">
-	<summary>
- Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
- </summary>
-	<param name="context">The context.</param>
-</member><member name="T:Reference.John.Repository.GenericRepository">
-	<summary>
- Generic repository
- </summary>
-</member><member name="M:Reference.John.Repository.FormContactZeroReadOnlyRepository.#ctor(System.String)">
-	<summary>
- Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
- </summary>
-	<param name="connectionStringName">Name of the connection string.</param>
 </member><member name="M:Reference.John.Repository.Infrastructure.UnitOfWork.Dispose">
 	<summary>
  Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -70,73 +73,6 @@ Reference.John.Repository
 </member><member name="M:Reference.John.Repository.Infrastructure.UnitOfWork.ReleaseCurrentTransaction">
 	<summary>
  Releases the current transaction
- </summary>
-</member><member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.GetDbContextForKey(System.String)">
-	<summary>
- Gets the db context for key.
- </summary>
-	<param name="key">The key.</param>
-	<returns></returns>
-</member><member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.SetDbContextForKey(System.String,System.Data.Entity.DbContext)">
-	<summary>
- Sets the db context for key.
- </summary>
-	<param name="key">The key.</param>
-	<param name="objectContext">The object context.</param>
-</member><member name="M:Reference.John.Repository.Infrastructure.IDbContextStorage.GetAllDbContexts">
-	<summary>
- Gets all db contexts.
- </summary>
-	<returns></returns>
-</member><member name="T:Reference.John.Repository.Infrastructure.IDbContextStorage">
-	<summary>
- Stores object context
- </summary>
-</member><member name="M:Reference.John.Repository.FormContactZeroRepository.#ctor(System.String)">
-	<summary>
- Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
- </summary>
-	<param name="connectionStringName">Name of the connection string.</param>
-</member><member name="M:Reference.John.Repository.Infrastructure.DbContextInitializer.InitializeDbContextOnce(System.Action)">
-	<summary>
- This is the method which should be given the call to intialize the DbContext; e.g.,
- DbContextInitializer.Instance().InitializeDbContextOnce(() =&gt; InitializeDbContext());
- where InitializeDbContext() is a method which calls DbContextManager.Init()
- </summary>
-	<param name="initMethod"></param>
-</member><member name="F:Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName">
-	<summary>
- The default connection string name used if only one database is being communicated with.
- </summary>
-</member><member name="P:Reference.John.Repository.Infrastructure.DbContextManager.Current">
-	<summary>
- Used to get the current db context session if you're communicating with a single database.
- When communicating with multiple databases, invoke <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.CurrentFor(System.String)"/> instead.
- </summary>
-</member><member name="M:Reference.John.Repository.Infrastructure.DbContextManager.CurrentFor(System.String)">
-	<summary>
- Used to get the current DbContext associated with a key; i.e., the key 
- associated with an object context for a specific database.
- 
- If you're only communicating with one database, you should call <see cref="P:Reference.John.Repository.Infrastructure.DbContextManager.Current"/> instead,
- although you're certainly welcome to call this if you have the key available.
- </summary>
-</member><member name="M:Reference.John.Repository.Infrastructure.DbContextManager.CloseAllDbContexts">
-	<summary>
- This method is used by application-specific db context storage implementations
- and unit tests. Its job is to walk thru existing cached object context(s) and Close() each one.
- </summary>
-</member><member name="P:Reference.John.Repository.Infrastructure.DbContextManager._storage">
-	<summary>
- An application-specific implementation of IDbContextStorage must be setup either thru
- <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.InitStorage(Reference.John.Repository.Infrastructure.IDbContextStorage)"/> or one of the <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.Init(System.Boolean)"/> overloads. 
- </summary>
-</member><member name="F:Reference.John.Repository.Infrastructure.DbContextManager._dbContextBuilders">
-	<summary>
- Maintains a dictionary of db context builders, one per database.  The key is a 
- connection string name used to look up the associated database, and used to decorate respective
- repositories. If only one database is being used, this dictionary contains a single
- factory with a key of <see cref="F:Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName"/>.
  </summary>
 </member><member name="M:Reference.John.Repository.IRepository.GetByKey``1(System.Object)">
 	<summary>
@@ -165,7 +101,21 @@ Reference.John.Repository
 	<typeparam name="TEntity">The type of the entity.</typeparam>
 	<param name="criteria">The criteria.</param>
 	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.SingleAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+	<summary>
+ Gets one entity based on matching criteria
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="criteria">The criteria.</param>
+	<returns></returns>
 </member><member name="M:Reference.John.Repository.IRepository.First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+	<summary>
+ Firsts the specified predicate.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="predicate">The predicate.</param>
+	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.FirstAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
 	<summary>
  Firsts the specified predicate.
  </summary>
@@ -217,7 +167,20 @@ Reference.John.Repository
 	<typeparam name="TEntity">The type of the entity.</typeparam>
 	<param name="criteria">The criteria.</param>
 	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.FindOneAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+	<summary>
+ Finds one entity based on provided criteria.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="criteria">The criteria.</param>
+	<returns></returns>
 </member><member name="M:Reference.John.Repository.IRepository.GetAll``1">
+	<summary>
+ Gets all.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.GetAllAsync``1">
 	<summary>
  Gets all.
  </summary>
@@ -252,6 +215,12 @@ Reference.John.Repository
  </summary>
 	<typeparam name="TEntity">The type of the entity.</typeparam>
 	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.CountAsync``1">
+	<summary>
+ Counts the specified entities.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<returns></returns>
 </member><member name="M:Reference.John.Repository.IRepository.Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
 	<summary>
  Counts entities with the specified criteria.
@@ -259,11 +228,112 @@ Reference.John.Repository
 	<typeparam name="TEntity">The type of the entity.</typeparam>
 	<param name="criteria">The criteria.</param>
 	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.CountAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+	<summary>
+ Counts entities with the specified criteria.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="criteria">The criteria.</param>
+	<returns></returns>
+</member><member name="M:Reference.John.Repository.IRepository.Contains``1(``0)">
+	<summary>
+ Determines if an entity is present within the defined entity set.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="value">The value passed to be checked for.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Reference.John.Repository.IRepository.ContainsAsync``1(``0)">
+	<summary>
+ Determines if an entity is present within the defined entity set.
+ </summary>
+	<typeparam name="TEntity">The type of the entity.</typeparam>
+	<param name="value">The value passed to be checked for.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Reference.John.Repository.IRepository.ExecuteProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+	<summary>
+ Method to execute a passed procedure on the open entity framework context.
+ </summary>
+	<param name="procedureCommand"></param>
+	<param name="parameters"></param>
+	<remarks></remarks>
+</member><member name="M:Reference.John.Repository.IRepository.ExecuteProcedureAsync(System.String,System.Data.SqlClient.SqlParameter[])">
+	<summary>
+ Method to execute a passed procedure async on the open entity framework context.
+ </summary>
+	<param name="procedureCommand"></param>
+	<param name="parameters"></param>
+	<remarks></remarks>
 </member><member name="P:Reference.John.Repository.IRepository.UnitOfWork">
 	<summary>
  Gets the unit of work.
  </summary>
 	<value>The unit of work.</value>
+</member><member name="M:Reference.John.Repository.Infrastructure.DbContextInitializer.InitializeDbContextOnce(System.Action)">
+	<summary>
+ This is the method which should be given the call to intialize the DbContext; e.g.,
+ DbContextInitializer.Instance().InitializeDbContextOnce(() =&gt; InitializeDbContext());
+ where InitializeDbContext() is a method which calls DbContextManager.Init()
+ </summary>
+	<param name="initMethod"></param>
+</member><member name="F:Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName">
+	<summary>
+ The default connection string name used if only one database is being communicated with.
+ </summary>
+</member><member name="P:Reference.John.Repository.Infrastructure.DbContextManager.Current">
+	<summary>
+ Used to get the current db context session if you're communicating with a single database.
+ When communicating with multiple databases, invoke <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.CurrentFor(System.String)"/> instead.
+ </summary>
+</member><member name="M:Reference.John.Repository.Infrastructure.DbContextManager.CurrentFor(System.String)">
+	<summary>
+ Used to get the current DbContext associated with a key; i.e., the key 
+ associated with an object context for a specific database.
+ 
+ If you're only communicating with one database, you should call <see cref="P:Reference.John.Repository.Infrastructure.DbContextManager.Current"/> instead,
+ although you're certainly welcome to call this if you have the key available.
+ </summary>
+</member><member name="M:Reference.John.Repository.Infrastructure.DbContextManager.CloseAllDbContexts">
+	<summary>
+ This method is used by application-specific db context storage implementations
+ and unit tests. Its job is to walk thru existing cached object context(s) and Close() each one.
+ </summary>
+</member><member name="P:Reference.John.Repository.Infrastructure.DbContextManager._storage">
+	<summary>
+ An application-specific implementation of IDbContextStorage must be setup either thru
+ <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.InitStorage(Reference.John.Repository.Infrastructure.IDbContextStorage)"/> or one of the <see cref="M:Reference.John.Repository.Infrastructure.DbContextManager.Init(System.Boolean)"/> overloads. 
+ </summary>
+</member><member name="F:Reference.John.Repository.Infrastructure.DbContextManager._dbContextBuilders">
+	<summary>
+ Maintains a dictionary of db context builders, one per database.  The key is a 
+ connection string name used to look up the associated database, and used to decorate respective
+ repositories. If only one database is being used, this dictionary contains a single
+ factory with a key of <see cref="F:Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName"/>.
+ </summary>
+</member><member name="M:Reference.John.Repository.FormContactZeroRepository.#ctor(System.String)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
+ </summary>
+	<param name="connectionStringName">Name of the connection string.</param>
+</member><member name="M:Reference.John.Repository.GenericRepository.#ctor">
+	<summary>
+ Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
+ </summary>
+</member><member name="M:Reference.John.Repository.GenericRepository.#ctor(System.String)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
+ </summary>
+	<param name="connectionStringName">Name of the connection string.</param>
+</member><member name="M:Reference.John.Repository.GenericRepository.#ctor(System.Data.Entity.DbContext)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Reference.John.Repository.GenericRepository"/> class.
+ </summary>
+	<param name="context">The context.</param>
+</member><member name="T:Reference.John.Repository.GenericRepository">
+	<summary>
+ Generic repository
+ </summary>
 </member>
 </members>
 </doc>

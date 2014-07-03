@@ -8,3 +8,11 @@ C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.Joh
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Resources\obj\Debug\Reference.John.Resources.dll
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Resources\obj\Debug\Reference.John.Resources.xml
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Resources\obj\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\bin\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\bin\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\bin\Debug\Reference.John.Resources.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\bin\Debug\Reference.John.Resources.dll.CodeAnalysisLog.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\bin\Debug\Reference.John.Resources.dll.lastcodeanalysissucceeded
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\obj\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\obj\Debug\Reference.John.Resources.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Resources\obj\Debug\Reference.John.Resources.pdb

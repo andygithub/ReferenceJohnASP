@@ -38,6 +38,13 @@ Public Interface IRepository
     ''' <returns></returns>
     Function [Single](Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As TEntity
 
+    ''' <summary>
+    ''' Gets one entity based on matching criteria
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="criteria">The criteria.</param>
+    ''' <returns></returns>
+    Function SingleAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity)
 
     ''' <summary>
     ''' Firsts the specified predicate.
@@ -47,6 +54,13 @@ Public Interface IRepository
     ''' <returns></returns>
     Function First(Of TEntity As Class)(predicate As Expression(Of Func(Of TEntity, Boolean))) As TEntity
 
+    ''' <summary>
+    ''' Firsts the specified predicate.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="predicate">The predicate.</param>
+    ''' <returns></returns>
+    Function FirstAsync(Of TEntity As Class)(predicate As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity)
 
     ''' <summary>
     ''' Adds the specified entity.
@@ -101,11 +115,26 @@ Public Interface IRepository
     Function FindOne(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As TEntity
 
     ''' <summary>
+    ''' Finds one entity based on provided criteria.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="criteria">The criteria.</param>
+    ''' <returns></returns>
+    Function FindOneAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of TEntity)
+
+    ''' <summary>
     ''' Gets all.
     ''' </summary>
     ''' <typeparam name="TEntity">The type of the entity.</typeparam>
     ''' <returns></returns>
     Function GetAll(Of TEntity As Class)() As IEnumerable(Of TEntity)
+
+    ''' <summary>
+    ''' Gets all.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <returns></returns>
+    Function GetAllAsync(Of TEntity As Class)() As Task(Of IEnumerable(Of TEntity))
 
     ''' <summary>
     ''' Gets the specified order by.
@@ -141,12 +170,61 @@ Public Interface IRepository
     Function Count(Of TEntity As Class)() As Integer
 
     ''' <summary>
+    ''' Counts the specified entities.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <returns></returns>
+    Function CountAsync(Of TEntity As Class)() As Task(Of Integer)
+
+    ''' <summary>
     ''' Counts entities with the specified criteria.
     ''' </summary>
     ''' <typeparam name="TEntity">The type of the entity.</typeparam>
     ''' <param name="criteria">The criteria.</param>
     ''' <returns></returns>
     Function Count(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Integer
+
+    ''' <summary>
+    ''' Counts entities with the specified criteria.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="criteria">The criteria.</param>
+    ''' <returns></returns>
+    Function CountAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of Integer)
+
+    ''' <summary>
+    ''' Determines if an entity is present within the defined entity set.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="value">The value passed to be checked for.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Function Contains(Of TEntity As Class)(value As TEntity) As Boolean
+
+    ''' <summary>
+    ''' Determines if an entity is present within the defined entity set.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="value">The value passed to be checked for.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Function ContainsAsync(Of TEntity As Class)(value As TEntity) As Task(Of Boolean)
+
+    ''' <summary>
+    ''' Method to execute a passed procedure on the open entity framework context.
+    ''' </summary>
+    ''' <param name="procedureCommand"></param>
+    ''' <param name="parameters"></param>
+    ''' <remarks></remarks>
+    Sub ExecuteProcedure(procedureCommand As String, parameters As SqlClient.SqlParameter())
+
+    ''' <summary>
+    ''' Method to execute a passed procedure async on the open entity framework context.
+    ''' </summary>
+    ''' <param name="procedureCommand"></param>
+    ''' <param name="parameters"></param>
+    ''' <remarks></remarks>
+    Sub ExecuteProcedureAsync(procedureCommand As String, parameters As SqlClient.SqlParameter())
 
     ''' <summary>
     ''' Gets the unit of work.

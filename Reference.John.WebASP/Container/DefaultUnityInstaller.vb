@@ -35,6 +35,9 @@ Namespace Container
             Me.Container.RegisterType(GetType(Reference.John.Services.IWorkFlowService), GetType(Reference.John.Services.WorkFlowService), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of LoggingInterceptorBehavior)())
             'registering the connection string instance that would be passed to any repository
             'Me.Container.RegisterInstance(Of String)("connectionStringName", Constants.ConnectionStringKey)
+            'factory should only be called the first time and then the instance should be returned all times thereafter.
+            Container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
+                                                                                                                         New InjectionFactory(Function(c) Reference.John.Infrastructure.Cache.CacheProviderConfigurationFactory.Create))
             'single registration of a repository
             'Me.Container.RegisterType(GetType(Reference.John.,Repository.Infrastructure.Data.IContactRepository),
             '                          GetType(Reference.John.,Repository.Infrastructure.Data.ContactRepository),
@@ -51,6 +54,8 @@ Namespace Container
             '                        getInjectionMembers:=Function(x) New InjectionMember() {New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of LoggingInterceptorBehavior)()}
             '                        )
             'looping through all assemblies wehre IRepository is implemented.  Expect that all repositories have a cooresponding unique interface.
+            'the repository assembly may not be loaded at this point so force a load with the registration of unit of work
+            Me.Container.RegisterType(GetType(Reference.John.Repository.Infrastructure.IUnitOfWork), GetType(Reference.John.Repository.Infrastructure.UnitOfWork))
             AllClasses.FromLoadedAssemblies().Where(Function(x) Not x.IsInterface AndAlso GetType(Reference.John.Repository.IRepository).IsAssignableFrom(x)).
                 ToList.ForEach(Sub(y)
                                    'Dim t As Type = GetInterfaceType(y)
@@ -60,6 +65,8 @@ Namespace Container
                                                              New HierarchicalLifetimeManager,
                                                              New Interceptor(Of InterfaceInterceptor)(),
                                                              New InterceptionBehavior(Of LoggingInterceptorBehavior)(),
+                                                            New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
+                                                            New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)(),
                                                              New InjectionConstructor(Reference.John.Resources.Constants.ConnectionStringKey))
                                End Sub)
             'session registration

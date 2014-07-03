@@ -236,7 +236,6 @@
       <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
     </AssociationSet>
     <EntitySet Name="Addresses" EntityType="Reference.John.Model.Address" />
-    <EntitySet Name="AddressOptionLists" EntityType="Reference.John.Model.AddressOptionList" />
     <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Reference.John.Model.FK_Address_FormSimpleZeroId">
       <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
       <End Role="Address" EntitySet="Addresses" />
@@ -246,6 +245,8 @@
       <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionLists" />
       <End Role="Address" EntitySet="Addresses" />
     </AssociationSet>
+    <EntitySet Name="ApplicationExtendedProperties" EntityType="Reference.John.Model.ApplicationExtendedProperty" />
+    <EntitySet Name="UserExtendedProperties" EntityType="Reference.John.Model.UserExtendedProperty" />
   </EntityContainer>
   <EntityType Name="Address">
     <Key>
@@ -265,19 +266,6 @@
     <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
     <Property Name="AddressTypeId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
-  </EntityType>
-  <EntityType Name="AddressOptionList">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SortOrder" Type="Int32" Nullable="false" />
-    <Property Name="IsActive" Type="Int32" Nullable="false" />
-    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="EndDate" Type="DateTime" Precision="3" />
-    <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK_Address_FormSimpleZeroId">
     <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
@@ -317,4 +305,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ApplicationExtendedProperty">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="KeyId" />
+    </Key>
+    <Property Name="ApplicationId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KeyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserExtendedProperty">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="KeyId" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KeyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>
