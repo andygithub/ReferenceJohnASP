@@ -14,8 +14,6 @@ Outstanding items:
 
 	add cache provider using the standard .net framework library
 
-	look at adding a generic procedure operation to the repository
-
-	look at exposing async operations through the repository
+	finish the asp.net web forms
 
 
