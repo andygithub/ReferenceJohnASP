@@ -35,6 +35,17 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="ApplicationExtendedProperties">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="ApplicationId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateExpired" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="EthnicityOptionList">
           <Key>
             <PropertyRef Name="Id" />
@@ -55,7 +66,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="GenderId" Type="int" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="RaceId" Type="int" />
           <Property Name="RegionId" Type="int" />
           <Property Name="EthnicityId" Type="int" />
@@ -118,6 +129,17 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserExtendedProperties">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateExpired" Type="datetime" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SearchResults">
@@ -125,6 +147,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <PropertyRef Name="FormId" />
             <PropertyRef Name="FirstName" />
             <PropertyRef Name="LastName" />
+            
             <PropertyRef Name="DateCreated" />
             <PropertyRef Name="LastChangeUser" />
             <PropertyRef Name="LastChangeDate" />
@@ -134,7 +157,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="FormId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="GenderId" Type="int" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="RaceId" Type="int" />
           <Property Name="RegionId" Type="int" />
           <Property Name="EthnicityId" Type="int" />
@@ -181,7 +204,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FormSimpleZero_GenderOptionList">
-          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="1" />
           <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GenderOptionList">
@@ -267,12 +290,14 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
         <EntityContainer Name="ReferenceJohnModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserExtendedProperties" EntityType="Self.UserExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SearchResults" EntityType="Self.SearchResults" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [SearchResults].[FormId] AS [FormId], 
@@ -356,7 +381,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GenderId" Type="Int32" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="RaceId" Type="Int32" />
           <Property Name="RegionId" Type="Int32" />
           <Property Name="EthnicityId" Type="Int32" />
@@ -364,7 +389,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="EthnicityOptionList" Relationship="Self.FK_FormSimpleZero_EthnicityOptionList" FromRole="FormSimpleZero" ToRole="EthnicityOptionList" />
-          <NavigationProperty Name="GenderOptionList" Relationship="Self.FK_FormSimpleZero_GenderOptionList" FromRole="FormSimpleZero" ToRole="GenderOptionList" />
+          <NavigationProperty Name="GenderOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_GenderOptionList" FromRole="FormSimpleZero" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Self.FK_FormSimpleZero_RaceOptionList" FromRole="FormSimpleZero" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Self.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
           <NavigationProperty Name="Addresses" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="FormSimpleZero" ToRole="Address" />
@@ -459,7 +484,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FormSimpleZero_GenderOptionList">
-          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="0..1" />
+          <End Role="GenderOptionList" Type="Self.GenderOptionList" Multiplicity="1" />
           <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GenderOptionList">
@@ -579,9 +604,9 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionLists" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
+          <EntitySet Name="SearchResults" EntityType="Reference.John.Model.SearchResult" />
           <EntitySet Name="ApplicationExtendedProperties" EntityType="Reference.John.Model.ApplicationExtendedProperty" />
           <EntitySet Name="UserExtendedProperties" EntityType="Reference.John.Model.UserExtendedProperty" />
-          <EntitySet Name="SearchResults" EntityType="Reference.John.Model.SearchResult" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -640,6 +665,30 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SearchResult">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="LastChangeUser" />
+            <PropertyRef Name="LastChangeDate" />
+            <PropertyRef Name="EthnicityName" />
+            <PropertyRef Name="GenderName" />
+          </Key>
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="RaceId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="EthnicityId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EthnicityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="ApplicationExtendedProperty">
           <Key>
             <PropertyRef Name="ApplicationId" />
@@ -661,30 +710,6 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="SearchResult">
-          <Key>
-            <PropertyRef Name="FormId" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="DateCreated" />
-            <PropertyRef Name="LastChangeUser" />
-            <PropertyRef Name="LastChangeDate" />
-            <PropertyRef Name="EthnicityName" />
-            <PropertyRef Name="GenderName" />
-          </Key>
-          <Property Name="FormId" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GenderId" Type="Int32" />
-          <Property Name="RaceId" Type="Int32" />
-          <Property Name="RegionId" Type="Int32" />
-          <Property Name="EthnicityId" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EthnicityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -828,6 +853,28 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="FormId" ColumnName="FormId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationExtendedProperties">
+            <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
+              <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserExtendedProperties">
+            <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
+              <MappingFragment StoreEntitySet="UserExtendedProperties">
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

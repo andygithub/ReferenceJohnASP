@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
 	[FirstName] NVARCHAR(50) NOT NULL, 
 	[LastName] NVARCHAR(50) NOT NULL, 
-	[GenderId] int null,
+	[GenderId] int NOT null,
 	[RaceId] int null,
 	[RegionId] int null,
 	[EthnicityId] int null,

@@ -34,6 +34,8 @@ C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.dll.CodeAnalysisLog.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.dll.lastcodeanalysissucceeded
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.ApplicationServer.Caching.Client.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.ApplicationServer.Caching.Core.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll

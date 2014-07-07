@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Reference.John.Model
+</name>
+</assembly>
+<members>
+<member name="M:Reference.John.Model.Reference_JohnEntities.#ctor(System.String)">
+	<summary>
+ Custom constuctor to pass connection string name.
+ </summary>
+	<param name="connectionStringName"></param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

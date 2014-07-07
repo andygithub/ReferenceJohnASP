@@ -34,3 +34,6 @@ C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\obj\Debu
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\obj\Debug\Reference.John.Model.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\obj\Debug\Reference.John.Model.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\obj\Debug\Reference.John.Model.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\bin\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\bin\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Model\bin\Debug\Reference.John.Resources.xml

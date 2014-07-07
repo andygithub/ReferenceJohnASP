@@ -38,3 +38,6 @@ C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\obj
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\obj\Debug\Reference.John.Repository.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\obj\Debug\Reference.John.Repository.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\obj\Debug\Reference.John.Repository.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\bin\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\bin\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Repository\bin\Debug\Reference.John.Resources.xml

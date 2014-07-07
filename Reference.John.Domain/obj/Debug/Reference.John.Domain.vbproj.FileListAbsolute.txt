@@ -26,3 +26,7 @@ C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\bin\Deb
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\obj\Debug\Reference.John.Domain.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\obj\Debug\Reference.John.Domain.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\obj\Debug\Reference.John.Domain.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\bin\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\bin\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\bin\Debug\Reference.John.Resources.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Domain\obj\Debug\Reference.John.Domain.vbprojResolveAssemblyReference.cache

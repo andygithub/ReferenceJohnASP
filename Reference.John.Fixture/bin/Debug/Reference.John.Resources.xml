@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Reference.John.Resources
+</name>
+</assembly>
+<members>
+<member name="P:Reference.John.Resources.Resources.Names.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.Names.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.Names.FirstName">
+	<summary>
+  Looks up a localized string similar to First Name.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.Names.LastName">
+	<summary>
+  Looks up a localized string similar to Last Name.
+</summary>
+</member><member name="T:Reference.John.Resources.Resources.Names">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

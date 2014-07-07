@@ -37,8 +37,8 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 	''' <#=TypeMapper.GetSummaryDescription(edmProperty)#>
 	''' </summary>
 	''' <remarks><#=TypeMapper.GetDetailedDescription(edmProperty)#></remarks>
-<# if Not TypeMapper.IsNullable(edmProperty) then #>
-	<Required(ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> is required.")>
+<# if Not TypeMapper.IsNullable(edmProperty) andalso edmproperty.name <> "LastChangeUser" then #>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="<#=edmProperty.Name#>")>
 <# End If #>
 <# if TypeMapper.IsMaxLengthSet(edmProperty) then 
 		_maxLength = TypeMapper.GetMaxLength(edmProperty) #>

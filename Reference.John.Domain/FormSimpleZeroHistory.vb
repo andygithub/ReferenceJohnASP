@@ -20,26 +20,26 @@ Partial Public Class FormSimpleZeroHistory
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="History Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="HistoryId")>
     Public Property HistoryId As Integer
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
     Public Property Id As Integer
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="First Name is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
 	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
     Public Property FirstName As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Last Name is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
     Public Property LastName As String
 	''' <summary>
@@ -66,20 +66,19 @@ Partial Public Class FormSimpleZeroHistory
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Date Created is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
     Public Property DateCreated As Date
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Last Change User is required.")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Last Change Date is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
     Public Property LastChangeDate As Date
 
     Public Overridable Property EthnicityOptionList As EthnicityOptionList

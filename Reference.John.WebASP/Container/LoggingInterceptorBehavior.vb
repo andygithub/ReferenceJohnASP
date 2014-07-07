@@ -10,6 +10,13 @@ Namespace Container
     Public Class LoggingInterceptorBehavior
         Implements IInterceptionBehavior
 
+        Dim _logger As Reference.John.Core.Logging.ILogger
+
+        Sub New(logger As Reference.John.Core.Logging.ILogger)
+            If logger Is Nothing Then Throw New ArgumentNullException("logger")
+            _logger = logger
+        End Sub
+
         ''' <summary>
         ''' Implementation of required method for interface.
         ''' </summary>
@@ -27,15 +34,13 @@ Namespace Container
         ''' <returns></returns>
         ''' <remarks></remarks>
         Public Function Invoke(input As Microsoft.Practices.Unity.InterceptionExtension.IMethodInvocation, getNext As Microsoft.Practices.Unity.InterceptionExtension.GetNextInterceptionBehaviorDelegate) As Microsoft.Practices.Unity.InterceptionExtension.IMethodReturn Implements Microsoft.Practices.Unity.InterceptionExtension.IInterceptionBehavior.Invoke
-            'LoggingFacade.LogInformationMessage(String.Format(Resources.UIMessages.ExecutingTransform, input.Target.ToString, input.MethodBase.Name))
 
-            Diagnostics.Debug.WriteLine("U Executing: {0},{1}", input.Target.ToString, input.MethodBase.Name)
+            _logger.Info("LoggingInterceptorBehavior Prior Execute: {0},{1}", input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
             Dim result = getNext.Invoke(input, getNext)
-            'LoggingFacade.LogInformationMessage(result.ReturnValue.ToString)
-            'If result IsNot Nothing AndAlso result.ReturnValue IsNot Nothing Then
-            '    Diagnostics.Debug.WriteLine(result.ReturnValue.ToString)
-            'End If
-            Diagnostics.Debug.WriteLine("U Executed: {0},{1}", input.Target.ToString, input.MethodBase.Name)
+            _logger.Info("LoggingInterceptorBehavior Post Execute: {0},{1}", input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
+            If result IsNot Nothing AndAlso result.ReturnValue IsNot Nothing Then
+                _logger.Info("ReturnValue.ToString: {0}", result.ReturnValue.ToString)
+            End If
             Return result
 
         End Function

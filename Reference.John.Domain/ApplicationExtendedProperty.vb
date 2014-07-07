@@ -20,33 +20,33 @@ Partial Public Class ApplicationExtendedProperty
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Application Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ApplicationId")>
 	<StringLengthAttribute(50, ErrorMessage:="Application Id cannot be longer than 50 characters.")>
     Public Property ApplicationId As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Key Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="KeyId")>
 	<StringLengthAttribute(50, ErrorMessage:="Key Id cannot be longer than 50 characters.")>
     Public Property KeyId As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Value is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Value")>
     Public Property Value As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Date Created is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
     Public Property DateCreated As Date
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Date Expired is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateExpired")>
     Public Property DateExpired As Date
 
 End Class

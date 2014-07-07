@@ -299,7 +299,7 @@ CREATE TABLE [dbo].[FormSimpleZero] (
     [Id]             INT           IDENTITY (1, 1) NOT NULL,
     [FirstName]      NVARCHAR (50) NOT NULL,
     [LastName]       NVARCHAR (50) NOT NULL,
-    [GenderId]       INT           NULL,
+    [GenderId]       INT           NOT NULL,
     [RaceId]         INT           NULL,
     [RegionId]       INT           NULL,
     [EthnicityId]    INT           NULL,
@@ -562,6 +562,18 @@ ALTER TABLE [dbo].[FormSimpleZero]
     ADD CONSTRAINT [FK_FormSimpleZero_EthnicityOptionList] FOREIGN KEY ([EthnicityId]) REFERENCES [dbo].[EthnicityOptionList] ([Id]);
 
 
+GO
+PRINT N'Creating [dbo].[SearchResults]...';
+
+
+GO
+CREATE VIEW [dbo].[SearchResults]
+	AS SELECT 
+	f.[Id] as [FormId], [FirstName], [LastName], [GenderId], [RaceId], [RegionId], [EthnicityId], [DateCreated], f.[LastChangeUser], f.[LastChangeDate],
+	e.Name as EthnicityName, g.Name as GenderName
+	FROM [dbo].[FormSimpleZero] f
+		inner join [dbo].[EthnicityOptionList] e on f.EthnicityId=e.Id
+		inner join [dbo].[GenderOptionList] g on f.GenderId=g.Id
 GO
 PRINT N'Creating [dbo].[GetApplicationProperty]...';
 

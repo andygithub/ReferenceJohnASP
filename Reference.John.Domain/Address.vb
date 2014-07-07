@@ -20,19 +20,19 @@ Partial Public Class Address
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
     Public Property Id As Integer
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Form Simple Zero Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FormSimpleZeroId")>
     Public Property FormSimpleZeroId As Integer
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Address Line1 is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressLine1")>
 	<StringLengthAttribute(50, ErrorMessage:="Address Line1 cannot be longer than 50 characters.")>
     Public Property AddressLine1 As String
 	''' <summary>
@@ -69,26 +69,25 @@ Partial Public Class Address
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Date Created is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
     Public Property DateCreated As Date
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Last Change User is required.")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Last Change Date is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
     Public Property LastChangeDate As Date
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<Required(ErrorMessage:="Address Type Id is required.")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressTypeId")>
     Public Property AddressTypeId As Integer
 
     Public Overridable Property FormSimpleZero As FormSimpleZero
