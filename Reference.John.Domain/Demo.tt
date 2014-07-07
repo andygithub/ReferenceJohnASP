@@ -10,6 +10,7 @@ Dim typeMapper As TypeMapper = New TypeMapper(code, ef, textTransform.Errors)
 Dim fileManager As EntityFrameworkTemplateFileManager = EntityFrameworkTemplateFileManager.Create(Me)
 Dim itemCollection As IEnumerable(Of GlobalItem) = New EdmMetadataLoader(textTransform.Host, textTransform.Errors).CreateEdmItemCollection(inputFile)
 Dim codeStringGenerator As CodeStringGenerator = New CodeStringGenerator(code, typeMapper, ef)
+Dim _maxLength as integer
 
 If Not typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems(itemCollection), inputFile)  Then
     Return String.Empty
@@ -22,12 +23,27 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
     fileManager.StartNewFile(entity.Name & ".vb")
     BeginNamespace(code)
 #>
+	''' <summary>
+	''' <#=TypeMapper.GetSummaryDescription(entity)#>
+	''' </summary>
+	''' <remarks><#=TypeMapper.GetDetailedDescription(entity)#></remarks>
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 <#
     Dim simpleProperties as IEnumerable(Of EdmProperty) = typeMapper.GetSimpleProperties(entity)
     If simpleProperties.Any() Then
         For Each edmProperty As EdmProperty In simpleProperties
 #>
+	''' <summary>
+	''' <#=TypeMapper.GetSummaryDescription(edmProperty)#>
+	''' </summary>
+	''' <remarks><#=TypeMapper.GetDetailedDescription(edmProperty)#></remarks>
+<# if Not TypeMapper.IsNullable(edmProperty) then #>
+	<Required(ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> is required.")>
+<# End If #>
+<# if TypeMapper.IsMaxLengthSet(edmProperty) then 
+		_maxLength = TypeMapper.GetMaxLength(edmProperty) #>
+	<StringLengthAttribute(<#=_maxLength#>, ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> cannot be longer than <#=_maxLength#> characters.")>
+<# End If #>
 <#=codeStringGenerator.SimpleProperty(edmProperty)#>
 <#
         Next
@@ -148,6 +164,7 @@ Public Sub WriteHeader(ByVal fileManager As EntityFrameworkTemplateFileManager)
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 <#+
     FileManager.EndBlock()
@@ -594,6 +611,86 @@ Public Class TypeMapper
         Dim returnType As TypeUsage = GetReturnType(edmFunction)
         Return Not includeMergeOption AndAlso returnType IsNot Nothing AndAlso returnType.EdmType.BuiltInTypeKind = BuiltInTypeKind.EntityType
     End Function
+
+	Const NotProvided as string = "#TODO Populate Model Descriptions"
+
+	''custom code
+	Public Shared Function GetSummaryDescription(item As EdmProperty) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.Summary) Then return NotProvided
+		Return item.Documentation.Summary
+	End Function
+
+	Public Shared Function GetDetailedDescription(item As EdmProperty) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.LongDescription) Then return NotProvided
+		Return item.Documentation.LongDescription
+	End Function
+
+	Public Shared Function GetSummaryDescription(item As NavigationProperty) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.Summary) Then return NotProvided
+		Return item.Documentation.Summary
+	End Function
+
+	Public Shared Function GetDetailedDescription(item As NavigationProperty) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.LongDescription) Then return NotProvided
+		Return item.Documentation.LongDescription
+	End Function
+
+	Public Shared Function GetSummaryDescription(item As EntityType) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.Summary) Then return NotProvided
+		Return item.Documentation.Summary
+	End Function
+
+	Public Shared Function GetDetailedDescription(item As EntityType) as String
+		If item is nothing then return NotProvided
+		if item.Documentation is nothing then return NotProvided
+		If String.IsNullOrWhiteSpace(item.Documentation.LongDescription) Then return NotProvided
+		Return item.Documentation.LongDescription
+	End Function
+
+	Public Shared Function IsNullable(item As EdmProperty) as Boolean
+		If item is nothing then return True
+		Return item.Nullable
+	End Function
+
+	Public Shared Function IsMaxLengthSet(item As EdmProperty) as Boolean
+		If item is nothing then return false   
+		Dim attrib = item.TypeUsage.Facets.FirstOrDefault(Function(p) p.Name = "MaxLength")
+		if attrib is nothing then return false
+		Dim val = GetAttributeValue(attrib)
+		if val = "Max" OrElse val="" OrElse item.TypeUsage.EdmType.Name = "Binary" Then Return False
+		Return True
+	End Function
+
+	public Shared Function GetMaxLength(item As EdmProperty) as integer
+		If item is nothing then return integer.maxvalue   
+		Dim attrib = item.TypeUsage.Facets.FirstOrDefault(Function(p) p.Name = "MaxLength")
+		if attrib is nothing then return integer.maxvalue
+		Dim val = GetAttributeValue(attrib)
+		if val = "Max" OrElse val="" OrElse item.TypeUsage.EdmType.Name = "Binary" Then Return integer.maxvalue
+		Return val
+	End Function
+
+	Public Shared Function GetAttributeValue(attrib As Facet) As String
+		Dim aVal = attrib.Value
+		Return Convert.ToString(aVal)
+	End Function
+
+	Public Shared Function SplitUpperCase(value as string) as String
+		If String.IsNullOrWhiteSpace(value) Then return String.Empty
+		'Return String.Concat(value.[Select](Function(x) If([Char].IsUpper(x), " " & Convert.ToString(x), x.ToString()))).TrimStart(" "C)
+		Return Text.RegularExpressions.Regex.Replace(value, "((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0")
+	End Function
+
 End Class
 
 Public Shared Sub ArgumentNotNull(Of T As Class)(arg As T, name As String)

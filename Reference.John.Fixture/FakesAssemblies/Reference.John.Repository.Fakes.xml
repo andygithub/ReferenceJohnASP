@@ -46,6 +46,9 @@
         <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.ExecuteProcedureStringSqlParameterArray">
             <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of FindAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.FindByNameStringString">
             <summary>Sets the stub of IFormContactZeroRepository.FindByName(String firstName, String lastName)</summary>
         </member>
@@ -69,6 +72,12 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAsyncOf2ExpressionOfFuncOfM0BooleanExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetAsyncOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAsync(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetByKeyOf1Object``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Object,``0})">
             <summary>Sets stubs of GetByKey(Object keyValue)</summary>
@@ -118,11 +127,11 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#CountAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.CountAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
-        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
-        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(``0)">
             <summary>Sets the stub of IRepository.Delete(!!0 entity)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.Delete(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#ExecuteProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
             <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
@@ -132,6 +141,9 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FindAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
@@ -156,6 +168,12 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAllAsync``1">
             <summary>Sets the stub of IRepository.GetAllAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAsync``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.GetAsync(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetAsync``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.GetAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
@@ -232,6 +250,9 @@
         <member name="F:Reference.John.Repository.Fakes.StubIRepository.ExecuteProcedureStringSqlParameterArray">
             <summary>Sets the stub of IRepository.ExecuteProcedure(String procedureCommand, SqlParameter[] parameters)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindAsyncOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of FindAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.FindOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
@@ -252,6 +273,12 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAllOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of GetAll()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAsyncOf2ExpressionOfFuncOfM0BooleanExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetAsyncOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{``0}}})">
+            <summary>Sets stubs of GetAsync(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetByKeyOf1Object``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Object,``0})">
             <summary>Sets stubs of GetByKey(Object keyValue)</summary>
@@ -307,6 +334,9 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Find(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FindAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>Sets the stub of IRepository.FindAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
+        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.FindOne(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
         </member>
@@ -330,6 +360,12 @@
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAllAsync``1">
             <summary>Sets the stub of IRepository.GetAllAsync()</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAsync``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.GetAsync(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetAsync``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder)">
+            <summary>Sets the stub of IRepository.GetAsync(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria, Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>

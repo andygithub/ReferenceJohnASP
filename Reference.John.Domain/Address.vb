@@ -9,19 +9,86 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class Address
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Id is required.")>
     Public Property Id As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Form Simple Zero Id is required.")>
     Public Property FormSimpleZeroId As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Address Line1 is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Address Line1 cannot be longer than 50 characters.")>
     Public Property AddressLine1 As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<StringLengthAttribute(50, ErrorMessage:="Address Line2 cannot be longer than 50 characters.")>
     Public Property AddressLine2 As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<StringLengthAttribute(50, ErrorMessage:="Address Line3 cannot be longer than 50 characters.")>
     Public Property AddressLine3 As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<StringLengthAttribute(50, ErrorMessage:="City cannot be longer than 50 characters.")>
     Public Property City As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<StringLengthAttribute(50, ErrorMessage:="State cannot be longer than 50 characters.")>
     Public Property State As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<StringLengthAttribute(50, ErrorMessage:="Zip cannot be longer than 50 characters.")>
     Public Property Zip As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Date Created is required.")>
     Public Property DateCreated As Date
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change User is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change Date is required.")>
     Public Property LastChangeDate As Date
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Address Type Id is required.")>
     Public Property AddressTypeId As Integer
 
     Public Overridable Property FormSimpleZero As FormSimpleZero

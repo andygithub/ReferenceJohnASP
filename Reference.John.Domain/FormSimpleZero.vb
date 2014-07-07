@@ -9,17 +9,71 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class FormSimpleZero
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Id is required.")>
     Public Property Id As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="First Name is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
     Public Property FirstName As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Name is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
     Public Property LastName As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property GenderId As Nullable(Of Integer)
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property RaceId As Nullable(Of Integer)
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property RegionId As Nullable(Of Integer)
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property EthnicityId As Nullable(Of Integer)
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Date Created is required.")>
     Public Property DateCreated As Date
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change User is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change Date is required.")>
     Public Property LastChangeDate As Date
 
     Public Overridable Property EthnicityOptionList As EthnicityOptionList

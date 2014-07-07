@@ -72,6 +72,8 @@
     <Build Include="UserExtendedProperties.sql" />
     <Build Include="ApplicationExtendedProperties.sql" />
     <Build Include="GetApplicationProperty.sql" />
+    <Build Include="ELMAH.sql" />
+    <Build Include="SearchResults.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Reference.John.Database.refactorlog" />

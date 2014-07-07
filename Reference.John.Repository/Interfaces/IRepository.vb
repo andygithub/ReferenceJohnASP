@@ -107,6 +107,14 @@ Public Interface IRepository
     Function Find(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As IEnumerable(Of TEntity)
 
     ''' <summary>
+    ''' Finds entities based on provided criteria.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <param name="criteria">The criteria.</param>
+    ''' <returns></returns>
+    Function FindAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of IEnumerable(Of TEntity))
+
+    ''' <summary>
     ''' Finds one entity based on provided criteria.
     ''' </summary>
     ''' <typeparam name="TEntity">The type of the entity.</typeparam>
@@ -149,6 +157,18 @@ Public Interface IRepository
     Function [Get](Of TEntity As Class, TOrderBy)(orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional sortOrder As SortOrder = SortOrder.Ascending) As IEnumerable(Of TEntity)
 
     ''' <summary>
+    ''' Gets the specified order by.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <typeparam name="TOrderBy">The type of the order by.</typeparam>
+    ''' <param name="orderBy">The order by.</param>
+    ''' <param name="pageIndex">Index of the page.</param>
+    ''' <param name="pageSize">Size of the page.</param>
+    ''' <param name="sortOrder">The sort order.</param>
+    ''' <returns></returns>
+    Function GetAsync(Of TEntity As Class, TOrderBy)(orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional sortOrder As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity))
+
+    ''' <summary>
     ''' Gets the specified criteria.
     ''' </summary>
     ''' <typeparam name="TEntity">The type of the entity.</typeparam>
@@ -161,6 +181,18 @@ Public Interface IRepository
     ''' <returns></returns>
     Function [Get](Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional sortOrder As SortOrder = SortOrder.Ascending) As IEnumerable(Of TEntity)
 
+    ''' <summary>
+    ''' Gets the specified criteria.
+    ''' </summary>
+    ''' <typeparam name="TEntity">The type of the entity.</typeparam>
+    ''' <typeparam name="TOrderBy">The type of the order by.</typeparam>
+    ''' <param name="criteria">The criteria.</param>
+    ''' <param name="orderBy">The order by.</param>
+    ''' <param name="pageIndex">Index of the page.</param>
+    ''' <param name="pageSize">Size of the page.</param>
+    ''' <param name="sortOrder">The sort order.</param>
+    ''' <returns></returns>
+    Function GetAsync(Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional sortOrder As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity))
 
     ''' <summary>
     ''' Counts the specified entities.

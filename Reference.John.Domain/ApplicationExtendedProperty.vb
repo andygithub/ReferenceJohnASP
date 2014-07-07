@@ -9,12 +9,44 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class ApplicationExtendedProperty
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Application Id is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Application Id cannot be longer than 50 characters.")>
     Public Property ApplicationId As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Key Id is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Key Id cannot be longer than 50 characters.")>
     Public Property KeyId As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Value is required.")>
     Public Property Value As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Date Created is required.")>
     Public Property DateCreated As Date
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Date Expired is required.")>
     Public Property DateExpired As Date
 
 End Class

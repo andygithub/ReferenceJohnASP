@@ -109,6 +109,9 @@
     <Compile Include="RegionOptionList.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
+    <Compile Include="SearchResult.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserExtendedProperty.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>

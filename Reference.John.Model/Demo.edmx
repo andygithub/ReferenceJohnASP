@@ -35,17 +35,6 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="ApplicationExtendedProperties">
-          <Key>
-            <PropertyRef Name="ApplicationId" />
-            <PropertyRef Name="KeyId" />
-          </Key>
-          <Property Name="ApplicationId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DateCreated" Type="datetime" Nullable="false" />
-          <Property Name="DateExpired" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="EthnicityOptionList">
           <Key>
             <PropertyRef Name="Id" />
@@ -129,16 +118,31 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserExtendedProperties">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SearchResults">
           <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="KeyId" />
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="LastChangeUser" />
+            <PropertyRef Name="LastChangeDate" />
+            <PropertyRef Name="EthnicityName" />
+            <PropertyRef Name="GenderName" />
           </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KeyId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="RaceId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="EthnicityId" Type="int" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
-          <Property Name="DateExpired" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="EthnicityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_AddressTypeOptionList">
           <End Role="AddressTypeOptionList" Type="Self.AddressTypeOptionList" Multiplicity="1" />
@@ -263,14 +267,28 @@
         <EntityContainer Name="ReferenceJohnModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserExtendedProperties" EntityType="Self.UserExtendedProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchResults" EntityType="Self.SearchResults" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SearchResults].[FormId] AS [FormId], 
+    [SearchResults].[FirstName] AS [FirstName], 
+    [SearchResults].[LastName] AS [LastName], 
+    [SearchResults].[GenderId] AS [GenderId], 
+    [SearchResults].[RaceId] AS [RaceId], 
+    [SearchResults].[RegionId] AS [RegionId], 
+    [SearchResults].[EthnicityId] AS [EthnicityId], 
+    [SearchResults].[DateCreated] AS [DateCreated], 
+    [SearchResults].[LastChangeUser] AS [LastChangeUser], 
+    [SearchResults].[LastChangeDate] AS [LastChangeDate], 
+    [SearchResults].[EthnicityName] AS [EthnicityName], 
+    [SearchResults].[GenderName] AS [GenderName]
+    FROM [dbo].[SearchResults] AS [SearchResults]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Self.FK_Address_AddressTypeOptionList">
             <End Role="AddressTypeOptionList" EntitySet="AddressTypeOptionList" />
             <End Role="Address" EntitySet="Address" />
@@ -563,6 +581,7 @@
           </AssociationSet>
           <EntitySet Name="ApplicationExtendedProperties" EntityType="Reference.John.Model.ApplicationExtendedProperty" />
           <EntitySet Name="UserExtendedProperties" EntityType="Reference.John.Model.UserExtendedProperty" />
+          <EntitySet Name="SearchResults" EntityType="Reference.John.Model.SearchResult" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -642,6 +661,30 @@
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SearchResult">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="LastChangeUser" />
+            <PropertyRef Name="LastChangeDate" />
+            <PropertyRef Name="EthnicityName" />
+            <PropertyRef Name="GenderName" />
+          </Key>
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="RaceId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="EthnicityId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EthnicityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -770,29 +813,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ApplicationExtendedProperties">
-            <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
-              <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
-                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+          <EntitySetMapping Name="SearchResults">
+            <EntityTypeMapping TypeName="Reference.John.Model.SearchResult">
+              <MappingFragment StoreEntitySet="SearchResults">
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="EthnicityName" ColumnName="EthnicityName" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserExtendedProperties">
-            <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
-              <MappingFragment StoreEntitySet="UserExtendedProperties">
-                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

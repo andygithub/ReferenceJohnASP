@@ -42,5 +42,6 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property AddressTypeOptionLists() As DbSet(Of AddressTypeOptionList)
     Public Overridable Property ApplicationExtendedProperties() As DbSet(Of ApplicationExtendedProperty)
     Public Overridable Property UserExtendedProperties() As DbSet(Of UserExtendedProperty)
+    Public Overridable Property SearchResults() As DbSet(Of SearchResult)
 
 End Class

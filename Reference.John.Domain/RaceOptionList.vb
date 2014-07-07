@@ -9,15 +9,61 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class RaceOptionList
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Id is required.")>
     Public Property Id As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Name is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Name cannot be longer than 50 characters.")>
     Public Property Name As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Sort Order is required.")>
     Public Property SortOrder As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Is Active is required.")>
     Public Property IsActive As Integer
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Start Date is required.")>
     Public Property StartDate As Date
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property EndDate As Nullable(Of Date)
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change User is required.")>
+	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<Required(ErrorMessage:="Last Change Date is required.")>
     Public Property LastChangeDate As Date
 
     Public Overridable Property FormSimpleZeroes As ICollection(Of FormSimpleZero) = New HashSet(Of FormSimpleZero)

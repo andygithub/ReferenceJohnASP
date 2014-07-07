@@ -182,6 +182,30 @@ IF fulltextserviceproperty(N'IsFulltextInstalled') = 1
 
 
 GO
+PRINT N'Creating [dbo].[ApplicationExtendedProperties]...';
+
+
+GO
+CREATE TABLE [dbo].[ApplicationExtendedProperties] (
+    [ApplicationId] NVARCHAR (50)  NOT NULL,
+    [KeyId]         NVARCHAR (50)  NOT NULL,
+    [Value]         NVARCHAR (MAX) NOT NULL,
+    [DateCreated]   DATETIME       NOT NULL,
+    [DateExpired]   DATETIME       NOT NULL,
+    PRIMARY KEY CLUSTERED ([ApplicationId] ASC, [KeyId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[ApplicationExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
+    ON [dbo].[ApplicationExtendedProperties]([DateExpired] ASC);
+
+
+GO
 PRINT N'Creating [dbo].[UserExtendedProperties]...';
 
 
@@ -356,30 +380,6 @@ CREATE TABLE [dbo].[GenderOptionList] (
     [LastChangeDate] DATETIME      NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
-
-GO
-PRINT N'Creating [dbo].[ApplicationExtendedProperties]...';
-
-
-GO
-CREATE TABLE [dbo].[ApplicationExtendedProperties] (
-    [ApplicationId] NVARCHAR (50)  NOT NULL,
-    [KeyId]         NVARCHAR (50)  NOT NULL,
-    [Value]         NVARCHAR (MAX) NOT NULL,
-    [DateCreated]   DATETIME       NOT NULL,
-    [DateExpired]   DATETIME       NOT NULL,
-    PRIMARY KEY CLUSTERED ([ApplicationId] ASC, [KeyId] ASC)
-);
-
-
-GO
-PRINT N'Creating [dbo].[ApplicationExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
-
-
-GO
-CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
-    ON [dbo].[ApplicationExtendedProperties]([DateExpired] ASC);
 
 
 GO

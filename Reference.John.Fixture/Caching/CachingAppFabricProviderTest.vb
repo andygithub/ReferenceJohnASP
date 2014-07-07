@@ -67,7 +67,7 @@ Imports Microsoft.ApplicationServer.Caching
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache}
-                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {"Reference.John.Repository.ISimpleRepository.GetItems111"}, .DependentEntities = New List(Of String) From {"SimpleRepository", "Address"}, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
+                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".GetItems111"}, .DependentEntities = New List(Of String) From {"SimpleRepository", "Address"}, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
                                                                                                                                                   Return item
                                                                                                                                               End Function))
             container.RegisterType(GetType(Mocks.ISimpleRepository),
@@ -98,7 +98,7 @@ Imports Microsoft.ApplicationServer.Caching
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache}
-                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {"Reference.John.Repository.ISimpleRepository.GetItems"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
+                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".GetItems"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
                                                                                                                                                   Return item
                                                                                                                                               End Function))
             container.RegisterType(GetType(Mocks.ISimpleRepository),
@@ -119,7 +119,7 @@ Imports Microsoft.ApplicationServer.Caching
             Assert.IsNotNull(_list)
             _list = repos.GetItems
             Assert.IsNotNull(_list)
-            Assert.AreEqual(-100, _list(0).FormSimpleZeroId)
+            Assert.AreEqual(-100, _list(0).Id)
             Assert.AreEqual(1, repos.ExecutionCount)
             Assert.IsInstanceOfType(cachesettings.DefaultCache, GetType(Reference.John.Infrastructure.Cache.AppFabricCache))
             'would need to check the appfabric instance if the data was populated using the powershell interface or using the app fabric 
@@ -134,7 +134,7 @@ Imports Microsoft.ApplicationServer.Caching
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache}
-                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {"Reference.John.Fixture.Mocks.ISimpleRepository.GetItemsById"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
+                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".GetItemsById"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
                                                                                                                                                   Return item
                                                                                                                                               End Function))
             container.RegisterType(GetType(Mocks.ISimpleRepository),
@@ -172,7 +172,7 @@ Imports Microsoft.ApplicationServer.Caching
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache}
-                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {"Reference.John.Repository.ISimpleRepository.GetItemsByObject"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
+                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".GetItemsByObject"}, .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
                                                                                                                                                   Return item
                                                                                                                                               End Function))
             container.RegisterType(GetType(Mocks.ISimpleRepository),
@@ -192,11 +192,11 @@ Imports Microsoft.ApplicationServer.Caching
             Dim _getParameter As New Reference.John.Domain.FormSimpleZero With {.Id = -200}
             Dim _list = repos.GetItemsByObject(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter.Id, _list(0).Id)
+            Assert.AreEqual(_getParameter.Id, _list(0).FormSimpleZeroId)
             _getParameter = New Reference.John.Domain.FormSimpleZero With {.Id = -300}
             _list = repos.GetItemsByObject(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter.Id, _list(0).Id)
+            Assert.AreEqual(_getParameter.Id, _list(0).FormSimpleZeroId)
             Assert.AreEqual(2, repos.ExecutionCount)
             Assert.IsInstanceOfType(cachesettings.DefaultCache, GetType(Reference.John.Infrastructure.Cache.AppFabricCache))
         End Using
@@ -210,7 +210,7 @@ Imports Microsoft.ApplicationServer.Caching
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache}
-                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {"Reference.John.Repository.ISimpleRepository.GetItemsByObject"}, .CacheResetMethodName = New List(Of String) From {"Reference.John.Repository.ISimpleRepository.UpdateItem"},
+                                                                                                                                                  item.DefaultCachingPolicy.CacheableCommands = New List(Of Reference.John.Infrastructure.Cache.CacheCommandDefinition) From {New Reference.John.Infrastructure.Cache.CacheCommandDefinition With {.AbsoluteExpiration = DateTime.MaxValue, .CacheMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".GetItemsByObject"}, .CacheResetMethodName = New List(Of String) From {GetType(Mocks.ISimpleRepository).ToString & ".UpdateItem"},
                                                                                                                                                                                                                                                                                                      .DependentEntities = entitysets, .EntityName = "SimpleRepository", .SlidingExpiration = New TimeSpan(0, 10, 0)}}
                                                                                                                                                   Return item
                                                                                                                                               End Function))
@@ -231,11 +231,11 @@ Imports Microsoft.ApplicationServer.Caching
             Dim _getParameter As New Reference.John.Domain.FormSimpleZero With {.Id = -200}
             Dim _list = repos.GetItemsByObject(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter.Id, _list(0).Id)
+            Assert.AreEqual(_getParameter.Id, _list(0).FormSimpleZeroId)
             _getParameter = New Reference.John.Domain.FormSimpleZero With {.Id = -300}
             _list = repos.GetItemsByObject(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter.Id, _list(0).Id)
+            Assert.AreEqual(_getParameter.Id, _list(0).FormSimpleZeroId)
             Assert.AreEqual(2, repos.ExecutionCount)
 
             Assert.IsInstanceOfType(cachesettings.DefaultCache, GetType(Reference.John.Infrastructure.Cache.AppFabricCache))
@@ -243,7 +243,7 @@ Imports Microsoft.ApplicationServer.Caching
             repos.UpdateItem(Nothing)
             _list = repos.GetItemsByObject(_getParameter)
             Assert.IsNotNull(_list)
-            Assert.AreEqual(_getParameter.Id, _list(0).Id)
+            Assert.AreEqual(_getParameter.Id, _list(0).FormSimpleZeroId)
             Assert.AreEqual(3, repos.ExecutionCount)
         End Using
     End Sub

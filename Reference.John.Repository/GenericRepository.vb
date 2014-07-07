@@ -57,27 +57,7 @@ Public Class GenericRepository
     End Function
 
     Public Function GetQuery(Of TEntity As Class)() As IQueryable(Of TEntity) Implements IRepository.GetQuery
-
-
-        ' 
-        '             * From CTP4, I could always safely call this to return an IQueryable on DbContext 
-        '             * then performed any with it without any problem:
-        '             
-
         Return DbContext.Set(Of TEntity)()
-
-        '
-        '             * but with 4.1 release, when I call GetQuery<TEntity>().AsEnumerable(), there is an exception:
-        '             * ... System.ObjectDisposedException : The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
-        '             
-
-
-        ' here is a work around: 
-        ' - cast DbContext to IObjectContextAdapter then get ObjectContext from it
-        ' - call CreateQuery<TEntity>(entityName) method on the ObjectContext
-        ' - perform querying on the returning IQueryable, and it works!
-        'Dim entityName = GetEntityName(Of TEntity)()
-        'Return DirectCast(DbContext, IObjectContextAdapter).ObjectContext.CreateQuery(Of TEntity)(entityName)
     End Function
 
     Public Function GetQuery(Of TEntity As Class)(predicate As Expression(Of Func(Of TEntity, Boolean))) As IQueryable(Of TEntity) Implements IRepository.GetQuery
@@ -91,11 +71,25 @@ Public Class GenericRepository
         Return GetQuery(Of TEntity)().OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
     End Function
 
+    Public Async Function GetAsync(Of TEntity As Class, TOrderBy)(orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAsync
+        If order = SortOrder.Ascending Then
+            Return Await GetQuery(Of TEntity)().OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToListAsync()
+        End If
+        Return Await GetQuery(Of TEntity)().OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToListAsync()
+    End Function
+
     Public Function [Get](Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As IEnumerable(Of TEntity) Implements IRepository.Get
         If order = SortOrder.Ascending Then
             Return GetQuery(Of TEntity)(criteria).OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
         End If
         Return GetQuery(Of TEntity)(criteria).OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
+    End Function
+
+    Public Async Function GetAsync(Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAsync
+        If order = SortOrder.Ascending Then
+            Return Await GetQuery(Of TEntity)(criteria).OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToListAsync()
+        End If
+        Return Await GetQuery(Of TEntity)(criteria).OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToListAsync()
     End Function
 
     Public Function [Single](Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As TEntity Implements IRepository.Single
@@ -170,6 +164,10 @@ Public Class GenericRepository
 
     Public Function Find(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As IEnumerable(Of TEntity) Implements IRepository.Find
         Return GetQuery(Of TEntity)().Where(criteria)
+    End Function
+
+    Public Async Function FindAsync(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As Task(Of IEnumerable(Of TEntity)) Implements IRepository.FindAsync
+        Return Await GetQuery(Of TEntity)().Where(criteria).ToListAsync
     End Function
 
     Public Function FindOne(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As TEntity Implements IRepository.FindOne

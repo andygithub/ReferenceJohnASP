@@ -76,6 +76,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -102,6 +103,7 @@
     <Compile Include="Caching\ICache.vb" />
     <Compile Include="Caching\ICacheProviderConfiguration.vb" />
     <Compile Include="Caching\ICachingPolicy.vb" />
+    <Compile Include="Caching\FrameworkCache.vb" />
     <Compile Include="Caching\InMemoryCache.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
