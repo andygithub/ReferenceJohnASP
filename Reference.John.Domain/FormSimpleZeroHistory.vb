@@ -16,18 +16,23 @@ Imports System.ComponentModel.DataAnnotations
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class FormSimpleZeroHistory
+	Implements Interfaces.IEntityDates
+
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="HistoryId")>
     Public Property HistoryId As Integer
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
     Public Property Id As Integer
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -35,6 +40,7 @@ Partial Public Class FormSimpleZeroHistory
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
 	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
     Public Property FirstName As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -42,45 +48,51 @@ Partial Public Class FormSimpleZeroHistory
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
     Public Property LastName As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property GenderId As Nullable(Of Integer)
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property RaceId As Nullable(Of Integer)
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property RegionId As Nullable(Of Integer)
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
     Public Property EthnicityId As Nullable(Of Integer)
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    Public Property DateCreated As Date
+    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
-    Public Property LastChangeDate As Date
-
+    Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
     Public Overridable Property EthnicityOptionList As EthnicityOptionList
     Public Overridable Property GenderOptionList As GenderOptionList
     Public Overridable Property RaceOptionList As RaceOptionList

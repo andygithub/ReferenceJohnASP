@@ -9,7 +9,7 @@
 	[City] NVARCHAR(50) NULL,
 	[State] NVARCHAR(50) NULL,
 	[Zip] NVARCHAR(50) NULL,		
-	[DateCreated] DATETIME NOT NULL, 
+	[DateCreated] DATETIME NOT NULL DEFAULT GETDATE() , 
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
 	CONSTRAINT [FK_Address_AddressTypeOptionList] FOREIGN KEY ([AddressTypeId]) REFERENCES [AddressTypeOptionList]([Id]) ,

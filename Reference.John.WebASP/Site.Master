@@ -55,7 +55,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/CreateRecord">Create</a></li>
-                        <li><a runat="server" href="~/EditRecord">Edit</a></li>
+                        <li><a runat="server" href="~/EditRecord.aspx?FormZeroId=3">Edit</a></li>
                         <li><a runat="server" href="~/ListRecord">List</a></li>
                         <li><a runat="server" href="~/ThrowError">Error</a></li>
                     </ul>

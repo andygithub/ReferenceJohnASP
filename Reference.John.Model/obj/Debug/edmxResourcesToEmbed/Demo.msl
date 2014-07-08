@@ -4,6 +4,7 @@
     <EntitySetMapping Name="EthnicityOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.EthnicityOptionList">
         <MappingFragment StoreEntitySet="EthnicityOptionList">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -51,6 +52,7 @@
     <EntitySetMapping Name="GenderOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.GenderOptionList">
         <MappingFragment StoreEntitySet="GenderOptionList">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -65,6 +67,7 @@
     <EntitySetMapping Name="RaceOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.RaceOptionList">
         <MappingFragment StoreEntitySet="RaceOptionList">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -79,6 +82,7 @@
     <EntitySetMapping Name="RegionOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.RegionOptionList">
         <MappingFragment StoreEntitySet="RegionOptionList">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -111,6 +115,7 @@
     <EntitySetMapping Name="AddressTypeOptionLists">
       <EntityTypeMapping TypeName="Reference.John.Model.AddressTypeOptionList">
         <MappingFragment StoreEntitySet="AddressTypeOptionList">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
           <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -143,6 +148,7 @@
     <EntitySetMapping Name="ApplicationExtendedProperties">
       <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
         <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
           <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Value" ColumnName="Value" />
@@ -154,6 +160,7 @@
     <EntitySetMapping Name="UserExtendedProperties">
       <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
         <MappingFragment StoreEntitySet="UserExtendedProperties">
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
           <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="Value" ColumnName="Value" />

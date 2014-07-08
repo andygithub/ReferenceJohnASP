@@ -5,6 +5,7 @@
 	Value nvarchar(max) not null,
 	DateCreated datetime not null,
 	DateExpired datetime not null, 
+	[LastChangeDate] DATETIME NOT NULL, 
 	PRIMARY KEY ([ApplicationId], [KeyId])
 )
 

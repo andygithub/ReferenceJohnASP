@@ -111,6 +111,11 @@ Reference.John.Domain
  #TODO Populate Model Descriptions
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.AddressTypeOptionList.DateCreated">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="T:Reference.John.Domain.AddressTypeOptionList">
 	<summary>
  #TODO Populate Model Descriptions
@@ -137,6 +142,11 @@ Reference.John.Domain
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="P:Reference.John.Domain.ApplicationExtendedProperty.DateExpired">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.ApplicationExtendedProperty.LastChangeDate">
 	<summary>
  #TODO Populate Model Descriptions
  </summary>
@@ -182,6 +192,11 @@ Reference.John.Domain
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="P:Reference.John.Domain.EthnicityOptionList.LastChangeDate">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.EthnicityOptionList.DateCreated">
 	<summary>
  #TODO Populate Model Descriptions
  </summary>
@@ -346,6 +361,11 @@ Reference.John.Domain
  #TODO Populate Model Descriptions
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.GenderOptionList.DateCreated">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="T:Reference.John.Domain.GenderOptionList">
 	<summary>
  #TODO Populate Model Descriptions
@@ -391,6 +411,11 @@ Reference.John.Domain
  #TODO Populate Model Descriptions
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.RaceOptionList.DateCreated">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="T:Reference.John.Domain.RaceOptionList">
 	<summary>
  #TODO Populate Model Descriptions
@@ -432,6 +457,11 @@ Reference.John.Domain
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="P:Reference.John.Domain.RegionOptionList.LastChangeDate">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.RegionOptionList.DateCreated">
 	<summary>
  #TODO Populate Model Descriptions
  </summary>
@@ -527,6 +557,11 @@ Reference.John.Domain
  </summary>
 	<remarks>#TODO Populate Model Descriptions</remarks>
 </member><member name="P:Reference.John.Domain.UserExtendedProperty.DateExpired">
+	<summary>
+ #TODO Populate Model Descriptions
+ </summary>
+	<remarks>#TODO Populate Model Descriptions</remarks>
+</member><member name="P:Reference.John.Domain.UserExtendedProperty.LastChangeDate">
 	<summary>
  #TODO Populate Model Descriptions
  </summary>

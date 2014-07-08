@@ -16,18 +16,23 @@ Imports System.ComponentModel.DataAnnotations
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class Address
+	Implements Interfaces.IEntityDates
+
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
     Public Property Id As Integer
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FormSimpleZeroId")>
     Public Property FormSimpleZeroId As Integer
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -35,61 +40,69 @@ Partial Public Class Address
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressLine1")>
 	<StringLengthAttribute(50, ErrorMessage:="Address Line1 cannot be longer than 50 characters.")>
     Public Property AddressLine1 As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Address Line2 cannot be longer than 50 characters.")>
     Public Property AddressLine2 As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Address Line3 cannot be longer than 50 characters.")>
     Public Property AddressLine3 As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="City cannot be longer than 50 characters.")>
     Public Property City As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="State cannot be longer than 50 characters.")>
     Public Property State As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Zip cannot be longer than 50 characters.")>
     Public Property Zip As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    Public Property DateCreated As Date
+    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
     Public Property LastChangeUser As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
-    Public Property LastChangeDate As Date
+    Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressTypeId")>
     Public Property AddressTypeId As Integer
-
     Public Overridable Property FormSimpleZero As FormSimpleZero
     Public Overridable Property AddressTypeOptionList As AddressTypeOptionList
 

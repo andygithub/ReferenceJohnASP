@@ -99,6 +99,30 @@ Next
     Next
 #>
 
+    Public Overrides Function SaveChanges() As Integer
+		ChangeTracker.DetectChanges()
+        Dim context As Core.Objects.ObjectContext = DirectCast(Me, IObjectContextAdapter).ObjectContext
+
+        'Find all Entities that are Added/Modified that implement the date interface
+        Dim objectStateEntries As IEnumerable(Of Core.Objects.ObjectStateEntry) = From e In context.ObjectStateManager.GetObjectStateEntries(EntityState.Added Or EntityState.Modified)
+                                                                            Where e.IsRelationship = False AndAlso e.Entity IsNot Nothing _
+                                                                            AndAlso GetType(Interfaces.IEntityDates).IsAssignableFrom(e.Entity.[GetType]())
+
+        Dim currentTime = Providers.TimeProvider.Current.UtcNow
+
+        For Each item In objectStateEntries
+            Dim entityBase = TryCast(item.Entity, Interfaces.IEntityDates)
+
+            If item.State = EntityState.Added Then
+                entityBase.DateCreated = currentTime
+            End If
+
+            entityBase.LastChangeDate = currentTime
+        Next
+
+        Return MyBase.SaveChanges()
+    End Function
+
 End Class
 <#
 

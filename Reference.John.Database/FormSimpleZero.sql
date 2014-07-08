@@ -7,7 +7,7 @@
 	[RaceId] int null,
 	[RegionId] int null,
 	[EthnicityId] int null,
-	[DateCreated] DATETIME NOT NULL, 
+	[DateCreated] DATETIME NOT NULL DEFAULT GETDATE() , 
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
     CONSTRAINT [FK_FormSimpleZero_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([Id]) ,

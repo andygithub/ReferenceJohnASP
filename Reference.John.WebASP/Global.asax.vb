@@ -8,41 +8,35 @@ Public Class Global_asax
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
 
-        'tracing and caching provider init should only need to be done once per app domain
-        'this could be done in a custom activator
-        'Reference.John.Repository.Infrastructure.TracingProviderConfiguration.Init()
-        'Reference.John.Repository.Infrastructure.CachingProviderConfiguration.Init()
     End Sub
 
 
     Private _storage As Reference.John.Repository.Infrastructure.WebDbContextStorage
-    Public Const STORAGE_KEY As String = "HttpContextObjectContextStorageKey"
 
     'TODO move these events into a custom activator
     'TODO strongly type those actionlinks
 
-    Protected Sub Application_BeginRequest(sender As Object, e As EventArgs)
-        Debug.WriteLine("DbContextInitializer.Instance.InitializeDbContextOnce Start ")
+    Protected Sub Application_BeginRequest(sender As Object, e As EventArgs) Handles Me.BeginRequest
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceStart)
         Reference.John.Repository.Infrastructure.DbContextInitializer.Instance.InitializeDbContextOnce(Sub()
                                                                                                            Reference.John.Repository.Infrastructure.DbContextManager.InitStorage(_storage)
                                                                                                            Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Resources.Constants.ConnectionStringKey, False)
                                                                                                        End Sub)
-        Debug.WriteLine("DbContextInitializer.Instance.InitializeDbContextOnce End ")
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceEnd)
     End Sub
 
-    Private Sub MvcApplication_EndRequest(sender As Object, e As EventArgs) Handles Me.EndRequest
-        Debug.WriteLine("DbContextManager.CloseAllDbContexts Start ")
+    Protected Sub Application_EndRequest(sender As Object, e As EventArgs) Handles Me.EndRequest
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsStart)
         Reference.John.Repository.Infrastructure.DbContextManager.CloseAllDbContexts()
-        HttpContext.Current.Items.Remove(STORAGE_KEY)
-        Debug.WriteLine("DbContextManager.CloseAllDbContexts End ")
-
+        HttpContext.Current.Items.Remove(Reference.John.Resources.Constants.HttpContextStorageKey)
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsEnd)
     End Sub
 
     Public Overrides Sub Init()
         MyBase.Init()
-        Debug.WriteLine("WebContextStorage Constructor Start ")
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorStart)
         _storage = New Reference.John.Repository.Infrastructure.WebDbContextStorage()
-        Debug.WriteLine("WebContextStorage Constructor End ")
+        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorEnd)
     End Sub
 
 End Class

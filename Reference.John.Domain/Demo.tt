@@ -28,11 +28,14 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 	''' </summary>
 	''' <remarks><#=TypeMapper.GetDetailedDescription(entity)#></remarks>
 <#=codeStringGenerator.EntityClassOpening(entity)#>
+	Implements Interfaces.IEntityDates
 <#
     Dim simpleProperties as IEnumerable(Of EdmProperty) = typeMapper.GetSimpleProperties(entity)
     If simpleProperties.Any() Then
         For Each edmProperty As EdmProperty In simpleProperties
 #>
+
+
 	''' <summary>
 	''' <#=TypeMapper.GetSummaryDescription(edmProperty)#>
 	''' </summary>
@@ -44,7 +47,7 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 		_maxLength = TypeMapper.GetMaxLength(edmProperty) #>
 	<StringLengthAttribute(<#=_maxLength#>, ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> cannot be longer than <#=_maxLength#> characters.")>
 <# End If #>
-<#=codeStringGenerator.SimpleProperty(edmProperty)#>
+<#=codeStringGenerator.SimpleProperty(edmProperty)#><# if edmproperty.name = "DateCreated" orelse edmproperty.name = "LastChangeDate" then #> Implements Interfaces.IEntityDates.<#=edmproperty.name#><# End If #>
 <#
         Next
     End If

@@ -182,68 +182,23 @@ IF fulltextserviceproperty(N'IsFulltextInstalled') = 1
 
 
 GO
-PRINT N'Creating [dbo].[ApplicationExtendedProperties]...';
+PRINT N'Creating [dbo].[FormSimpleZeroHistory]...';
 
 
 GO
-CREATE TABLE [dbo].[ApplicationExtendedProperties] (
-    [ApplicationId] NVARCHAR (50)  NOT NULL,
-    [KeyId]         NVARCHAR (50)  NOT NULL,
-    [Value]         NVARCHAR (MAX) NOT NULL,
-    [DateCreated]   DATETIME       NOT NULL,
-    [DateExpired]   DATETIME       NOT NULL,
-    PRIMARY KEY CLUSTERED ([ApplicationId] ASC, [KeyId] ASC)
-);
-
-
-GO
-PRINT N'Creating [dbo].[ApplicationExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
-
-
-GO
-CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
-    ON [dbo].[ApplicationExtendedProperties]([DateExpired] ASC);
-
-
-GO
-PRINT N'Creating [dbo].[UserExtendedProperties]...';
-
-
-GO
-CREATE TABLE [dbo].[UserExtendedProperties] (
-    [UserId]      NVARCHAR (50)  NOT NULL,
-    [KeyId]       NVARCHAR (50)  NOT NULL,
-    [Value]       NVARCHAR (MAX) NOT NULL,
-    [DateCreated] DATETIME       NOT NULL,
-    [DateExpired] DATETIME       NOT NULL,
-    PRIMARY KEY CLUSTERED ([UserId] ASC, [KeyId] ASC)
-);
-
-
-GO
-PRINT N'Creating [dbo].[UserExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
-
-
-GO
-CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
-    ON [dbo].[UserExtendedProperties]([DateExpired] ASC);
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList]...';
-
-
-GO
-CREATE TABLE [dbo].[AddressTypeOptionList] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NVARCHAR (50) NOT NULL,
-    [SortOrder]      INT           NOT NULL,
-    [IsActive]       INT           NOT NULL,
-    [StartDate]      DATETIME      NOT NULL,
-    [EndDate]        DATETIME      NULL,
+CREATE TABLE [dbo].[FormSimpleZeroHistory] (
+    [HistoryId]      INT           IDENTITY (1, 1) NOT NULL,
+    [Id]             INT           NOT NULL,
+    [FirstName]      NVARCHAR (50) NOT NULL,
+    [LastName]       NVARCHAR (50) NOT NULL,
+    [GenderId]       INT           NULL,
+    [RaceId]         INT           NULL,
+    [RegionId]       INT           NULL,
+    [EthnicityId]    INT           NULL,
+    [DateCreated]    DATETIME      NOT NULL,
     [LastChangeUser] NVARCHAR (50) NOT NULL,
     [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+    PRIMARY KEY CLUSTERED ([HistoryId] ASC)
 );
 
 
@@ -270,23 +225,97 @@ CREATE TABLE [dbo].[Address] (
 
 
 GO
-PRINT N'Creating [dbo].[FormSimpleZeroHistory]...';
+PRINT N'Creating [dbo].[AddressTypeOptionList]...';
 
 
 GO
-CREATE TABLE [dbo].[FormSimpleZeroHistory] (
-    [HistoryId]      INT           IDENTITY (1, 1) NOT NULL,
-    [Id]             INT           NOT NULL,
-    [FirstName]      NVARCHAR (50) NOT NULL,
-    [LastName]       NVARCHAR (50) NOT NULL,
-    [GenderId]       INT           NULL,
-    [RaceId]         INT           NULL,
-    [RegionId]       INT           NULL,
-    [EthnicityId]    INT           NULL,
+CREATE TABLE [dbo].[AddressTypeOptionList] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Name]           NVARCHAR (50) NOT NULL,
+    [SortOrder]      INT           NOT NULL,
+    [IsActive]       INT           NOT NULL,
+    [StartDate]      DATETIME      NOT NULL,
+    [EndDate]        DATETIME      NULL,
     [DateCreated]    DATETIME      NOT NULL,
     [LastChangeUser] NVARCHAR (50) NOT NULL,
     [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([HistoryId] ASC)
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList]...';
+
+
+GO
+CREATE TABLE [dbo].[EthnicityOptionList] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Name]           NVARCHAR (50) NOT NULL,
+    [SortOrder]      INT           NOT NULL,
+    [IsActive]       INT           NOT NULL,
+    [StartDate]      DATETIME      NOT NULL,
+    [EndDate]        DATETIME      NULL,
+    [DateCreated]    DATETIME      NOT NULL,
+    [LastChangeUser] NVARCHAR (50) NOT NULL,
+    [LastChangeDate] DATETIME      NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList]...';
+
+
+GO
+CREATE TABLE [dbo].[GenderOptionList] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Name]           NVARCHAR (50) NOT NULL,
+    [SortOrder]      INT           NOT NULL,
+    [IsActive]       INT           NOT NULL,
+    [StartDate]      DATETIME      NOT NULL,
+    [EndDate]        DATETIME      NULL,
+    [DateCreated]    DATETIME      NOT NULL,
+    [LastChangeUser] NVARCHAR (50) NOT NULL,
+    [LastChangeDate] DATETIME      NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList]...';
+
+
+GO
+CREATE TABLE [dbo].[RaceOptionList] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Name]           NVARCHAR (50) NOT NULL,
+    [SortOrder]      INT           NOT NULL,
+    [IsActive]       INT           NOT NULL,
+    [StartDate]      DATETIME      NOT NULL,
+    [EndDate]        DATETIME      NULL,
+    [DateCreated]    DATETIME      NOT NULL,
+    [LastChangeUser] NVARCHAR (50) NOT NULL,
+    [LastChangeDate] DATETIME      NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList]...';
+
+
+GO
+CREATE TABLE [dbo].[RegionOptionList] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Name]           NVARCHAR (50) NOT NULL,
+    [SortOrder]      INT           NOT NULL,
+    [IsActive]       INT           NOT NULL,
+    [StartDate]      DATETIME      NOT NULL,
+    [EndDate]        DATETIME      NULL,
+    [DateCreated]    DATETIME      NOT NULL,
+    [LastChangeUser] NVARCHAR (50) NOT NULL,
+    [LastChangeDate] DATETIME      NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 
@@ -311,75 +340,62 @@ CREATE TABLE [dbo].[FormSimpleZero] (
 
 
 GO
-PRINT N'Creating [dbo].[EthnicityOptionList]...';
+PRINT N'Creating [dbo].[UserExtendedProperties]...';
 
 
 GO
-CREATE TABLE [dbo].[EthnicityOptionList] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NVARCHAR (50) NOT NULL,
-    [SortOrder]      INT           NOT NULL,
-    [IsActive]       INT           NOT NULL,
-    [StartDate]      DATETIME      NOT NULL,
-    [EndDate]        DATETIME      NULL,
-    [LastChangeUser] NVARCHAR (50) NOT NULL,
-    [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+CREATE TABLE [dbo].[UserExtendedProperties] (
+    [UserId]         NVARCHAR (50)  NOT NULL,
+    [KeyId]          NVARCHAR (50)  NOT NULL,
+    [Value]          NVARCHAR (MAX) NOT NULL,
+    [DateCreated]    DATETIME       NOT NULL,
+    [DateExpired]    DATETIME       NOT NULL,
+    [LastChangeDate] DATETIME       NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC, [KeyId] ASC)
 );
 
 
 GO
-PRINT N'Creating [dbo].[RegionOptionList]...';
+PRINT N'Creating [dbo].[UserExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
 
 
 GO
-CREATE TABLE [dbo].[RegionOptionList] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NVARCHAR (50) NOT NULL,
-    [SortOrder]      INT           NOT NULL,
-    [IsActive]       INT           NOT NULL,
-    [StartDate]      DATETIME      NOT NULL,
-    [EndDate]        DATETIME      NULL,
-    [LastChangeUser] NVARCHAR (50) NOT NULL,
-    [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
+    ON [dbo].[UserExtendedProperties]([DateExpired] ASC);
+
+
+GO
+PRINT N'Creating [dbo].[ApplicationExtendedProperties]...';
+
+
+GO
+CREATE TABLE [dbo].[ApplicationExtendedProperties] (
+    [ApplicationId]  NVARCHAR (50)  NOT NULL,
+    [KeyId]          NVARCHAR (50)  NOT NULL,
+    [Value]          NVARCHAR (MAX) NOT NULL,
+    [DateCreated]    DATETIME       NOT NULL,
+    [DateExpired]    DATETIME       NOT NULL,
+    [LastChangeDate] DATETIME       NOT NULL,
+    PRIMARY KEY CLUSTERED ([ApplicationId] ASC, [KeyId] ASC)
 );
 
 
 GO
-PRINT N'Creating [dbo].[RaceOptionList]...';
+PRINT N'Creating [dbo].[ApplicationExtendedProperties].[IX_UserExtendedProperties_DateExpired]...';
 
 
 GO
-CREATE TABLE [dbo].[RaceOptionList] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NVARCHAR (50) NOT NULL,
-    [SortOrder]      INT           NOT NULL,
-    [IsActive]       INT           NOT NULL,
-    [StartDate]      DATETIME      NOT NULL,
-    [EndDate]        DATETIME      NULL,
-    [LastChangeUser] NVARCHAR (50) NOT NULL,
-    [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
+CREATE NONCLUSTERED INDEX [IX_UserExtendedProperties_DateExpired]
+    ON [dbo].[ApplicationExtendedProperties]([DateExpired] ASC);
 
 
 GO
-PRINT N'Creating [dbo].[GenderOptionList]...';
+PRINT N'Creating Default Constraint on [dbo].[Address]....';
 
 
 GO
-CREATE TABLE [dbo].[GenderOptionList] (
-    [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NVARCHAR (50) NOT NULL,
-    [SortOrder]      INT           NOT NULL,
-    [IsActive]       INT           NOT NULL,
-    [StartDate]      DATETIME      NOT NULL,
-    [EndDate]        DATETIME      NULL,
-    [LastChangeUser] NVARCHAR (50) NOT NULL,
-    [LastChangeDate] DATETIME      NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
+ALTER TABLE [dbo].[Address]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
 
 
 GO
@@ -401,6 +417,15 @@ ALTER TABLE [dbo].[AddressTypeOptionList]
 
 
 GO
+PRINT N'Creating Default Constraint on [dbo].[AddressTypeOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[AddressTypeOptionList]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
+
+
+GO
 PRINT N'Creating Default Constraint on [dbo].[EthnicityOptionList]....';
 
 
@@ -419,39 +444,12 @@ ALTER TABLE [dbo].[EthnicityOptionList]
 
 
 GO
-PRINT N'Creating Default Constraint on [dbo].[RegionOptionList]....';
+PRINT N'Creating Default Constraint on [dbo].[EthnicityOptionList]....';
 
 
 GO
-ALTER TABLE [dbo].[RegionOptionList]
-    ADD DEFAULT 1 FOR [SortOrder];
-
-
-GO
-PRINT N'Creating Default Constraint on [dbo].[RegionOptionList]....';
-
-
-GO
-ALTER TABLE [dbo].[RegionOptionList]
-    ADD DEFAULT 1 FOR [IsActive];
-
-
-GO
-PRINT N'Creating Default Constraint on [dbo].[RaceOptionList]....';
-
-
-GO
-ALTER TABLE [dbo].[RaceOptionList]
-    ADD DEFAULT 1 FOR [SortOrder];
-
-
-GO
-PRINT N'Creating Default Constraint on [dbo].[RaceOptionList]....';
-
-
-GO
-ALTER TABLE [dbo].[RaceOptionList]
-    ADD DEFAULT 1 FOR [IsActive];
+ALTER TABLE [dbo].[EthnicityOptionList]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
 
 
 GO
@@ -473,21 +471,75 @@ ALTER TABLE [dbo].[GenderOptionList]
 
 
 GO
-PRINT N'Creating FK_Address_AddressTypeOptionList...';
+PRINT N'Creating Default Constraint on [dbo].[GenderOptionList]....';
 
 
 GO
-ALTER TABLE [dbo].[Address]
-    ADD CONSTRAINT [FK_Address_AddressTypeOptionList] FOREIGN KEY ([AddressTypeId]) REFERENCES [dbo].[AddressTypeOptionList] ([Id]);
+ALTER TABLE [dbo].[GenderOptionList]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
 
 
 GO
-PRINT N'Creating FK_Address_FormSimpleZeroId...';
+PRINT N'Creating Default Constraint on [dbo].[RaceOptionList]....';
 
 
 GO
-ALTER TABLE [dbo].[Address]
-    ADD CONSTRAINT [FK_Address_FormSimpleZeroId] FOREIGN KEY ([FormSimpleZeroId]) REFERENCES [dbo].[FormSimpleZero] ([Id]);
+ALTER TABLE [dbo].[RaceOptionList]
+    ADD DEFAULT 1 FOR [SortOrder];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[RaceOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[RaceOptionList]
+    ADD DEFAULT 1 FOR [IsActive];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[RaceOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[RaceOptionList]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[RegionOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[RegionOptionList]
+    ADD DEFAULT 1 FOR [SortOrder];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[RegionOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[RegionOptionList]
+    ADD DEFAULT 1 FOR [IsActive];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[RegionOptionList]....';
+
+
+GO
+ALTER TABLE [dbo].[RegionOptionList]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
+
+
+GO
+PRINT N'Creating Default Constraint on [dbo].[FormSimpleZero]....';
+
+
+GO
+ALTER TABLE [dbo].[FormSimpleZero]
+    ADD DEFAULT GETDATE() FOR [DateCreated];
 
 
 GO
@@ -524,6 +576,24 @@ PRINT N'Creating FK_FormSimpleZeroHistory_EthnicityOptionList...';
 GO
 ALTER TABLE [dbo].[FormSimpleZeroHistory]
     ADD CONSTRAINT [FK_FormSimpleZeroHistory_EthnicityOptionList] FOREIGN KEY ([EthnicityId]) REFERENCES [dbo].[EthnicityOptionList] ([Id]);
+
+
+GO
+PRINT N'Creating FK_Address_AddressTypeOptionList...';
+
+
+GO
+ALTER TABLE [dbo].[Address]
+    ADD CONSTRAINT [FK_Address_AddressTypeOptionList] FOREIGN KEY ([AddressTypeId]) REFERENCES [dbo].[AddressTypeOptionList] ([Id]);
+
+
+GO
+PRINT N'Creating FK_Address_FormSimpleZeroId...';
+
+
+GO
+ALTER TABLE [dbo].[Address]
+    ADD CONSTRAINT [FK_Address_FormSimpleZeroId] FOREIGN KEY ([FormSimpleZeroId]) REFERENCES [dbo].[FormSimpleZero] ([Id]);
 
 
 GO
@@ -569,7 +639,7 @@ PRINT N'Creating [dbo].[SearchResults]...';
 GO
 CREATE VIEW [dbo].[SearchResults]
 	AS SELECT 
-	f.[Id] as [FormId], [FirstName], [LastName], [GenderId], [RaceId], [RegionId], [EthnicityId], [DateCreated], f.[LastChangeUser], f.[LastChangeDate],
+	f.[Id] as [FormId], [FirstName], [LastName], [GenderId], [RaceId], [RegionId], [EthnicityId], f.[DateCreated], f.[LastChangeUser], f.[LastChangeDate],
 	e.Name as EthnicityName, g.Name as GenderName
 	FROM [dbo].[FormSimpleZero] f
 		inner join [dbo].[EthnicityOptionList] e on f.EthnicityId=e.Id
@@ -584,70 +654,6 @@ CREATE PROCEDURE [dbo].[GetApplicationProperty]
 	@KeyId nvarchar(50)
 AS
 	SELECT Value from [dbo].[ApplicationExtendedProperties] where ApplicationId=@ApplicationId and KeyId=@KeyId
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[Id].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'Id';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[Name].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'Name';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[SortOrder].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[IsActive].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[StartDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[EndDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[LastChangeUser].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
-
-
-GO
-PRINT N'Creating [dbo].[AddressTypeOptionList].[LastChangeDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
-
-
 GO
 PRINT N'Creating [dbo].[FormSimpleZeroHistory].[HistoryId].[MS_Description]...';
 
@@ -721,6 +727,326 @@ EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change
 
 
 GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[Id].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'Id';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[Name].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'Name';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[SortOrder].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[IsActive].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[StartDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[EndDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[LastChangeUser].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
+
+
+GO
+PRINT N'Creating [dbo].[AddressTypeOptionList].[LastChangeDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'AddressTypeOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[Id].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'Id';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[Name].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'Name';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[SortOrder].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[IsActive].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[StartDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[EndDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[LastChangeUser].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
+
+
+GO
+PRINT N'Creating [dbo].[EthnicityOptionList].[LastChangeDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[Id].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'Id';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[Name].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'Name';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[SortOrder].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[IsActive].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[StartDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[EndDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[LastChangeUser].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
+
+
+GO
+PRINT N'Creating [dbo].[GenderOptionList].[LastChangeDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[Id].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'Id';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[Name].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'Name';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[SortOrder].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[IsActive].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[StartDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[EndDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[LastChangeUser].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
+
+
+GO
+PRINT N'Creating [dbo].[RaceOptionList].[LastChangeDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[Id].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'Id';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[Name].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'Name';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[SortOrder].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[IsActive].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[StartDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[EndDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[LastChangeUser].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
+
+
+GO
+PRINT N'Creating [dbo].[RegionOptionList].[LastChangeDate].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
+
+
+GO
 PRINT N'Creating [dbo].[FormSimpleZero].[Id].[MS_Description]...';
 
 
@@ -790,262 +1116,6 @@ PRINT N'Creating [dbo].[FormSimpleZero].[LastChangeDate].[MS_Description]...';
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'FormSimpleZero', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[Id].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'Id';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[Name].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'Name';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[SortOrder].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[IsActive].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[StartDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[EndDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[LastChangeUser].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
-
-
-GO
-PRINT N'Creating [dbo].[EthnicityOptionList].[LastChangeDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'EthnicityOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[Id].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'Id';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[Name].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'Name';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[SortOrder].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[IsActive].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[StartDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[EndDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[LastChangeUser].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
-
-
-GO
-PRINT N'Creating [dbo].[RegionOptionList].[LastChangeDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RegionOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[Id].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'Id';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[Name].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'Name';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[SortOrder].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[IsActive].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[StartDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[EndDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[LastChangeUser].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
-
-
-GO
-PRINT N'Creating [dbo].[RaceOptionList].[LastChangeDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'RaceOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[Id].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary Key for table', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'Id';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[Name].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Text value of the option list record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'Name';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[SortOrder].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Determines the sort order of the option list', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'SortOrder';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[IsActive].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Flag to determine if the record is active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'IsActive';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[StartDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Date when the record becomes active.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'StartDate';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[EndDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'End date when for the active record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'EndDate';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[LastChangeUser].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last user to modify the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeUser';
-
-
-GO
-PRINT N'Creating [dbo].[GenderOptionList].[LastChangeDate].[MS_Description]...';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Last change date for the record.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'GenderOptionList', @level2type = N'COLUMN', @level2name = N'LastChangeDate';
 
 
 GO

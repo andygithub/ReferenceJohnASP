@@ -6,6 +6,7 @@
 	[IsActive] INT NOT NULL DEFAULT 1, 
 	[StartDate] DATETIME NOT NULL, 
 	[EndDate] DATETIME NULL, 
+	[DateCreated] DATETIME NOT NULL DEFAULT GETDATE() , 
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL
 )

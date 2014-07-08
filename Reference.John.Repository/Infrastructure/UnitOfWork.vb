@@ -48,8 +48,7 @@ Namespace Infrastructure
             End If
 
             Try
-                'TODO test this without the cast to contextadapter.
-                'DirectCast(_dbContext, IObjectContextAdapter).ObjectContext.SaveChanges()
+                AddDateStamps()
                 _dbContext.SaveChanges()
                 _transaction.Commit()
                 ReleaseCurrentTransaction()
@@ -63,6 +62,7 @@ Namespace Infrastructure
             If IsInTransaction Then
                 Throw New ApplicationException("A transaction is running. Call CommitTransaction instead.")
             End If
+            AddDateStamps()
             _dbContext.SaveChanges()
         End Sub
 
@@ -70,6 +70,7 @@ Namespace Infrastructure
             If IsInTransaction Then
                 Throw New ApplicationException("A transaction is running. Call CommitTransaction instead.")
             End If
+            AddDateStamps()
             DirectCast(_dbContext, IObjectContextAdapter).ObjectContext.SaveChanges(saveOptions)
         End Sub
 
@@ -117,5 +118,28 @@ Namespace Infrastructure
                 _transaction = Nothing
             End If
         End Sub
+
+        Private Sub AddDateStamps()
+            _dbContext.ChangeTracker.DetectChanges()
+            Dim context As Core.Objects.ObjectContext = DirectCast(_dbContext, IObjectContextAdapter).ObjectContext
+
+            'Find all Entities that are Added/Modified that implement the date interface
+            Dim objectStateEntries As IEnumerable(Of Core.Objects.ObjectStateEntry) = From e In context.ObjectStateManager.GetObjectStateEntries(EntityState.Added Or EntityState.Modified)
+                                                                                Where e.IsRelationship = False AndAlso e.Entity IsNot Nothing _
+                                                                                AndAlso GetType(Domain.Interfaces.IEntityDates).IsAssignableFrom(e.Entity.[GetType]())
+
+            Dim currentTime = Domain.Providers.TimeProvider.Current.UtcNow
+
+            For Each item In objectStateEntries
+                Dim entityBase = TryCast(item.Entity, Domain.Interfaces.IEntityDates)
+
+                If item.State = EntityState.Added Then
+                    entityBase.DateCreated = currentTime
+                End If
+
+                entityBase.LastChangeDate = currentTime
+            Next
+        End Sub
+
     End Class
 End Namespace

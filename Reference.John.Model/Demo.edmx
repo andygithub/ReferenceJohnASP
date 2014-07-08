@@ -32,6 +32,7 @@
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -45,6 +46,7 @@
           <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateExpired" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="EthnicityOptionList">
           <Key>
@@ -56,6 +58,7 @@
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -100,6 +103,7 @@
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -113,6 +117,7 @@
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -126,6 +131,7 @@
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
@@ -139,6 +145,7 @@
           <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateExpired" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -373,6 +380,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_EthnicityOptionList" FromRole="EthnicityOptionList" ToRole="FormSimpleZero" />
           <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_EthnicityOptionList" FromRole="EthnicityOptionList" ToRole="FormSimpleZeroHistory" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="FormSimpleZero">
           <Key>
@@ -428,6 +436,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_GenderOptionList" FromRole="GenderOptionList" ToRole="FormSimpleZero" />
           <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="GenderOptionList" ToRole="FormSimpleZeroHistory" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="RaceOptionList">
           <Key>
@@ -443,6 +452,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_RaceOptionList" FromRole="RaceOptionList" ToRole="FormSimpleZero" />
           <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="RaceOptionList" ToRole="FormSimpleZeroHistory" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="RegionOptionList">
           <Key>
@@ -458,6 +468,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="FormSimpleZeroes" Relationship="Self.FK_FormSimpleZero_RegionOptionList" FromRole="RegionOptionList" ToRole="FormSimpleZero" />
           <NavigationProperty Name="FormSimpleZeroHistories" Relationship="Self.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="RegionOptionList" ToRole="FormSimpleZeroHistory" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_FormSimpleZero_EthnicityOptionList">
           <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
@@ -652,6 +663,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Addresses" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="AddressTypeOptionList" ToRole="Address" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_Address_AddressTypeOptionList">
           <End Type="Reference.John.Model.AddressTypeOptionList" Role="AddressTypeOptionList" Multiplicity="1" />
@@ -699,6 +711,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="UserExtendedProperty">
           <Key>
@@ -710,6 +723,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -720,6 +734,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="EthnicityOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.EthnicityOptionList">
               <MappingFragment StoreEntitySet="EthnicityOptionList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -767,6 +782,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="GenderOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.GenderOptionList">
               <MappingFragment StoreEntitySet="GenderOptionList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -781,6 +797,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="RaceOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.RaceOptionList">
               <MappingFragment StoreEntitySet="RaceOptionList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -795,6 +812,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="RegionOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.RegionOptionList">
               <MappingFragment StoreEntitySet="RegionOptionList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
@@ -827,6 +845,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="AddressTypeOptionLists">
             <EntityTypeMapping TypeName="Reference.John.Model.AddressTypeOptionList">
               <MappingFragment StoreEntitySet="AddressTypeOptionList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -859,6 +878,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="ApplicationExtendedProperties">
             <EntityTypeMapping TypeName="Reference.John.Model.ApplicationExtendedProperty">
               <MappingFragment StoreEntitySet="ApplicationExtendedProperties">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
@@ -870,6 +890,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="UserExtendedProperties">
             <EntityTypeMapping TypeName="Reference.John.Model.UserExtendedProperty">
               <MappingFragment StoreEntitySet="UserExtendedProperties">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Value" ColumnName="Value" />

@@ -16,6 +16,9 @@ Imports System.ComponentModel.DataAnnotations
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 Partial Public Class ApplicationExtendedProperty
+	Implements Interfaces.IEntityDates
+
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -23,6 +26,7 @@ Partial Public Class ApplicationExtendedProperty
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ApplicationId")>
 	<StringLengthAttribute(50, ErrorMessage:="Application Id cannot be longer than 50 characters.")>
     Public Property ApplicationId As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -30,18 +34,21 @@ Partial Public Class ApplicationExtendedProperty
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="KeyId")>
 	<StringLengthAttribute(50, ErrorMessage:="Key Id cannot be longer than 50 characters.")>
     Public Property KeyId As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Value")>
     Public Property Value As String
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    Public Property DateCreated As Date
+    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
@@ -49,4 +56,10 @@ Partial Public Class ApplicationExtendedProperty
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateExpired")>
     Public Property DateExpired As Date
 
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
+    Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
 End Class

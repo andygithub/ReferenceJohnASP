@@ -6,7 +6,69 @@ Reference.John.Resources
 </name>
 </assembly>
 <members>
-<member name="P:Reference.John.Resources.Resources.RequiredMessages.ResourceManager">
+<member name="P:Reference.John.Resources.Resources.ValidationMessages.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.ValidationMessages.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.ValidationMessages.ItemNotFound">
+	<summary>
+  Looks up a localized string similar to Item with id {0} was not found.
+</summary>
+</member><member name="T:Reference.John.Resources.Resources.ValidationMessages">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceEnd">
+	<summary>
+  Looks up a localized string similar to DbContextInitializer.Instance.InitializeDbContextOnce End .
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceStart">
+	<summary>
+  Looks up a localized string similar to DbContextInitializer.Instance.InitializeDbContextOnce Start.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsEnd">
+	<summary>
+  Looks up a localized string similar to DbContextManager.CloseAllDbContexts End.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsStart">
+	<summary>
+  Looks up a localized string similar to DbContextManager.CloseAllDbContexts Start.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.PageInitEnded">
+	<summary>
+  Looks up a localized string similar to Page Init Event Ended..
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.PageUnloadStarted">
+	<summary>
+  Looks up a localized string similar to Page Unload Event Starting..
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorEnd">
+	<summary>
+  Looks up a localized string similar to WebContextStorage Constructor End.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorStart">
+	<summary>
+  Looks up a localized string similar to WebContextStorage Constructor Start.
+</summary>
+</member><member name="T:Reference.John.Resources.Resources.LogMessages">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:Reference.John.Resources.Resources.RequiredMessages.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

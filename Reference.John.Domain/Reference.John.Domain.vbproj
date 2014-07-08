@@ -102,7 +102,9 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="Interfaces\IEntityDates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Providers\TimeProvider.vb" />
     <Compile Include="RaceOptionList.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>

@@ -14,9 +14,6 @@ Outstanding items:
 
 	add cache provider using the standard .net framework library
 
-	finish the asp.net web forms
-	add defaults for last changed date, creation date and user to repository/model
-
 	modify model to use guids rather than sequences	
 
 

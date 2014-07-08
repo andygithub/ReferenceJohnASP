@@ -59,7 +59,7 @@ Imports Reference.John
         Const FirstName As String = "CreatFirst"
         Using _context As New Model.Reference_JohnEntities
 
-            _context.FormSimpleZeroes.Add(New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = FirstName, .DateCreated = Now, .EthnicityId = 1, .GenderId = 1, .LastChangeDate = Now, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1})
+            _context.FormSimpleZeroes.Add(New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = FirstName, .EthnicityId = 1, .GenderId = 1, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1})
             _context.SaveChanges()
             Console.Write("Saved one record")
             'check to see that the record was added
@@ -80,7 +80,7 @@ Imports Reference.John
         Using _context As New Model.Reference_JohnEntities
             'get contact to use to relate new address to 
             Dim _contact = (From c In _context.FormSimpleZeroes).FirstOrDefault
-            _contact.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .DateCreated = Now, .LastChangeDate = Now, .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
+            _contact.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
             _context.SaveChanges()
             Console.Write("Saved one address")
             'check to see that the record was added
