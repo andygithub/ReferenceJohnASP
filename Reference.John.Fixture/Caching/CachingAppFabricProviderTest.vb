@@ -248,4 +248,24 @@ Imports Microsoft.ApplicationServer.Caching
         End Using
     End Sub
 
+    <TestMethod()>
+    Public Sub SerializeCacheCommands()
+        Dim _allOptionLists As New List(Of Infrastructure.Cache.CacheCommandDefinition)
+        Dim _commandDef As New Infrastructure.Cache.CacheCommandDefinition With {.MaxCacheableRows = 1000, .MinCacheableRows = 1, .SlidingExpiration = New TimeSpan(1, 0, 0), .DependentEntities = New List(Of String)}
+        Dim _methods As New List(Of String)
+        'build list option list
+        Reflection.Assembly.GetAssembly(GetType(Reference.John.Domain.Address)).GetTypes().Where(
+            Function(x) Not x.IsInterface AndAlso Not x.IsAbstract AndAlso x.Name.EndsWith("OptionList")).ToList.ForEach(Sub(x)
+                                                                                                                             Console.WriteLine(x.FullName)
+                                                                                                                             _methods.Add("System.Collections.Generic.IEnumerable`1[" & x.FullName & "] GetAll[" & x.Name & "]()")
+                                                                                                                         End Sub)
+
+        _commandDef.CacheMethodName = _methods
+        _allOptionLists.Add(_commandDef)
+        'serialize to file
+        Dim output = Newtonsoft.Json.JsonConvert.SerializeObject(_allOptionLists, Newtonsoft.Json.Formatting.None)
+        IO.File.WriteAllText("optionlists.json", output)
+        Assert.IsTrue(True)
+    End Sub
+
 End Class

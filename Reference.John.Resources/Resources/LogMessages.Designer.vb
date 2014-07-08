@@ -101,6 +101,33 @@ Namespace Resources
         End Property
 
         '''<summary>
+        '''  Looks up a localized string similar to LoggingInterceptorBehavior End Execute: {0},{1}.
+        '''</summary>
+        Public Shared ReadOnly Property LoggingInterceptorEnd() As String
+            Get
+                Return ResourceManager.GetString("LoggingInterceptorEnd", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to LoggingInterceptorBehavior Start Execute: {0},{1}.
+        '''</summary>
+        Public Shared ReadOnly Property LoggingInterceptorStart() As String
+            Get
+                Return ResourceManager.GetString("LoggingInterceptorStart", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to ReturnValue.ToString: {0}.
+        '''</summary>
+        Public Shared ReadOnly Property LoggingReturnValue() As String
+            Get
+                Return ResourceManager.GetString("LoggingReturnValue", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
         '''  Looks up a localized string similar to Page Init Event Ended..
         '''</summary>
         Public Shared ReadOnly Property PageInitEnded() As String

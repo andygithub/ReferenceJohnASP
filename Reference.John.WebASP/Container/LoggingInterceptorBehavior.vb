@@ -35,12 +35,12 @@ Namespace Container
         ''' <remarks></remarks>
         Public Function Invoke(input As Microsoft.Practices.Unity.InterceptionExtension.IMethodInvocation, getNext As Microsoft.Practices.Unity.InterceptionExtension.GetNextInterceptionBehaviorDelegate) As Microsoft.Practices.Unity.InterceptionExtension.IMethodReturn Implements Microsoft.Practices.Unity.InterceptionExtension.IInterceptionBehavior.Invoke
 
-            _logger.Info("LoggingInterceptorBehavior Prior Execute: {0},{1}", input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
+            _logger.Info(Reference.John.Resources.Resources.LogMessages.LoggingInterceptorStart, input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
             Dim result = getNext.Invoke(input, getNext)
-            _logger.Info("LoggingInterceptorBehavior Post Execute: {0},{1}", input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
-            If result IsNot Nothing AndAlso result.ReturnValue IsNot Nothing Then
-                _logger.Info("ReturnValue.ToString: {0}", result.ReturnValue.ToString)
-            End If
+            _logger.Info(Reference.John.Resources.Resources.LogMessages.LoggingInterceptorEnd, input.MethodBase.DeclaringType.FullName, input.MethodBase.ToString)
+            'If result IsNot Nothing AndAlso result.ReturnValue IsNot Nothing Then
+            '    _logger.Info(Reference.John.Resources.Resources.LogMessages.LoggingReturnValue, result.ReturnValue.ToString)
+            'End If
             Return result
 
         End Function

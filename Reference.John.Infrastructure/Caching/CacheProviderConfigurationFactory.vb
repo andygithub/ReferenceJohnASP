@@ -33,8 +33,11 @@
         Public Shared Function LoadCommandDefinitions(file As String) As ICollection(Of CacheCommandDefinition)
             If file Is Nothing Then Return CacheProviderConfigurationFactory.LoadCommandDefinitions
             'if file exists then load it and serialize it and return it
-            If Not IO.File.Exists(file) Then Return CacheProviderConfigurationFactory.LoadCommandDefinitions
-            Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of ICollection(Of CacheCommandDefinition))(IO.File.ReadAllText(file))
+            Dim _item As String = IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file)
+            If IO.File.Exists(file) Then Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of ICollection(Of CacheCommandDefinition))(IO.File.ReadAllText(file))
+            file = IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file)
+            If IO.File.Exists(file) Then Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of ICollection(Of CacheCommandDefinition))(IO.File.ReadAllText(file))
+            Return CacheProviderConfigurationFactory.LoadCommandDefinitions
         End Function
 
         ''' <summary>

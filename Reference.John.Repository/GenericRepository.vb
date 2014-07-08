@@ -66,9 +66,9 @@ Public Class GenericRepository
 
     Public Function [Get](Of TEntity As Class, TOrderBy)(orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As IEnumerable(Of TEntity) Implements IRepository.Get
         If order = SortOrder.Ascending Then
-            Return GetQuery(Of TEntity)().OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
+            Return GetQuery(Of TEntity)().OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToList()
         End If
-        Return GetQuery(Of TEntity)().OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
+        Return GetQuery(Of TEntity)().OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToList()
     End Function
 
     Public Async Function GetAsync(Of TEntity As Class, TOrderBy)(orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAsync
@@ -80,9 +80,9 @@ Public Class GenericRepository
 
     Public Function [Get](Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As IEnumerable(Of TEntity) Implements IRepository.Get
         If order = SortOrder.Ascending Then
-            Return GetQuery(Of TEntity)(criteria).OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
+            Return GetQuery(Of TEntity)(criteria).OrderBy(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToList()
         End If
-        Return GetQuery(Of TEntity)(criteria).OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).AsEnumerable()
+        Return GetQuery(Of TEntity)(criteria).OrderByDescending(orderBy).Skip((pageIndex) * pageSize).Take(pageSize).ToList()
     End Function
 
     Public Async Function GetAsync(Of TEntity As Class, TOrderBy)(criteria As Expression(Of Func(Of TEntity, Boolean)), orderBy As Expression(Of Func(Of TEntity, TOrderBy)), pageIndex As Integer, pageSize As Integer, Optional order As SortOrder = SortOrder.Ascending) As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAsync
@@ -139,7 +139,7 @@ Public Class GenericRepository
     End Sub
 
     Public Function GetAll(Of TEntity As Class)() As IEnumerable(Of TEntity) Implements IRepository.GetAll
-        Return GetQuery(Of TEntity)().AsEnumerable()
+        Return GetQuery(Of TEntity)().ToList
     End Function
 
     Public Async Function GetAllAsync(Of TEntity As Class)() As Task(Of IEnumerable(Of TEntity)) Implements IRepository.GetAllAsync

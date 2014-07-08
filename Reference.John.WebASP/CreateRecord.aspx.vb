@@ -3,10 +3,12 @@
 
     Private _repository As Reference.John.Repository.IRepository
     Private _logger As Reference.John.Core.Logging.ILogger
+    Private _service As Reference.John.Services.IWorkFlowService
 
     Private Sub ListRecord_Init(sender As Object, e As EventArgs) Handles Me.Init
         _repository = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Repository.IRepository)()
         _logger = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Core.Logging.ILogger)()
+        _service = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Services.IWorkFlowService)()
         _logger.Info(Reference.John.Resources.Resources.LogMessages.PageInitEnded)
     End Sub
 
@@ -19,6 +21,7 @@
         'tear down repository
         _repository = Nothing
         _logger = Nothing
+        _service = Nothing
     End Sub
 
     Public Sub InsertFormItem(item As Reference.John.Domain.FormSimpleZero)
@@ -50,19 +53,19 @@
         Response.Redirect("~/", True)
     End Sub
 
-    Public Function GetRaceOptionList() As IQueryable(Of Reference.John.Domain.RaceOptionList)
+    Public Function GetRaceOptionList() As IEnumerable(Of Reference.John.Domain.RaceOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.RaceOptionList)()
     End Function
 
-    Public Function GetGenderOptionList() As IQueryable(Of Reference.John.Domain.GenderOptionList)
+    Public Function GetGenderOptionList() As IEnumerable(Of Reference.John.Domain.GenderOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.GenderOptionList)()
     End Function
 
-    Public Function GetRegionOptionList() As IQueryable(Of Reference.John.Domain.RegionOptionList)
+    Public Function GetRegionOptionList() As IEnumerable(Of Reference.John.Domain.RegionOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.RegionOptionList)()
     End Function
 
-    Public Function GetEthnicityOptionList() As IQueryable(Of Reference.John.Domain.EthnicityOptionList)
+    Public Function GetEthnicityOptionList() As IEnumerable(Of Reference.John.Domain.EthnicityOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.EthnicityOptionList)()
     End Function
 

@@ -12,8 +12,8 @@ Imports Microsoft.Practices.Unity
             'catch this in case the storage has already been pinned for the app doamin.  This handles the tests being run in any order.  Currently the storage can't be torn down.
         End Try
         Try
-            Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName, True)
-            Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Resources.Constants.ConnectionStringKey, True)
+            Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Repository.Infrastructure.DbContextManager.DefaultConnectionStringName, True, Sub(x) Console.WriteLine(x))
+            Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Resources.Constants.ConnectionStringKey, True, Sub(x) Console.WriteLine(x))
             'catch this in case the connection string has already been registered.  This handles the tests being run in any order.  Currently the storage can't be torn down.
         Catch ex As ArgumentException
         End Try

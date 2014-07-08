@@ -10,33 +10,34 @@ Public Class Global_asax
 
     End Sub
 
+    Dim _logger As Reference.John.Core.Logging.ILogger = New Reference.John.Core.Logging.TrageLogger
 
     Private _storage As Reference.John.Repository.Infrastructure.WebDbContextStorage
 
     'TODO move these events into a custom activator
-    'TODO strongly type those actionlinks
 
     Protected Sub Application_BeginRequest(sender As Object, e As EventArgs) Handles Me.BeginRequest
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceStart)
+        'Debug.WriteLine(HttpContext.Current.Request.Url)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceStart)
         Reference.John.Repository.Infrastructure.DbContextInitializer.Instance.InitializeDbContextOnce(Sub()
                                                                                                            Reference.John.Repository.Infrastructure.DbContextManager.InitStorage(_storage)
-                                                                                                           Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Resources.Constants.ConnectionStringKey, False)
+                                                                                                           Reference.John.Repository.Infrastructure.DbContextManager.Init(Reference.John.Resources.Constants.ConnectionStringKey, False, (Sub(x) _logger.Trace(x)))
                                                                                                        End Sub)
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceEnd)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.DbContextInitializerInstanceInitializeDbContextOnceEnd)
     End Sub
 
     Protected Sub Application_EndRequest(sender As Object, e As EventArgs) Handles Me.EndRequest
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsStart)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsStart)
         Reference.John.Repository.Infrastructure.DbContextManager.CloseAllDbContexts()
         HttpContext.Current.Items.Remove(Reference.John.Resources.Constants.HttpContextStorageKey)
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsEnd)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.DbContextManagerCloseAllDbContextsEnd)
     End Sub
 
     Public Overrides Sub Init()
         MyBase.Init()
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorStart)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorStart)
         _storage = New Reference.John.Repository.Infrastructure.WebDbContextStorage()
-        Debug.WriteLine(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorEnd)
+        _logger.Info(Reference.John.Resources.Resources.LogMessages.WebContextStorageConstructorEnd)
     End Sub
 
 End Class

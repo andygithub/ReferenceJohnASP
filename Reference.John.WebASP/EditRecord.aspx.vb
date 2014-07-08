@@ -49,19 +49,19 @@
         Response.Redirect("~/", True)
     End Sub
 
-    Public Function GetRaceOptionList() As IQueryable(Of Reference.John.Domain.RaceOptionList)
+    Public Function GetRaceOptionList() As IEnumerable(Of Reference.John.Domain.RaceOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.RaceOptionList)()
     End Function
 
-    Public Function GetGenderOptionList() As IQueryable(Of Reference.John.Domain.GenderOptionList)
+    Public Function GetGenderOptionList() As IEnumerable(Of Reference.John.Domain.GenderOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.GenderOptionList)()
     End Function
 
-    Public Function GetRegionOptionList() As IQueryable(Of Reference.John.Domain.RegionOptionList)
+    Public Function GetRegionOptionList() As IEnumerable(Of Reference.John.Domain.RegionOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.RegionOptionList)()
     End Function
 
-    Public Function GetEthnicityOptionList() As IQueryable(Of Reference.John.Domain.EthnicityOptionList)
+    Public Function GetEthnicityOptionList() As IEnumerable(Of Reference.John.Domain.EthnicityOptionList)
         Return _repository.GetAll(Of Reference.John.Domain.EthnicityOptionList)()
     End Function
 

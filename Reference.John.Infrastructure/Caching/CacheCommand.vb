@@ -11,7 +11,8 @@
         ''' <param name="input"></param>
         ''' <remarks></remarks>
         Sub New(input As Microsoft.Practices.Unity.InterceptionExtension.IMethodInvocation)
-            FullMethodName = input.MethodBase.DeclaringType.FullName & "." & input.MethodBase.Name
+            'need to use the method base to handle gnerics, some methods are cacheable with some types but they are not cacheable with all types
+            FullMethodName = input.MethodBase.ToString 'input.MethodBase.DeclaringType.FullName & "." & input.MethodBase.Name
             Parameters = input.Arguments
         End Sub
 

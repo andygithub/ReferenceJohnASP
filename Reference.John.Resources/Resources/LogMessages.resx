@@ -129,6 +129,15 @@
   <data name="DbContextManagerCloseAllDbContextsStart" xml:space="preserve">
     <value>DbContextManager.CloseAllDbContexts Start</value>
   </data>
+  <data name="LoggingInterceptorEnd" xml:space="preserve">
+    <value>LoggingInterceptorBehavior End Execute: {0},{1}</value>
+  </data>
+  <data name="LoggingInterceptorStart" xml:space="preserve">
+    <value>LoggingInterceptorBehavior Start Execute: {0},{1}</value>
+  </data>
+  <data name="LoggingReturnValue" xml:space="preserve">
+    <value>ReturnValue.ToString: {0}</value>
+  </data>
   <data name="PageInitEnded" xml:space="preserve">
     <value>Page Init Event Ended.</value>
   </data>

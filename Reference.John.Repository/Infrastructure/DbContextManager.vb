@@ -7,11 +7,11 @@ Namespace Infrastructure
     Public Class DbContextManager
 
         Public Shared Sub Init(Optional lazyLoadingEnabled As Boolean = True)
-            Init(DefaultConnectionStringName, lazyLoadingEnabled)
+            Init(DefaultConnectionStringName, lazyLoadingEnabled, (Sub(val) Diagnostics.Debug.WriteLine(val)))
         End Sub
 
-        Public Shared Sub Init(connectionStringName As String, Optional lazyLoadingEnabled As Boolean = True)
-            AddConfiguration(connectionStringName, lazyLoadingEnabled)
+        Public Shared Sub Init(connectionStringName As String, lazyLoadingEnabled As Boolean, loggingDelegate As Action(Of String))
+            AddConfiguration(connectionStringName, lazyLoadingEnabled, loggingDelegate)
         End Sub
 
         Public Shared Sub InitStorage(storage As IDbContextStorage)
@@ -83,7 +83,7 @@ Namespace Infrastructure
             Next
         End Sub
 
-        Private Shared Sub AddConfiguration(connectionStringName As String, lazyLoadingEnabled As Boolean)
+        Private Shared Sub AddConfiguration(connectionStringName As String, lazyLoadingEnabled As Boolean, loggingDelegate As Action(Of String))
             If String.IsNullOrEmpty(connectionStringName) Then
                 Throw New ArgumentNullException("connectionStringName")
             End If
@@ -92,7 +92,7 @@ Namespace Infrastructure
                 Throw New ArgumentException("Connection String is already setup.  This would normally be an exception.")
             End If
             SyncLock _syncLock
-                _dbContextBuilders.Add(connectionStringName, New DbContextBuilder(Of DbContext)(lazyLoadingEnabled, connectionStringName))
+                _dbContextBuilders.Add(connectionStringName, New DbContextBuilder(Of DbContext)(lazyLoadingEnabled, connectionStringName, loggingDelegate))
             End SyncLock
         End Sub
 

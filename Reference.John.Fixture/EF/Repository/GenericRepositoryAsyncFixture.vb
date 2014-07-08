@@ -23,7 +23,7 @@ Imports Reference.John.Repository.Infrastructure
             'catch this in case the storage has already been pinned for the app doamin.  This handles the tests being run in any order.  Currently the storage can't be torn down.
         End Try
         Try
-            DbContextManager.Init(DbContextManager.DefaultConnectionStringName, True)
+            DbContextManager.Init(DbContextManager.DefaultConnectionStringName, True, Sub(x) Console.WriteLine(x))
             'catch this in case the connection string has already been registered.  This handles the tests being run in any order.  Currently the storage can't be torn down.
         Catch ex As ArgumentException
         End Try

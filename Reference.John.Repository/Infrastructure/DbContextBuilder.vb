@@ -22,7 +22,7 @@ Namespace Infrastructure
         Public Sub New(lazyLoadingEnabled As Boolean, connectionStringName As String)
             _cnStringSettings = ConfigurationManager.ConnectionStrings(connectionStringName)
             _lazyLoadingEnabled = lazyLoadingEnabled
-            _loggingDelegate = (Sub(val) Console.Write(val))
+            _loggingDelegate = (Sub(val) Console.WriteLine(val))
         End Sub
 
         Public Sub New(lazyLoadingEnabled As Boolean, connectionStringName As String, loggingDelegate As Action(Of String))

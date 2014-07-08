@@ -68,6 +68,7 @@ Namespace Container
             'only put the item into cache if the return value doesn't exceed the row thresholds
             'may have to play around with this cast depending on the types of sets being returned.
             Dim collection = TryCast(methodReturn.ReturnValue, IEnumerable(Of Object))
+            'be aware that this check will cause execution of queries to validate the count so there will be extra executions if the list hasn't been materialized
             If collection Is Nothing Then
                 _configuration.DefaultCache.PutItem(cacheKey, methodReturn.ReturnValue, _commandSettings.DependentEntities, _commandSettings.SlidingExpiration, _commandSettings.AbsoluteExpiration)
                 _logger.Info("Item placed in cache. Bounds not checked")
