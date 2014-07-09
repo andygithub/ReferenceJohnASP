@@ -163,6 +163,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <PropertyRef Name="LastChangeDate" />
             <PropertyRef Name="EthnicityName" />
             <PropertyRef Name="GenderName" />
+            <PropertyRef Name="ClientToken" />
           </Key>
           <Property Name="FormId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -176,6 +177,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
           <Property Name="EthnicityName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GenderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_AddressTypeOptionList">
           <End Role="AddressTypeOptionList" Type="Self.AddressTypeOptionList" Multiplicity="1" />
@@ -321,7 +323,8 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
     [SearchResults].[LastChangeUser] AS [LastChangeUser], 
     [SearchResults].[LastChangeDate] AS [LastChangeDate], 
     [SearchResults].[EthnicityName] AS [EthnicityName], 
-    [SearchResults].[GenderName] AS [GenderName]
+    [SearchResults].[GenderName] AS [GenderName], 
+    [SearchResults].[ClientToken] AS [ClientToken]
     FROM [dbo].[SearchResults] AS [SearchResults]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Address_AddressTypeOptionList" Association="Self.FK_Address_AddressTypeOptionList">
@@ -693,6 +696,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <PropertyRef Name="LastChangeDate" />
             <PropertyRef Name="EthnicityName" />
             <PropertyRef Name="GenderName" />
+            <PropertyRef Name="ClientToken" />
           </Key>
           <Property Name="FormId" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -706,6 +710,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EthnicityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="ApplicationExtendedProperty">
           <Key>
@@ -869,6 +874,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="SearchResults">
             <EntityTypeMapping TypeName="Reference.John.Model.SearchResult">
               <MappingFragment StoreEntitySet="SearchResults">
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
                 <ScalarProperty Name="EthnicityName" ColumnName="EthnicityName" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />

@@ -103,4 +103,11 @@ Partial Public Class SearchResult
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="GenderName")>
 	<StringLengthAttribute(50, ErrorMessage:="Gender Name cannot be longer than 50 characters.")>
     Public Property GenderName As String
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
+    Public Property ClientToken As System.Guid
 End Class

@@ -17,7 +17,7 @@ Imports System.Data.Entity.Infrastructure.MappingViews
 
 <Assembly: DbMappingViewCacheTypeAttribute(
     GetType(Reference.John.Model.Reference_JohnEntities),
-    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetscc6210eca724bf6143698a490cfb75f88aec1c9079abea3e7f785c93c9fec9fb))>
+    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsd8801e9167fcf887ddd6ef8de5e7a0695d75abaffec78fc346f734a4900162ab))>
 
 Namespace Edm_EntityMappingGeneratedViews
 
@@ -25,7 +25,7 @@ Namespace Edm_EntityMappingGeneratedViews
     ''' Implements a mapping view cache.
     ''' </summary>
     <GeneratedCode("Entity Framework Power Tools", "0.9.0.0")>
-    Friend NotInheritable Class ViewsForBaseEntitySetscc6210eca724bf6143698a490cfb75f88aec1c9079abea3e7f785c93c9fec9fb
+    Friend NotInheritable Class ViewsForBaseEntitySetsd8801e9167fcf887ddd6ef8de5e7a0695d75abaffec78fc346f734a4900162ab
         Inherits DbMappingViewCache
 
         ''' <summary>
@@ -33,7 +33,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' </summary>
         Public Overrides ReadOnly Property MappingHashValue As String
             Get
-                Return "cc6210eca724bf6143698a490cfb75f88aec1c9079abea3e7f785c93c9fec9fb"
+                Return "d8801e9167fcf887ddd6ef8de5e7a0695d75abaffec78fc346f734a4900162ab"
             End Get
         End Property
 
@@ -566,7 +566,7 @@ Namespace Edm_EntityMappingGeneratedViews
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing SearchResults" & vbCrLf &
-                "        [Reference.John.Model.Store.SearchResults](T1.SearchResults_FormId, T1.SearchResults_FirstName, T1.SearchResults_LastName, T1.SearchResults_GenderId, T1.SearchResults_RaceId, T1.SearchResults_RegionId, T1.SearchResults_EthnicityId, T1.SearchResults_DateCreated, T1.SearchResults_LastChangeUser, T1.SearchResults_LastChangeDate, T1.SearchResults_EthnicityName, T1.SearchResults_GenderName)" & vbCrLf &
+                "        [Reference.John.Model.Store.SearchResults](T1.SearchResults_FormId, T1.SearchResults_FirstName, T1.SearchResults_LastName, T1.SearchResults_GenderId, T1.SearchResults_RaceId, T1.SearchResults_RegionId, T1.SearchResults_EthnicityId, T1.SearchResults_DateCreated, T1.SearchResults_LastChangeUser, T1.SearchResults_LastChangeDate, T1.SearchResults_EthnicityName, T1.SearchResults_GenderName, T1.SearchResults_ClientToken)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.FormId AS SearchResults_FormId, " & vbCrLf &
@@ -581,6 +581,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeDate AS SearchResults_LastChangeDate, " & vbCrLf &
                 "            T.EthnicityName AS SearchResults_EthnicityName, " & vbCrLf &
                 "            T.GenderName AS SearchResults_GenderName, " & vbCrLf &
+                "            T.ClientToken AS SearchResults_ClientToken, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM Reference_JohnEntities.SearchResults AS T" & vbCrLf &
                 "    ) AS T1")
@@ -594,7 +595,7 @@ Namespace Edm_EntityMappingGeneratedViews
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing SearchResults" & vbCrLf &
-                "        [Reference.John.Model.SearchResult](T1.SearchResult_FormId, T1.SearchResult_FirstName, T1.SearchResult_LastName, T1.SearchResult_GenderId, T1.SearchResult_RaceId, T1.SearchResult_RegionId, T1.SearchResult_EthnicityId, T1.SearchResult_DateCreated, T1.SearchResult_LastChangeUser, T1.SearchResult_LastChangeDate, T1.SearchResult_EthnicityName, T1.SearchResult_GenderName)" & vbCrLf &
+                "        [Reference.John.Model.SearchResult](T1.SearchResult_FormId, T1.SearchResult_FirstName, T1.SearchResult_LastName, T1.SearchResult_GenderId, T1.SearchResult_RaceId, T1.SearchResult_RegionId, T1.SearchResult_EthnicityId, T1.SearchResult_DateCreated, T1.SearchResult_LastChangeUser, T1.SearchResult_LastChangeDate, T1.SearchResult_EthnicityName, T1.SearchResult_GenderName, T1.SearchResult_ClientToken)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.FormId AS SearchResult_FormId, " & vbCrLf &
@@ -609,6 +610,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeDate AS SearchResult_LastChangeDate, " & vbCrLf &
                 "            T.EthnicityName AS SearchResult_EthnicityName, " & vbCrLf &
                 "            T.GenderName AS SearchResult_GenderName, " & vbCrLf &
+                "            T.ClientToken AS SearchResult_ClientToken, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM ReferenceJohnModelStoreContainer.SearchResults AS T" & vbCrLf &
                 "    ) AS T1")
