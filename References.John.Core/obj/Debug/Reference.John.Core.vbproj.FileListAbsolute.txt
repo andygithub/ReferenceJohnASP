@@ -8,11 +8,3 @@ C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.Jo
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.dll
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.xml
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\References.John.Core\obj\Debug\Reference.John.Core.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\bin\Debug\Reference.John.Core.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\bin\Debug\Reference.John.Core.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\bin\Debug\Reference.John.Core.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\bin\Debug\Reference.John.Core.dll.CodeAnalysisLog.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\bin\Debug\Reference.John.Core.dll.lastcodeanalysissucceeded
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\obj\Debug\Reference.John.Core.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\obj\Debug\Reference.John.Core.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\References.John.Core\obj\Debug\Reference.John.Core.pdb

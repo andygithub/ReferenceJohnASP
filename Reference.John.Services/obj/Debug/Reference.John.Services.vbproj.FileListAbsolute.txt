@@ -8,29 +8,3 @@ C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.Joh
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.dll
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.xml
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Services\obj\Debug\Reference.John.Services.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll.CodeAnalysisLog.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Services.dll.lastcodeanalysissucceeded
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Core.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Domain.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Repository.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Resources.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\EntityFramework.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Model.dll
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Domain.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Domain.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Repository.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Repository.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Resources.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Resources.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Core.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Core.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\EntityFramework.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Model.pdb
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\Reference.John.Model.xml
-C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.vbprojResolveAssemblyReference.cache
