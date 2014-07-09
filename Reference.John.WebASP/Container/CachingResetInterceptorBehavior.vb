@@ -46,12 +46,12 @@ Namespace Container
             If _configuration.DefaultCachingPolicy.IsCacheReset(Command) Then
                 'remove the item from the cache
                 'load configured cache settings
-                _logger.Info("IsCacheReset True.")
+                _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheResetCommandHit)
                 Dim _commandSettings As Cache.CacheCommandDefinition = _configuration.DefaultCachingPolicy.GetCommandDefinition(command)
                 _configuration.DefaultCache.InvalidateSets(New List(Of String) From {_commandSettings.EntityName})
-                _logger.Info("Item removed from cache.")
+                _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheItemClear)
             End If
-            _logger.Info("IsCacheReset False.")
+            _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheResetCommandMiss)
             Return getNext.Invoke(input, getNext)
 
         End Function

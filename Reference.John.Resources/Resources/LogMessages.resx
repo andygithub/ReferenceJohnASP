@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CacheCommandCacheHit" xml:space="preserve">
+    <value>Command can be cached and command output found in cache {0}</value>
+  </data>
+  <data name="CacheCommandCacheMiss" xml:space="preserve">
+    <value>Command can be cached but command output not found in cache {0}</value>
+  </data>
+  <data name="CacheCommandNoCache" xml:space="preserve">
+    <value>Command can't be cached pass thru to execute command {0}</value>
+  </data>
+  <data name="CachedItemCachedNoBoundCheck" xml:space="preserve">
+    <value>Item placed in cache. Bounds not checked</value>
+  </data>
+  <data name="CacheItemCachedBoundValid" xml:space="preserve">
+    <value>Item placed in cache. Bounds validate</value>
+  </data>
+  <data name="CacheItemClear" xml:space="preserve">
+    <value>Item removed from the cache</value>
+  </data>
+  <data name="CacheItemNoCacheBoundFailure" xml:space="preserve">
+    <value>Item not placed in cache because it excedded the defined bounds.</value>
+  </data>
+  <data name="CacheResetCommandHit" xml:space="preserve">
+    <value>Command caused a reset of cache item</value>
+  </data>
+  <data name="CacheResetCommandMiss" xml:space="preserve">
+    <value />
+  </data>
   <data name="DbContextInitializerInstanceInitializeDbContextOnceEnd" xml:space="preserve">
     <value>DbContextInitializer.Instance.InitializeDbContextOnce End </value>
   </data>
@@ -149,5 +176,8 @@
   </data>
   <data name="WebContextStorageConstructorStart" xml:space="preserve">
     <value>WebContextStorage Constructor Start</value>
+  </data>
+  <data name="CacheInvalidReturnType" xml:space="preserve">
+    <value>Due to the return value type of the command the output will not be cached</value>
   </data>
 </root>

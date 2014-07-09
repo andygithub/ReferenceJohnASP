@@ -46,7 +46,7 @@ Namespace Container
             Dim command As New Cache.CacheCommand(input)
 
             If Not _configuration.DefaultCachingPolicy.CanBeCached(command) Then
-                _logger.Info("CanBeCached False {0}", command.FullMethodName)
+                _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheCommandNoCache, command.FullMethodName)
                 'result shouldn't be cached just pass through and execute method.
                 Return getNext.Invoke(input, getNext)
             End If
@@ -56,28 +56,35 @@ Namespace Container
 
             'if found then return cache result
             If result IsNot Nothing Then
-                _logger.Info("CanBeCached True - Item is in cache and not continuing with interception delegates.")
+                _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheCommandCacheHit, command.FullMethodName)
                 Return input.CreateMethodReturn(result)
             End If
             'if not present in cache then continue to invoke
-            _logger.Info("CanBeCached True - Item is not in cache.")
+            _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheCommandCacheMiss, command.FullMethodName)
             Dim methodReturn = getNext.Invoke(input, getNext)
             'load configured cache settings
             Dim _commandSettings As Cache.CacheCommandDefinition = _configuration.DefaultCachingPolicy.GetCommandDefinition(command)
             'the return value should be serialized into cache
             'only put the item into cache if the return value doesn't exceed the row thresholds
             'may have to play around with this cast depending on the types of sets being returned.
-            Dim collection = TryCast(methodReturn.ReturnValue, IEnumerable(Of Object))
+            If methodReturn.ReturnValue.GetType.FullName.StartsWith("System.Data.Entity.DbSet") Then
+                _logger.Warn(Reference.John.Resources.Resources.LogMessages.CacheInvalidReturnType)
+                Return methodReturn
+            End If
+            Dim returnCount = methodReturn.ReturnValue.count
+            'Dim collection = TryCast(methodReturn.ReturnValue, IEnumerable(Of Object))
             'be aware that this check will cause execution of queries to validate the count so there will be extra executions if the list hasn't been materialized
-            If collection Is Nothing Then
+            'and iqueryable shouldn't be placed in cache
+
+            If returnCount Is Nothing Then
                 _configuration.DefaultCache.PutItem(cacheKey, methodReturn.ReturnValue, _commandSettings.DependentEntities, _commandSettings.SlidingExpiration, _commandSettings.AbsoluteExpiration)
-                _logger.Info("Item placed in cache. Bounds not checked")
+                _logger.Info(Reference.John.Resources.Resources.LogMessages.CachedItemCachedNoBoundCheck)
             Else
-                If collection.Count < _commandSettings.MinCacheableRows OrElse _commandSettings.MaxCacheableRows < collection.Count Then
-                    _logger.Info("Item not placed in cache because it excedded the defined bounds.")
+                If returnCount < _commandSettings.MinCacheableRows OrElse _commandSettings.MaxCacheableRows < returnCount Then
+                    _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheItemNoCacheBoundFailure)
                 Else
                     _configuration.DefaultCache.PutItem(cacheKey, methodReturn.ReturnValue, _commandSettings.DependentEntities, _commandSettings.SlidingExpiration, _commandSettings.AbsoluteExpiration)
-                    _logger.Info("Item placed in cache. Bounds validate")
+                    _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheItemCachedBoundValid)
                 End If
             End If
             Return methodReturn

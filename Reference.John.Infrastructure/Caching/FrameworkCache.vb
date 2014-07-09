@@ -7,14 +7,14 @@ Namespace Cache
     Public NotInheritable Class FrameworkCache
         Implements ICache
 
-        Private _cache As CustomRegionCache
+        Private _cache As ObjectCache
 
         ''' <summary>
         ''' 
         ''' </summary>
         ''' <remarks></remarks>
         Public Sub New()
-            _cache = New CustomRegionCache
+            _cache = MemoryCache.[Default]
         End Sub
 
         ''' <summary>
@@ -35,6 +35,7 @@ Namespace Cache
         ''' <returns></returns>
         ''' <remarks></remarks>
         Public Function GetItem(key As String, ByRef value As Object) As Boolean Implements ICache.GetItem
+            Dim _item = _cache.GetCount
             value = _cache.Get(key)
             Return value IsNot Nothing
         End Function
@@ -74,6 +75,7 @@ Namespace Cache
             Dim _cachePolicy As New CacheItemPolicy
             If IsNothing(slidingExpiration) OrElse slidingExpiration = TimeSpan.Zero Then
                 _cachePolicy.AbsoluteExpiration = New DateTimeOffset(absoluteExpiration)
+            Else
                 _cachePolicy.SlidingExpiration = slidingExpiration
             End If
             _cache.Add(_cacheItem, _cachePolicy)
@@ -122,4 +124,5 @@ Namespace Cache
         End Function
 
     End Class
+
 End Namespace

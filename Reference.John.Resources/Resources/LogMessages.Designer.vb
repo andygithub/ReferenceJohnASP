@@ -65,6 +65,96 @@ Namespace Resources
         End Property
 
         '''<summary>
+        '''  Looks up a localized string similar to Command can be cached and command output found in cache {0}.
+        '''</summary>
+        Public Shared ReadOnly Property CacheCommandCacheHit() As String
+            Get
+                Return ResourceManager.GetString("CacheCommandCacheHit", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Command can be cached but command output not found in cache {0}.
+        '''</summary>
+        Public Shared ReadOnly Property CacheCommandCacheMiss() As String
+            Get
+                Return ResourceManager.GetString("CacheCommandCacheMiss", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Command can&apos;t be cached pass thru to execute command {0}.
+        '''</summary>
+        Public Shared ReadOnly Property CacheCommandNoCache() As String
+            Get
+                Return ResourceManager.GetString("CacheCommandNoCache", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Item placed in cache. Bounds not checked.
+        '''</summary>
+        Public Shared ReadOnly Property CachedItemCachedNoBoundCheck() As String
+            Get
+                Return ResourceManager.GetString("CachedItemCachedNoBoundCheck", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Due to the return value type of the command the output will not be cached.
+        '''</summary>
+        Public Shared ReadOnly Property CacheInvalidReturnType() As String
+            Get
+                Return ResourceManager.GetString("CacheInvalidReturnType", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Item placed in cache. Bounds validate.
+        '''</summary>
+        Public Shared ReadOnly Property CacheItemCachedBoundValid() As String
+            Get
+                Return ResourceManager.GetString("CacheItemCachedBoundValid", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Item removed from the cache.
+        '''</summary>
+        Public Shared ReadOnly Property CacheItemClear() As String
+            Get
+                Return ResourceManager.GetString("CacheItemClear", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Item not placed in cache because it excedded the defined bounds..
+        '''</summary>
+        Public Shared ReadOnly Property CacheItemNoCacheBoundFailure() As String
+            Get
+                Return ResourceManager.GetString("CacheItemNoCacheBoundFailure", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to Command caused a reset of cache item.
+        '''</summary>
+        Public Shared ReadOnly Property CacheResetCommandHit() As String
+            Get
+                Return ResourceManager.GetString("CacheResetCommandHit", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Public Shared ReadOnly Property CacheResetCommandMiss() As String
+            Get
+                Return ResourceManager.GetString("CacheResetCommandMiss", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
         '''  Looks up a localized string similar to DbContextInitializer.Instance.InitializeDbContextOnce End .
         '''</summary>
         Public Shared ReadOnly Property DbContextInitializerInstanceInitializeDbContextOnceEnd() As String

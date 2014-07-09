@@ -74,6 +74,24 @@
     <Compile Include="IWorkFlowService.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reference.John.Domain\Reference.John.Domain.vbproj">
+      <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>
+      <Name>Reference.John.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Repository\Reference.John.Repository.vbproj">
+      <Project>{46708533-c120-4117-a7d2-b27eb0942790}</Project>
+      <Name>Reference.John.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Resources\Reference.John.Resources.vbproj">
+      <Project>{583ff127-61c6-431d-8d77-0c632486f9e6}</Project>
+      <Name>Reference.John.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
+      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
+      <Name>Reference.John.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

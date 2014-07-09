@@ -251,7 +251,8 @@ Imports Microsoft.ApplicationServer.Caching
     <TestMethod()>
     Public Sub SerializeCacheCommands()
         Dim _allOptionLists As New List(Of Infrastructure.Cache.CacheCommandDefinition)
-        Dim _commandDef As New Infrastructure.Cache.CacheCommandDefinition With {.MaxCacheableRows = 1000, .MinCacheableRows = 1, .SlidingExpiration = New TimeSpan(1, 0, 0), .DependentEntities = New List(Of String)}
+        Dim _commandDef As New Infrastructure.Cache.CacheCommandDefinition With {.MaxCacheableRows = 1000, .MinCacheableRows = 1, .SlidingExpiration = New TimeSpan(1, 0, 0), .DependentEntities = New List(Of String), .EntityName = "OptionList"
+                                                                                }
         Dim _methods As New List(Of String)
         'build list option list
         Reflection.Assembly.GetAssembly(GetType(Reference.John.Domain.Address)).GetTypes().Where(

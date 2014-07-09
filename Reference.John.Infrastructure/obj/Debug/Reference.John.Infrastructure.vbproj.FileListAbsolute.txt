@@ -29,3 +29,32 @@ C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.Joh
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.dll
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.xml
 C:\Users\jinx\Documents\visual studio 2013\Projects\Reference.John\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.dll.CodeAnalysisLog.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Infrastructure.dll.lastcodeanalysissucceeded
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.ApplicationServer.Caching.Client.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.ApplicationServer.Caching.Core.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Core.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Resources.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Resources.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Resources.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Core.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Reference.John.Core.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Interception.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.vbprojResolveAssemblyReference.cache
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.xml
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Infrastructure\obj\Debug\Reference.John.Infrastructure.pdb
