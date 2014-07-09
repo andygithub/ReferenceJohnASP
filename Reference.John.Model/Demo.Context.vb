@@ -45,7 +45,7 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property UserExtendedProperties() As DbSet(Of UserExtendedProperty)
 
     Public Overrides Function SaveChanges() As Integer
-        ChangeTracker.DetectChanges()
+		ChangeTracker.DetectChanges()
         Dim context As Core.Objects.ObjectContext = DirectCast(Me, IObjectContextAdapter).ObjectContext
 
         'Find all Entities that are Added/Modified that implement the date interface

@@ -58,7 +58,7 @@
     End Function
 
     Public Function GetGenderOptionList() As IEnumerable(Of Reference.John.Domain.GenderOptionList)
-        Return _repository.GetAllAsync(Of Reference.John.Domain.GenderOptionList)()
+        Return _repository.GetAll(Of Reference.John.Domain.GenderOptionList)()
     End Function
 
     Public Function GetRegionOptionList() As IEnumerable(Of Reference.John.Domain.RegionOptionList)

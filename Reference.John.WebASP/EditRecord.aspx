@@ -7,7 +7,7 @@
         ForeColor="Red" HeaderText="Please check the following errors:" />
 
     <asp:FormView runat="server" ID="editForm" DefaultMode="Edit" UpdateMethod="UpdateFormItem" SelectMethod="SelectFormItem" ItemType="Reference.John.Domain.FormSimpleZero"
-        DataKeyNames="Id">
+        DataKeyNames="ClientToken">
         <EditItemTemplate>
                 <div class="form-group">
                     <label for="firstname"><%# Reference.John.Resources.resources.Names.FirstName %></label>

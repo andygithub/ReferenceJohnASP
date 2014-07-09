@@ -104,6 +104,9 @@
     <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="Interfaces\IEntityDates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Partials\Address.vb" />
+    <Compile Include="Partials\FormSimpleZero.vb" />
+    <Compile Include="Providers\SequentialGuid.vb" />
     <Compile Include="Providers\TimeProvider.vb" />
     <Compile Include="RaceOptionList.vb">
       <DependentUpon>Demo.tt</DependentUpon>
@@ -129,9 +132,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Partials\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Reference.John.Resources\Reference.John.Resources.vbproj">
       <Project>{583ff127-61c6-431d-8d77-0c632486f9e6}</Project>

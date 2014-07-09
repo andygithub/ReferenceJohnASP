@@ -21,18 +21,18 @@
         _logger = Nothing
     End Sub
 
-    Public Function SelectFormItem(<ModelBinding.QueryString> FormZeroId As Integer) As Reference.John.Domain.FormSimpleZero
+    Public Function SelectFormItem(<ModelBinding.QueryString> ClientTokenFormZero As Guid) As Reference.John.Domain.FormSimpleZero
         'if the parameter doesn't have a nullable type then the framework will throw an exception,  if a custom message is desired make the type nullable and do a check like this.
-        If FormZeroId = 0 Then Throw New ArgumentNullException("FormZeroId")
-        Return _repository.GetByKey(Of Reference.John.Domain.FormSimpleZero)(FormZeroId)
+        If ClientTokenFormZero = Nothing Then Throw New ArgumentNullException("FormZeroId")
+        Return _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientTokenFormZero)
     End Function
 
-    Public Sub UpdateFormItem(Id As Integer)
+    Public Sub UpdateFormItem(ClientToken As Guid)
 
         Dim _item As Reference.John.Domain.FormSimpleZero = Nothing
-        _item = _repository.GetByKey(Of Reference.John.Domain.FormSimpleZero)(Id)
+        _item = _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken)
         If _item Is Nothing Then
-            ModelState.AddModelError("", String.Format(Reference.John.Resources.Resources.ValidationMessages.ItemNotFound, Id))
+            ModelState.AddModelError("", String.Format(Reference.John.Resources.Resources.ValidationMessages.ItemNotFound, ClientToken))
             Exit Sub
         End If
 

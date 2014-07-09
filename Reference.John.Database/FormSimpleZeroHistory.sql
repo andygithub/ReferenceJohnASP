@@ -11,6 +11,7 @@
 	[DateCreated] DATETIME NOT NULL, 
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
+	[ClientToken] UNIQUEIDENTIFIER NOT NULL DEFAULT newsequentialid(), 
 	CONSTRAINT [FK_FormSimpleZeroHistory_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([Id]) ,
 	CONSTRAINT [FK_FormSimpleZeroHistory_RaceOptionList] FOREIGN KEY ([RaceId]) REFERENCES [RaceOptionList]([Id]) ,
 	CONSTRAINT [FK_FormSimpleZeroHistory_RegionOptionList] FOREIGN KEY ([RegionId]) REFERENCES [RegionOptionList]([Id]) ,
@@ -107,3 +108,6 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
 	@level1name = N'FormSimpleZeroHistory',
 	@level2type = N'COLUMN',
 	@level2name = N'EthnicityId'
+
+	GO
+	CREATE Unique INDEX [IX_FormSimpleZero_ClientTokenHistory] ON [dbo].[FormSimpleZeroHistory] ([ClientToken])

@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1615a289b860478f87fa260e1f34e271" Name="Diagram1">
         <EntityTypeShape EntityType="Reference.John.Model.EthnicityOptionList" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZero" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZeroHistory" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZero" Width="2" PointX="5.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZeroHistory" Width="1.875" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Reference.John.Model.GenderOptionList" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Reference.John.Model.RaceOptionList" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Reference.John.Model.RegionOptionList" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />

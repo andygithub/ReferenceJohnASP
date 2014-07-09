@@ -21,6 +21,7 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="AddressTypeOptionList">
           <Key>
@@ -76,6 +77,7 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
           <Key>
@@ -92,6 +94,7 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderOptionList">
           <Key>
@@ -401,6 +404,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="RaceOptionList" Relationship="Self.FK_FormSimpleZero_RaceOptionList" FromRole="FormSimpleZero" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Self.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
           <NavigationProperty Name="Addresses" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="FormSimpleZero" ToRole="Address" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
           <Key>
@@ -421,6 +425,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="GenderOptionList" Relationship="Self.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="FormSimpleZeroHistory" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Self.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="FormSimpleZeroHistory" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Self.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="FormSimpleZeroHistory" ToRole="RegionOptionList" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderOptionList">
           <Key>
@@ -637,6 +642,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
           <Property Name="AddressTypeId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_FormSimpleZeroId">
           <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
@@ -749,6 +755,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="FormSimpleZeroes">
             <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZero">
               <MappingFragment StoreEntitySet="FormSimpleZero">
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -765,6 +772,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="FormSimpleZeroHistories">
             <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZeroHistory">
               <MappingFragment StoreEntitySet="FormSimpleZeroHistory">
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -827,6 +835,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="Reference.John.Model.Address">
               <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />

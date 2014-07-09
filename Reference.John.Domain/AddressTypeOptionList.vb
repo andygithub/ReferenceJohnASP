@@ -75,12 +75,12 @@ Partial Public Class AddressTypeOptionList
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
 
-    ''' <summary>
-    ''' #TODO Populate Model Descriptions
-    ''' </summary>
-    ''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
- Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
+    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
     Public Overridable Property Addresses As ICollection(Of Address) = New HashSet(Of Address)
 
 End Class

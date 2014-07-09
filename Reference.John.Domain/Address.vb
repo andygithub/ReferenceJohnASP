@@ -103,6 +103,13 @@ Partial Public Class Address
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressTypeId")>
     Public Property AddressTypeId As Integer
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
+    Public Property ClientToken As System.Guid
     Public Overridable Property FormSimpleZero As FormSimpleZero
     Public Overridable Property AddressTypeOptionList As AddressTypeOptionList
 

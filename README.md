@@ -14,7 +14,7 @@ Outstanding items:
 
 	add cache provider using the standard .net framework library
 
-	modify model to use guids rather than sequences	
+
 
 
 

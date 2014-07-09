@@ -87,6 +87,13 @@ Partial Public Class FormSimpleZero
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
+    Public Property ClientToken As System.Guid
     Public Overridable Property EthnicityOptionList As EthnicityOptionList
     Public Overridable Property GenderOptionList As GenderOptionList
     Public Overridable Property RaceOptionList As RaceOptionList

@@ -44,6 +44,7 @@ Namespace Container
             'determine if the method should have been cached
             Dim result = Nothing
             Dim command As New Cache.CacheCommand(input)
+            Debug.WriteLine(command.FullMethodName)
 
             If Not _configuration.DefaultCachingPolicy.CanBeCached(command) Then
                 _logger.Info(Reference.John.Resources.Resources.LogMessages.CacheCommandNoCache, command.FullMethodName)
@@ -71,7 +72,14 @@ Namespace Container
                 _logger.Warn(Reference.John.Resources.Resources.LogMessages.CacheInvalidReturnType)
                 Return methodReturn
             End If
-            Dim returnCount = methodReturn.ReturnValue.count
+            Dim returnCount
+            Try
+                returnCount = methodReturn.ReturnValue.count
+            Catch ex As MissingMemberException
+                'swallowing this exception in case a non list object is returned.  assume that object is within bound check even though none performed
+                'if a common paging object is return with a common property than an attempted cast to that object would be needed here and that property used.
+                returnCount = Nothing
+            End Try
             'Dim collection = TryCast(methodReturn.ReturnValue, IEnumerable(Of Object))
             'be aware that this check will cause execution of queries to validate the count so there will be extra executions if the list hasn't been materialized
             'and iqueryable shouldn't be placed in cache

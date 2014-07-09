@@ -3,6 +3,9 @@
 Public Class Global_asax
     Inherits HttpApplication
 
+    'ELmah https://code.google.com/p/elmah/wiki/Downloads?tm=2
+
+
     Sub Application_Start(sender As Object, e As EventArgs)
         ' Fires when the application is started
         RouteConfig.RegisterRoutes(RouteTable.Routes)

@@ -87,6 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Demo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Demo.Views.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>
