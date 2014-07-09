@@ -41,6 +41,8 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <script type="text/javascript" src="~/scripts/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="~/scripts/jquery.validate.unobtrusive.min.js" ></script>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">

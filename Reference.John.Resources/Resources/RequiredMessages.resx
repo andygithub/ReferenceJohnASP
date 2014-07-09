@@ -123,6 +123,9 @@
   <data name="Gender" xml:space="preserve">
     <value>Gender is required.</value>
   </data>
+  <data name="GenderId" xml:space="preserve">
+    <value>Gender is required.</value>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>Id is required.</value>
   </data>

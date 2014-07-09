@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CreateRecord.aspx.vb" Inherits="Reference.John.WebASP.CreateRecord" %>
 
+<%@ Register Assembly="AnnotationValidator" Namespace="AnnotationValidator.DataAnnotationValidator" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Add Record</h2>
     <hr />
@@ -11,11 +13,14 @@
                 <div class="form-group">
                     <label for="firstname"><%# Reference.John.Resources.resources.Names.FirstName %></label>
                     <asp:TextBox runat="server" ID="firstname" ClientIDMode="Static" Text='<%#: BindItem.FirstName %>' CssClass="form-control" placeholder="<%#Reference.John.Resources.resources.Names.FirstName %>" />                
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"   ControlToValidate="firstname" ErrorMessage="<%#Reference.John.Resources.resources.RequiredMessages.FirstName %>"  CssClass="" ><%#Reference.John.Resources.resources.RequiredMessages.FirstName %></asp:RequiredFieldValidator>
+                     <cc1:DataAnnotationValidator ID="FirstNameDataAnnotationValidator" runat="server" ControlToValidate="firstname"
+                         TypeAssembly="Reference.John.Domain" TypeName="Reference.John.Domain.FormSimpleZero" TypeProperty="FirstName"></cc1:DataAnnotationValidator>                 
                 </div>
                 <div class="form-group">
                     <label for="lastName"><%#Reference.John.Resources.resources.Names.LastName %></label>
                     <asp:TextBox runat="server" ID="lastname" ClientIDMode="Static" Text='<%#: BindItem.LastName %>' CssClass="form-control" placeholder="<%#Reference.John.Resources.resources.Names.LastName %>" />                
+                    <cc1:DataAnnotationValidator ID="LastDataAnnotationValidator" runat="server" ControlToValidate="lastname"
+                         TypeAssembly="Reference.John.Domain" TypeName="Reference.John.Domain.FormSimpleZero" TypeProperty="LastName"></cc1:DataAnnotationValidator>  
                 </div>
                 <div class="form-group">
                     <label for="genderid"><%#Reference.John.Resources.resources.Names.GenderId %></label>
@@ -24,6 +29,8 @@
                         SelectedValue='<%# Bind("GenderId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
+                    <cc1:DataAnnotationValidator ID="GenderDataAnnotationValidator" runat="server" ControlToValidate="GenderId"
+                         TypeAssembly="Reference.John.Domain" TypeName="Reference.John.Domain.FormSimpleZero" TypeProperty="GenderId"></cc1:DataAnnotationValidator>  
                 </div>
                 <div class="form-group">
                     <label for="raceid"><%#Reference.John.Resources.resources.Names.RaceId %></label>

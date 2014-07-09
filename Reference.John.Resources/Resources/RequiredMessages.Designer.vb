@@ -83,6 +83,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Gender is required..
+        '''</summary>
+        Public Shared ReadOnly Property GenderId() As String
+            Get
+                Return ResourceManager.GetString("GenderId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Id is required..
         '''</summary>
         Public Shared ReadOnly Property Id() As String

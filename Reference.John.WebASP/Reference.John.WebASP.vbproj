@@ -454,6 +454,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\AnnotationValidator\AnnotationValidator.vbproj">
+      <Project>{3fe45387-a9ac-48e8-bda0-3061cb893408}</Project>
+      <Name>AnnotationValidator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Reference.John.Domain\Reference.John.Domain.vbproj">
       <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>
       <Name>Reference.John.Domain</Name>
