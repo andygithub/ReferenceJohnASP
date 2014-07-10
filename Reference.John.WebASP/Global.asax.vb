@@ -13,7 +13,7 @@ Public Class Global_asax
 
     End Sub
 
-    Dim _logger As Reference.John.Core.Logging.ILogger = New Reference.John.Core.Logging.TrageLogger
+    Dim _logger As Reference.John.Infrastructure.Logging.ILogger = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)()
 
     Private _storage As Reference.John.Repository.Infrastructure.WebDbContextStorage
 

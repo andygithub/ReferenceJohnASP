@@ -168,10 +168,6 @@
       <Project>{cd8e53d2-b177-494b-ae08-1ceef98e43d7}</Project>
       <Name>Reference.John.WebASP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
-      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
-      <Name>Reference.John.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

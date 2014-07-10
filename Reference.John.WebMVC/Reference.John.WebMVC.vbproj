@@ -57,17 +57,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.Ado">
-      <HintPath>..\packages\Glimpse.Ado.1.7.2\lib\net45\Glimpse.Ado.dll</HintPath>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.AspNet">
-      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    <Reference Include="Glimpse.AspNet, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.AspNet.1.9.1\lib\net45\Glimpse.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="Glimpse.Core">
       <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.EF6">
-      <HintPath>..\packages\Glimpse.EF6.1.6.3\lib\net45\Glimpse.EF6.dll</HintPath>
+    <Reference Include="Glimpse.EF6, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.EF6.1.6.4\lib\net45\Glimpse.EF6.dll</HintPath>
     </Reference>
     <Reference Include="Glimpse.Elmah">
       <HintPath>..\packages\Glimpse.Elmah.1.1.1\lib\net40\Glimpse.Elmah.dll</HintPath>
@@ -250,11 +253,7 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="App_Start\UnityMvcActivator.vb" />
-    <Compile Include="Container\CachingInterceptorBehavior.vb" />
-    <Compile Include="Container\CachingResetInterceptorBehavior.vb" />
-    <Compile Include="Container\ContainerFactory.vb" />
     <Compile Include="Container\DefaultUnityInstaller.vb" />
-    <Compile Include="Container\LoggingInterceptorBehavior.vb" />
     <Compile Include="Container\SessionProvider.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\FormController.vb" />
@@ -359,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -385,10 +385,6 @@
       <Project>{c551cbee-2312-4e78-87ec-630c28f3bd87}</Project>
       <Name>Reference.John.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
-      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
-      <Name>Reference.John.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -408,7 +404,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58241</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58241/</IISUrl>
+          <IISUrl>http://localhost:59023/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

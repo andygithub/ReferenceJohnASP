@@ -34,7 +34,7 @@ Imports Microsoft.ApplicationServer.Caching
     <TestMethod()> Public Sub ExecuteGetWithCacheDisabled()
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = False, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -46,8 +46,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
             Assert.IsInstanceOfType(repos, GetType(Mocks.ISimpleRepository))
@@ -66,7 +66,7 @@ Imports Microsoft.ApplicationServer.Caching
     <TestMethod()> Public Sub ExecuteGetWithNoCommandMatch()
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -77,8 +77,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
 
@@ -97,7 +97,7 @@ Imports Microsoft.ApplicationServer.Caching
         Dim entitysets As New List(Of String) From {"SimpleRepository", "Address"}
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -108,8 +108,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
 
@@ -133,7 +133,7 @@ Imports Microsoft.ApplicationServer.Caching
         Dim entitysets As New List(Of String) From {"SimpleRepository", "Address"}
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -144,8 +144,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
 
@@ -171,7 +171,7 @@ Imports Microsoft.ApplicationServer.Caching
         Dim entitysets As New List(Of String) From {"SimpleRepository", "Address"}
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -182,8 +182,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
 
@@ -209,7 +209,7 @@ Imports Microsoft.ApplicationServer.Caching
         Dim entitysets As New List(Of String) From {"SimpleRepository", "Address"}
         Using container As New UnityContainer()
             container.AddNewExtension(Of Interception)()
-            container.RegisterType(GetType(Reference.John.Core.Logging.ILogger), GetType(Reference.John.Core.Logging.TrageLogger))
+            container.RegisterType(GetType(Reference.John.Infrastructure.Logging.ILogger), GetType(Reference.John.Infrastructure.Logging.TrageLogger))
             container.RegisterType(Of Reference.John.Infrastructure.Cache.ICacheProviderConfiguration, Reference.John.Infrastructure.Cache.CacheProviderConfiguration)(New ContainerControlledLifetimeManager,
                                                                                                                          New InjectionFactory(Function(c)
                                                                                                                                                   Dim item As New Reference.John.Infrastructure.Cache.CacheProviderConfiguration With {.IsCachingEnabled = True, .DefaultCachingPolicy = New Reference.John.Infrastructure.Cache.CommandCachingPolicy, .DefaultCache = New Reference.John.Infrastructure.Cache.AppFabricCache(_endpointName, _portNumber)}
@@ -221,8 +221,8 @@ Imports Microsoft.ApplicationServer.Caching
                                       GetType(Mocks.SimpleRepository),
                                       New HierarchicalLifetimeManager,
                                       New Interceptor(Of InterfaceInterceptor)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingInterceptorBehavior)(),
-                                      New InterceptionBehavior(Of Reference.John.WebASP.Container.CachingResetInterceptorBehavior)()
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                      New InterceptionBehavior(Of Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior)()
                                       )
             Dim repos As Mocks.ISimpleRepository = container.Resolve(Of Mocks.ISimpleRepository)()
 

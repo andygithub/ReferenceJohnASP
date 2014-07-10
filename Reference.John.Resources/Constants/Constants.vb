@@ -11,5 +11,7 @@
     Public Const CacheProviderConfigurationDefaultCachingPolicy As String = "CacheProviderConfiguration.DefaultCachingPolicy"
     Public Const CacheProviderConfigurationDefaultCachingPolicyCacheableCommands As String = "CacheProviderConfiguration.DefaultCachingPolicy.CacheableCommands"
 
+    Public Const ContainerInstallerExtension As String = "Container.InstallerExtension"
+
     Public Const HttpContextStorageKey As String = "HttpContextObjectContextStorageKey"
 End Class

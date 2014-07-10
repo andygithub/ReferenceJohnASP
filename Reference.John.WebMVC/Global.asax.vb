@@ -1,4 +1,5 @@
 ﻿Imports System.Web.Optimization
+Imports Microsoft.Practices.Unity
 
 Public Class MvcApplication
     Inherits System.Web.HttpApplication
@@ -9,9 +10,11 @@ Public Class MvcApplication
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
         'unity initialization is taking place in UnityMvcActivator
+        ViewEngines.Engines.Clear()
+        ViewEngines.Engines.Add(New RazorViewEngine())
     End Sub
 
-    Dim _logger As John.Core.Logging.ILogger = New John.Core.Logging.TrageLogger
+    Dim _logger As John.Infrastructure.Logging.ILogger = John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of John.Infrastructure.Logging.ILogger)()
 
     Private _storage As John.Repository.Infrastructure.WebDbContextStorage
 

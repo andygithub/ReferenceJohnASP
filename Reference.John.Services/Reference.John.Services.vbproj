@@ -79,6 +79,10 @@
       <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>
       <Name>Reference.John.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Infrastructure\Reference.John.Infrastructure.vbproj">
+      <Project>{1e42db1b-e1fa-4b69-b94b-82d3f91e09d4}</Project>
+      <Name>Reference.John.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Reference.John.Repository\Reference.John.Repository.vbproj">
       <Project>{46708533-c120-4117-a7d2-b27eb0942790}</Project>
       <Name>Reference.John.Repository</Name>
@@ -86,10 +90,6 @@
     <ProjectReference Include="..\Reference.John.Resources\Reference.John.Resources.vbproj">
       <Project>{583ff127-61c6-431d-8d77-0c632486f9e6}</Project>
       <Name>Reference.John.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
-      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
-      <Name>Reference.John.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

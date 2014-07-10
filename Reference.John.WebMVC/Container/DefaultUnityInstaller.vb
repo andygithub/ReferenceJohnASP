@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.Practices.Unity
 Imports Microsoft.Practices.Unity.InterceptionExtension
-Imports Reference.John.Core
+Imports Reference.John.Infrastructure
 Imports Reference.John.Services
 
 Namespace Container
@@ -29,10 +29,10 @@ Namespace Container
             'Me.Container.RegisterType(GetType(Reference.John.,Core.Logging.ILogger), GetType(Reference.John.,Core.Logging.TrageLogger))
             'using the custom MVC perrequestlifetime,  instance is disposed at request end.
             'Me.Container.RegisterType(GetType(Reference.John.,Core.Logging.ILogger), GetType(Reference.John.,Core.Logging.TrageLogger), New PerRequestLifetimeManager)
-            Me.Container.RegisterType(GetType(John.Core.Logging.ILogger), GetType(John.Core.Logging.TrageLogger))
+            Me.Container.RegisterType(GetType(John.Infrastructure.Logging.ILogger), GetType(John.Infrastructure.Logging.TrageLogger))
             'simple registration attached to an interceptor
-            Me.Container.RegisterType(GetType(John.Services.IValidationService), GetType(John.Services.ValidationSesrvice), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of LoggingInterceptorBehavior)())
-            Me.Container.RegisterType(GetType(John.Services.IWorkFlowService), GetType(John.Services.WorkFlowService), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of LoggingInterceptorBehavior)())
+            Me.Container.RegisterType(GetType(John.Services.IValidationService), GetType(John.Services.ValidationSesrvice), New PerRequestLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of John.Infrastructure.Container.LoggingInterceptorBehavior)())
+            Me.Container.RegisterType(GetType(John.Services.IWorkFlowService), GetType(John.Services.WorkFlowService), New PerRequestLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of John.Infrastructure.Container.LoggingInterceptorBehavior)())
             'registering the connection string instance that would be passed to any repository
             'Me.Container.RegisterInstance(Of String)("connectionStringName", Constants.ConnectionStringKey)
             'factory should only be called the first time and then the instance should be returned all times thereafter.
@@ -62,11 +62,11 @@ Namespace Container
                                    'Me.Container.RegisterType(GetInterfaceType(y), y, y.FullName)
                                    Me.Container.RegisterType(GetInterfaceType(y),
                                                              y,
-                                                             New HierarchicalLifetimeManager,
+                                                             New PerRequestLifetimeManager,
                                                              New Interceptor(Of InterfaceInterceptor)(),
-                                                             New InterceptionBehavior(Of LoggingInterceptorBehavior)(),
-                                                            New InterceptionBehavior(Of John.WebMVC.Container.CachingInterceptorBehavior)(),
-                                                            New InterceptionBehavior(Of John.WebMVC.Container.CachingResetInterceptorBehavior)(),
+                                                             New InterceptionBehavior(Of John.Infrastructure.Container.LoggingInterceptorBehavior)(),
+                                                            New InterceptionBehavior(Of John.Infrastructure.Container.CachingInterceptorBehavior)(),
+                                                            New InterceptionBehavior(Of John.Infrastructure.Container.CachingResetInterceptorBehavior)(),
                                                              New InjectionConstructor(John.Resources.Constants.ConnectionStringKey))
                                End Sub)
             'session registration

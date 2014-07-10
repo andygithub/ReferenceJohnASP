@@ -101,12 +101,23 @@
     <Compile Include="Caching\CacheCommandDefinition.vb" />
     <Compile Include="Caching\CacheProviderConfiguration.vb" />
     <Compile Include="Caching\CacheProviderConfigurationFactory.vb" />
+    <Compile Include="Container\CachingInterceptorBehavior.vb" />
+    <Compile Include="Container\CachingResetInterceptorBehavior.vb" />
     <Compile Include="Caching\CommandCachingPolicy.vb" />
     <Compile Include="Caching\ICache.vb" />
     <Compile Include="Caching\ICacheProviderConfiguration.vb" />
     <Compile Include="Caching\ICachingPolicy.vb" />
     <Compile Include="Caching\FrameworkCache.vb" />
     <Compile Include="Caching\InMemoryCache.vb" />
+    <Compile Include="Container\ContainerFactory.vb" />
+    <Compile Include="Extensions\EnumerableExtensions.vb" />
+    <Compile Include="Extensions\TypeExtensions.vb" />
+    <Compile Include="Logging\BaseLogger.vb" />
+    <Compile Include="Logging\ELLogger.vb" />
+    <Compile Include="Logging\ILogger.vb" />
+    <Compile Include="Container\LoggingInterceptorBehavior.vb" />
+    <Compile Include="Logging\NullLogger.vb" />
+    <Compile Include="Logging\TraceLogger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -116,10 +127,6 @@
     <ProjectReference Include="..\Reference.John.Resources\Reference.John.Resources.vbproj">
       <Project>{583ff127-61c6-431d-8d77-0c632486f9e6}</Project>
       <Name>Reference.John.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
-      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
-      <Name>Reference.John.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

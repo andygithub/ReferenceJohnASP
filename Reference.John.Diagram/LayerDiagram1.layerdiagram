@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c6fe1b40-362f-4cc9-9716-b99f8f5a132a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="26d205cd-585a-4be8-94a7-055ced447a93" name="Reference.John.Infrastructure">
+      <references>
+        <reference Id="8519b15c-3409-4b24-8412-81338f7aa1fb" name="Reference.John.Infrastructure">
+          <ArtifactNode Label="Reference.John.Infrastructure" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/ReferenceJohnASP/Reference.John.Infrastructure/Reference.John.Infrastructure.vbproj&quot;)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Reference.John.Infrastructure)" Label="Reference.John.Infrastructure.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4522922c-de97-48bd-83c7-d20f8476442e" name="Reference.John.Resources">
+      <references>
+        <reference Id="1aeece55-d577-4939-8bf2-d2efcf68c732" name="Reference.John.Resources">
+          <ArtifactNode Label="Reference.John.Resources" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/ReferenceJohnASP/Reference.John.Resources/Reference.John.Resources.vbproj&quot;)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Reference.John.Resources)" Label="Reference.John.Resources.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4df17ca3-e58f-4e28-b8af-580bc09c66f0" name="Reference.John.Model">
+      <references>
+        <reference Id="735b2c2e-4106-4346-ad16-bffd96b311b0" name="Reference.John.Model">
+          <ArtifactNode Label="Reference.John.Model" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/ReferenceJohnASP/Reference.John.Model/Reference.John.Model.vbproj&quot;)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Reference.John.Model)" Label="Reference.John.Model.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="7447b9bd-81e7-4f94-ab6f-67736064455f" name="Reference.John.Repository">
+      <references>
+        <reference Id="7ba3a227-6716-447b-a66b-011313a7e416" name="Reference.John.Repository">
+          <ArtifactNode Label="Reference.John.Repository" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/ReferenceJohnASP/Reference.John.Repository/Reference.John.Repository.vbproj&quot;)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Reference.John.Repository)" Label="Reference.John.Repository.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="3e2fc13a-bac2-4bf2-8aaf-1f8a51b23e00" name="Reference.John.Domain">
+      <references>
+        <reference Id="b1d5082d-55dc-4f73-bd41-878c1a705136" name="Reference.John.Domain">
+          <ArtifactNode Label="Reference.John.Domain" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/ReferenceJohnASP/Reference.John.Domain/Reference.John.Domain.vbproj&quot;)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Reference.John.Domain)" Label="Reference.John.Domain.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

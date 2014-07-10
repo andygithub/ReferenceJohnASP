@@ -47,8 +47,12 @@
     <Reference Include="Elmah">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.Ado">
-      <HintPath>..\packages\Glimpse.Ado.1.7.2\lib\net45\Glimpse.Ado.dll</HintPath>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
     </Reference>
     <Reference Include="Glimpse.AspNet">
       <HintPath>..\packages\Glimpse.AspNet.1.9.1\lib\net45\Glimpse.AspNet.dll</HintPath>
@@ -56,8 +60,9 @@
     <Reference Include="Glimpse.Core">
       <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.EF6">
-      <HintPath>..\packages\Glimpse.EF6.1.6.3\lib\net45\Glimpse.EF6.dll</HintPath>
+    <Reference Include="Glimpse.EF6, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.EF6.1.6.4\lib\net45\Glimpse.EF6.dll</HintPath>
     </Reference>
     <Reference Include="Glimpse.Elmah">
       <HintPath>..\packages\Glimpse.Elmah.1.1.1\lib\net40\Glimpse.Elmah.dll</HintPath>
@@ -374,11 +379,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Container\CachingInterceptorBehavior.vb" />
-    <Compile Include="Container\CachingResetInterceptorBehavior.vb" />
-    <Compile Include="Container\ContainerFactory.vb" />
     <Compile Include="Container\DefaultUnityInstaller.vb" />
-    <Compile Include="Container\LoggingInterceptorBehavior.vb" />
     <Compile Include="Container\SessionProvider.vb" />
     <Compile Include="CreateRecord.aspx.designer.vb">
       <DependentUpon>CreateRecord.aspx</DependentUpon>
@@ -478,10 +479,6 @@
       <Project>{c551cbee-2312-4e78-87ec-630c28f3bd87}</Project>
       <Name>Reference.John.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\References.John.Core\Reference.John.Core.vbproj">
-      <Project>{12d3e1ff-beb9-4b36-be79-b4b849e73f19}</Project>
-      <Name>Reference.John.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -510,7 +507,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>48480</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:48480/</IISUrl>
+          <IISUrl>http://localhost:48482/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

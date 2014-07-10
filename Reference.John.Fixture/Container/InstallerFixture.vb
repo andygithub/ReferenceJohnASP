@@ -22,13 +22,13 @@ Imports Microsoft.Practices.Unity
 
     <TestMethod()> Public Sub InstallerFixture()
         'init contain from factory and determin if that number of registered types is greater than one.
-        Dim _container = Reference.John.WebASP.Container.ContainerFactory.GetConfiguredContainer
+        Dim _container = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer
         Assert.IsNotNull(_container)
         Assert.AreNotEqual(0, _container.Registrations.Count)
     End Sub
 
     <TestMethod()> Public Sub ResolveGenericRepository()
-        Dim _repos = Reference.John.WebASP.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Repository.IRepository)()
+        Dim _repos = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Repository.IRepository)()
         Assert.IsNotNull(_repos)
         Assert.IsInstanceOfType(_repos, GetType(Reference.John.Repository.IRepository))
 
@@ -36,19 +36,19 @@ Imports Microsoft.Practices.Unity
     End Sub
 
     <TestMethod()> <ExpectedException(GetType(ArgumentNullException))> Public Sub NullConstructorParameterCache()
-        Dim _item As New Reference.John.WebASP.Container.CachingInterceptorBehavior(Nothing, Nothing)
+        Dim _item As New Reference.John.Infrastructure.Container.CachingInterceptorBehavior(Nothing, Nothing)
     End Sub
 
     <TestMethod()> <ExpectedException(GetType(ArgumentNullException))> Public Sub NullConstructorParameterLogger()
-        Dim _item As New Reference.John.WebASP.Container.CachingInterceptorBehavior(Reference.John.Infrastructure.Cache.CacheProviderConfigurationFactory.Create, Nothing)
+        Dim _item As New Reference.John.Infrastructure.Container.CachingInterceptorBehavior(Reference.John.Infrastructure.Cache.CacheProviderConfigurationFactory.Create, Nothing)
     End Sub
 
     <TestMethod()> <ExpectedException(GetType(ArgumentNullException))> Public Sub NullConstructorParameterCacheReset()
-        Dim _item As New Reference.John.WebASP.Container.CachingResetInterceptorBehavior(Nothing, Nothing)
+        Dim _item As New Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior(Nothing, Nothing)
     End Sub
 
     <TestMethod()> <ExpectedException(GetType(ArgumentNullException))> Public Sub NullConstructorParameterLoggerReset()
-        Dim _item As New Reference.John.WebASP.Container.CachingResetInterceptorBehavior(Reference.John.Infrastructure.Cache.CacheProviderConfigurationFactory.Create, Nothing)
+        Dim _item As New Reference.John.Infrastructure.Container.CachingResetInterceptorBehavior(Reference.John.Infrastructure.Cache.CacheProviderConfigurationFactory.Create, Nothing)
     End Sub
 
 End Class

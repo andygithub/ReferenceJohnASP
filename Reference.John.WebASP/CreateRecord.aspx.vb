@@ -2,13 +2,13 @@
     Inherits System.Web.UI.Page
 
     Private _repository As Reference.John.Repository.IRepository
-    Private _logger As Reference.John.Core.Logging.ILogger
+    Private _logger As Reference.John.Infrastructure.Logging.ILogger
     Private _service As Reference.John.Services.IWorkFlowService
 
     Private Sub ListRecord_Init(sender As Object, e As EventArgs) Handles Me.Init
-        _repository = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Repository.IRepository)()
-        _logger = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Core.Logging.ILogger)()
-        _service = Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Services.IWorkFlowService)()
+        _repository = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Repository.IRepository)()
+        _logger = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)()
+        _service = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Services.IWorkFlowService)()
         _logger.Info(Reference.John.Resources.Resources.LogMessages.PageInitEnded)
     End Sub
 

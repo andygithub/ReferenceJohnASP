@@ -27,4 +27,39 @@
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Validate Include="LayerDiagram1.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reference.John.Domain\Reference.John.Domain.vbproj">
+      <Name>Reference.John.Domain</Name>
+      <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Infrastructure\Reference.John.Infrastructure.vbproj">
+      <Name>Reference.John.Infrastructure</Name>
+      <Project>{1e42db1b-e1fa-4b69-b94b-82d3f91e09d4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Model\Reference.John.Model.vbproj">
+      <Name>Reference.John.Model</Name>
+      <Project>{564d65ac-1da0-402d-917c-ae249ef41723}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Repository\Reference.John.Repository.vbproj">
+      <Name>Reference.John.Repository</Name>
+      <Project>{46708533-c120-4117-a7d2-b27eb0942790}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.John.Resources\Reference.John.Resources.vbproj">
+      <Name>Reference.John.Resources</Name>
+      <Project>{583ff127-61c6-431d-8d77-0c632486f9e6}</Project>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
