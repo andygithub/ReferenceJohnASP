@@ -41,6 +41,18 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script>
+    //$.ajaxSetup({
+    //error: function(XMLHttpRequest, textStatus, errorThrown) {
+    //alert('global ajax error handler - this should never get hit');
+    //}
+        //});
+    $(document).ajaxError(function (e, jqxhr, settings, exception) {
+        e.stopPropagation();
+        if (jqxhr != null)
+            alert(jqxhr.responseText + '-global message');
+    });
+    </script>    
     @RenderSection("scripts", required:=False)
 </body>
 </html>
