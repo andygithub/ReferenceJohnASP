@@ -15,3 +15,45 @@
 
     Public Const HttpContextStorageKey As String = "HttpContextObjectContextStorageKey"
 End Class
+
+
+Public NotInheritable Class MVCConstants
+
+    Private Sub New()
+
+    End Sub
+
+    Public Const DefaultDateFormatString As String = "{0:d}"
+    Public Const StartDate As String = "Start Date"
+    Public Const EndDate As String = "End Date"
+    Public Const DateCreated As String = "Date Created"
+
+    Public Const PageSize As Integer = 10
+    Public Const GridAction As String = "Grid"
+    Public Const DefaultSortColumn As String = "FormId"
+    Public Const DefaultSortDirection As String = "asc"
+
+    Public Const GenderList As String = "GenderList"
+    Public Const RaceList As String = "RaceList"
+    Public Const RegionList As String = "RegionList"
+    Public Const EthnicityList As String = "EthnicityList"
+    'Public Const Trend As String = "Trend"
+    'Public Const TrendName As String = "TrendName"
+    'Public Const ReleaseId As String = "ReleaseId"
+    'Public Const ReleaseName As String = "ReleaseName"
+
+    Public Const TestManagementReleases As String = "TestManagementReleases"
+
+
+    Public Const DateTextBoxFormatString As String = "yyyy-MM-dd"
+
+    Public Const Message As String = "Message"
+    Public Const DashboardSectionInvalid As String = "InvalidDashboardSection"
+    Public Const HeaderToolbar As String = "HeaderToolbar"
+    Public Const LeftHandNav As String = "LeftHandNav"
+
+    Public Const App_Datauploads As String = "~/App_Data/uploads"
+    Public Const CSVFileType As String = "text/csv"
+
+    Public Const HideNavigation As String = "HideNavigation"
+End Class

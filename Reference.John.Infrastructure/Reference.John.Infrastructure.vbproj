@@ -110,7 +110,6 @@
     <Compile Include="Caching\FrameworkCache.vb" />
     <Compile Include="Caching\InMemoryCache.vb" />
     <Compile Include="Container\ContainerFactory.vb" />
-    <Compile Include="Extensions\EnumerableExtensions.vb" />
     <Compile Include="Extensions\TypeExtensions.vb" />
     <Compile Include="Logging\BaseLogger.vb" />
     <Compile Include="Logging\ELLogger.vb" />

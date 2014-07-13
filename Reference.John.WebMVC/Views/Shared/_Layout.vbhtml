@@ -22,9 +22,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Create", "Index", "Form")</li>
-                    <li>@Html.ActionLink("Edit", "Edit", "Form","ClientTokenFormZero=645DEDAA-6907-E411-AA31-2016D89BBD55")</li>
-                    <li>@Html.ActionLink("List", "List", "Form")</li>
+                    <li>@Html.ActionLink("Create", "Create", "Form")</li>
+                    <li>@Html.ActionLink("Edit", "Edit", "Form", New With {.ClientToken = "85DEB7BC-100A-E411-BE7D-C81F6607333C"}, Nothing)</li>
+                    <li>@Html.ActionLink("List", "Index", "Form")</li>
                     <li>@Html.ActionLink("ThrowError", "ThrowError", "Form")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

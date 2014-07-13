@@ -47,6 +47,7 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 		_maxLength = TypeMapper.GetMaxLength(edmProperty) #>
 	<StringLengthAttribute(<#=_maxLength#>, ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> cannot be longer than <#=_maxLength#> characters.")>
 <# End If #>
+    <Display(name:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#>")>
 <#=codeStringGenerator.SimpleProperty(edmProperty)#><# if edmproperty.name = "DateCreated" orelse edmproperty.name = "LastChangeDate" then #> Implements Interfaces.IEntityDates.<#=edmproperty.name#><# End If #>
 <#
         Next

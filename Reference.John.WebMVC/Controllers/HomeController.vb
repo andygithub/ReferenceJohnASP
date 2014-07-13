@@ -45,7 +45,7 @@
 
     <HttpPost>
     Function ShowAjaxPost(id As String) As ActionResult
-        Return PartialView("SimplePost", New Reference.John.Domain.RegionOptionList With {.Id = id})
+        Return PartialView("SimplePost", New Reference.John.Domain.RegionOptionList With {.RegionId = id})
     End Function
 
 End Class

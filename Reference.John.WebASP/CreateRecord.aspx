@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="genderid"><%#Reference.John.Resources.resources.Names.GenderId %></label>
                     <asp:DropDownList runat="server" ID="GenderId" ClientIDMode="Static" cssclass="form-control"  AppendDataBoundItems="true"
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetGenderOptionList" ItemType="Reference.John.Domain.GenderOptionList"
+                        DataTextField="Name" DataValueField="GenderId" SelectMethod="GetGenderOptionList" ItemType="Reference.John.Domain.GenderOptionList"
                         SelectedValue='<%# Bind("GenderId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label for="raceid"><%#Reference.John.Resources.resources.Names.RaceId %></label>
                     <asp:DropDownList runat="server" ID="raceid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetRaceOptionList" ItemType="Reference.John.Domain.RaceOptionList"
+                        DataTextField="Name" DataValueField="RaceId" SelectMethod="GetRaceOptionList" ItemType="Reference.John.Domain.RaceOptionList"
                         SelectedValue='<%# Bind("RaceId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label for="regionid"><%#Reference.John.Resources.resources.Names.RegionId %></label>
                     <asp:DropDownList runat="server" ID="regionid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetRegionOptionList" ItemType="Reference.John.Domain.RegionOptionList"
+                        DataTextField="Name" DataValueField="RegionId" SelectMethod="GetRegionOptionList" ItemType="Reference.John.Domain.RegionOptionList"
                         SelectedValue='<%# Bind("RegionId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <label for="ethnicityid"><%#Reference.John.Resources.resources.Names.EthnicityId %></label>
                     <asp:DropDownList runat="server" ID="ethnicityid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetEthnicityOptionList" ItemType="Reference.John.Domain.EthnicityOptionList"
+                        DataTextField="Name" DataValueField="EthnicityId" SelectMethod="GetEthnicityOptionList" ItemType="Reference.John.Domain.EthnicityOptionList"
                         SelectedValue='<%# Bind("EthnicityId")  %>' >              
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>

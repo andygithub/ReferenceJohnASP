@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[EthnicityOptionList]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[EthnicityId] INT NOT NULL PRIMARY KEY IDENTITY, 
 	[Name] NVARCHAR(50) NOT NULL, 
 	[SortOrder] INT NOT NULL DEFAULT 1, 
 	[IsActive] INT NOT NULL DEFAULT 1, 
@@ -19,7 +19,7 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
 	@level1type = N'TABLE',
 	@level1name = N'EthnicityOptionList',
 	@level2type = N'COLUMN',
-	@level2name = N'Id'
+	@level2name = N'EthnicityId'
 GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
 	@value = N'Text value of the option list record.',

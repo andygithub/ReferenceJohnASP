@@ -11,6 +11,8 @@ Imports System
 Imports System.Data.Entity
 Imports System.Data.Entity.Infrastructure
 Imports Reference.John.Domain
+Imports System.Data.Entity.Core.Objects
+Imports System.Linq
 
 Partial Public Class Reference_JohnEntities
     Inherits DbContext
@@ -32,17 +34,25 @@ Partial Public Class Reference_JohnEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
+    Public Overridable Property Addresses() As DbSet(Of Address)
+    Public Overridable Property AddressTypeOptionLists() As DbSet(Of AddressTypeOptionList)
+    Public Overridable Property ApplicationExtendedProperties() As DbSet(Of ApplicationExtendedProperty)
     Public Overridable Property EthnicityOptionLists() As DbSet(Of EthnicityOptionList)
     Public Overridable Property FormSimpleZeroes() As DbSet(Of FormSimpleZero)
     Public Overridable Property FormSimpleZeroHistories() As DbSet(Of FormSimpleZeroHistory)
     Public Overridable Property GenderOptionLists() As DbSet(Of GenderOptionList)
     Public Overridable Property RaceOptionLists() As DbSet(Of RaceOptionList)
     Public Overridable Property RegionOptionLists() As DbSet(Of RegionOptionList)
-    Public Overridable Property Addresses() As DbSet(Of Address)
-    Public Overridable Property AddressTypeOptionLists() As DbSet(Of AddressTypeOptionList)
-    Public Overridable Property SearchResults() As DbSet(Of SearchResult)
-    Public Overridable Property ApplicationExtendedProperties() As DbSet(Of ApplicationExtendedProperty)
     Public Overridable Property UserExtendedProperties() As DbSet(Of UserExtendedProperty)
+    Public Overridable Property SearchResults() As DbSet(Of SearchResult)
+
+    Public Overridable Function GetApplicationProperty(applicationId As String, keyId As String) As ObjectResult(Of String)
+        Dim applicationIdParameter As ObjectParameter = If(applicationId IsNot Nothing, New ObjectParameter("ApplicationId", applicationId), New ObjectParameter("ApplicationId", GetType(String)))
+
+        Dim keyIdParameter As ObjectParameter = If(keyId IsNot Nothing, New ObjectParameter("KeyId", keyId), New ObjectParameter("KeyId", GetType(String)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of String)("GetApplicationProperty", applicationIdParameter, keyIdParameter)
+    End Function
 
     Public Overrides Function SaveChanges() As Integer
 		ChangeTracker.DetectChanges()

@@ -27,8 +27,6 @@
     Public Sub InsertFormItem(item As Reference.John.Domain.FormSimpleZero)
 
         If ModelState.IsValid Then
-            item.DateCreated = Now
-            item.LastChangeDate = Now
             item.LastChangeUser = "as"
             'map form view properties into domain object
 

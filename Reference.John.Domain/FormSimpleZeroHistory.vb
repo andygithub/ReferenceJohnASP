@@ -24,6 +24,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="HistoryId")>
+    <Display(name:="History Id")>
     Public Property HistoryId As Integer
 
 	''' <summary>
@@ -31,6 +32,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
+    <Display(name:="Id")>
     Public Property Id As Integer
 
 	''' <summary>
@@ -39,6 +41,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
 	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
+    <Display(name:="First Name")>
     Public Property FirstName As String
 
 	''' <summary>
@@ -47,30 +50,35 @@ Partial Public Class FormSimpleZeroHistory
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
+    <Display(name:="Last Name")>
     Public Property LastName As String
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Gender Id")>
     Public Property GenderId As Nullable(Of Integer)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Race Id")>
     Public Property RaceId As Nullable(Of Integer)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Region Id")>
     Public Property RegionId As Nullable(Of Integer)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Ethnicity Id")>
     Public Property EthnicityId As Nullable(Of Integer)
 
 	''' <summary>
@@ -78,6 +86,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
+    <Display(name:="Date Created")>
     Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
 
 	''' <summary>
@@ -85,6 +94,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
+    <Display(name:="Last Change User")>
     Public Property LastChangeUser As String
 
 	''' <summary>
@@ -92,6 +102,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
+    <Display(name:="Last Change Date")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
 
 	''' <summary>
@@ -99,6 +110,7 @@ Partial Public Class FormSimpleZeroHistory
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
+    <Display(name:="Client Token")>
     Public Property ClientToken As System.Guid
     Public Overridable Property EthnicityOptionList As EthnicityOptionList
     Public Overridable Property GenderOptionList As GenderOptionList

@@ -23,8 +23,9 @@ Partial Public Class AddressTypeOptionList
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
-    Public Property Id As Integer
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="AddressTypeId")>
+    <Display(name:="Address Type Id")>
+    Public Property AddressTypeId As Integer
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
@@ -32,6 +33,7 @@ Partial Public Class AddressTypeOptionList
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Name")>
 	<StringLengthAttribute(50, ErrorMessage:="Name cannot be longer than 50 characters.")>
+    <Display(name:="Name")>
     Public Property Name As String
 
 	''' <summary>
@@ -39,6 +41,7 @@ Partial Public Class AddressTypeOptionList
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="SortOrder")>
+    <Display(name:="Sort Order")>
     Public Property SortOrder As Integer
 
 	''' <summary>
@@ -46,6 +49,7 @@ Partial Public Class AddressTypeOptionList
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="IsActive")>
+    <Display(name:="Is Active")>
     Public Property IsActive As Integer
 
 	''' <summary>
@@ -53,19 +57,30 @@ Partial Public Class AddressTypeOptionList
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="StartDate")>
+    <Display(name:="Start Date")>
     Public Property StartDate As Date
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="End Date")>
     Public Property EndDate As Nullable(Of Date)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
+    <Display(name:="Date Created")>
+    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
+    <Display(name:="Last Change User")>
     Public Property LastChangeUser As String
 
 	''' <summary>
@@ -73,14 +88,8 @@ Partial Public Class AddressTypeOptionList
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
+    <Display(name:="Last Change Date")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
-
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
     Public Overridable Property Addresses As ICollection(Of Address) = New HashSet(Of Address)
 
 End Class

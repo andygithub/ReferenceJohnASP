@@ -13,7 +13,7 @@
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
 	[ClientToken] UNIQUEIDENTIFIER NOT NULL DEFAULT newsequentialid(), 
-	CONSTRAINT [FK_Address_AddressTypeOptionList] FOREIGN KEY ([AddressTypeId]) REFERENCES [AddressTypeOptionList]([Id]) ,
+	CONSTRAINT [FK_Address_AddressTypeOptionList] FOREIGN KEY ([AddressTypeId]) REFERENCES [AddressTypeOptionList]([AddressTypeId]) ,
 	CONSTRAINT [FK_Address_FormSimpleZeroId] FOREIGN KEY ([FormSimpleZeroId]) REFERENCES [FormSimpleZero]([Id]) 
 )
 GO

@@ -18,13 +18,13 @@ Using (values
 	(2, N'Othe', 2, 1, CAST(0x0000A2A600000000 AS DateTime), NULL, N'zero', CAST(0x0000A2A600000000 AS DateTime))
 )
 As Source ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
-On Target.Id = Source.Id
+On Target.EthnicityId = Source.Id
 --update matched rows
 when matched then	
 	update set name = source.name,[SortOrder]=source.[SortOrder], [IsActive]=source.[IsActive], [StartDate]=source.[StartDate], [EndDate]=source.[EndDate], [LastChangeUser]=source.[LastChangeUser], [LastChangeDate]=source.[LastChangeDate]
 --insert if no match
 when not matched then
-	INSERT ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
+	INSERT ([EthnicityId], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
 	VALUES (source.[Id], source.[Name], source.[SortOrder], source.[IsActive], source.[StartDate], source.[EndDate], source.[LastChangeUser], source.[LastChangeDate])
 	;
 
@@ -39,13 +39,13 @@ Using (values
 	(2, N'Female', 2, 1, CAST(0x0000A2A600000000 AS DateTime), NULL, N'zero', CAST(0x0000A2A600000000 AS DateTime))
 )
 As Source ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
-On Target.Id = Source.Id
+On Target.GenderId = Source.Id
 --update matched rows
 when matched then	
 	update set name = source.name,[SortOrder]=source.[SortOrder], [IsActive]=source.[IsActive], [StartDate]=source.[StartDate], [EndDate]=source.[EndDate], [LastChangeUser]=source.[LastChangeUser], [LastChangeDate]=source.[LastChangeDate]
 --insert if no match
 when not matched then
-	INSERT ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
+	INSERT ([GenderId], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
 	VALUES (source.[Id], source.[Name], source.[SortOrder], source.[IsActive], source.[StartDate], source.[EndDate], source.[LastChangeUser], source.[LastChangeDate])
 	;
 
@@ -61,13 +61,13 @@ Using (values
 	(3, N'Purple', 2, 1, CAST(0x0000A2A600000000 AS DateTime), NULL, N'zero', CAST(0x0000A2A600000000 AS DateTime))
 )
 As Source ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
-On Target.Id = Source.Id
+On Target.RaceId = Source.Id
 --update matched rows
 when matched then	
 	update set name = source.name,[SortOrder]=source.[SortOrder], [IsActive]=source.[IsActive], [StartDate]=source.[StartDate], [EndDate]=source.[EndDate], [LastChangeUser]=source.[LastChangeUser], [LastChangeDate]=source.[LastChangeDate]
 --insert if no match
 when not matched then
-	INSERT ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
+	INSERT ([RaceId], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
 	VALUES (source.[Id], source.[Name], source.[SortOrder], source.[IsActive], source.[StartDate], source.[EndDate], source.[LastChangeUser], source.[LastChangeDate])
 	;
 
@@ -84,13 +84,13 @@ Using (values
 	(4, N'South', 3, 1, CAST(0x0000A2A600000000 AS DateTime), NULL, N'zero', CAST(0x0000A2A600000000 AS DateTime))
 )
 As Source ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
-On Target.Id = Source.Id
+On Target.RegionId = Source.Id
 --update matched rows
 when matched then	
 	update set name = source.name,[SortOrder]=source.[SortOrder], [IsActive]=source.[IsActive], [StartDate]=source.[StartDate], [EndDate]=source.[EndDate], [LastChangeUser]=source.[LastChangeUser], [LastChangeDate]=source.[LastChangeDate]
 --insert if no match
 when not matched then
-	INSERT ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
+	INSERT ([RegionId], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
 	VALUES (source.[Id], source.[Name], source.[SortOrder], source.[IsActive], source.[StartDate], source.[EndDate], source.[LastChangeUser], source.[LastChangeDate])
 	;
 
@@ -105,13 +105,13 @@ Using (values
 	(2, N'Residential', 2, 1, CAST(0x0000A2A600000000 AS DateTime), NULL, N'none', CAST(0x0000A2A600000000 AS DateTime))
 )
 As Source ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
-On Target.Id = Source.Id
+On Target.AddressTypeId = Source.Id
 --update matched rows
 when matched then	
 	update set name = source.name,[SortOrder]=source.[SortOrder], [IsActive]=source.[IsActive], [StartDate]=source.[StartDate], [EndDate]=source.[EndDate], [LastChangeUser]=source.[LastChangeUser], [LastChangeDate]=source.[LastChangeDate]
 --insert if no match
 when not matched then
-	INSERT ([Id], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
+	INSERT ([AddressTypeId], [Name], [SortOrder], [IsActive], [StartDate], [EndDate], [LastChangeUser], [LastChangeDate])
 	VALUES (source.[Id], source.[Name], source.[SortOrder], source.[IsActive], source.[StartDate], source.[EndDate], source.[LastChangeUser], source.[LastChangeDate])
 	;
 

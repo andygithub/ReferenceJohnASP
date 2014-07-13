@@ -24,6 +24,7 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FormId")>
+    <Display(name:="Form Id")>
     Public Property FormId As Integer
 
 	''' <summary>
@@ -32,6 +33,7 @@ Partial Public Class SearchResult
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
 	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
+    <Display(name:="First Name")>
     Public Property FirstName As String
 
 	''' <summary>
@@ -40,6 +42,7 @@ Partial Public Class SearchResult
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
 	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
+    <Display(name:="Last Name")>
     Public Property LastName As String
 
 	''' <summary>
@@ -47,24 +50,28 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="GenderId")>
+    <Display(name:="Gender Id")>
     Public Property GenderId As Integer
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Race Id")>
     Public Property RaceId As Nullable(Of Integer)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Region Id")>
     Public Property RegionId As Nullable(Of Integer)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Ethnicity Id")>
     Public Property EthnicityId As Nullable(Of Integer)
 
 	''' <summary>
@@ -72,6 +79,7 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
+    <Display(name:="Date Created")>
     Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
 
 	''' <summary>
@@ -79,6 +87,7 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
+    <Display(name:="Last Change User")>
     Public Property LastChangeUser As String
 
 	''' <summary>
@@ -86,6 +95,7 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
+    <Display(name:="Last Change Date")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
 
 	''' <summary>
@@ -94,6 +104,7 @@ Partial Public Class SearchResult
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="EthnicityName")>
 	<StringLengthAttribute(50, ErrorMessage:="Ethnicity Name cannot be longer than 50 characters.")>
+    <Display(name:="Ethnicity Name")>
     Public Property EthnicityName As String
 
 	''' <summary>
@@ -102,6 +113,7 @@ Partial Public Class SearchResult
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="GenderName")>
 	<StringLengthAttribute(50, ErrorMessage:="Gender Name cannot be longer than 50 characters.")>
+    <Display(name:="Gender Name")>
     Public Property GenderName As String
 
 	''' <summary>
@@ -109,5 +121,6 @@ Partial Public Class SearchResult
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
+    <Display(name:="Client Token")>
     Public Property ClientToken As System.Guid
 End Class

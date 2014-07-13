@@ -12,10 +12,10 @@
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
 	[ClientToken] UNIQUEIDENTIFIER NOT NULL DEFAULT newsequentialid(), 
-	CONSTRAINT [FK_FormSimpleZeroHistory_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([Id]) ,
-	CONSTRAINT [FK_FormSimpleZeroHistory_RaceOptionList] FOREIGN KEY ([RaceId]) REFERENCES [RaceOptionList]([Id]) ,
-	CONSTRAINT [FK_FormSimpleZeroHistory_RegionOptionList] FOREIGN KEY ([RegionId]) REFERENCES [RegionOptionList]([Id]) ,
-	CONSTRAINT [FK_FormSimpleZeroHistory_EthnicityOptionList] FOREIGN KEY ([EthnicityId]) REFERENCES [EthnicityOptionList]([Id]) 
+	CONSTRAINT [FK_FormSimpleZeroHistory_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([GenderId]) ,
+	CONSTRAINT [FK_FormSimpleZeroHistory_RaceOptionList] FOREIGN KEY ([RaceId]) REFERENCES [RaceOptionList]([RaceId]) ,
+	CONSTRAINT [FK_FormSimpleZeroHistory_RegionOptionList] FOREIGN KEY ([RegionId]) REFERENCES [RegionOptionList]([RegionId]) ,
+	CONSTRAINT [FK_FormSimpleZeroHistory_EthnicityOptionList] FOREIGN KEY ([EthnicityId]) REFERENCES [EthnicityOptionList]([EthnicityId]) 
 )
 
 GO

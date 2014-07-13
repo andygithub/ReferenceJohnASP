@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[RaceOptionList]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[RaceId] INT NOT NULL PRIMARY KEY IDENTITY, 
 	[Name] NVARCHAR(50) NOT NULL, 
 	[SortOrder] INT NOT NULL DEFAULT 1, 
 	[IsActive] INT NOT NULL DEFAULT 1, 
@@ -19,7 +19,7 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
 	@level1type = N'TABLE',
 	@level1name = N'RaceOptionList',
 	@level2type = N'COLUMN',
-	@level2name = N'Id'
+	@level2name = N'RaceId'
 GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
 	@value = N'Text value of the option list record.',
