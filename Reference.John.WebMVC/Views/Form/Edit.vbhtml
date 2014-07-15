@@ -1,4 +1,4 @@
-﻿@ModelType Reference.John.Domain.FormSimpleZero
+﻿@ModelType Models.ViewFormSimpleZero
 @Code
     ViewData("Title") = "Data Entry: Edit Item "
 End Code
@@ -32,28 +32,28 @@ End Code
 @Html.LabelFor(Function(model) model.GenderId)
                     </div>
                     <div class="editor-field">
-@Html.DropDownListFor(Function(model) model.GenderId, ViewData(Reference.John.Resources.MVCConstants.GenderList))
+@Html.DropDownListFor(Function(model) model.GenderId, model.GenderList)
 @Html.ValidationMessageFor(Function(model) model.GenderId)
                     </div>
                     <div class="editor-label">
 @Html.LabelFor(Function(model) model.RaceId)
                     </div>
                     <div class="editor-field">
-@Html.DropDownListFor(Function(model) model.RaceId, ViewData(Reference.John.Resources.MVCConstants.RaceList))
+@Html.DropDownListFor(Function(model) model.RaceId,model.RaceList)
 @Html.ValidationMessageFor(Function(model) model.RaceId)
                     </div>
      <div class="editor-label">
          @Html.LabelFor(Function(model) model.RegionId)
      </div>
      <div class="editor-field">
-         @Html.DropDownListFor(Function(model) model.RegionId, ViewData(Reference.John.Resources.MVCConstants.RegionList))
+         @Html.DropDownListFor(Function(model) model.RegionId, model.RegionList)
          @Html.ValidationMessageFor(Function(model) model.RegionId)
      </div>
      <div class="editor-label">
          @Html.LabelFor(Function(model) model.EthnicityId)
      </div>
      <div class="editor-field">
-         @Html.DropDownListFor(Function(model) model.EthnicityId, ViewData(Reference.John.Resources.MVCConstants.EthnicityList))
+         @Html.DropDownListFor(Function(model) model.EthnicityId, model.EthnicityList)
          @Html.ValidationMessageFor(Function(model) model.EthnicityId)
      </div>
             <p/>

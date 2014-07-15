@@ -10,6 +10,8 @@ Public Class MvcApplication
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
         'unity initialization is taking place in UnityMvcActivator
+        'automapper init
+        MappingConfig.RegisterDomainMapping()
         ViewEngines.Engines.Clear()
         ViewEngines.Engines.Add(New RazorViewEngine())
     End Sub

@@ -13,8 +13,6 @@ Outstanding items:
 	more unit tests
 
 	add cache provider using the standard .net framework library
-
-	finish mvc ui project
 	
 	finish web api/angular ui project
 

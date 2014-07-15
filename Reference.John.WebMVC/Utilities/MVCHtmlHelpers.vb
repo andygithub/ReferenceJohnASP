@@ -48,8 +48,8 @@ Namespace Extensions
         Public Function ToDelimitedText(Of T)(objects As IEnumerable(Of T)) As String
             ' Get list of object properties
             Dim _out As New Text.StringBuilder
-            Dim properties As PropertyInfo() = GetType(T).GetProperties()
-            Dim _value As String = properties(1).GetAttribute(Of DisplayAttribute)(False).GetName
+            Dim properties = GetType(T).GetProperties().Where(Function(x) x.PropertyType Is GetType(String) OrElse x.PropertyType Is GetType(DateTime) OrElse x.PropertyType Is GetType(Integer) _
+                                                                  OrElse x.PropertyType Is GetType(Guid) OrElse x.PropertyType Is GetType(Nullable(Of Integer)))
             properties.ToList.ForEach(Sub(x)
                                           Dim attr = x.GetAttribute(Of DisplayAttribute)(False)
                                           If attr Is Nothing Then

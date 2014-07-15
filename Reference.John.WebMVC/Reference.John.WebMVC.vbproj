@@ -47,6 +47,12 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="DynamicQuery">
       <HintPath>..\packages\DynamicQuery.dll</HintPath>
     </Reference>
@@ -255,6 +261,7 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\IdentityConfig.vb" />
+    <Compile Include="App_Start\MappingConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="App_Start\UnityMvcActivator.vb" />
@@ -269,6 +276,8 @@
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\GridModel.vb" />
     <Compile Include="Models\IdentityModels.vb" />
+    <Compile Include="Models\ViewFormSimpleZero.vb" />
+    <Compile Include="Models\ViewSearchResult.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
@@ -401,6 +410,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

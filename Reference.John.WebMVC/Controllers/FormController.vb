@@ -1,7 +1,10 @@
 ﻿Imports Reference.John.Repository
 Imports Reference.John.WebMVC.Extensions
 Imports System.Linq.Dynamic
+Imports System.Data.Entity
 Imports Reference.John.WebMVC.Models
+Imports AutoMapper.QueryableExtensions
+
 
 Namespace Controllers
     Public Class FormController
@@ -21,16 +24,25 @@ Namespace Controllers
 
 
         Function Create() As ActionResult
-            PopulatedDropDowns()
-            Return View()
+            Return View(InitializeViewModel())
         End Function
 
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(ByVal item As Reference.John.Domain.FormSimpleZero) As ActionResult
+        Function Create(ByVal item As Models.ViewFormSimpleZero) As ActionResult
             If ModelState.IsValid Then
-                item.LastChangeUser = "ui"
-                _repository.Add(item)
+                'map view model into domain model 
+                Dim _item As New Reference.John.Domain.FormSimpleZero
+                With _item
+                    .FirstName = item.FirstName
+                    .LastName = item.LastName
+                    .GenderId = item.GenderId
+                    .RaceId = item.RaceId
+                    .RegionId = item.RegionId
+                    .EthnicityId = item.EthnicityId
+                    .LastChangeUser = "ui"
+                End With
+                _repository.Add(_item)
                 Try
                     _repository.UnitOfWork.SaveChanges()
                     Return RedirectToAction("Index")
@@ -45,22 +57,21 @@ Namespace Controllers
 
                 End Try
             End If
-            PopulatedDropDowns()
+            UpdateViewModel(item)
             Return View(item)
         End Function
 
-        Function Edit(ByVal ClientToken As Guid) As ActionResult
-            Dim item As Reference.John.Domain.FormSimpleZero = _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken)
-            If IsNothing(item) Then
-                Return HttpNotFound()
-            End If
-            PopulatedDropDowns()
+        Function Edit(Optional ByVal ClientToken As Guid = Nothing) As ActionResult
+            Dim item As Models.ViewFormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken) _
+                                    .Project.To(Of Models.ViewFormSimpleZero)().FirstOrDefault()
+            If IsNothing(item) Then Return HttpNotFound()
+            UpdateViewModel(item)
             Return View(item)
         End Function
 
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(ByVal item As Reference.John.Domain.FormSimpleZero) As ActionResult
+        Function Edit(ByVal item As Models.ViewFormSimpleZero) As ActionResult
             If ModelState.IsValid Then
                 Dim _item As Reference.John.Domain.FormSimpleZero = _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken)
                 If IsNothing(item) Then Return HttpNotFound()
@@ -78,7 +89,7 @@ Namespace Controllers
                 _repository.UnitOfWork.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            PopulatedDropDowns()
+            UpdateViewModel(item)
             Return View(item)
         End Function
 
@@ -113,23 +124,32 @@ Namespace Controllers
                 sortdir = Reference.John.Resources.MVCConstants.DefaultSortDirection
             End If
 
-            Dim model = New GridModel(Of Reference.John.Domain.SearchResult)
-            model.Data = (From n In _repository.GetQuery(Of Reference.John.Domain.SearchResult).OrderBy(sort & " " & sortdir).Skip(pageNo * Reference.John.Resources.MVCConstants.PageSize).Take(Reference.John.Resources.MVCConstants.PageSize)).ToList
+            Dim model = New GridModel(Of Models.SearchResult)
+            model.Data = (From n In _repository.GetQuery(Of Reference.John.Domain.SearchResult).OrderBy(sort & " " & sortdir).Skip(pageNo * Reference.John.Resources.MVCConstants.PageSize).Take(Reference.John.Resources.MVCConstants.PageSize)).AsNoTracking.Project.To(Of Models.SearchResult)().ToList
             model.TotalRows = _repository.Count(Of Reference.John.Domain.SearchResult)()
             model.CurrentPage = pageNo
             Return PartialView(model)
         End Function
 
         Public Function Download() As FileResult
-            Return File(Encoding.UTF8.GetBytes(_repository.GetAll(Of Reference.John.Domain.FormSimpleZero).ToDelimitedText), Reference.John.Resources.MVCConstants.CSVFileType, "forms.csv")
+            Return File(Encoding.UTF8.GetBytes(_repository.GetQuery(Of Reference.John.Domain.SearchResult).AsNoTracking.Project.To(Of Models.SearchResult)().ToDelimitedText), Reference.John.Resources.MVCConstants.CSVFileType, "forms.csv")
         End Function
 
-        Private Sub PopulatedDropDowns()
-            ViewData(Reference.John.Resources.MVCConstants.GenderList) = _repository.GetAll(Of Reference.John.Domain.GenderOptionList).ToSelectList(Function(x) x.GenderId, Function(x) x.Name)
-            ViewData(Reference.John.Resources.MVCConstants.RaceList) = _repository.GetAll(Of Reference.John.Domain.RaceOptionList).ToSelectList(Function(x) x.RaceId, Function(x) x.Name)
-            ViewData(Reference.John.Resources.MVCConstants.RegionList) = _repository.GetAll(Of Reference.John.Domain.RegionOptionList).ToSelectList(Function(x) x.RegionId, Function(x) x.Name)
-            ViewData(Reference.John.Resources.MVCConstants.EthnicityList) = _repository.GetAll(Of Reference.John.Domain.EthnicityOptionList).ToSelectList(Function(x) x.EthnicityId, Function(x) x.Name)
-        End Sub
+        Private Function InitializeViewModel() As Models.ViewFormSimpleZero
+            Return UpdateViewModel(New Models.ViewFormSimpleZero)
+        End Function
+
+        Private Function UpdateViewModel(item As Models.ViewFormSimpleZero) As Models.ViewFormSimpleZero
+            With item
+                'TODO look at caching the select list as well as the EF item. also look at apply autofilter to reduce fields 
+                .GenderList = _repository.GetAll(Of Reference.John.Domain.GenderOptionList).ToSelectList(Function(x) x.GenderId, Function(x) x.Name)
+                .RaceList = _repository.GetAll(Of Reference.John.Domain.RaceOptionList).ToSelectList(Function(x) x.RaceId, Function(x) x.Name)
+                .RegionList = _repository.GetAll(Of Reference.John.Domain.RegionOptionList).ToSelectList(Function(x) x.RegionId, Function(x) x.Name)
+                .EthnicityList = _repository.GetAll(Of Reference.John.Domain.EthnicityOptionList).ToSelectList(Function(x) x.EthnicityId, Function(x) x.Name)
+            End With
+            Return item
+        End Function
+
 
     End Class
 
