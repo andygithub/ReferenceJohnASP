@@ -11,14 +11,27 @@ Namespace Controllers
     Public Class FormController
         Inherits System.Web.Mvc.Controller
 
-        Private _repository As IRepository
-        Private _logger As ILogger
+        Private _lazyrepository As Lazy(Of IRepository)
+        Private _lazylogger As Lazy(Of ILogger)
 
-        Public Sub New(repository As IRepository, logger As ILogger)
+        'have these properties to hide the lazy usage from within controller 
+        Private ReadOnly Property _repository As IRepository
+            Get
+                Return _lazyrepository.Value
+            End Get
+        End Property
+
+        Private ReadOnly Property _logger As ILogger
+            Get
+                Return _lazylogger.Value
+            End Get
+        End Property
+
+        Public Sub New(repository As Lazy(Of IRepository), logger As Lazy(Of ILogger))
             If repository Is Nothing Then Throw New ArgumentNullException("repository")
             If logger Is Nothing Then Throw New ArgumentNullException("logger")
-            _repository = repository
-            _logger = logger
+            _lazyrepository = repository
+            _lazylogger = logger
         End Sub
 
 
