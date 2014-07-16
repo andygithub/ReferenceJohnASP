@@ -18,6 +18,7 @@ End Code
         </div>
     </div>
 </div>
+@Section Scripts
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -30,3 +31,4 @@ End Code
         });
     });
 </script>
+end section

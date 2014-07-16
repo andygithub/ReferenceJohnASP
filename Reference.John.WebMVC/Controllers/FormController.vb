@@ -76,9 +76,16 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Edit(ByVal item As Models.ViewFormSimpleZero) As ActionResult
             If ModelState.IsValid Then
-                Dim _item As Reference.John.Domain.FormSimpleZero = _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken)
+                'load with not tracking for attachment purposees and to set the original value of the rowversion to the value from the client.
+                'the asnotracking on the lookup and the attach rather than the update are for concurrency purposes and so that the rowversion from the 
+                'browser client will be pushed into the entity as the orginal version rather than whatever value is loaded from the data store
+                'http://stackoverflow.com/questions/21994266/concurrency-check-with-web-api-not-checking
+                'http://stackoverflow.com/questions/10353589/how-to-handle-ef-4-3-1-setting-modified-a-rowversion-row
+                Dim _item As Reference.John.Domain.FormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken).AsNoTracking.FirstOrDefault '_repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken)
                 If IsNothing(item) Then Return HttpNotFound()
                 'map posted properties into domain model
+                Dim _temp = New Byte() {&H20, &H20, &H20, &H20, &H20, &H20, &H20, &H20}
+
                 With _item
                     .FirstName = item.FirstName
                     .LastName = item.LastName
@@ -86,9 +93,10 @@ Namespace Controllers
                     .RaceId = item.RaceId
                     .RegionId = item.RegionId
                     .EthnicityId = item.EthnicityId
-                    .LastChangeUser = "ui"
+                    .RowVersion = item.RowVersion
+                    .LastChangeUser = "ui" & Now.Minute
                 End With
-                _repository.Update(_item)
+                _repository.Attach(_item)
                 Try
                     _repository.UnitOfWork.SaveChanges()
                     Return RedirectToAction("Index")

@@ -28,7 +28,6 @@
     End Function
 
     Public Sub UpdateFormItem(ClientToken As Guid, RowVersion As Byte())
-        Dim i = Request.Form
         Dim _item As Reference.John.Domain.FormSimpleZero = Nothing
         _item = _repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken)
         'this is done in case invalid items or items that don't have security access are passed.
@@ -41,6 +40,7 @@
         If ModelState.IsValid Then
             _item.LastChangeUser = "web user" & Now.Minute
             Try
+                _repository.Update(_item)
                 _repository.UnitOfWork.SaveChanges()
                 'redirect here or show success message
             Catch ex As Entity.Infrastructure.DbUpdateConcurrencyException

@@ -121,6 +121,8 @@ Public Class GenericRepository
         End If
 
         DbContext.Set(Of TEntity)().Attach(entity)
+        'assume that when attached an entity it is modified,  this has been the case for currently tested scenarios
+        DbContext.Entry(entity).State = EntityState.Modified
     End Sub
 
     Public Sub Delete(Of TEntity As Class)(entity As TEntity) Implements IRepository.Delete
@@ -160,6 +162,10 @@ Public Class GenericRepository
         If DirectCast(DbContext, IObjectContextAdapter).ObjectContext.TryGetObjectByKey(key, originalItem) Then
             DirectCast(DbContext, IObjectContextAdapter).ObjectContext.ApplyCurrentValues(key.EntitySetName, entity)
         End If
+        Dim _item = DbContext.Entry(entity)
+        Dim _val = _item.State
+        Dim _val2 = _item.Property("RowVersion")
+        'Dim _item = DirectCast(DbContext, IObjectContextAdapter).ObjectContext.ge
     End Sub
 
     Public Function Find(Of TEntity As Class)(criteria As Expression(Of Func(Of TEntity, Boolean))) As IEnumerable(Of TEntity) Implements IRepository.Find
