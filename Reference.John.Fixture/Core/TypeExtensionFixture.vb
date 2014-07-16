@@ -9,6 +9,7 @@
                                                                                                                                                                                     Dim obj As Object = Activator.CreateInstance(x)
                                                                                                                                                                                     Assert.IsNotNull(obj)
                                                                                                                                                                                 Catch ex As MissingMethodException
+                                                                                                                                                                                Catch ex As Reflection.TargetInvocationException
                                                                                                                                                                                 End Try
                                                                                                                                                                             End Sub)
     End Sub

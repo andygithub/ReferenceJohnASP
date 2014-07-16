@@ -74,5 +74,7 @@ SET IDENTITY_INSERT [dbo].[Address] ON
 GO
 INSERT [dbo].[Address] ([Id], [FormSimpleZeroId], [AddressTypeId], [AddressLine1], [AddressLine2], [AddressLine3], [City], [State], [Zip], [DateCreated], [LastChangeUser], [LastChangeDate]) VALUES (1, 5, 2, N'300 corp circle', NULL, NULL, N'camp hill', N'pa', N'17011', CAST(0x0000A2A600000000 AS DateTime), N'unit', CAST(0x0000A2A600000000 AS DateTime))
 GO
+INSERT [dbo].[Address] ([Id], [FormSimpleZeroId], [AddressTypeId], [AddressLine1], [AddressLine2], [AddressLine3], [City], [State], [Zip], [DateCreated], [LastChangeUser], [LastChangeDate]) VALUES (2, 4, 2, N'301 corp circle', NULL, NULL, N'camp hill', N'pa', N'17011', CAST(0x0000A2A600000000 AS DateTime), N'unit', CAST(0x0000A2A600000000 AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[Address] OFF
 GO

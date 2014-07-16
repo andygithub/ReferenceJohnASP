@@ -533,7 +533,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
           <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
           <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
-          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="AddressTypeOptionList">
           <Key>
@@ -598,7 +598,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="GenderOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_GenderOptionList" FromRole="FormSimpleZero" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_RaceOptionList" FromRole="FormSimpleZero" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" FromRole="FormSimpleZero" ToRole="FormEntity_xref" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
@@ -621,7 +621,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="GenderOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="FormSimpleZeroHistory" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="FormSimpleZeroHistory" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="FormSimpleZeroHistory" ToRole="RegionOptionList" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="GenderOptionList">
           <Key>
@@ -843,7 +843,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_Entity" FromRole="Entity" ToRole="FormEntity_xref" />
         </EntityType>
         <EntityType Name="FormEntity_xref">
@@ -863,7 +863,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <NavigationProperty Name="Entity" Relationship="Reference.John.Model.FK_FormEntity_xref_Entity" FromRole="FormEntity_xref" ToRole="Entity" />
           <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" FromRole="FormEntity_xref" ToRole="FormSimpleZero" />
         </EntityType>

@@ -65,6 +65,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to The record you attempted to edit was modified by another user after you got the original value. The edit operation was canceled.  The data that you have entered is still shown below..
+        '''</summary>
+        Public Shared ReadOnly Property ConcurrencyException() As String
+            Get
+                Return ResourceManager.GetString("ConcurrencyException", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Item with id {0} was not found.
         '''</summary>
         Public Shared ReadOnly Property ItemNotFound() As String

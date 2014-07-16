@@ -3,7 +3,7 @@
     <h2>List Records</h2>
     <hr />
     <div class="well">
-     <asp:GridView ID="FormsGrid" runat="server" AutoGenerateColumns="false" ItemType="Reference.John.Domain.SearchResult" DataKeyNames="ClientToken" SelectMethod="GetForms"
+     <asp:GridView ID="FormsGrid" runat="server" AutoGenerateColumns="false" ItemType="Reference.John.WebAsp.Models.SearchResult" DataKeyNames="ClientToken" SelectMethod="GetForms"
          AllowPaging="true" AllowSorting="true" PageSize="10" CssClass="table table-striped table-bordered table-condensed">
     <Columns>
       <asp:BoundField DataField="FormID" HeaderText="ID" SortExpression="FormID" />
@@ -11,8 +11,9 @@
       <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
       <asp:BoundField DataField="EthnicityName" HeaderText="Ethnicity" SortExpression="EthnicityName" />
       <asp:BoundField DataField="GenderName" HeaderText="Gender" SortExpression="GenderName" />
-        <asp:BoundField DataField="LastChangeDate" HeaderText="Last Change" SortExpression="LastChangeDate" DataFormatString="{0:d}" />
+        <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" DataFormatString="{0:d}" />
         <asp:BoundField DataField="ClientToken" HeaderText="Client Token" SortExpression="ClientToken" />
+        <ASP:HYPERLINKFIELD text="Edit" datanavigateurlfields="ClientToken" datanavigateurlformatstring="EditRecord?ClientTokenFormZero={0}"></ASP:HYPERLINKFIELD> 
     </Columns>
          <EmptyDataTemplate>
                  No categories found.

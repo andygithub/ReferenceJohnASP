@@ -1,4 +1,5 @@
-﻿
+﻿Imports System.Data.Entity
+Imports AutoMapper.QueryableExtensions
 
 Public Class ListRecord
     Inherits System.Web.UI.Page
@@ -23,8 +24,8 @@ Public Class ListRecord
         _logger = Nothing
     End Sub
 
-    Public Function GetForms() As IQueryable(Of Reference.John.Domain.SearchResult)
-        Return _repository.GetQuery(Of Reference.John.Domain.SearchResult)()
+    Public Function GetForms() As IQueryable(Of Models.SearchResult)
+        Return _repository.GetQuery(Of Reference.John.Domain.SearchResult)().AsNoTracking.Project.To(Of Models.SearchResult)()
     End Function
 
 End Class

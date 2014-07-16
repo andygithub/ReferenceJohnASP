@@ -10,7 +10,8 @@ Public Class Global_asax
         ' Fires when the application is started
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
-
+        'automapper init
+        MappingConfig.RegisterDomainMapping()
     End Sub
 
     Dim _logger As Reference.John.Infrastructure.Logging.ILogger = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)()

@@ -7,12 +7,11 @@
         ForeColor="Red" HeaderText="Please check the following errors:" />
 
     <asp:FormView runat="server" ID="editForm" DefaultMode="Edit" UpdateMethod="UpdateFormItem" SelectMethod="SelectFormItem" ItemType="Reference.John.Domain.FormSimpleZero"
-        DataKeyNames="ClientToken">
+        DataKeyNames="ClientToken,RowVersion">
         <EditItemTemplate>
                 <div class="form-group">
                     <label for="firstname"><%# Reference.John.Resources.resources.Names.FirstName %></label>
                     <asp:TextBox runat="server" ID="firstname" ClientIDMode="Static" Text='<%#: BindItem.FirstName %>' CssClass="form-control" placeholder="<%#Reference.John.Resources.resources.Names.FirstName %>" />                
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"   ControlToValidate="firstname" ErrorMessage="<%#Reference.John.Resources.resources.RequiredMessages.FirstName %>"  CssClass="" ><%#Reference.John.Resources.resources.RequiredMessages.FirstName %></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="lastName"><%#Reference.John.Resources.resources.Names.LastName %></label>
@@ -21,7 +20,7 @@
                 <div class="form-group">
                     <label for="genderid"><%#Reference.John.Resources.resources.Names.GenderId %></label>
                     <asp:DropDownList runat="server" ID="GenderId" ClientIDMode="Static" cssclass="form-control"  AppendDataBoundItems="true"
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetGenderOptionList" ItemType="Reference.John.Domain.GenderOptionList"
+                        DataTextField="Name" DataValueField="GenderId" SelectMethod="GetGenderOptionList" ItemType="Reference.John.Domain.GenderOptionList"
                         SelectedValue='<%# Bind("GenderId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -29,7 +28,7 @@
                 <div class="form-group">
                     <label for="raceid"><%#Reference.John.Resources.resources.Names.RaceId %></label>
                     <asp:DropDownList runat="server" ID="raceid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetRaceOptionList" ItemType="Reference.John.Domain.RaceOptionList"
+                        DataTextField="Name" DataValueField="RaceId" SelectMethod="GetRaceOptionList" ItemType="Reference.John.Domain.RaceOptionList"
                         SelectedValue='<%# Bind("RaceId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -37,7 +36,7 @@
                 <div class="form-group">
                     <label for="regionid"><%#Reference.John.Resources.resources.Names.RegionId %></label>
                     <asp:DropDownList runat="server" ID="regionid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetRegionOptionList" ItemType="Reference.John.Domain.RegionOptionList"
+                        DataTextField="Name" DataValueField="RegionId" SelectMethod="GetRegionOptionList" ItemType="Reference.John.Domain.RegionOptionList"
                         SelectedValue='<%# Bind("RegionId")  %>' >                
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>
@@ -45,7 +44,7 @@
                 <div class="form-group">
                     <label for="ethnicityid"><%#Reference.John.Resources.resources.Names.EthnicityId %></label>
                     <asp:DropDownList runat="server" ID="ethnicityid" ClientIDMode="Static" cssclass="form-control" AppendDataBoundItems="true" 
-                        DataTextField="Name" DataValueField="Id" SelectMethod="GetEthnicityOptionList" ItemType="Reference.John.Domain.EthnicityOptionList"
+                        DataTextField="Name" DataValueField="EthnicityId" SelectMethod="GetEthnicityOptionList" ItemType="Reference.John.Domain.EthnicityOptionList"
                         SelectedValue='<%# Bind("EthnicityId")  %>' >              
                             <asp:ListItem Text="" Value="" Selected="True" />
                         </asp:DropDownList>

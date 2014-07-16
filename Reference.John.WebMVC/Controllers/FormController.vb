@@ -4,6 +4,7 @@ Imports System.Linq.Dynamic
 Imports System.Data.Entity
 Imports Reference.John.WebMVC.Models
 Imports AutoMapper.QueryableExtensions
+Imports Reference.John.Infrastructure.Logging
 
 
 Namespace Controllers
@@ -11,10 +12,13 @@ Namespace Controllers
         Inherits System.Web.Mvc.Controller
 
         Private _repository As IRepository
+        Private _logger As ILogger
 
-        Public Sub New(repository As IRepository)
+        Public Sub New(repository As IRepository, logger As ILogger)
             If repository Is Nothing Then Throw New ArgumentNullException("repository")
+            If logger Is Nothing Then Throw New ArgumentNullException("logger")
             _repository = repository
+            _logger = logger
         End Sub
 
 
@@ -54,7 +58,6 @@ Namespace Controllers
                         Next
                     Next
                     Throw
-
                 End Try
             End If
             UpdateViewModel(item)
@@ -86,8 +89,13 @@ Namespace Controllers
                     .LastChangeUser = "ui"
                 End With
                 _repository.Update(_item)
-                _repository.UnitOfWork.SaveChanges()
-                Return RedirectToAction("Index")
+                Try
+                    _repository.UnitOfWork.SaveChanges()
+                    Return RedirectToAction("Index")
+                Catch ex As Entity.Infrastructure.DbUpdateConcurrencyException
+                    'probably log this execption since it should be a fairly rare occurence for support purposes.
+                    ModelState.AddModelError("", Reference.John.Resources.Resources.ValidationMessages.ConcurrencyException)
+                End Try
             End If
             UpdateViewModel(item)
             Return View(item)
