@@ -11,6 +11,7 @@
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
 	[ClientToken] UNIQUEIDENTIFIER NOT NULL DEFAULT newsequentialid(), 
+	[RowVersion] ROWVERSION NULL, 
 	CONSTRAINT [FK_FormSimpleZero_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([GenderId]) ,
 	CONSTRAINT [FK_FormSimpleZero_RaceOptionList] FOREIGN KEY ([RaceId]) REFERENCES [RaceOptionList]([RaceId]) ,
 	CONSTRAINT [FK_FormSimpleZero_RegionOptionList] FOREIGN KEY ([RegionId]) REFERENCES [RegionOptionList]([RegionId]) ,
@@ -37,9 +38,7 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
 	@level2name = 'FirstName'
 GO
 
-GO
 
-GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
 	@value = N'Date when the consumer form record was created.',
 	@level0type = N'SCHEMA',

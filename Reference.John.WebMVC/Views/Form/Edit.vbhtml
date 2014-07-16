@@ -12,6 +12,7 @@ End Code
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(True)
                 @Html.HiddenFor(Function(model) model.ClientToken)
+                @Html.HiddenFor(Function(model) model.RowVersion)
 @<fieldset>
                     <legend>Form Zero</legend>
                     <div class="editor-label">

@@ -45,6 +45,8 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property RegionOptionLists() As DbSet(Of RegionOptionList)
     Public Overridable Property UserExtendedProperties() As DbSet(Of UserExtendedProperty)
     Public Overridable Property SearchResults() As DbSet(Of SearchResult)
+    Public Overridable Property Entities() As DbSet(Of Entity)
+    Public Overridable Property FormEntity_xref() As DbSet(Of FormEntity_xref)
 
     Public Overridable Function GetApplicationProperty(applicationId As String, keyId As String) As ObjectResult(Of String)
         Dim applicationIdParameter As ObjectParameter = If(applicationId IsNot Nothing, New ObjectParameter("ApplicationId", applicationId), New ObjectParameter("ApplicationId", GetType(String)))

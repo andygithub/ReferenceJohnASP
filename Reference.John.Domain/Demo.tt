@@ -40,7 +40,7 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 	''' <#=TypeMapper.GetSummaryDescription(edmProperty)#>
 	''' </summary>
 	''' <remarks><#=TypeMapper.GetDetailedDescription(edmProperty)#></remarks>
-<# if Not TypeMapper.IsNullable(edmProperty) andalso edmproperty.name <> "LastChangeUser" then #>
+<# if Not TypeMapper.IsNullable(edmProperty) andalso edmproperty.name <> "LastChangeUser" andalso edmproperty.name <> "RowVersion" then #>
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="<#=edmProperty.Name#>")>
 <# End If #>
 <# if TypeMapper.IsMaxLengthSet(edmProperty) then 

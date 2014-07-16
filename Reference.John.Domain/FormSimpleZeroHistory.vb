@@ -112,6 +112,13 @@ Partial Public Class FormSimpleZeroHistory
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
     <Display(name:="Client Token")>
     Public Property ClientToken As System.Guid
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Row Version")>
+    Public Property RowVersion As Byte()
     Public Overridable Property EthnicityOptionList As EthnicityOptionList
     Public Overridable Property GenderOptionList As GenderOptionList
     Public Overridable Property RaceOptionList As RaceOptionList

@@ -74,6 +74,8 @@
     <Build Include="GetApplicationProperty.sql" />
     <Build Include="ELMAH.sql" />
     <Build Include="SearchResults.sql" />
+    <Build Include="Entity.sql" />
+    <Build Include="FormEntity_xref.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Reference.John.Database.refactorlog" />

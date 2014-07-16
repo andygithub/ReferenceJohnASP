@@ -186,6 +186,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.vb" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
+    <Compile Include="Filters\ValidateModelAttribute.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

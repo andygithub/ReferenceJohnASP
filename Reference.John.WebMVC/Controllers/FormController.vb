@@ -154,3 +154,37 @@ Namespace Controllers
     End Class
 
 End Namespace
+
+'code for more robust concurrency UI - http://msdn.microsoft.com/en-us/library/ms182776.aspx
+
+'Try
+'	If ModelState.IsValid Then
+'		db.Entry(department).State = EntityState.Modified
+'		Await db.SaveChangesAsync()
+'		Return RedirectToAction("Index")
+'	End If
+'Catch ex As DbUpdateConcurrencyException
+'Dim entry = ex.Entries.[Single]()
+'Dim clientValues = DirectCast(entry.Entity, Department)
+'Dim databaseEntry = entry.GetDatabaseValues()
+'	If databaseEntry Is Nothing Then
+'		ModelState.AddModelError(String.Empty, "Unable to save changes. The department was deleted by another user.")
+'	Else
+'Dim databaseValues = DirectCast(databaseEntry.ToObject(), Department)
+
+'		If databaseValues.Name <> clientValues.Name Then
+'			ModelState.AddModelError("Name", "Current value: " + databaseValues.Name)
+'		End If
+'		If databaseValues.Budget <> clientValues.Budget Then
+'			ModelState.AddModelError("Budget", "Current value: " + [String].Format("{0:c}", databaseValues.Budget))
+'		End If
+'		If databaseValues.StartDate <> clientValues.StartDate Then
+'			ModelState.AddModelError("StartDate", "Current value: " + [String].Format("{0:d}", databaseValues.StartDate))
+'		End If
+'		If databaseValues.InstructorID <> clientValues.InstructorID Then
+'			ModelState.AddModelError("InstructorID", "Current value: " + db.Instructors.Find(databaseValues.InstructorID).FullName)
+'		End If
+'		ModelState.AddModelError(String.Empty, "The record you attempted to edit " + "was modified by another user after you got the original value. The " + "edit operation was canceled and the current values in the database " + "have been displayed. If you still want to edit this record, click " + "the Save button again. Otherwise click the Back to List hyperlink.")
+'		department.RowVersion = databaseValues.RowVersion
+'	End If
+'End Try

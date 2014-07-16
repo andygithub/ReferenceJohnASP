@@ -123,6 +123,13 @@ Partial Public Class Address
 	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
     <Display(name:="Client Token")>
     Public Property ClientToken As System.Guid
+
+	''' <summary>
+	''' #TODO Populate Model Descriptions
+	''' </summary>
+	''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(name:="Row Version")>
+    Public Property RowVersion As Byte()
     Public Overridable Property AddressTypeOptionList As AddressTypeOptionList
     Public Overridable Property FormSimpleZero As FormSimpleZero
 

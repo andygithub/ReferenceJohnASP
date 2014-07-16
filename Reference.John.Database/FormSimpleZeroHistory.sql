@@ -12,6 +12,7 @@
 	[LastChangeUser] NVARCHAR(50) NOT NULL, 
 	[LastChangeDate] DATETIME NOT NULL, 
 	[ClientToken] UNIQUEIDENTIFIER NOT NULL DEFAULT newsequentialid(), 
+	[RowVersion] ROWVERSION NULL, 
 	CONSTRAINT [FK_FormSimpleZeroHistory_GenderOptionList] FOREIGN KEY ([GenderId]) REFERENCES [GenderOptionList]([GenderId]) ,
 	CONSTRAINT [FK_FormSimpleZeroHistory_RaceOptionList] FOREIGN KEY ([RaceId]) REFERENCES [RaceOptionList]([RaceId]) ,
 	CONSTRAINT [FK_FormSimpleZeroHistory_RegionOptionList] FOREIGN KEY ([RegionId]) REFERENCES [RegionOptionList]([RegionId]) ,

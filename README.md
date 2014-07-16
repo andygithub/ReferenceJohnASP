@@ -1,4 +1,4 @@
-Project to explore a reference architecture with the following components: Entity Framework, Unity, Asp.net web forms, Glimpse, Log4net, ELMAH.
+Project to explore a reference architecture with the following components: Entity Framework, Unity, Asp.net web forms, Glimpse, Log4net, ELMAH, AutoMapper.
 
 Other items used: SQL Server for session, expect to use the AD membership provider for authentication and roles.
 
@@ -15,6 +15,8 @@ Outstanding items:
 	add cache provider using the standard .net framework library
 	
 	finish web api/angular ui project
+
+	add custom display name attribute for annotations that uses resource files rather than embedded strings.
 
 
 

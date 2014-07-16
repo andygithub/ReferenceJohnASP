@@ -21,4 +21,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="HistoryId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="638de56b-36ee-4ed8-9088-de7ebd8ce796" ChangeDateTime="07/16/2014 01:36:09">
+    <Property Name="ElementName" Value="[dbo].[FormSimpleZero].[Row]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FormSimpleZero]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RowVersion" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e592936e-ce5c-4fe8-89fa-85ae2352cb07" ChangeDateTime="07/16/2014 01:50:05">
+    <Property Name="ElementName" Value="[dbo].[FormEntity_xref].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FormEntity_xref]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FormId" />
+  </Operation>
 </Operations>

@@ -26,6 +26,10 @@
         <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_GenderOptionList" />
         <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RaceOptionList" />
         <AssociationConnector Association="Reference.John.Model.FK_FormSimpleZeroHistory_RegionOptionList" />
+        <EntityTypeShape EntityType="Reference.John.Model.Entity" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormEntity_xref" Width="1.5" PointX="5.25" PointY="10.375" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormEntity_xref_Entity" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

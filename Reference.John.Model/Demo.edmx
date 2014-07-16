@@ -22,6 +22,7 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
           <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="AddressTypeOptionList">
           <Key>
@@ -49,6 +50,21 @@
           <Property Name="DateExpired" Type="datetime" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="EntityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="EthnicityOptionList">
           <Key>
             <PropertyRef Name="EthnicityId" />
@@ -62,6 +78,25 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormEntity_xref">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="RelationshipType" Type="int" Nullable="false" />
+          <Property Name="RelationshipStatus" Type="int" Nullable="false" />
+          <Property Name="RelationshipDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="FormSimpleZero">
           <Key>
@@ -78,6 +113,7 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
           <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
           <Key>
@@ -95,6 +131,7 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
           <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="GenderOptionList">
           <Key>
@@ -203,6 +240,30 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FormEntity_xref_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="FormEntity_xref" Type="Self.FormEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EntityId" />
+            </Principal>
+            <Dependent Role="FormEntity_xref">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormEntity_xref_FormSImpleZero">
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="1" />
+          <End Role="FormEntity_xref" Type="Self.FormEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormEntity_xref">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FormSimpleZero_EthnicityOptionList">
           <End Role="EthnicityOptionList" Type="Self.EthnicityOptionList" Multiplicity="0..1" />
           <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="*" />
@@ -307,7 +368,9 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormEntity_xref" EntityType="Self.FormEntity_xref" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
@@ -338,6 +401,14 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Self.FK_Address_FormSimpleZeroId">
             <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
             <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormEntity_xref_Entity" Association="Self.FK_FormEntity_xref_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="FormEntity_xref" EntitySet="FormEntity_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormEntity_xref_FormSImpleZero" Association="Self.FK_FormEntity_xref_FormSImpleZero">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+            <End Role="FormEntity_xref" EntitySet="FormEntity_xref" />
           </AssociationSet>
           <AssociationSet Name="FK_FormSimpleZero_EthnicityOptionList" Association="Self.FK_FormSimpleZero_EthnicityOptionList">
             <End Role="EthnicityOptionList" EntitySet="EthnicityOptionList" />
@@ -432,6 +503,16 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <End Role="RegionOptionList" EntitySet="RegionOptionLists" />
             <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistories" />
           </AssociationSet>
+          <EntitySet Name="Entities" EntityType="Reference.John.Model.Entity" />
+          <EntitySet Name="FormEntity_xref" EntityType="Reference.John.Model.FormEntity_xref" />
+          <AssociationSet Name="FK_FormEntity_xref_Entity" Association="Reference.John.Model.FK_FormEntity_xref_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="FormEntity_xref" EntitySet="FormEntity_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormEntity_xref_FormSImpleZero" Association="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+            <End Role="FormEntity_xref" EntitySet="FormEntity_xref" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -452,6 +533,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
           <NavigationProperty Name="AddressTypeOptionList" Relationship="Reference.John.Model.FK_Address_AddressTypeOptionList" FromRole="Address" ToRole="AddressTypeOptionList" />
           <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_Address_FormSimpleZeroId" FromRole="Address" ToRole="FormSimpleZero" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="AddressTypeOptionList">
           <Key>
@@ -516,6 +598,8 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="GenderOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_GenderOptionList" FromRole="FormSimpleZero" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_RaceOptionList" FromRole="FormSimpleZero" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" FromRole="FormSimpleZero" ToRole="FormEntity_xref" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
           <Key>
@@ -537,6 +621,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="GenderOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_GenderOptionList" FromRole="FormSimpleZeroHistory" ToRole="GenderOptionList" />
           <NavigationProperty Name="RaceOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_RaceOptionList" FromRole="FormSimpleZeroHistory" ToRole="RaceOptionList" />
           <NavigationProperty Name="RegionOptionList" Relationship="Reference.John.Model.FK_FormSimpleZeroHistory_RegionOptionList" FromRole="FormSimpleZeroHistory" ToRole="RegionOptionList" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="GenderOptionList">
           <Key>
@@ -745,6 +830,67 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="EntityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_Entity" FromRole="Entity" ToRole="FormEntity_xref" />
+        </EntityType>
+        <EntityType Name="FormEntity_xref">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipType" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipStatus" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Entity" Relationship="Reference.John.Model.FK_FormEntity_xref_Entity" FromRole="FormEntity_xref" ToRole="Entity" />
+          <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" FromRole="FormEntity_xref" ToRole="FormSimpleZero" />
+        </EntityType>
+        <Association Name="FK_FormEntity_xref_Entity">
+          <End Type="Reference.John.Model.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Reference.John.Model.FormEntity_xref" Role="FormEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EntityId" />
+            </Principal>
+            <Dependent Role="FormEntity_xref">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormEntity_xref_FormSImpleZero">
+          <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
+          <End Type="Reference.John.Model.FormEntity_xref" Role="FormEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormEntity_xref">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -755,6 +901,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="Reference.John.Model.Address">
               <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
@@ -816,6 +963,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="FormSimpleZeroes">
             <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZero">
               <MappingFragment StoreEntitySet="FormSimpleZero">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
@@ -833,6 +981,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <EntitySetMapping Name="FormSimpleZeroHistories">
             <EntityTypeMapping TypeName="Reference.John.Model.FormSimpleZeroHistory">
               <MappingFragment StoreEntitySet="FormSimpleZeroHistory">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
@@ -920,6 +1069,41 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entities">
+            <EntityTypeMapping TypeName="Reference.John.Model.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormEntity_xref">
+            <EntityTypeMapping TypeName="Reference.John.Model.FormEntity_xref">
+              <MappingFragment StoreEntitySet="FormEntity_xref">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RelationshipDescription" ColumnName="RelationshipDescription" />
+                <ScalarProperty Name="RelationshipStatus" ColumnName="RelationshipStatus" />
+                <ScalarProperty Name="RelationshipType" ColumnName="RelationshipType" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
                 <ScalarProperty Name="FormId" ColumnName="FormId" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -17,7 +17,7 @@ Imports System.Data.Entity.Infrastructure.MappingViews
 
 <Assembly: DbMappingViewCacheTypeAttribute(
     GetType(Reference.John.Model.Reference_JohnEntities),
-    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets7ce2ac9efd08d732b239521b7dad5a71b05cccfb0d19808b7c318d001d29584b))>
+    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets316ae36767f34d4d61d027b9d1d5a5b4dd7782a9d7cbd67b194e10ef55faa08a))>
 
 Namespace Edm_EntityMappingGeneratedViews
 
@@ -25,7 +25,7 @@ Namespace Edm_EntityMappingGeneratedViews
     ''' Implements a mapping view cache.
     ''' </summary>
     <GeneratedCode("Entity Framework Power Tools", "0.9.0.0")>
-    Friend NotInheritable Class ViewsForBaseEntitySets7ce2ac9efd08d732b239521b7dad5a71b05cccfb0d19808b7c318d001d29584b
+    Friend NotInheritable Class ViewsForBaseEntitySets316ae36767f34d4d61d027b9d1d5a5b4dd7782a9d7cbd67b194e10ef55faa08a
         Inherits DbMappingViewCache
 
         ''' <summary>
@@ -33,7 +33,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' </summary>
         Public Overrides ReadOnly Property MappingHashValue As String
             Get
-                Return "7ce2ac9efd08d732b239521b7dad5a71b05cccfb0d19808b7c318d001d29584b"
+                Return "316ae36767f34d4d61d027b9d1d5a5b4dd7782a9d7cbd67b194e10ef55faa08a"
             End Get
         End Property
 
@@ -81,60 +81,76 @@ Namespace Edm_EntityMappingGeneratedViews
                 Return GetView7()
             End If
 
-            If extentName = "Reference_JohnEntities.Addresses" Then
+            If extentName = "ReferenceJohnModelStoreContainer.Entity" Then
                 Return GetView8()
             End If
 
-            If extentName = "Reference_JohnEntities.AddressTypeOptionLists" Then
+            If extentName = "ReferenceJohnModelStoreContainer.FormEntity_xref" Then
                 Return GetView9()
             End If
 
-            If extentName = "Reference_JohnEntities.EthnicityOptionLists" Then
+            If extentName = "Reference_JohnEntities.Addresses" Then
                 Return GetView10()
             End If
 
-            If extentName = "Reference_JohnEntities.FormSimpleZeroes" Then
+            If extentName = "Reference_JohnEntities.AddressTypeOptionLists" Then
                 Return GetView11()
             End If
 
-            If extentName = "Reference_JohnEntities.FormSimpleZeroHistories" Then
+            If extentName = "Reference_JohnEntities.EthnicityOptionLists" Then
                 Return GetView12()
             End If
 
-            If extentName = "Reference_JohnEntities.GenderOptionLists" Then
+            If extentName = "Reference_JohnEntities.FormSimpleZeroes" Then
                 Return GetView13()
             End If
 
-            If extentName = "Reference_JohnEntities.RaceOptionLists" Then
+            If extentName = "Reference_JohnEntities.FormSimpleZeroHistories" Then
                 Return GetView14()
             End If
 
-            If extentName = "Reference_JohnEntities.RegionOptionLists" Then
+            If extentName = "Reference_JohnEntities.GenderOptionLists" Then
                 Return GetView15()
             End If
 
-            If extentName = "ReferenceJohnModelStoreContainer.ApplicationExtendedProperties" Then
+            If extentName = "Reference_JohnEntities.RaceOptionLists" Then
                 Return GetView16()
             End If
 
-            If extentName = "Reference_JohnEntities.ApplicationExtendedProperties" Then
+            If extentName = "Reference_JohnEntities.RegionOptionLists" Then
                 Return GetView17()
             End If
 
-            If extentName = "ReferenceJohnModelStoreContainer.UserExtendedProperties" Then
+            If extentName = "Reference_JohnEntities.Entities" Then
                 Return GetView18()
             End If
 
-            If extentName = "Reference_JohnEntities.UserExtendedProperties" Then
+            If extentName = "Reference_JohnEntities.FormEntity_xref" Then
                 Return GetView19()
             End If
 
-            If extentName = "ReferenceJohnModelStoreContainer.SearchResults" Then
+            If extentName = "ReferenceJohnModelStoreContainer.ApplicationExtendedProperties" Then
                 Return GetView20()
             End If
 
-            If extentName = "Reference_JohnEntities.SearchResults" Then
+            If extentName = "Reference_JohnEntities.ApplicationExtendedProperties" Then
                 Return GetView21()
+            End If
+
+            If extentName = "ReferenceJohnModelStoreContainer.UserExtendedProperties" Then
+                Return GetView22()
+            End If
+
+            If extentName = "Reference_JohnEntities.UserExtendedProperties" Then
+                Return GetView23()
+            End If
+
+            If extentName = "ReferenceJohnModelStoreContainer.SearchResults" Then
+                Return GetView24()
+            End If
+
+            If extentName = "Reference_JohnEntities.SearchResults" Then
+                Return GetView25()
             End If
 
             Return Nothing
@@ -148,7 +164,7 @@ Namespace Edm_EntityMappingGeneratedViews
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing Address" & vbCrLf &
-                "        [Reference.John.Model.Store.Address](T1.Address_Id, T1.Address_FormSimpleZeroId, T1.Address_AddressTypeId, T1.Address_AddressLine1, T1.Address_AddressLine2, T1.Address_AddressLine3, T1.Address_City, T1.Address_State, T1.Address_Zip, T1.Address_DateCreated, T1.Address_LastChangeUser, T1.Address_LastChangeDate, T1.Address_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.Store.Address](T1.Address_Id, T1.Address_FormSimpleZeroId, T1.Address_AddressTypeId, T1.Address_AddressLine1, T1.Address_AddressLine2, T1.Address_AddressLine3, T1.Address_City, T1.Address_State, T1.Address_Zip, T1.Address_DateCreated, T1.Address_LastChangeUser, T1.Address_LastChangeDate, T1.Address_ClientToken, T1.Address_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.Id AS Address_Id, " & vbCrLf &
@@ -164,6 +180,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS Address_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS Address_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS Address_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS Address_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM Reference_JohnEntities.Addresses AS T" & vbCrLf &
                 "    ) AS T1")
@@ -227,7 +244,7 @@ Namespace Edm_EntityMappingGeneratedViews
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FormSimpleZero" & vbCrLf &
-                "        [Reference.John.Model.Store.FormSimpleZero](T1.FormSimpleZero_Id, T1.FormSimpleZero_FirstName, T1.FormSimpleZero_LastName, T1.FormSimpleZero_GenderId, T1.FormSimpleZero_RaceId, T1.FormSimpleZero_RegionId, T1.FormSimpleZero_EthnicityId, T1.FormSimpleZero_DateCreated, T1.FormSimpleZero_LastChangeUser, T1.FormSimpleZero_LastChangeDate, T1.FormSimpleZero_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.Store.FormSimpleZero](T1.FormSimpleZero_Id, T1.FormSimpleZero_FirstName, T1.FormSimpleZero_LastName, T1.FormSimpleZero_GenderId, T1.FormSimpleZero_RaceId, T1.FormSimpleZero_RegionId, T1.FormSimpleZero_EthnicityId, T1.FormSimpleZero_DateCreated, T1.FormSimpleZero_LastChangeUser, T1.FormSimpleZero_LastChangeDate, T1.FormSimpleZero_ClientToken, T1.FormSimpleZero_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.Id AS FormSimpleZero_Id, " & vbCrLf &
@@ -241,6 +258,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS FormSimpleZero_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS FormSimpleZero_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS FormSimpleZero_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS FormSimpleZero_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM Reference_JohnEntities.FormSimpleZeroes AS T" & vbCrLf &
                 "    ) AS T1")
@@ -254,7 +272,7 @@ Namespace Edm_EntityMappingGeneratedViews
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FormSimpleZeroHistory" & vbCrLf &
-                "        [Reference.John.Model.Store.FormSimpleZeroHistory](T1.FormSimpleZeroHistory_HistoryId, T1.FormSimpleZeroHistory_Id, T1.FormSimpleZeroHistory_FirstName, T1.FormSimpleZeroHistory_LastName, T1.FormSimpleZeroHistory_GenderId, T1.FormSimpleZeroHistory_RaceId, T1.FormSimpleZeroHistory_RegionId, T1.FormSimpleZeroHistory_EthnicityId, T1.FormSimpleZeroHistory_DateCreated, T1.FormSimpleZeroHistory_LastChangeUser, T1.FormSimpleZeroHistory_LastChangeDate, T1.FormSimpleZeroHistory_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.Store.FormSimpleZeroHistory](T1.FormSimpleZeroHistory_HistoryId, T1.FormSimpleZeroHistory_Id, T1.FormSimpleZeroHistory_FirstName, T1.FormSimpleZeroHistory_LastName, T1.FormSimpleZeroHistory_GenderId, T1.FormSimpleZeroHistory_RaceId, T1.FormSimpleZeroHistory_RegionId, T1.FormSimpleZeroHistory_EthnicityId, T1.FormSimpleZeroHistory_DateCreated, T1.FormSimpleZeroHistory_LastChangeUser, T1.FormSimpleZeroHistory_LastChangeDate, T1.FormSimpleZeroHistory_ClientToken, T1.FormSimpleZeroHistory_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.HistoryId AS FormSimpleZeroHistory_HistoryId, " & vbCrLf &
@@ -269,6 +287,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS FormSimpleZeroHistory_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS FormSimpleZeroHistory_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS FormSimpleZeroHistory_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS FormSimpleZeroHistory_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM Reference_JohnEntities.FormSimpleZeroHistories AS T" & vbCrLf &
                 "    ) AS T1")
@@ -350,14 +369,69 @@ Namespace Edm_EntityMappingGeneratedViews
         End Function
 
         ''' <summary>
-        ''' Gets the view for Reference_JohnEntities.Addresses.
+        ''' Gets the view for ReferenceJohnModelStoreContainer.Entity.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
         Private Shared Function GetView8() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
+                "    SELECT VALUE -- Constructing Entity" & vbCrLf &
+                "        [Reference.John.Model.Store.Entity](T1.Entity_EntityId, T1.Entity_EntityName, T1.Entity_IsActive, T1.Entity_StartDate, T1.Entity_EndDate, T1.Entity_DateCreated, T1.Entity_LastChangeUser, T1.Entity_LastChangeDate, T1.Entity_ClientToken, T1.Entity_RowVersion)" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.EntityId AS Entity_EntityId, " & vbCrLf &
+                "            T.EntityName AS Entity_EntityName, " & vbCrLf &
+                "            T.IsActive AS Entity_IsActive, " & vbCrLf &
+                "            T.StartDate AS Entity_StartDate, " & vbCrLf &
+                "            T.EndDate AS Entity_EndDate, " & vbCrLf &
+                "            T.DateCreated AS Entity_DateCreated, " & vbCrLf &
+                "            T.LastChangeUser AS Entity_LastChangeUser, " & vbCrLf &
+                "            T.LastChangeDate AS Entity_LastChangeDate, " & vbCrLf &
+                "            T.ClientToken AS Entity_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS Entity_RowVersion, " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM Reference_JohnEntities.Entities AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
+        ''' Gets the view for ReferenceJohnModelStoreContainer.FormEntity_xref.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView9() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
+                "    SELECT VALUE -- Constructing FormEntity_xref" & vbCrLf &
+                "        [Reference.John.Model.Store.FormEntity_xref](T1.[FormEntity_xref.FormId], T1.[FormEntity_xref.EntityId], T1.[FormEntity_xref.RelationshipType], T1.[FormEntity_xref.RelationshipStatus], T1.[FormEntity_xref.RelationshipDescription], T1.[FormEntity_xref.IsActive], T1.[FormEntity_xref.StartDate], T1.[FormEntity_xref.EndDate], T1.[FormEntity_xref.DateCreated], T1.[FormEntity_xref.LastChangeUser], T1.[FormEntity_xref.LastChangeDate], T1.[FormEntity_xref.ClientToken], T1.[FormEntity_xref.RowVersion])" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.FormId AS [FormEntity_xref.FormId], " & vbCrLf &
+                "            T.EntityId AS [FormEntity_xref.EntityId], " & vbCrLf &
+                "            T.RelationshipType AS [FormEntity_xref.RelationshipType], " & vbCrLf &
+                "            T.RelationshipStatus AS [FormEntity_xref.RelationshipStatus], " & vbCrLf &
+                "            T.RelationshipDescription AS [FormEntity_xref.RelationshipDescription], " & vbCrLf &
+                "            T.IsActive AS [FormEntity_xref.IsActive], " & vbCrLf &
+                "            T.StartDate AS [FormEntity_xref.StartDate], " & vbCrLf &
+                "            T.EndDate AS [FormEntity_xref.EndDate], " & vbCrLf &
+                "            T.DateCreated AS [FormEntity_xref.DateCreated], " & vbCrLf &
+                "            T.LastChangeUser AS [FormEntity_xref.LastChangeUser], " & vbCrLf &
+                "            T.LastChangeDate AS [FormEntity_xref.LastChangeDate], " & vbCrLf &
+                "            T.ClientToken AS [FormEntity_xref.ClientToken], " & vbCrLf &
+                "            T.RowVersion AS [FormEntity_xref.RowVersion], " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM Reference_JohnEntities.FormEntity_xref AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
+        ''' Gets the view for Reference_JohnEntities.Addresses.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView10() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
                 "    SELECT VALUE -- Constructing Addresses" & vbCrLf &
-                "        [Reference.John.Model.Address](T1.Address_Id, T1.Address_FormSimpleZeroId, T1.Address_AddressTypeId, T1.Address_AddressLine1, T1.Address_AddressLine2, T1.Address_AddressLine3, T1.Address_City, T1.Address_State, T1.Address_Zip, T1.Address_DateCreated, T1.Address_LastChangeUser, T1.Address_LastChangeDate, T1.Address_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.Address](T1.Address_Id, T1.Address_FormSimpleZeroId, T1.Address_AddressTypeId, T1.Address_AddressLine1, T1.Address_AddressLine2, T1.Address_AddressLine3, T1.Address_City, T1.Address_State, T1.Address_Zip, T1.Address_DateCreated, T1.Address_LastChangeUser, T1.Address_LastChangeDate, T1.Address_ClientToken, T1.Address_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.Id AS Address_Id, " & vbCrLf &
@@ -373,6 +447,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS Address_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS Address_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS Address_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS Address_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM ReferenceJohnModelStoreContainer.Address AS T" & vbCrLf &
                 "    ) AS T1")
@@ -382,7 +457,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.AddressTypeOptionLists.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView9() As DbMappingView
+        Private Shared Function GetView11() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing AddressTypeOptionLists" & vbCrLf &
@@ -407,7 +482,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.EthnicityOptionLists.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView10() As DbMappingView
+        Private Shared Function GetView12() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing EthnicityOptionLists" & vbCrLf &
@@ -432,11 +507,11 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.FormSimpleZeroes.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView11() As DbMappingView
+        Private Shared Function GetView13() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FormSimpleZeroes" & vbCrLf &
-                "        [Reference.John.Model.FormSimpleZero](T1.FormSimpleZero_Id, T1.FormSimpleZero_FirstName, T1.FormSimpleZero_LastName, T1.FormSimpleZero_GenderId, T1.FormSimpleZero_RaceId, T1.FormSimpleZero_RegionId, T1.FormSimpleZero_EthnicityId, T1.FormSimpleZero_DateCreated, T1.FormSimpleZero_LastChangeUser, T1.FormSimpleZero_LastChangeDate, T1.FormSimpleZero_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.FormSimpleZero](T1.FormSimpleZero_Id, T1.FormSimpleZero_FirstName, T1.FormSimpleZero_LastName, T1.FormSimpleZero_GenderId, T1.FormSimpleZero_RaceId, T1.FormSimpleZero_RegionId, T1.FormSimpleZero_EthnicityId, T1.FormSimpleZero_DateCreated, T1.FormSimpleZero_LastChangeUser, T1.FormSimpleZero_LastChangeDate, T1.FormSimpleZero_ClientToken, T1.FormSimpleZero_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.Id AS FormSimpleZero_Id, " & vbCrLf &
@@ -450,6 +525,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS FormSimpleZero_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS FormSimpleZero_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS FormSimpleZero_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS FormSimpleZero_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM ReferenceJohnModelStoreContainer.FormSimpleZero AS T" & vbCrLf &
                 "    ) AS T1")
@@ -459,11 +535,11 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.FormSimpleZeroHistories.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView12() As DbMappingView
+        Private Shared Function GetView14() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FormSimpleZeroHistories" & vbCrLf &
-                "        [Reference.John.Model.FormSimpleZeroHistory](T1.FormSimpleZeroHistory_HistoryId, T1.FormSimpleZeroHistory_Id, T1.FormSimpleZeroHistory_FirstName, T1.FormSimpleZeroHistory_LastName, T1.FormSimpleZeroHistory_GenderId, T1.FormSimpleZeroHistory_RaceId, T1.FormSimpleZeroHistory_RegionId, T1.FormSimpleZeroHistory_EthnicityId, T1.FormSimpleZeroHistory_DateCreated, T1.FormSimpleZeroHistory_LastChangeUser, T1.FormSimpleZeroHistory_LastChangeDate, T1.FormSimpleZeroHistory_ClientToken)" & vbCrLf &
+                "        [Reference.John.Model.FormSimpleZeroHistory](T1.FormSimpleZeroHistory_HistoryId, T1.FormSimpleZeroHistory_Id, T1.FormSimpleZeroHistory_FirstName, T1.FormSimpleZeroHistory_LastName, T1.FormSimpleZeroHistory_GenderId, T1.FormSimpleZeroHistory_RaceId, T1.FormSimpleZeroHistory_RegionId, T1.FormSimpleZeroHistory_EthnicityId, T1.FormSimpleZeroHistory_DateCreated, T1.FormSimpleZeroHistory_LastChangeUser, T1.FormSimpleZeroHistory_LastChangeDate, T1.FormSimpleZeroHistory_ClientToken, T1.FormSimpleZeroHistory_RowVersion)" & vbCrLf &
                 "    FROM (" & vbCrLf &
                 "        SELECT " & vbCrLf &
                 "            T.HistoryId AS FormSimpleZeroHistory_HistoryId, " & vbCrLf &
@@ -478,6 +554,7 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeUser AS FormSimpleZeroHistory_LastChangeUser, " & vbCrLf &
                 "            T.LastChangeDate AS FormSimpleZeroHistory_LastChangeDate, " & vbCrLf &
                 "            T.ClientToken AS FormSimpleZeroHistory_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS FormSimpleZeroHistory_RowVersion, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM ReferenceJohnModelStoreContainer.FormSimpleZeroHistory AS T" & vbCrLf &
                 "    ) AS T1")
@@ -487,7 +564,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.GenderOptionLists.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView13() As DbMappingView
+        Private Shared Function GetView15() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing GenderOptionLists" & vbCrLf &
@@ -512,7 +589,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.RaceOptionLists.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView14() As DbMappingView
+        Private Shared Function GetView16() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing RaceOptionLists" & vbCrLf &
@@ -537,7 +614,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.RegionOptionLists.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView15() As DbMappingView
+        Private Shared Function GetView17() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing RegionOptionLists" & vbCrLf &
@@ -559,10 +636,65 @@ Namespace Edm_EntityMappingGeneratedViews
         End Function
 
         ''' <summary>
+        ''' Gets the view for Reference_JohnEntities.Entities.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView18() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
+                "    SELECT VALUE -- Constructing Entities" & vbCrLf &
+                "        [Reference.John.Model.Entity](T1.Entity_EntityId, T1.Entity_EntityName, T1.Entity_IsActive, T1.Entity_StartDate, T1.Entity_EndDate, T1.Entity_DateCreated, T1.Entity_LastChangeUser, T1.Entity_LastChangeDate, T1.Entity_ClientToken, T1.Entity_RowVersion)" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.EntityId AS Entity_EntityId, " & vbCrLf &
+                "            T.EntityName AS Entity_EntityName, " & vbCrLf &
+                "            T.IsActive AS Entity_IsActive, " & vbCrLf &
+                "            T.StartDate AS Entity_StartDate, " & vbCrLf &
+                "            T.EndDate AS Entity_EndDate, " & vbCrLf &
+                "            T.DateCreated AS Entity_DateCreated, " & vbCrLf &
+                "            T.LastChangeUser AS Entity_LastChangeUser, " & vbCrLf &
+                "            T.LastChangeDate AS Entity_LastChangeDate, " & vbCrLf &
+                "            T.ClientToken AS Entity_ClientToken, " & vbCrLf &
+                "            T.RowVersion AS Entity_RowVersion, " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM ReferenceJohnModelStoreContainer.Entity AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
+        ''' Gets the view for Reference_JohnEntities.FormEntity_xref.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView19() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
+                "    SELECT VALUE -- Constructing FormEntity_xref" & vbCrLf &
+                "        [Reference.John.Model.FormEntity_xref](T1.[FormEntity_xref.FormId], T1.[FormEntity_xref.EntityId], T1.[FormEntity_xref.RelationshipType], T1.[FormEntity_xref.RelationshipStatus], T1.[FormEntity_xref.RelationshipDescription], T1.[FormEntity_xref.IsActive], T1.[FormEntity_xref.StartDate], T1.[FormEntity_xref.EndDate], T1.[FormEntity_xref.DateCreated], T1.[FormEntity_xref.LastChangeUser], T1.[FormEntity_xref.LastChangeDate], T1.[FormEntity_xref.ClientToken], T1.[FormEntity_xref.RowVersion])" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.FormId AS [FormEntity_xref.FormId], " & vbCrLf &
+                "            T.EntityId AS [FormEntity_xref.EntityId], " & vbCrLf &
+                "            T.RelationshipType AS [FormEntity_xref.RelationshipType], " & vbCrLf &
+                "            T.RelationshipStatus AS [FormEntity_xref.RelationshipStatus], " & vbCrLf &
+                "            T.RelationshipDescription AS [FormEntity_xref.RelationshipDescription], " & vbCrLf &
+                "            T.IsActive AS [FormEntity_xref.IsActive], " & vbCrLf &
+                "            T.StartDate AS [FormEntity_xref.StartDate], " & vbCrLf &
+                "            T.EndDate AS [FormEntity_xref.EndDate], " & vbCrLf &
+                "            T.DateCreated AS [FormEntity_xref.DateCreated], " & vbCrLf &
+                "            T.LastChangeUser AS [FormEntity_xref.LastChangeUser], " & vbCrLf &
+                "            T.LastChangeDate AS [FormEntity_xref.LastChangeDate], " & vbCrLf &
+                "            T.ClientToken AS [FormEntity_xref.ClientToken], " & vbCrLf &
+                "            T.RowVersion AS [FormEntity_xref.RowVersion], " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM ReferenceJohnModelStoreContainer.FormEntity_xref AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
         ''' Gets the view for ReferenceJohnModelStoreContainer.ApplicationExtendedProperties.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView16() As DbMappingView
+        Private Shared Function GetView20() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing ApplicationExtendedProperties" & vbCrLf &
@@ -584,7 +716,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.ApplicationExtendedProperties.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView17() As DbMappingView
+        Private Shared Function GetView21() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing ApplicationExtendedProperties" & vbCrLf &
@@ -606,7 +738,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for ReferenceJohnModelStoreContainer.UserExtendedProperties.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView18() As DbMappingView
+        Private Shared Function GetView22() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing UserExtendedProperties" & vbCrLf &
@@ -628,7 +760,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.UserExtendedProperties.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView19() As DbMappingView
+        Private Shared Function GetView23() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing UserExtendedProperties" & vbCrLf &
@@ -650,7 +782,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for ReferenceJohnModelStoreContainer.SearchResults.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView20() As DbMappingView
+        Private Shared Function GetView24() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing SearchResults" & vbCrLf &
@@ -679,7 +811,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.SearchResults.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView21() As DbMappingView
+        Private Shared Function GetView25() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing SearchResults" & vbCrLf &

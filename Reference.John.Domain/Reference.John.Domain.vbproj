@@ -89,7 +89,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
     <Compile Include="EthnicityOptionList.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntity_xref.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="FormSimpleZero.vb">

@@ -44,6 +44,8 @@ Namespace Models
 
         Public Property ClientToken As Guid
 
+        Public Property RowVersion As Byte()
+
         ''' <summary>
         ''' #TODO Populate Model Descriptions
         ''' </summary>
