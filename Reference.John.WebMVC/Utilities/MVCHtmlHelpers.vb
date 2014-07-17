@@ -81,7 +81,7 @@ Namespace Extensions
             Return _out.ToString
         End Function
 
-        <Extension()> _
+        <Extension()>
         Public Function GetAttribute(Of T As Attribute)(member As MemberInfo, isRequired As Boolean) As T
             Dim attribute = member.GetCustomAttributes(GetType(T), False).SingleOrDefault()
 
@@ -91,6 +91,12 @@ Namespace Extensions
 
             Return DirectCast(attribute, T)
         End Function
+
+        <Extension()>
+        Public Function GetDisplayName(Of TModel, TProperty)(model As TModel, expression As Expression(Of Func(Of TModel, TProperty))) As String
+            Return ModelMetadata.FromLambdaExpression(Of TModel, TProperty)(expression, New ViewDataDictionary(Of TModel)(model)).DisplayName
+        End Function
+
 
         '<Extension()> _
         'Public Function GetPropertyDisplayName(Of T)(propertyExpression As Expression(Of Func(Of T, Object))) As String

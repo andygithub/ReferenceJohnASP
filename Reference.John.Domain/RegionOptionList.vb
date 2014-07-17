@@ -15,6 +15,7 @@ Imports System.ComponentModel.DataAnnotations
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+	<DebuggerDisplay("Models.RegionOptionList: {RegionId} {Name} {SortOrder}")>
 Partial Public Class RegionOptionList
 	Implements Interfaces.IEntityDates
 
@@ -23,72 +24,72 @@ Partial Public Class RegionOptionList
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="RegionId")>
-    <Display(name:="Region Id")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RegionId")>
     Public Property RegionId As Integer
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Name")>
-	<StringLengthAttribute(50, ErrorMessage:="Name cannot be longer than 50 characters.")>
-    <Display(name:="Name")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+	<StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="Name")>
     Public Property Name As String
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="SortOrder")>
-    <Display(name:="Sort Order")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="SortOrder")>
     Public Property SortOrder As Integer
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="IsActive")>
-    <Display(name:="Is Active")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="IsActive")>
     Public Property IsActive As Integer
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="StartDate")>
-    <Display(name:="Start Date")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="StartDate")>
     Public Property StartDate As Date
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Display(name:="End Date")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="EndDate")>
     Public Property EndDate As Nullable(Of Date)
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    <Display(name:="Date Created")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="DateCreated")>
     Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
-    <Display(name:="Last Change User")>
+	<StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastChangeUser")>
     Public Property LastChangeUser As String
 
 	''' <summary>
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
-    <Display(name:="Last Change Date")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastChangeDate")>
     Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
     Public Overridable Property FormSimpleZeroes As ICollection(Of FormSimpleZero) = New HashSet(Of FormSimpleZero)
     Public Overridable Property FormSimpleZeroHistories As ICollection(Of FormSimpleZeroHistory) = New HashSet(Of FormSimpleZeroHistory)

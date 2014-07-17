@@ -120,6 +120,9 @@
   <data name="ClientToken" xml:space="preserve">
     <value>Client Token is required.</value>
   </data>
+  <data name="DefaultField" xml:space="preserve">
+    <value>{0} is a required field</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>First Name is required.</value>
   </data>

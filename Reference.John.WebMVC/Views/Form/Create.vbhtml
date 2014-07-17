@@ -8,55 +8,43 @@ End Code
 <div class="row-fluid">
     <div class="span9">
         <div class="well">
-            @Using Html.BeginForm()
+            @Using Html.BeginForm("Create", "Form", FormMethod.Post, New With {.class = "form", .role = "form"})
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(True)
 
                 @<fieldset>
                     <legend>Form Zero</legend>
-                    <div class="editor-label">
-                        @Html.LabelFor(Function(model) model.FirstName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(Function(model) model.FirstName)
+                    <div class="form-group">
+                        @Html.LabelFor(Function(model) model.FirstName, New With {.class = ""})
+                        @Html.TextBoxFor(Function(model) model.FirstName, New With {.class = "form-control", .placeholder = Extensions.HtmlHelperExtensions.GetDisplayName(Model,Function(x) x.FirstName)})
                         @Html.ValidationMessageFor(Function(model) model.FirstName)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(Function(model) model.LastName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(Function(model) model.LastName)
-                        @Html.ValidationMessageFor(Function(model) model.LastName)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(Function(model) model.GenderId)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownListFor(Function(model) model.GenderId, Model.GenderList)
+                     <div class="form-group">
+                         @Html.LabelFor(Function(model) model.LastName, New With {.class = ""})
+                         @Html.TextBoxFor(Function(model) model.LastName, New With {.class = "form-control", .placeholder = Extensions.HtmlHelperExtensions.GetDisplayName(Model, Function(x) x.LastName)})
+                         @Html.ValidationMessageFor(Function(model) model.LastName)
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(Function(model) model.GenderId)
+                        @Html.DropDownListFor(Function(model) model.GenderId, Model.GenderList, "", New With {.class = "form-control"})
                         @Html.ValidationMessageFor(Function(model) model.GenderId)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(Function(model) model.RaceId)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownListFor(Function(model) model.RaceId,Model.RaceList)
+                     <div class="form-group">
+                         @Html.LabelFor(Function(model) model.RaceId)
+                        @Html.DropDownListFor(Function(model) model.RaceId, Model.RaceList, "", New With {.class = "form-control"})
                         @Html.ValidationMessageFor(Function(model) model.RaceId)
                     </div>
-                     <div class="editor-label">
+                     <div class="form-group">
                          @Html.LabelFor(Function(model) model.RegionId)
-                     </div>
-                     <div class="editor-field">
-                         @Html.DropDownListFor(Function(model) model.RegionId, Model.RegionList)
+                         @Html.DropDownListFor(Function(model) model.RegionId, Model.RegionList, "", New With {.class = "form-control"})
                          @Html.ValidationMessageFor(Function(model) model.RegionId)
                      </div>
-                     <div class="editor-label">
+                     <div class="form-group">
                          @Html.LabelFor(Function(model) model.EthnicityId)
-                     </div>
-                     <div class="editor-field">
-                         @Html.DropDownListFor(Function(model) model.EthnicityId, Model.EthnicityList)
+                         @Html.DropDownListFor(Function(model) model.EthnicityId, Model.EthnicityList, "", New With {.class = "form-control"})
                          @Html.ValidationMessageFor(Function(model) model.EthnicityId)
                      </div>
-            <p/>
+                    <p />
                     <div class="form-actions">
                         <input type="submit" value="Create" class="btn btn-primary" />
                         @Html.ActionLink("Back to List", "Index", Nothing, New With {.class = "btn pull-right"})

@@ -15,102 +15,103 @@ Imports System.ComponentModel.DataAnnotations
 	''' #TODO Populate Model Descriptions
 	''' </summary>
 	''' <remarks>#TODO Populate Model Descriptions</remarks>
+<DebuggerDisplay("Models.FormSimpleZero: {Id} {FirstName} {LastName}")>
 Partial Public Class FormSimpleZero
-	Implements Interfaces.IEntityDates
+    Implements Interfaces.IEntityDates
 
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="Id")>
-    <Display(name:="Id")>
-    Public Property Id As Integer
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="Id")>
+ Public Property Id As Integer
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
-	<StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
-    <Display(name:="First Name")>
-    Public Property FirstName As String
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+   <StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="FirstName")>
+ Public Property FirstName As String
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
-	<StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
-    <Display(name:="Last Name")>
-    Public Property LastName As String
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+   <StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastName")>
+ Public Property LastName As String
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="GenderId")>
-    <Display(name:="Gender Id")>
-    Public Property GenderId As Integer
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="GenderId")>
+ Public Property GenderId As Integer
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Display(name:="Race Id")>
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RaceId")>
     Public Property RaceId As Nullable(Of Integer)
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Display(name:="Region Id")>
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RegionId")>
     Public Property RegionId As Nullable(Of Integer)
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Display(name:="Ethnicity Id")>
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="EthnicityId")>
     Public Property EthnicityId As Nullable(Of Integer)
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DateCreated")>
-    <Display(name:="Date Created")>
-    Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="DateCreated")>
+ Public Property DateCreated As Date Implements Interfaces.IEntityDates.DateCreated
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	<StringLengthAttribute(50, ErrorMessage:="Last Change User cannot be longer than 50 characters.")>
-    <Display(name:="Last Change User")>
-    Public Property LastChangeUser As String
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastChangeUser")>
+ Public Property LastChangeUser As String
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastChangeDate")>
-    <Display(name:="Last Change Date")>
-    Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastChangeDate")>
+ Public Property LastChangeDate As Date Implements Interfaces.IEntityDates.LastChangeDate
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="ClientToken")>
-    <Display(name:="Client Token")>
-    Public Property ClientToken As System.Guid
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+<Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="ClientToken")>
+ Public Property ClientToken As System.Guid
 
-	''' <summary>
-	''' #TODO Populate Model Descriptions
-	''' </summary>
-	''' <remarks>#TODO Populate Model Descriptions</remarks>
-    <Display(name:="Row Version")>
+    ''' <summary>
+    ''' #TODO Populate Model Descriptions
+    ''' </summary>
+    ''' <remarks>#TODO Populate Model Descriptions</remarks>
+    <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RowVersion")>
     Public Property RowVersion As Byte()
     Public Overridable Property Addresses As ICollection(Of Address) = New HashSet(Of Address)
     Public Overridable Property EthnicityOptionList As EthnicityOptionList

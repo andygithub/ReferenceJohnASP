@@ -2,55 +2,32 @@
 
 Namespace Models
     Public Class ViewFormSimpleZero
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="FirstName")>
-       <StringLengthAttribute(50, ErrorMessage:="First Name cannot be longer than 50 characters.")>
-       <Display(name:="First Name")>
+
+        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+       <StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+   <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="FirstName")>
         Public Property FirstName As String
 
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="LastName")>
-       <StringLengthAttribute(50, ErrorMessage:="Last Name cannot be longer than 50 characters.")>
-       <Display(name:="Last Name")>
-        Public Property LastName As String
+        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+       <StringLengthAttribute(50, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+   <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="LastName")>
+                Public Property LastName As String
 
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="GenderId")>
-       <Display(name:="Gender Id")>
+        <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
+   <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="GenderId")>
         Public Property GenderId As Integer
 
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Display(name:="Race Id")>
+        <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RaceId")>
         Public Property RaceId As Nullable(Of Integer)
 
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Display(name:="Region Id")>
+        <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RegionId")>
         Public Property RegionId As Nullable(Of Integer)
 
         Public Property ClientToken As Guid
 
         Public Property RowVersion As Byte()
 
-        ''' <summary>
-        ''' #TODO Populate Model Descriptions
-        ''' </summary>
-        ''' <remarks>#TODO Populate Model Descriptions</remarks>
-        <Display(name:="Ethnicity Id")>
+        <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="EthnicityId")>
         Public Property EthnicityId As Nullable(Of Integer)
 
         Public Property GenderList As IEnumerable(Of SelectListItem)

@@ -10,13 +10,11 @@ A custom caching implemntation is present leveraging Unity's interception capabi
 
 Outstanding items:
 
-	more unit tests
+	more unit tests and documentation
 
 	add cache provider using the standard .net framework library
 	
 	finish web api/angular ui project
-
-	add custom display name attribute for annotations that uses resource files rather than embedded strings.
 
 
 

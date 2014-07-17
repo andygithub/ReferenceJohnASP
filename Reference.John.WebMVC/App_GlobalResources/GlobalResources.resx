@@ -117,64 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddressLine1" xml:space="preserve">
-    <value>Address Line 1</value>
+  <data name="FieldMustBeDate" xml:space="preserve">
+    <value>Field '{0}' must be a date</value>
+    <comment>http://ajdotnet.wordpress.com/2014/01/19/asp-net-mvc-i18n-part-7-model-attributes/</comment>
   </data>
-  <data name="AddressLine2" xml:space="preserve">
-    <value>Address Line 2</value>
-  </data>
-  <data name="AddressLine3" xml:space="preserve">
-    <value>Address Line 3</value>
-  </data>
-  <data name="AddressTypeId" xml:space="preserve">
-    <value>Address Type Id</value>
-  </data>
-  <data name="City" xml:space="preserve">
-    <value>City</value>
-  </data>
-  <data name="ClientToken" xml:space="preserve">
-    <value>Client Token</value>
-  </data>
-  <data name="DateCreated" xml:space="preserve">
-    <value>Date Created</value>
-  </data>
-  <data name="EthnicityId" xml:space="preserve">
-    <value>Ethnicity</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>First Name</value>
-  </data>
-  <data name="FormSimpleZeroId" xml:space="preserve">
-    <value>Form Simple Zero Id</value>
-  </data>
-  <data name="GenderId" xml:space="preserve">
-    <value>Gender</value>
-  </data>
-  <data name="Id" xml:space="preserve">
-    <value>Id</value>
-  </data>
-  <data name="LastChangeDate" xml:space="preserve">
-    <value>Last Change Date</value>
-  </data>
-  <data name="LastChangeUser" xml:space="preserve">
-    <value>Last Change User</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Last Name</value>
-  </data>
-  <data name="RaceId" xml:space="preserve">
-    <value>Race</value>
-  </data>
-  <data name="RegionId" xml:space="preserve">
-    <value>Region</value>
-  </data>
-  <data name="RowVersion" xml:space="preserve">
-    <value>Row Version</value>
-  </data>
-  <data name="State" xml:space="preserve">
-    <value>State</value>
-  </data>
-  <data name="Zip" xml:space="preserve">
-    <value>Zip</value>
+  <data name="FieldMustBeNumeric" xml:space="preserve">
+    <value>Field '{0}' must be a number</value>
   </data>
 </root>

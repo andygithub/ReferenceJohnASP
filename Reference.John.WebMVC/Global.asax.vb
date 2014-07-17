@@ -14,6 +14,9 @@ Public Class MvcApplication
         MappingConfig.RegisterDomainMapping()
         ViewEngines.Engines.Clear()
         ViewEngines.Engines.Add(New RazorViewEngine())
+        'this is from this - http://ajdotnet.wordpress.com/2014/01/19/asp-net-mvc-i18n-part-7-model-attributes/
+        'overload for the default messages.
+        ClientDataTypeModelValidatorProvider.ResourceClassKey = "GlobalResources"
     End Sub
 
     Dim _logger As John.Infrastructure.Logging.ILogger = John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of John.Infrastructure.Logging.ILogger)()

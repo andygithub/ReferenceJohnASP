@@ -65,6 +65,69 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Address Line 1.
+        '''</summary>
+        Public Shared ReadOnly Property AddressLine1() As String
+            Get
+                Return ResourceManager.GetString("AddressLine1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Address Line 2.
+        '''</summary>
+        Public Shared ReadOnly Property AddressLine2() As String
+            Get
+                Return ResourceManager.GetString("AddressLine2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Address Line 3.
+        '''</summary>
+        Public Shared ReadOnly Property AddressLine3() As String
+            Get
+                Return ResourceManager.GetString("AddressLine3", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Address Type Id.
+        '''</summary>
+        Public Shared ReadOnly Property AddressTypeId() As String
+            Get
+                Return ResourceManager.GetString("AddressTypeId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to City.
+        '''</summary>
+        Public Shared ReadOnly Property City() As String
+            Get
+                Return ResourceManager.GetString("City", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Client Token.
+        '''</summary>
+        Public Shared ReadOnly Property ClientToken() As String
+            Get
+                Return ResourceManager.GetString("ClientToken", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Date Created.
+        '''</summary>
+        Public Shared ReadOnly Property DateCreated() As String
+            Get
+                Return ResourceManager.GetString("DateCreated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Ethnicity.
         '''</summary>
         Public Shared ReadOnly Property EthnicityId() As String
@@ -83,11 +146,47 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Form Simple Zero Id.
+        '''</summary>
+        Public Shared ReadOnly Property FormSimpleZeroId() As String
+            Get
+                Return ResourceManager.GetString("FormSimpleZeroId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Gender.
         '''</summary>
         Public Shared ReadOnly Property GenderId() As String
             Get
                 Return ResourceManager.GetString("GenderId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Id.
+        '''</summary>
+        Public Shared ReadOnly Property Id() As String
+            Get
+                Return ResourceManager.GetString("Id", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Last Change Date.
+        '''</summary>
+        Public Shared ReadOnly Property LastChangeDate() As String
+            Get
+                Return ResourceManager.GetString("LastChangeDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Last Change User.
+        '''</summary>
+        Public Shared ReadOnly Property LastChangeUser() As String
+            Get
+                Return ResourceManager.GetString("LastChangeUser", resourceCulture)
             End Get
         End Property
         
@@ -115,6 +214,33 @@ Namespace Resources
         Public Shared ReadOnly Property RegionId() As String
             Get
                 Return ResourceManager.GetString("RegionId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Row Version.
+        '''</summary>
+        Public Shared ReadOnly Property RowVersion() As String
+            Get
+                Return ResourceManager.GetString("RowVersion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to State.
+        '''</summary>
+        Public Shared ReadOnly Property State() As String
+            Get
+                Return ResourceManager.GetString("State", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Zip.
+        '''</summary>
+        Public Shared ReadOnly Property Zip() As String
+            Get
+                Return ResourceManager.GetString("Zip", resourceCulture)
             End Get
         End Property
     End Class

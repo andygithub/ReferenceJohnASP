@@ -14,7 +14,7 @@ Namespace DataAnnotationValidator
     Public Class DataAnnotationValidator
         Inherits BaseValidator
 
-        Private Shared template As String = "<span id=""{0}""  data-val-evaluationfunction=""{1}"" data-val=""true"" data-val-errormessage=""{2}"" data-val-controltovalidate=""{3}"" {4} {5}>{6}</span>"
+        Private Shared template As String = "<span class=""field-validation-error"" id=""{0}""  data-val-evaluationfunction=""{1}"" data-val=""true"" data-val-errormessage=""{2}"" data-val-controltovalidate=""{3}"" {4} {5}>{6}</span>"
         Private spanString As String = String.Empty
 
         Public Property TypeName() As String
@@ -40,12 +40,22 @@ Namespace DataAnnotationValidator
                     vat.ErrorMessage = temp.GetString(vat.ErrorMessageResourceName)
                 End If
 
+                If vat.ErrorMessage IsNot Nothing AndAlso vat.ErrorMessage.Contains("{0}") AndAlso vat.GetType Is GetType(RequiredAttribute) Then
+                    'grab the property name resource value.  hard cording the resource name here rather than loop through the attributes to find the display attribute and property.
+                    Dim tempmanager As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Reference.John.Resources.Names", vat.ErrorMessageResourceType.Assembly)
+                    Dim displayName As String = tempmanager.GetString([property].Name)
+                    vat.ErrorMessage = String.Format(vat.ErrorMessage, displayName)
+                End If
+                If vat.ErrorMessage IsNot Nothing AndAlso vat.ErrorMessage.Contains("{1}") AndAlso vat.GetType Is GetType(StringLengthAttribute) Then
+                    'grab the property name resource value.  hard cording the resource name here rather than loop through the attributes to find the display attribute and property.
+                    Dim tempmanager As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Reference.John.Resources.Names", vat.ErrorMessageResourceType.Assembly)
+                    Dim displayName As String = tempmanager.GetString([property].Name)
+                    vat.ErrorMessage = String.Format(vat.ErrorMessage, displayName, DirectCast(vat, StringLengthAttribute).MaximumLength)
+                End If
+
                 If Me.Display <> ValidatorDisplay.None Then
                     message = If((Me.Text <> String.Empty), Me.Text, vat.ErrorMessage)
                     display = If((Me.Display = ValidatorDisplay.Dynamic), "style=""display: none;"" data-val-display=""Dynamic""", "style=""visibility: hidden;""")
-                End If
-                If vat.ErrorMessage IsNot Nothing AndAlso vat.ErrorMessage.Contains("{0}") Then
-                    vat.ErrorMessage = String.Format(vat.ErrorMessage, Me.TypeProperty)
                 End If
                 Select Case vat.[GetType]().Name
                     Case "RequiredAttribute"

@@ -27,6 +27,7 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 	''' <#=TypeMapper.GetSummaryDescription(entity)#>
 	''' </summary>
 	''' <remarks><#=TypeMapper.GetDetailedDescription(entity)#></remarks>
+	<DebuggerDisplay("Models.<#=code.Escape(entity)#>: {<#=typeMapper.GetSimpleProperties(entity)(0).Name#>} {<#=typeMapper.GetSimpleProperties(entity)(1).Name#>} {<#=typeMapper.GetSimpleProperties(entity)(2).Name#>}")>
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 	Implements Interfaces.IEntityDates
 <#
@@ -41,13 +42,12 @@ For Each loopEntity As EntityType In typeMapper.GetItemsToGenerate(Of EntityType
 	''' </summary>
 	''' <remarks><#=TypeMapper.GetDetailedDescription(edmProperty)#></remarks>
 <# if Not TypeMapper.IsNullable(edmProperty) andalso edmproperty.name <> "LastChangeUser" andalso edmproperty.name <> "RowVersion" then #>
-	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="<#=edmProperty.Name#>")>
+	 <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>
 <# End If #>
 <# if TypeMapper.IsMaxLengthSet(edmProperty) then 
 		_maxLength = TypeMapper.GetMaxLength(edmProperty) #>
-	<StringLengthAttribute(<#=_maxLength#>, ErrorMessage:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#> cannot be longer than <#=_maxLength#> characters.")>
-<# End If #>
-    <Display(name:="<#=TypeMapper.SplitUpperCase(edmProperty.Name)#>")>
+	<StringLengthAttribute(<#=_maxLength#>, errormessageresourceType:=GetType(Reference.John.Resources.Resources.ValidationMessages), errormessageResourcename:="LengthExceeded")>
+<# End If #><Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="<#=edmProperty.Name#>")>
 <#=codeStringGenerator.SimpleProperty(edmProperty)#><# if edmproperty.name = "DateCreated" orelse edmproperty.name = "LastChangeDate" then #> Implements Interfaces.IEntityDates.<#=edmproperty.name#><# End If #>
 <#
         Next

@@ -40,7 +40,6 @@ Public NotInheritable Class MVCConstants
 
     Public Const Message As String = "Message"
 
-    Public Const App_Datauploads As String = "~/App_Data/uploads"
     Public Const CSVFileType As String = "text/csv"
 
     Public Const HideNavigation As String = "HideNavigation"
