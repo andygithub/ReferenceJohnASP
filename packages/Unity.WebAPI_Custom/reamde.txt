@@ -1,0 +1,3 @@
+Rebuilt the latest source from here - https://github.com/feedbackhound/Unity.WebAPI
+The nuget package had dependencies on older versions of webapi and unity
+Just built solution no changes
