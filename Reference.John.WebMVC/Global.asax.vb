@@ -11,7 +11,7 @@ Public Class MvcApplication
         BundleConfig.RegisterBundles(BundleTable.Bundles)
         'unity initialization is taking place in UnityMvcActivator
         'automapper init
-        MappingConfig.RegisterDomainMapping()
+        Reference.John.UI.Model.MappingConfig.RegisterDomainMapping()
         ViewEngines.Engines.Clear()
         ViewEngines.Engines.Add(New RazorViewEngine())
         'this is from this - http://ajdotnet.wordpress.com/2014/01/19/asp-net-mvc-i18n-part-7-model-attributes/

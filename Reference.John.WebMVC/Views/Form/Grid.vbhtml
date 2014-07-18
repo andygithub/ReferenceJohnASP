@@ -1,4 +1,4 @@
-﻿@ModelType Models.GridModel(Of Models.SearchResult)
+﻿@ModelType Reference.John.UI.Model.GridModel(Of Reference.John.UI.Model.SearchResult)
 @Code
     Dim _grid As New WebGrid(rowsPerPage:=Reference.John.Resources.MVCConstants.PageSize)
 

@@ -1,4 +1,4 @@
-﻿@ModelType Models.ViewFormSimpleZero
+﻿@ModelType Reference.John.UI.Model.ViewFormSimpleZero
 @Code
     ViewData("Title") = "Data Entry: Create Item "
 End Code

@@ -12,9 +12,12 @@ Public Class WebApiApplication
         FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters)
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
+        'unity initialization is taking place in UnityMvcActivator
+        'automapper init
+        Reference.John.UI.Model.MappingConfig.RegisterDomainMapping()
         'this is in place for the circular reference exceptions are being thrown by web api serialization,  ideally the message structure would change so this is not necessary
-        Dim json = GlobalConfiguration.Configuration.Formatters.JsonFormatter
-        json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All
+        ' Dim json = GlobalConfiguration.Configuration.Formatters.JsonFormatter
+        'json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All
     End Sub
 
     Dim _logger As John.Infrastructure.Logging.ILogger = John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)()

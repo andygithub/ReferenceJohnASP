@@ -2,7 +2,6 @@
 Imports Reference.John.WebMVC.Extensions
 Imports System.Linq.Dynamic
 Imports System.Data.Entity
-Imports Reference.John.WebMVC.Models
 Imports AutoMapper.QueryableExtensions
 Imports Reference.John.Infrastructure.Logging
 
@@ -46,7 +45,7 @@ Namespace Controllers
 
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(ByVal item As Models.ViewFormSimpleZero) As ActionResult
+        Function Create(ByVal item As Reference.John.UI.Model.ViewFormSimpleZero) As ActionResult
             If ModelState.IsValid Then
                 'map view model into domain model 
                 Dim _item As New Reference.John.Domain.FormSimpleZero
@@ -78,8 +77,8 @@ Namespace Controllers
         End Function
 
         Function Edit(Optional ByVal ClientToken As Guid = Nothing) As ActionResult
-            Dim item As Models.ViewFormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken) _
-                                    .Project.To(Of Models.ViewFormSimpleZero)().FirstOrDefault()
+            Dim item As Reference.John.UI.Model.ViewFormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = ClientToken) _
+                                    .Project.To(Of Reference.John.UI.Model.ViewFormSimpleZero)().FirstOrDefault()
             If IsNothing(item) Then Return HttpNotFound()
             UpdateViewModel(item)
             Return View(item)
@@ -87,17 +86,16 @@ Namespace Controllers
 
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(ByVal item As Models.ViewFormSimpleZero) As ActionResult
+        Function Edit(ByVal item As Reference.John.UI.Model.ViewFormSimpleZero) As ActionResult
             If ModelState.IsValid Then
                 'load with not tracking for attachment purposees and to set the original value of the rowversion to the value from the client.
                 'the asnotracking on the lookup and the attach rather than the update are for concurrency purposes and so that the rowversion from the 
                 'browser client will be pushed into the entity as the orginal version rather than whatever value is loaded from the data store
                 'http://stackoverflow.com/questions/21994266/concurrency-check-with-web-api-not-checking
                 'http://stackoverflow.com/questions/10353589/how-to-handle-ef-4-3-1-setting-modified-a-rowversion-row
-                Dim _item As Reference.John.Domain.FormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken).AsNoTracking.FirstOrDefault '_repository.FindOne(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken)
+                Dim _item As Reference.John.Domain.FormSimpleZero = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = item.ClientToken).AsNoTracking.FirstOrDefault
                 If IsNothing(item) Then Return HttpNotFound()
                 'map posted properties into domain model
-                Dim _temp = New Byte() {&H20, &H20, &H20, &H20, &H20, &H20, &H20, &H20}
 
                 With _item
                     .FirstName = item.FirstName
@@ -153,22 +151,22 @@ Namespace Controllers
                 sortdir = Reference.John.Resources.MVCConstants.DefaultSortDirection
             End If
 
-            Dim model = New GridModel(Of Models.SearchResult)
-            model.Data = (From n In _repository.GetQuery(Of Reference.John.Domain.SearchResult).OrderBy(sort & " " & sortdir).Skip(pageNo * Reference.John.Resources.MVCConstants.PageSize).Take(Reference.John.Resources.MVCConstants.PageSize)).AsNoTracking.Project.To(Of Models.SearchResult)().ToList
+            Dim model = New Reference.John.UI.Model.GridModel(Of Reference.John.UI.Model.SearchResult)
+            model.Data = (From n In _repository.GetQuery(Of Reference.John.Domain.SearchResult).OrderBy(sort & " " & sortdir).Skip(pageNo * Reference.John.Resources.MVCConstants.PageSize).Take(Reference.John.Resources.MVCConstants.PageSize)).AsNoTracking.Project.To(Of Reference.John.UI.Model.SearchResult)().ToList
             model.TotalRows = _repository.Count(Of Reference.John.Domain.SearchResult)()
             model.CurrentPage = pageNo
             Return PartialView(model)
         End Function
 
         Public Function Download() As FileResult
-            Return File(Encoding.UTF8.GetBytes(_repository.GetQuery(Of Reference.John.Domain.SearchResult).AsNoTracking.Project.To(Of Models.SearchResult)().ToDelimitedText), Reference.John.Resources.MVCConstants.CSVFileType, "forms.csv")
+            Return File(Encoding.UTF8.GetBytes(_repository.GetQuery(Of Reference.John.Domain.SearchResult).AsNoTracking.Project.To(Of Reference.John.UI.Model.SearchResult)().ToDelimitedText), Reference.John.Resources.MVCConstants.CSVFileType, "forms.csv")
         End Function
 
-        Private Function InitializeViewModel() As Models.ViewFormSimpleZero
-            Return UpdateViewModel(New Models.ViewFormSimpleZero)
+        Private Function InitializeViewModel() As Reference.John.UI.Model.ViewFormSimpleZero
+            Return UpdateViewModel(New Reference.John.UI.Model.ViewFormSimpleZero)
         End Function
 
-        Private Function UpdateViewModel(item As Models.ViewFormSimpleZero) As Models.ViewFormSimpleZero
+        Private Function UpdateViewModel(item As Reference.John.UI.Model.ViewFormSimpleZero) As Reference.John.UI.Model.ViewFormSimpleZero
             With item
                 'TODO look at caching the select list as well as the EF item. also look at apply autofilter to reduce fields 
                 .GenderList = _repository.GetAll(Of Reference.John.Domain.GenderOptionList).ToSelectList(Function(x) x.GenderId, Function(x) x.Name)
