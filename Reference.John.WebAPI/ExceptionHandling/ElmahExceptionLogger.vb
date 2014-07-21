@@ -4,6 +4,8 @@ Imports System.Web.Http.ExceptionHandling
 
 Namespace ExceptionHandling
 
+    'http://aspnet.codeplex.com/SourceControl/latest#Samples/ReadMe.txt
+
     Public Class ElmahExceptionLogger
         Inherits ExceptionLogger
 

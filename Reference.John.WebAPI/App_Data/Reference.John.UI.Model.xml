@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Reference.John.UI.Model
+</name>
+</assembly>
+<members>
+<member name="P:Reference.John.UI.Model.GridModel`1.TotalRows">
+	<summary>
+ This property gives a count of the total number of rows available from the data source.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.GridModel`1.CurrentPage">
+	<summary>
+ This property give the number of the current page in the data source.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.GridModel`1.Data">
+	<summary>
+ This property will contain this set of data to be displayed by the grid type user interface.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Reference.John.UI.Model.GridModel`1">
+	<summary>
+ Wrapper class for passing around a structure that can be used by grid type user interface controls.
+ </summary>
+	<typeparam name="T"></typeparam>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.FormId">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.FirstName">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.LastName">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.GenderName">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.EthnicityName">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.ClientToken">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Reference.John.UI.Model.SearchResult.DateCreated">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Reference.John.UI.Model.SearchResult">
+	<summary>
+ This class is a combination of data that is commonly used in search results.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Reference.John.UI.Model.ViewFormSimpleZero">
+	<summary>
+ This is used as a form data entry DTO class.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

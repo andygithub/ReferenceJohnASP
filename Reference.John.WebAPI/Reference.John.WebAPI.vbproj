@@ -183,6 +183,7 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Properties\" />
+    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -247,6 +248,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
     <Compile Include="Container\DefaultUnityInstaller.vb" />
     <Compile Include="Controllers\FormSimpleEFController.vb" />
+    <Compile Include="Controllers\FormZeroOController.vb" />
     <Compile Include="ExceptionHandling\ElmahExceptionLogger.vb" />
     <Compile Include="ExceptionHandling\GenericTextExceptionHandler.vb" />
     <Compile Include="ExceptionHandling\InternalServerErrorTextPlainResult.vb" />
@@ -282,11 +284,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Reference.John.Domain.xml" />
+    <Content Include="angulardefault.html" />
+    <Content Include="App_Data\Reference.John.UI.Model.xml" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -630,6 +637,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\knockout-2.2.1.debug.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>

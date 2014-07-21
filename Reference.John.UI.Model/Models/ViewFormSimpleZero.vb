@@ -1,6 +1,9 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
-
+''' <summary>
+''' This is used as a form data entry DTO class.
+''' </summary>
+''' <remarks></remarks>
 Public Class ViewFormSimpleZero
 
     <Required(errormessageresourceType:=GetType(Reference.John.Resources.Resources.RequiredMessages), errormessageResourcename:="DefaultField")>

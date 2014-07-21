@@ -2,6 +2,8 @@
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web.Http
+Imports System.Web.Http.OData.Builder
+Imports System.Web.Http.OData.Extensions
 
 Public Module WebApiConfig
     Public Sub Register(ByVal config As HttpConfiguration)
@@ -21,5 +23,17 @@ Public Module WebApiConfig
 
         'There must be exactly one exception handler. (There is a default one that may be replaced.)
         config.Services.Replace(GetType(Http.ExceptionHandling.IExceptionHandler), New ExceptionHandling.GenericTextExceptionHandler())
+
+        'odata setup
+        Dim builder As New ODataConventionModelBuilder
+        builder.EntitySet(Of Reference.John.Domain.FormSimpleZero)("FormSimpleZero")
+        builder.EntitySet(Of Reference.John.Domain.Address)("Addresses")
+        builder.EntitySet(Of Reference.John.Domain.AddressTypeOptionList)("AddressTypeOptionLists")
+        builder.EntitySet(Of Reference.John.Domain.EthnicityOptionList)("EthnicityOptionLists")
+        builder.EntitySet(Of Reference.John.Domain.FormEntity_xref)("FormEntity_xref")
+        builder.EntitySet(Of Reference.John.Domain.GenderOptionList)("GenderOptionLists")
+        builder.EntitySet(Of Reference.John.Domain.RaceOptionList)("RaceOptionLists")
+        builder.EntitySet(Of Reference.John.Domain.RegionOptionList)("RegionOptionLists")
+        config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel())
     End Sub
 End Module
