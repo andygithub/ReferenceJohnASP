@@ -246,6 +246,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
     <Compile Include="Container\DefaultUnityInstaller.vb" />
+    <Compile Include="Controllers\OptionListController.vb" />
     <Compile Include="Controllers\FormSimpleEFController.vb" />
     <Compile Include="Controllers\FormZeroOController.vb" />
     <Compile Include="ExceptionHandling\ElmahExceptionLogger.vb" />
@@ -350,6 +351,9 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\Account\account-controller.js" />
     <Content Include="Scripts\app\Account\account-repository.js" />
+    <Content Include="Scripts\app\bower_components\angular-spinner.js" />
+    <Content Include="Scripts\app\bower_components\angular-spinner.min.js" />
+    <Content Include="Scripts\app\bower_components\spin.min.js" />
     <Content Include="Scripts\app\controllers.js" />
     <Content Include="Scripts\app\Courses\course-repository.js" />
     <Content Include="Scripts\app\Courses\courses-controller.js" />
@@ -647,6 +651,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\app\bower_components\angular-spinner.min.map" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -665,8 +670,9 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="templates\editform.html" />
     <Content Include="templates\forms.html" />
-    <Content Include="templates\create-account.html" />
+    <Content Include="templates\createform.html" />
     <Content Include="templates\instructors.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

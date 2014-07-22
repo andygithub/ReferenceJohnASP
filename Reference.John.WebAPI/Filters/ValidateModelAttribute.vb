@@ -14,6 +14,10 @@ Namespace Filters
         Inherits System.Web.Http.Filters.ActionFilterAttribute
 
         Public Overrides Sub OnActionExecuting(actionContext As HttpActionContext)
+            'check on post
+            If actionContext.Request.Method.Method <> "POST" Then Exit Sub
+            'expect there to be something posted
+
             If actionContext.ModelState.IsValid = False Then
                 actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState)
             End If

@@ -79,14 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MappingConfig.vb" />
+    <Compile Include="Messages\OptionListSet.vb" />
     <Compile Include="Models\GridModel.vb" />
     <Compile Include="Models\ViewFormSimpleZero.vb" />
     <Compile Include="Models\SearchResult.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Messages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Reference.John.Domain\Reference.John.Domain.vbproj">
       <Project>{79bf29ff-d1ae-4b9d-982f-036db7bcf3bd}</Project>
