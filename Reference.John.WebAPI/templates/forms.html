@@ -1,0 +1,31 @@
+﻿ <div class="row">
+        <div class="span10">
+            <h2>Forms</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span10">
+            <table class="table table-condensed table-hover table-striped">
+                <tr>
+                    <th>Form Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Ethnicity</th>
+                    <th>Date Created</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="item in forms">
+                    <td>{{item.FormId}}</td>
+                    <td>{{item.FirstName}}</td>
+                    <td>{{item.LastName}}</td>
+                    <td>{{item.GenderName}}</td>
+                    <td>{{item.EthnicityName}}</td>
+                    <td>{{item.DateCreated}}</td>
+                    <td><a ng-href="/EditForm?ClientToken={{item.ClientToken}}" class="btn btn-warning">Edit</a></td>
+                    <td><a ng-href="/DeleteForm?ClientToken={{item.ClientToken}}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>

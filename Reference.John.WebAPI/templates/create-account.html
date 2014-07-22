@@ -25,3 +25,33 @@
         <div style="color:red;" ng-show="error">An error occurred saving your account.</div>
     </div>
 </div>
+
+<form name="accountForm" novalidate>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="firstName" ng-model="student.firstName" class="form-control" required/>
+                <div class="text-danger" ng-show="accountForm.firstName.$error.required && accountForm.firstName.$dirty">Please enter your first name.</div>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastName" ng-model="student.lastName" class="form-control" required/>
+                <div class="text-danger" ng-show="accountForm.lastName.$error.required && accountForm.lastName.$dirty">Please enter your last name.</div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" ng-model="student.email" class="form-control" required ng-pattern="/^[a-zA-Z0-9'._%+-]+@[a-zA-Z0-9-][a-zA-Z0-9.-]*\.[a-zA-Z]{2,9}$/"/>
+                <div class="text-danger" ng-show="accountForm.email.$error.required && accountForm.email.$dirty">Please enter your email address.</div>
+                <div class="text-danger" ng-show="accountForm.email.$error.pattern && accountForm.email.$dirty">Invalid email address.</div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" ng-model="student.password" class="form-control" required/>
+                <div class="text-danger" ng-show="accountForm.password.$error.required && accountForm.password.$dirty">Please enter your password.</div>
+            </div>
+            <button class="btn btn-default" ng-disabled="accountForm.$invalid" ng-click="save(student)">Create Account</button>
+            <div style="color:red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>
+        </div>
+    </div>
+</form>
