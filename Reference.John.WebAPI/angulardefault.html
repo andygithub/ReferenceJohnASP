@@ -1,11 +1,20 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="AngularJohnReference">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Reference_John_Angular</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/app/app.js"></script>
+    <script src="Scripts/app/controllers.js"></script>
+    <script src="Scripts/app/services.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,23 +32,33 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Create</a></li>
                     <li><a href="#">Edit</a></li>
-                    <li><a href="#">List</a></li>
+                    <li><a href="/Forms">List</a></li>
                     <li><a href="#">Throw Error</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <p />
-    <div class="container body-content" data-ng-app="AngularJohnReference">
+    <h1 ng-controller="HelloWorldCtrl">{{helloMessage}}</h1>
+    <div class="container body-content">
         <div>1+1={{1+1}}</div>
-
+        <div ng-view></div>
         <hr />
-        <footer>
-            <p>&copy; 2014 - My API-Angular Application</p>
+        <footer ng-controller="FooterCtrl">
+            <p>&copy; {{footerdate | date:'yyyy-MM-dd'}} - My API-Angular Application</p>
         </footer>
     </div>
-    <script src="Scripts/jquery-1.10.2.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/angular.min.js"></script>
+    <script type="text/javascript">
+    function HelloWorldCtrl($scope) {
+        $scope.helloMessage = "Hello World";
+    }
+    </script>
+
+    <script type="text/javascript">
+    function FooterCtrl($scope) {
+        $scope.footerdate = new Date(); 
+    }
+    </script>
+
 </body>
 </html>

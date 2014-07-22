@@ -46,6 +46,7 @@ Namespace Controllers
         'http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
         <EnableQuery>
         Public Function [Get]() As IQueryable(Of Reference.John.Domain.FormSimpleZero)
+            System.Threading.Thread.Sleep(3000)
             Return _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)()
         End Function
 

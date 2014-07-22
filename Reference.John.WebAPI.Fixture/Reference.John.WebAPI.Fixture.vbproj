@@ -115,6 +115,15 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="form-controller-tests.js" />
+    <Content Include="css\jasmine.css" />
+    <Content Include="registrationTests.htm" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\jasmine-html.js" />
+    <Content Include="scripts\jasmine.js" />
+    <Content Include="scripts\sinon-1.7.3.js" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

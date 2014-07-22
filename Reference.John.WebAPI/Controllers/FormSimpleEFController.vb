@@ -36,6 +36,7 @@ Namespace Controllers
 
         ' GET: api/FormSimpleEF
         Public Function GetValues() As IQueryable(Of Reference.John.UI.Model.SearchResult)
+            System.Threading.Thread.Sleep(3000)
             Return _repository.GetQuery(Of Reference.John.Domain.SearchResult).AsNoTracking.Project.To(Of Reference.John.UI.Model.SearchResult)()
         End Function
 
