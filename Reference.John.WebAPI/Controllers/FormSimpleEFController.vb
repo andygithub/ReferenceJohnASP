@@ -11,6 +11,7 @@ Namespace Controllers
     Public Class FormSimpleEFController
         Inherits ApiController
 
+        Private NullGuid As New Guid("{00000000-0000-0000-0000-000000000000}")
         Private _lazyrepository As Lazy(Of IRepository)
         Private _lazylogger As Lazy(Of ILogger)
 
@@ -58,6 +59,11 @@ Namespace Controllers
             'End If
             'map view model into domain model 
             Dim _item As New Reference.John.Domain.FormSimpleZero
+            'load values for update
+            If value.ClientToken <> NullGuid Then
+                _item = _repository.GetQuery(Of Reference.John.Domain.FormSimpleZero)(Function(x) x.ClientToken = value.ClientToken).AsNoTracking
+            End If
+
             With _item
                 .FirstName = value.FirstName
                 .LastName = value.LastName
@@ -67,11 +73,10 @@ Namespace Controllers
                 .EthnicityId = value.EthnicityId
                 .LastChangeUser = "api" & Now.Minute
             End With
+                _repository.Add(Of Reference.John.Domain.FormSimpleZero)(_item)
+                _repository.UnitOfWork.SaveChanges()
 
-            _repository.Add(Of Reference.John.Domain.FormSimpleZero)(_item)
-            _repository.UnitOfWork.SaveChanges()
-
-            Return CreatedAtRoute("DefaultApi", New With {.ClientToken = value.ClientToken}, value)
+                Return CreatedAtRoute("DefaultApi", New With {.ClientToken = value.ClientToken}, value)
         End Function
 
         ' PUT: api/FormSimpleEF/5
