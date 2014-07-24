@@ -61,6 +61,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.95\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -246,6 +249,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
     <Compile Include="Container\DefaultUnityInstaller.vb" />
+    <Compile Include="Container\StamperInterceptor.vb" />
     <Compile Include="Controllers\OptionListController.vb" />
     <Compile Include="Controllers\FormSimpleEFController.vb" />
     <Compile Include="Controllers\FormZeroOController.vb" />
@@ -349,16 +353,11 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\app\Account\account-controller.js" />
-    <Content Include="Scripts\app\Account\account-repository.js" />
     <Content Include="Scripts\app\bower_components\angular-spinner.js" />
     <Content Include="Scripts\app\bower_components\angular-spinner.min.js" />
     <Content Include="Scripts\app\bower_components\spin.min.js" />
+    <Content Include="Scripts\app\bower_components\ui-bootstrap-tpls-0.11.0.min.js" />
     <Content Include="Scripts\app\controllers.js" />
-    <Content Include="Scripts\app\Courses\course-repository.js" />
-    <Content Include="Scripts\app\Courses\courses-controller.js" />
-    <Content Include="Scripts\app\Instructors\instructor-repository.js" />
-    <Content Include="Scripts\app\Instructors\instructors-controller.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\directives.js" />
     <Content Include="Scripts\app\filters.js" />
@@ -671,9 +670,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="templates\editform.html" />
+    <Content Include="templates\modalloading.html" />
     <Content Include="templates\forms.html" />
     <Content Include="templates\createform.html" />
-    <Content Include="templates\instructors.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

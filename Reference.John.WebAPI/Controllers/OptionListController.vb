@@ -5,6 +5,7 @@ Imports Reference.John.Repository
 Imports Reference.John.Infrastructure.Logging
 Imports System.Web.Http.Description
 Imports AutoMapper.QueryableExtensions
+Imports EntityFramework.Extensions
 
 Namespace Controllers
 
@@ -38,7 +39,7 @@ Namespace Controllers
         Public Function GetValues() As Reference.John.UI.Model.OptionListSet
             Return New Reference.John.UI.Model.OptionListSet With {
             .GenderList = _repository.GetQuery(Of Reference.John.Domain.GenderOptionList).AsNoTracking.Project.To(Of Reference.John.UI.Model.OptionList)(),
-            .RaceList = _repository.GetQuery(Of Reference.John.Domain.RaceOptionList).AsNoTracking.Project.To(Of Reference.John.UI.Model.OptionList)(),
+            .RaceList = _repository.GetQuery(Of Reference.John.Domain.RaceOptionList).AsNoTracking.Project.To(Of Reference.John.UI.Model.OptionList)().ToList,
             .RegionList = _repository.GetQuery(Of Reference.John.Domain.RegionOptionList).AsNoTracking.Project.To(Of Reference.John.UI.Model.OptionList)(),
             .EthnicityList = _repository.GetQuery(Of Reference.John.Domain.EthnicityOptionList).AsNoTracking.Project.To(Of Reference.John.UI.Model.OptionList)()
         }

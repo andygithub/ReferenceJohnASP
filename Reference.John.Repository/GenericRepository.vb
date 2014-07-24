@@ -56,7 +56,12 @@ Public Class GenericRepository
         Return Nothing
     End Function
 
-    Public Function GetQuery(Of TEntity As Class)() As IQueryable(Of TEntity) Implements IRepository.GetQuery
+    Public Function GetQuery(Of TEntity As Class)(<Runtime.CompilerServices.CallerFilePath> Optional sourcefilePath As String = Nothing, <Runtime.CompilerServices.CallerLineNumber()> Optional sourceLineNumber As Integer = 0) As IQueryable(Of TEntity) Implements IRepository.GetQuery
+        Debug.WriteLine(sourcefilePath)
+        Debug.WriteLine(sourceLineNumber)
+        'Dim _formattedMessage = MarkSqlString("select 1 from dual", sourcefilePath, sourceLineNumber, Nothing)
+        'Debug.WriteLine(_formattedMessage)
+        Dim i = GetType(TEntity)
         Return DbContext.Set(Of TEntity)()
     End Function
 
@@ -255,5 +260,37 @@ Public Class GenericRepository
     End Property
 
     Private _unitOfWork As Infrastructure.IUnitOfWork
+
+
+    Private Shared Function MarkSqlString(sql As String, path As String, lineNumber As Integer, comment As String) As String
+        If String.IsNullOrEmpty(path) OrElse lineNumber = 0 Then Return sql
+
+        Dim commentWrap = " "
+        Dim i = sql.IndexOf(Environment.NewLine)
+
+        ' if we didn't find \n, or it was the very end, go to the first space method
+        If i < 0 OrElse i = sql.Length - 1 Then
+            i = sql.IndexOf(" "c)
+            commentWrap = Environment.NewLine
+        End If
+
+        If i < 0 Then Return sql
+
+        ' Grab one directory and the file name worth of the path
+        '   this dodges problems with the build server using temp dirs
+        '   but also gives us enough info to uniquely identify a queries location
+        Dim split = path.LastIndexOf("\"c) - 1
+        If split < 0 Then Return sql
+
+        split = path.LastIndexOf("\"c, split)
+
+        If split < 0 Then Return sql
+
+        split += 1
+        ' just for Craver
+        Dim sqlComment = " /* " & path.Substring(split) & "@" & lineNumber & (If(Not String.IsNullOrWhiteSpace(comment), Convert.ToString(" - ") & comment, "")) & " */" & commentWrap
+
+        Return sqlComment & sql 'sql.Substring(0, i) + sqlComment + sql.Substring(i)
+    End Function
 
 End Class

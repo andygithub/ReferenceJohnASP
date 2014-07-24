@@ -15,6 +15,8 @@ Public Class WebApiApplication
         'unity initialization is taking place in UnityMvcActivator
         'automapper init
         Reference.John.UI.Model.MappingConfig.RegisterDomainMapping()
+        'EF interceptor registration
+        Entity.Infrastructure.Interception.DbInterception.Add(New Container.StamperInterceptor)
         'this is in place for the circular reference exceptions are being thrown by web api serialization,  ideally the message structure would change so this is not necessary
         ' Dim json = GlobalConfiguration.Configuration.Formatters.JsonFormatter
         'json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All

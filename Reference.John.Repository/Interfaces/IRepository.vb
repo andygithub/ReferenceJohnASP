@@ -19,7 +19,7 @@ Public Interface IRepository
     ''' </summary>
     ''' <typeparam name="TEntity">The type of the entity.</typeparam>
     ''' <returns></returns>
-    Function GetQuery(Of TEntity As Class)() As IQueryable(Of TEntity)
+    Function GetQuery(Of TEntity As Class)(<Runtime.CompilerServices.CallerFilePath> Optional sourcefilePath As String = Nothing, <Runtime.CompilerServices.CallerLineNumber()> Optional sourceLineNumber As Integer = 0) As IQueryable(Of TEntity)
 
     ''' <summary>
     ''' Gets the query.

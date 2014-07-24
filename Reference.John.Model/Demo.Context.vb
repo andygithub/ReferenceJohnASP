@@ -11,6 +11,7 @@ Imports System
 Imports System.Data.Entity
 Imports System.Data.Entity.Infrastructure
 Imports Reference.John.Domain
+Imports System.Data.Entity.Infrastructure.Interception
 Imports System.Data.Entity.Core.Objects
 Imports System.Linq
 
@@ -19,16 +20,18 @@ Partial Public Class Reference_JohnEntities
 
     Public Sub New()
         MyBase.New("name=Reference_JohnEntities")
+        'DbInterception.Add(new StamperInterceptor)
     End Sub
 
-	''' <summary>
+    ''' <summary>
     ''' Custom constuctor to pass connection string name.
     ''' </summary>
     ''' <param name="connectionStringName"></param>
     ''' <remarks></remarks>
-	Public Sub New(connectionStringName As String)
-		 MyBase.New("name=" & connectionStringName)
-	End Sub
+    Public Sub New(connectionStringName As String)
+        MyBase.New("name=" & connectionStringName)
+        'DbInterception.Add(new StamperInterceptor)
+    End Sub
 
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         Throw New UnintentionalCodeFirstException()
