@@ -1,59 +1,61 @@
-﻿<div class="row">
-    <div class="col-md-10">
-        <h2>Edit Form</h2>
+﻿<div ng-show="initialized">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Edit Form</h2>
+        </div>
     </div>
-</div>
 
-<form name="exform" class="form" novalidate>
-    <fieldset>
-        <legend>Form Zero - {{zform.FirstName}} {{zform.LastName}}</legend>
-        <div class="row">
-            <div class="span9">
-                <div class="well well-sm">
-                    <div style="color:red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstname" ng-model="zform.FirstName" class="form-control" required maxlength="50" />
-                        <div class="text-danger" ng-show="exform.firstname.$error.required && exform.firstname.$dirty">First Name required.</div>
-                        <div class="text-danger" ng-show="exform.firstname.$error.maxlength && exform.firstname.$dirty">First Name cannot exceeed fifty.</div>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" ng-model="zform.LastName" class="form-control" required maxlength="50" />
-                        <div class="text-danger" ng-show="exform.lastName.$error.required && exform.lastName.$dirty">Last Name required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <select ng-model="zform.GenderId" name="gender" ng-options="item.Id as item.Name for item in GenderList" class="form-control" required>
-                            <option value=""></option>
-                        </select>
-                        <div class="text-danger" ng-show="exform.gender.$error.required && exform.gender.$dirty">Gender required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label>Race</label>
-                        <select ng-model="zform.RaceId" name="race" ng-options="item.Id as item.Name for item in RaceList" class="form-control" required>
-                            <option value=""></option>
-                        </select>
-                        <div class="text-danger" ng-show="exform.race.$error.required && exform.reace.$dirty">Race required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label>Region</label>
-                        <select ng-model="zform.RegionId" name="region" ng-options="item.Id as item.Name for item in RegionList" class="form-control" required>
-                            <option value=""></option>
-                        </select>
-                        <div class="text-danger" ng-show="exform.region.$error.required && exform.region.$dirty">Region required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label>Ethnicity</label>
-                        <select ng-model="zform.EthnicityId" name="ethnicity" ng-options="item.Id as item.Name for item in EthnicityList" class="form-control" required>
-                            <option value=""></option>
-                        </select>
-                        <div class="text-danger" ng-show="exform.ethnicity.$error.required && exform.ethnicity.$dirty">Ethnicity required.</div>
-                    </div>
+    <form name="exform" class="form" novalidate>
+        <fieldset>
+            <legend>Form Zero - {{zform.FirstName}} {{zform.LastName}}</legend>
+            <div class="row">
+                <div class="span9">
+                    <div class="well well-sm">
+                        <div style="color:red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstname" ng-model="zform.FirstName" class="form-control" required maxlength="50" />
+                            <div class="text-danger" ng-show="exform.firstname.$error.required && exform.firstname.$dirty">First Name required.</div>
+                            <div class="text-danger" ng-show="exform.firstname.$error.maxlength && exform.firstname.$dirty">First Name cannot exceeed fifty.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="zform.LastName" class="form-control" required maxlength="50" />
+                            <div class="text-danger" ng-show="exform.lastName.$error.required && exform.lastName.$dirty">Last Name required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select ng-model="zform.GenderId" name="gender" ng-options="item.Id as item.Name for item in GenderList" class="form-control" required>
+                                <option value=""></option>
+                            </select>
+                            <div class="text-danger" ng-show="exform.gender.$error.required && exform.gender.$dirty">Gender required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Race</label>
+                            <select ng-model="zform.RaceId" name="race" ng-options="item.Id as item.Name for item in RaceList" class="form-control" required>
+                                <option value=""></option>
+                            </select>
+                            <div class="text-danger" ng-show="exform.race.$error.required && exform.reace.$dirty">Race required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Region</label>
+                            <select ng-model="zform.RegionId" name="region" ng-options="item.Id as item.Name for item in RegionList" class="form-control" required>
+                                <option value=""></option>
+                            </select>
+                            <div class="text-danger" ng-show="exform.region.$error.required && exform.region.$dirty">Region required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Ethnicity</label>
+                            <select ng-model="zform.EthnicityId" name="ethnicity" ng-options="item.Id as item.Name for item in EthnicityList" class="form-control" required>
+                                <option value=""></option>
+                            </select>
+                            <div class="text-danger" ng-show="exform.ethnicity.$error.required && exform.ethnicity.$dirty">Ethnicity required.</div>
+                        </div>
 
-                    <button class="btn btn-default" ng-disabled="exform.$invalid" ng-click="save(Token ,zform)">Update</button>
+                        <button class="btn btn-default" ng-disabled="exform.$invalid" ng-click="save(Token ,zform)">Update</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>

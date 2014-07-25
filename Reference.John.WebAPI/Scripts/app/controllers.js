@@ -1,8 +1,8 @@
-﻿referenceModule.controller("FormController", function ($scope, $modal,$log, formRepository, usSpinnerService, settingsRepository, SpinnerName) {
+﻿referenceModule.controller("FormController", function ($scope, $modal, $log, formRepository, usSpinnerService, settingsRepository, SpinnerName) {
     $scope.ModalOptions = settingsRepository.getModalWindowSettings();
     $scope.initialized = false;
 
-    var modalInstance; 
+    var modalInstance;
 
     formRepository.get().$promise.then(function (response) {
         $scope.forms = response;
@@ -14,8 +14,7 @@
     });
 
     $scope.$watch('initialized', function (newValue, oldValue) {
-        if (newValue===false)
-        {
+        if (newValue === false) {
             modalInstance = $modal.open($scope.ModalOptions);
             usSpinnerService.spin(SpinnerName);
         }
@@ -80,7 +79,7 @@ referenceModule.controller("FormCreateController", function ($scope, $location, 
     });
 });
 
-referenceModule.controller("FormEditController", function ($resource, $scope, $location, $modal, $log, formRepository, usSpinnerService, settingsRepository, SpinnerName) {
+referenceModule.controller("FormEditController", function ($resource, $scope, $location, $modal, $log, $q, formRepository, usSpinnerService, settingsRepository, SpinnerName) {
     $scope.GenderList = [];
     $scope.RaceList = [];
     $scope.RegionList = [];
@@ -91,36 +90,53 @@ referenceModule.controller("FormEditController", function ($resource, $scope, $l
     var modalInstance;
 
     var _allitems = $location.search();
-    $scope.Token =  $location.search().ClientToken;
+    $scope.Token = $location.search().ClientToken;
     if ($location.search().ClientToken == null) { $log.error('Expected querystring parameter ClientToken not found.'); }
-    //$log.info(_token);
-    //$log.info(_allitems);
 
-    formRepository.optionLists().$promise.then(function (response) {
-        $scope.GenderList = response.GenderList;
-        $scope.RaceList = response.RaceList;
-        $scope.RegionList = response.RegionList;
-        $scope.EthnicityList = response.EthnicityList;
-        $scope.initialized = true;
+
+    //formRepository.optionLists().$promise.then(function (response) {
+    //    $scope.GenderList = response.GenderList;
+    //    $scope.RaceList = response.RaceList;
+    //    $scope.RegionList = response.RegionList;
+    //    $scope.EthnicityList = response.EthnicityList;
+    //    $scope.initialized = true;
+    //    $log.info('success option list');
+    //}, function (response) {
+    //    // TODO: handle the error 
+    //    $scope.initialized = true;
+    //    $log.error('error option list');
+    //});
+
+    //formRepository.getItem().get(_allitems).$promise.then(function (response) {
+    //    $scope.zform = response;
+    //    $log.info('success single record');
+    //}, function (response) {
+    //    // TODO: handle the error 
+    //    $log.info('error single record');
+    //});
+
+    $q.all([formRepository.optionLists().$promise, formRepository.getItem().get(_allitems).$promise]).then(function (response) {
+        $scope.GenderList = response[0].GenderList;
+        $scope.RaceList = response[0].RaceList;
+        $scope.RegionList = response[0].RegionList;
+        $scope.EthnicityList = response[0].EthnicityList;
         $log.info('success option list');
-    }, function (response) {
-        // TODO: handle the error 
-        $scope.initialized = true;
-        $log.error('error option list');
-    });
-
-    formRepository.getItem().get(_allitems).$promise.then(function (response) {
-        $scope.zform = response;
+        $scope.zform = response[1];
         $log.info('success single record');
+
+        $scope.initialized = true;
     }, function (response) {
-        // TODO: handle the error 
-        $log.info('error single record');
-    });
+        $log.error('error');
+        $log.info(response.data.Message);
+        $log.info(response.data.MessageDetail);
+        $scope.initialized = true;
+    }
+    );
 
     $scope.save = function (ClientToken, form) {
         $scope.error = false;
         $scope.errors = [];
-        formRepository.update().update(_allitems,form).$promise.then(
+        formRepository.update().update(_allitems, form).$promise.then(
             function () {
                 $log.info('success update');
                 $location.url('/Forms');
