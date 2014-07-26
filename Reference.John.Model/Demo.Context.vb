@@ -20,18 +20,18 @@ Partial Public Class Reference_JohnEntities
 
     Public Sub New()
         MyBase.New("name=Reference_JohnEntities")
-        'DbInterception.Add(new StamperInterceptor)
+		'DbInterception.Add(new StamperInterceptor)
     End Sub
 
-    ''' <summary>
+	''' <summary>
     ''' Custom constuctor to pass connection string name.
     ''' </summary>
     ''' <param name="connectionStringName"></param>
     ''' <remarks></remarks>
-    Public Sub New(connectionStringName As String)
-        MyBase.New("name=" & connectionStringName)
-        'DbInterception.Add(new StamperInterceptor)
-    End Sub
+	Public Sub New(connectionStringName As String)
+		 MyBase.New("name=" & connectionStringName)
+		 'DbInterception.Add(new StamperInterceptor)
+	End Sub
 
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         Throw New UnintentionalCodeFirstException()
@@ -50,6 +50,8 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property SearchResults() As DbSet(Of SearchResult)
     Public Overridable Property Entities() As DbSet(Of Entity)
     Public Overridable Property FormEntity_xref() As DbSet(Of FormEntity_xref)
+    Public Overridable Property Audits() As DbSet(Of Audit)
+    Public Overridable Property FileStores() As DbSet(Of FileStore)
 
     Public Overridable Function GetApplicationProperty(applicationId As String, keyId As String) As ObjectResult(Of String)
         Dim applicationIdParameter As ObjectParameter = If(applicationId IsNot Nothing, New ObjectParameter("ApplicationId", applicationId), New ObjectParameter("ApplicationId", GetType(String)))
@@ -57,6 +59,60 @@ Partial Public Class Reference_JohnEntities
         Dim keyIdParameter As ObjectParameter = If(keyId IsNot Nothing, New ObjectParameter("KeyId", keyId), New ObjectParameter("KeyId", GetType(String)))
 
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of String)("GetApplicationProperty", applicationIdParameter, keyIdParameter)
+    End Function
+
+    Public Overridable Function ELMAH_GetErrorsXml(application As String, pageIndex As Nullable(Of Integer), pageSize As Nullable(Of Integer), totalCount As ObjectParameter) As ObjectResult(Of String)
+        Dim applicationParameter As ObjectParameter = If(application IsNot Nothing, New ObjectParameter("Application", application), New ObjectParameter("Application", GetType(String)))
+
+        Dim pageIndexParameter As ObjectParameter = If(pageIndex.HasValue, New ObjectParameter("PageIndex", pageIndex), New ObjectParameter("PageIndex", GetType(Integer)))
+
+        Dim pageSizeParameter As ObjectParameter = If(pageSize.HasValue, New ObjectParameter("PageSize", pageSize), New ObjectParameter("PageSize", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of String)("ELMAH_GetErrorsXml", applicationParameter, pageIndexParameter, pageSizeParameter, totalCount)
+    End Function
+
+    Public Overridable Function ELMAH_GetErrorXml(application As String, errorId As Nullable(Of System.Guid)) As ObjectResult(Of String)
+        Dim applicationParameter As ObjectParameter = If(application IsNot Nothing, New ObjectParameter("Application", application), New ObjectParameter("Application", GetType(String)))
+
+        Dim errorIdParameter As ObjectParameter = If(errorId.HasValue, New ObjectParameter("ErrorId", errorId), New ObjectParameter("ErrorId", GetType(System.Guid)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of String)("ELMAH_GetErrorXml", applicationParameter, errorIdParameter)
+    End Function
+
+    Public Overridable Function ELMAH_LogError(errorId As Nullable(Of System.Guid), application As String, host As String, type As String, source As String, message As String, user As String, allXml As String, statusCode As Nullable(Of Integer), timeUtc As Nullable(Of Date)) As Integer
+        Dim errorIdParameter As ObjectParameter = If(errorId.HasValue, New ObjectParameter("ErrorId", errorId), New ObjectParameter("ErrorId", GetType(System.Guid)))
+
+        Dim applicationParameter As ObjectParameter = If(application IsNot Nothing, New ObjectParameter("Application", application), New ObjectParameter("Application", GetType(String)))
+
+        Dim hostParameter As ObjectParameter = If(host IsNot Nothing, New ObjectParameter("Host", host), New ObjectParameter("Host", GetType(String)))
+
+        Dim typeParameter As ObjectParameter = If(type IsNot Nothing, New ObjectParameter("Type", type), New ObjectParameter("Type", GetType(String)))
+
+        Dim sourceParameter As ObjectParameter = If(source IsNot Nothing, New ObjectParameter("Source", source), New ObjectParameter("Source", GetType(String)))
+
+        Dim messageParameter As ObjectParameter = If(message IsNot Nothing, New ObjectParameter("Message", message), New ObjectParameter("Message", GetType(String)))
+
+        Dim userParameter As ObjectParameter = If(user IsNot Nothing, New ObjectParameter("User", user), New ObjectParameter("User", GetType(String)))
+
+        Dim allXmlParameter As ObjectParameter = If(allXml IsNot Nothing, New ObjectParameter("AllXml", allXml), New ObjectParameter("AllXml", GetType(String)))
+
+        Dim statusCodeParameter As ObjectParameter = If(statusCode.HasValue, New ObjectParameter("StatusCode", statusCode), New ObjectParameter("StatusCode", GetType(Integer)))
+
+        Dim timeUtcParameter As ObjectParameter = If(timeUtc.HasValue, New ObjectParameter("TimeUtc", timeUtc), New ObjectParameter("TimeUtc", GetType(Date)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("ELMAH_LogError", errorIdParameter, applicationParameter, hostParameter, typeParameter, sourceParameter, messageParameter, userParameter, allXmlParameter, statusCodeParameter, timeUtcParameter)
+    End Function
+
+    Public Overridable Function InsertAudit(entityName As String, entityKey As Nullable(Of Integer), changeSet As String, lastChangeUser As String) As Integer
+        Dim entityNameParameter As ObjectParameter = If(entityName IsNot Nothing, New ObjectParameter("EntityName", entityName), New ObjectParameter("EntityName", GetType(String)))
+
+        Dim entityKeyParameter As ObjectParameter = If(entityKey.HasValue, New ObjectParameter("EntityKey", entityKey), New ObjectParameter("EntityKey", GetType(Integer)))
+
+        Dim changeSetParameter As ObjectParameter = If(changeSet IsNot Nothing, New ObjectParameter("ChangeSet", changeSet), New ObjectParameter("ChangeSet", GetType(String)))
+
+        Dim lastChangeUserParameter As ObjectParameter = If(lastChangeUser IsNot Nothing, New ObjectParameter("LastChangeUser", lastChangeUser), New ObjectParameter("LastChangeUser", GetType(String)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("InsertAudit", entityNameParameter, entityKeyParameter, changeSetParameter, lastChangeUserParameter)
     End Function
 
     Public Overrides Function SaveChanges() As Integer

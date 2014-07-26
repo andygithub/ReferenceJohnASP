@@ -53,6 +53,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.95\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -128,6 +131,7 @@
     <Compile Include="Container\InstallerFixture.vb" />
     <Compile Include="Core\TypeExtensionFixture.vb" />
     <Compile Include="Domain\InitializeObjects.vb" />
+    <Compile Include="EF\Audit\AuditContextFixture.vb" />
     <Compile Include="EF\Context\ContextTraceFixture.vb" />
     <Compile Include="EF\Context\ContextFixture.vb" />
     <Compile Include="EF\Repository\FakeGenericRepositoryFixture.vb" />

@@ -59,32 +59,38 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Procedures" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
+    <Folder Include="Other" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="GenderOptionList.sql" />
-    <Build Include="RaceOptionList.sql" />
-    <Build Include="RegionOptionList.sql" />
-    <Build Include="EthnicityOptionList.sql" />
-    <Build Include="FormSimpleZero.sql" />
-    <Build Include="FormSimpleZeroHistory.sql" />
-    <Build Include="Address.sql" />
-    <Build Include="AddressTypeOptionList.sql" />
-    <Build Include="UserExtendedProperties.sql" />
-    <Build Include="ApplicationExtendedProperties.sql" />
-    <Build Include="GetApplicationProperty.sql" />
-    <Build Include="ELMAH.sql" />
-    <Build Include="SearchResults.sql" />
-    <Build Include="Entity.sql" />
-    <Build Include="FormEntity_xref.sql" />
-    <Build Include="Audit.sql" />
-    <Build Include="InsertAudit.sql" />
-    <Build Include="FileStore.sql" />
-    <Build Include="FormSequence.sql" />
+    <Build Include="Procedures\InsertAudit.sql" />
+    <Build Include="Procedures\GetApplicationProperty.sql" />
+    <Build Include="Tables\Address.sql" />
+    <Build Include="Tables\AddressTypeOptionList.sql" />
+    <Build Include="Tables\ApplicationExtendedProperties.sql" />
+    <Build Include="Tables\AuditLog.sql" />
+    <Build Include="Other\ELMAH.sql" />
+    <Build Include="Tables\Entity.sql" />
+    <Build Include="Tables\EthnicityOptionList.sql" />
+    <Build Include="Tables\FileStore.sql" />
+    <Build Include="Tables\FormEntity_xref.sql" />
+    <Build Include="Tables\FormSequence.sql" />
+    <Build Include="Tables\FormSimpleZero.sql" />
+    <Build Include="Tables\FormSimpleZeroHistory.sql" />
+    <Build Include="Tables\GenderOptionList.sql" />
+    <Build Include="Tables\RegionOptionList.sql" />
+    <Build Include="Views\SearchResults.sql" />
+    <Build Include="Tables\UserExtendedProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Reference.John.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Script.PostDeployment.sql" />
+    <PostDeploy Include="Other\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\RaceOptionList.sql" />
   </ItemGroup>
 </Project>

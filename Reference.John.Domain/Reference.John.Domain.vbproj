@@ -84,6 +84,9 @@
     <Compile Include="ApplicationExtendedProperty.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Audit.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Demo.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +96,9 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="EthnicityOptionList.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FileStore.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="FormEntity_xref.vb">

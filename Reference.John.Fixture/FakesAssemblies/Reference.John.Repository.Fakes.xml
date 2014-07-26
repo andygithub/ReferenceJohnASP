@@ -88,11 +88,11 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
-        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetQueryOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.IQueryable{``0}})">
-            <summary>Sets stubs of GetQuery()</summary>
-        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetQueryOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.IQueryable{``0}})">
             <summary>Sets stubs of GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.GetQueryOf1StringInt32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,System.Int32,System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery(String sourcefilePath, Int32 sourceLineNumber)</summary>
         </member>
         <member name="F:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.NewlyCreated">
             <summary>Sets the stub of IFormContactZeroRepository.NewlyCreated()</summary>
@@ -178,11 +178,11 @@
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
         </member>
-        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1">
-            <summary>Sets the stub of IRepository.GetQuery()</summary>
-        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.String,System.Int32)">
+            <summary>Sets the stub of IRepository.GetQuery(String sourcefilePath, Int32 sourceLineNumber)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIFormContactZeroRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>
@@ -289,11 +289,11 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetOf2ExpressionOfFuncOfM0M1Int32Int32SortOrder``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Reference.John.Repository.SortOrder,System.Collections.Generic.IEnumerable{``0}})">
             <summary>Sets stubs of Get(Expression`1&lt;Func`2&lt;!!0,!!1&gt;&gt; orderBy, Int32 pageIndex, Int32 pageSize, SortOrder sortOrder)</summary>
         </member>
-        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetQueryOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.IQueryable{``0}})">
-            <summary>Sets stubs of GetQuery()</summary>
-        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetQueryOf1ExpressionOfFuncOfM0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.IQueryable{``0}})">
             <summary>Sets stubs of GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.GetQueryOf1StringInt32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,System.Int32,System.Linq.IQueryable{``0}})">
+            <summary>Sets stubs of GetQuery(String sourcefilePath, Int32 sourceLineNumber)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Add``1(``0)">
             <summary>Sets the stub of IRepository.Add(!!0 entity)</summary>
@@ -370,11 +370,11 @@
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetByKey``1(System.Object)">
             <summary>Sets the stub of IRepository.GetByKey(Object keyValue)</summary>
         </member>
-        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1">
-            <summary>Sets the stub of IRepository.GetQuery()</summary>
-        </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.GetQuery(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; predicate)</summary>
+        </member>
+        <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#GetQuery``1(System.String,System.Int32)">
+            <summary>Sets the stub of IRepository.GetQuery(String sourcefilePath, Int32 sourceLineNumber)</summary>
         </member>
         <member name="M:Reference.John.Repository.Fakes.StubIRepository.rjr::Reference#John#Repository#IRepository#Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>Sets the stub of IRepository.Single(Expression`1&lt;Func`2&lt;!!0,Boolean&gt;&gt; criteria)</summary>

@@ -4,13 +4,6 @@ Imports Reference.John
 
 <TestClass()> Public Class ContextFixture
 
-
-    <TestMethod()>
-    Public Sub OctoberCalculation()
-        Console.WriteLine(DateAdd(DateInterval.Day, -90, #10/4/2014#))
-        Assert.IsTrue(True)
-    End Sub
-
     <TestMethod()>
     Public Sub ContextUsage()
         Console.WriteLine("Test Starting EF Context:" & Now)

@@ -45,7 +45,7 @@ Imports Reference.John.Repository
                                                .Addresses = New List(Of Domain.Address) From {New Domain.Address With {.Id = -101, .FormSimpleZeroId = -212, .AddressLine1 = "mock", .LastChangeDate = Now}}
                                               })
         Dim _stub As New Reference.John.Repository.Fakes.StubIRepository
-        _stub.GetQueryOf1(Of Domain.FormSimpleZero)(Function() _rootList.AsQueryable)
+        _stub.GetQueryOf1StringInt32(Of Domain.FormSimpleZero)(Function() _rootList.AsQueryable)
         Dim _repository As IRepository = _stub
 
         'act
@@ -99,8 +99,8 @@ Imports Reference.John.Repository
         Dim _stubUOW As New Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork
         _stubUOW.SaveChanges = Sub() Console.Write("Save Change Stub ")
         _stub.UnitOfWorkGet = Function() _stubUOW
-        _stub.GetQueryOf1(Of Domain.FormSimpleZero)(Function() _contactStub.AsQueryable)
-        _stub.GetQueryOf1(Of Domain.Address)(Function() _rootlist.AsQueryable)
+        _stub.GetQueryOf1StringInt32(Of Domain.FormSimpleZero)(Function() _contactStub.AsQueryable)
+        _stub.GetQueryOf1StringInt32(Of Domain.Address)(Function() _rootlist.AsQueryable)
         _stub.DeleteOf1M0(Of Domain.Address)(Sub() _rootlist.Clear())
         Dim _repository As IFormContactZeroRepository = _stub  'MockRepository.GenerateMock(Of IRepository)()
         'act
@@ -154,7 +154,7 @@ Imports Reference.John.Repository
         Dim _stubUOW As New Reference.John.Repository.Infrastructure.Fakes.StubIUnitOfWork
         _stubUOW.SaveChanges = Sub() Console.Write("Save Change Stub ")
         _stub.UnitOfWorkGet = Function() _stubUOW
-        _stub.GetQueryOf1(Of Domain.FormSimpleZero)(Function() _rootList.AsQueryable)
+        _stub.GetQueryOf1StringInt32(Of Domain.FormSimpleZero)(Function() _rootList.AsQueryable)
         _stub.DeleteOf1M0(Of Domain.FormSimpleZero)(Sub() _rootList.Clear())
         Dim _repository As IFormContactZeroRepository = _stub
         'act
