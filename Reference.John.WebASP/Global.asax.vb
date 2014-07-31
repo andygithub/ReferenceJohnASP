@@ -12,6 +12,9 @@ Public Class Global_asax
         BundleConfig.RegisterBundles(BundleTable.Bundles)
         'automapper init
         MappingConfig.RegisterDomainMapping()
+        'fire threadd pool tasks
+        Dim _tasks As New BackgrondTaskConfig(Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)())
+        _tasks.RunBackgroundTasks(Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.ResolveAll(Of Reference.John.Infrastructure.Tasks.IBackgroundTask)())
     End Sub
 
     Dim _logger As Reference.John.Infrastructure.Logging.ILogger = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Reference.John.Infrastructure.Logging.ILogger)()

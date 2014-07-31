@@ -117,6 +117,7 @@
     <Compile Include="Interfaces\IEntityDates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Partials\Address.vb" />
+    <Compile Include="Partials\FileStore.vb" />
     <Compile Include="Partials\FormSimpleZero.vb" />
     <Compile Include="Providers\SequentialGuid.vb" />
     <Compile Include="Providers\TimeProvider.vb" />

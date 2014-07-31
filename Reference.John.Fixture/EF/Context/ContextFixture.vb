@@ -14,6 +14,8 @@ Imports Reference.John
         DoAction(Sub() FindByKeyNoTracking())
         DoAction(Sub() GetContactsWithPaging())
         DoAction(Sub() FindContactWithInclude())
+        DoAction(Sub() FindContactWithInclude())
+        DoAction(Sub() CreateBinaryRecord())
         Console.WriteLine("Test Ending EF Context:" & Now)
     End Sub
 
@@ -106,6 +108,42 @@ Imports Reference.John
             Dim _list = (From c In _context.FormSimpleZeroes).Take(17)
             Assert.IsNotNull(_list)
             Console.Write("Pulled page set of record: {0}", _list.Count)
+        End Using
+
+    End Sub
+
+    Private Sub CreateBinaryRecord()
+        Const _entityKey As Integer = 10
+        Const _fileValue As String = "adfadfadsfadsfadsfadsfadsffzcvzcvzv"
+        Using _context As New Model.Reference_JohnEntities
+            _context.Configuration.LazyLoadingEnabled = False
+            Dim _item As New Reference.John.Domain.FileStore With {.EntityKey = _entityKey, .EntityName = GetType(Reference.John.Domain.FormSimpleZero).FullName, .LastChangeUser = "unintt"}
+            _item.File = System.Text.Encoding.Unicode.GetBytes(_fileValue)
+            _context.FileStores.Add(_item)
+            Try
+                _context.SaveChanges()
+            Catch ex As Entity.Validation.DbEntityValidationException
+                For Each eve In ex.EntityValidationErrors
+                    Debug.WriteLine("Entity of type {0} in state {1} has the following validation errors:", eve.Entry.Entity.GetType().Name, eve.Entry.State)
+                    For Each ve In eve.ValidationErrors
+                        Debug.WriteLine("- Property: {0}, Error: {1}", ve.PropertyName, ve.ErrorMessage)
+                    Next
+                Next
+                Throw
+            End Try
+            Console.Write("Saved one file")
+            'check to see that the record was added
+            Dim _list = (From c In _context.FileStores Where c.EntityKey = _entityKey).ToList
+            'check that the file value was round tripped
+            Assert.AreEqual(_fileValue, System.Text.Encoding.Unicode.GetString(_list(0).File))
+            Assert.AreNotEqual(0, _list.Count)
+            'remove the found record
+            _context.FileStores.RemoveRange(_list)
+            _context.SaveChanges()
+            Console.Write("Removed one address")
+            'check to see that the record was added
+            Dim _listempty = (From c In _context.FileStores Where c.EntityKey = _entityKey).ToList
+            Assert.AreEqual(0, _listempty.Count)
         End Using
 
     End Sub

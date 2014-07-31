@@ -180,4 +180,13 @@
   <data name="CacheInvalidReturnType" xml:space="preserve">
     <value>Due to the return value type of the command the output will not be cached</value>
   </data>
+  <data name="ExecutingTask" xml:space="preserve">
+    <value>Executing Task: {0}</value>
+  </data>
+  <data name="LaunchedBackgroundTasks" xml:space="preserve">
+    <value>Launched Background Tasks</value>
+  </data>
+  <data name="LaunchingBackgroundTasks" xml:space="preserve">
+    <value>Launching Background Tasks</value>
+  </data>
 </root>

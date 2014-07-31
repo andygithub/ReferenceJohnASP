@@ -77,6 +77,11 @@ Namespace Container
             '                         GetType(REFJohn.,ISessionRepository),
             '                         GetType(REFJohn.,ISessionExtendedRepository),
             '                           "injected Userid"))
+            'register background tasks
+            AllClasses.FromLoadedAssemblies().Where(Function(x) Not x.IsInterface AndAlso GetType(Reference.John.Infrastructure.Tasks.IBackgroundTask).IsAssignableFrom(x)).
+               ToList.ForEach(Sub(y)
+                                  Me.Container.RegisterType(GetInterfaceType(y), y, y.UnderlyingSystemType.FullName, New HierarchicalLifetimeManager)
+                              End Sub)
         End Sub
 
         Private Function GetInterfaceType(type As Type) As Type

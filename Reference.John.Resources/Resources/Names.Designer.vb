@@ -128,11 +128,47 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Entity Key.
+        '''</summary>
+        Public Shared ReadOnly Property EntityKey() As String
+            Get
+                Return ResourceManager.GetString("EntityKey", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Entity Name.
+        '''</summary>
+        Public Shared ReadOnly Property EntityName() As String
+            Get
+                Return ResourceManager.GetString("EntityName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Ethnicity.
         '''</summary>
         Public Shared ReadOnly Property EthnicityId() As String
             Get
                 Return ResourceManager.GetString("EthnicityId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to File.
+        '''</summary>
+        Public Shared ReadOnly Property File() As String
+            Get
+                Return ResourceManager.GetString("File", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to File Store Id.
+        '''</summary>
+        Public Shared ReadOnly Property FileStoreId() As String
+            Get
+                Return ResourceManager.GetString("FileStoreId", resourceCulture)
             End Get
         End Property
         

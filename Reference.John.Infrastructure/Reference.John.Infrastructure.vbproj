@@ -118,6 +118,7 @@
     <Compile Include="Logging\NullLogger.vb" />
     <Compile Include="Logging\TraceLogger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Tasks\IBackgroundTask.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -128,6 +129,7 @@
       <Name>Reference.John.Resources</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

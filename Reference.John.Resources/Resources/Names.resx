@@ -138,8 +138,20 @@
   <data name="DateCreated" xml:space="preserve">
     <value>Date Created</value>
   </data>
+  <data name="EntityKey" xml:space="preserve">
+    <value>Entity Key</value>
+  </data>
+  <data name="EntityName" xml:space="preserve">
+    <value>Entity Name</value>
+  </data>
   <data name="EthnicityId" xml:space="preserve">
     <value>Ethnicity</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileStoreId" xml:space="preserve">
+    <value>File Store Id</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>First Name</value>
