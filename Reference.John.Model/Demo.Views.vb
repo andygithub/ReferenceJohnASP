@@ -17,7 +17,7 @@ Imports System.Data.Entity.Infrastructure.MappingViews
 
 <Assembly: DbMappingViewCacheTypeAttribute(
     GetType(Reference.John.Model.Reference_JohnEntities),
-    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets8bb0c6d130955fb1b1ad26f46fd42296686e56ea86f1accb77edcb6727160913))>
+    GetType(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets3a27f9b8ad055a413f1689ea0a4dad69caa29d30702ce9cb25fdf21a6e07c434))>
 
 Namespace Edm_EntityMappingGeneratedViews
 
@@ -25,7 +25,7 @@ Namespace Edm_EntityMappingGeneratedViews
     ''' Implements a mapping view cache.
     ''' </summary>
     <GeneratedCode("Entity Framework Power Tools", "0.9.0.0")>
-    Friend NotInheritable Class ViewsForBaseEntitySets8bb0c6d130955fb1b1ad26f46fd42296686e56ea86f1accb77edcb6727160913
+    Friend NotInheritable Class ViewsForBaseEntitySets3a27f9b8ad055a413f1689ea0a4dad69caa29d30702ce9cb25fdf21a6e07c434
         Inherits DbMappingViewCache
 
         ''' <summary>
@@ -33,7 +33,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' </summary>
         Public Overrides ReadOnly Property MappingHashValue As String
             Get
-                Return "8bb0c6d130955fb1b1ad26f46fd42296686e56ea86f1accb77edcb6727160913"
+                Return "3a27f9b8ad055a413f1689ea0a4dad69caa29d30702ce9cb25fdf21a6e07c434"
             End Get
         End Property
 
@@ -153,19 +153,19 @@ Namespace Edm_EntityMappingGeneratedViews
                 Return GetView25()
             End If
 
-            If extentName = "ReferenceJohnModelStoreContainer.Audit" Then
+            If extentName = "ReferenceJohnModelStoreContainer.FileStore" Then
                 Return GetView26()
             End If
 
-            If extentName = "Reference_JohnEntities.Audits" Then
+            If extentName = "Reference_JohnEntities.FileStores" Then
                 Return GetView27()
             End If
 
-            If extentName = "ReferenceJohnModelStoreContainer.FileStore" Then
+            If extentName = "ReferenceJohnModelStoreContainer.AuditLog" Then
                 Return GetView28()
             End If
 
-            If extentName = "Reference_JohnEntities.FileStores" Then
+            If extentName = "Reference_JohnEntities.AuditLogs" Then
                 Return GetView29()
             End If
 
@@ -853,56 +853,10 @@ Namespace Edm_EntityMappingGeneratedViews
         End Function
 
         ''' <summary>
-        ''' Gets the view for ReferenceJohnModelStoreContainer.Audit.
-        ''' </summary>
-        ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView26() As DbMappingView
-            Return New DbMappingView(
-                "" & vbCrLf &
-                "    SELECT VALUE -- Constructing Audit" & vbCrLf &
-                "        [Reference.John.Model.Store.Audit](T1.Audit_AuditId, T1.Audit_EntityName, T1.Audit_EntityKey, T1.Audit_ChangeSet, T1.Audit_DateCreated, T1.Audit_LastChangeUser, T1.Audit_LastChangeDate)" & vbCrLf &
-                "    FROM (" & vbCrLf &
-                "        SELECT " & vbCrLf &
-                "            T.AuditId AS Audit_AuditId, " & vbCrLf &
-                "            T.EntityName AS Audit_EntityName, " & vbCrLf &
-                "            T.EntityKey AS Audit_EntityKey, " & vbCrLf &
-                "            T.ChangeSet AS Audit_ChangeSet, " & vbCrLf &
-                "            T.DateCreated AS Audit_DateCreated, " & vbCrLf &
-                "            T.LastChangeUser AS Audit_LastChangeUser, " & vbCrLf &
-                "            T.LastChangeDate AS Audit_LastChangeDate, " & vbCrLf &
-                "            True AS _from0" & vbCrLf &
-                "        FROM Reference_JohnEntities.Audits AS T" & vbCrLf &
-                "    ) AS T1")
-        End Function
-
-        ''' <summary>
-        ''' Gets the view for Reference_JohnEntities.Audits.
-        ''' </summary>
-        ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView27() As DbMappingView
-            Return New DbMappingView(
-                "" & vbCrLf &
-                "    SELECT VALUE -- Constructing Audits" & vbCrLf &
-                "        [Reference.John.Model.Audit](T1.Audit_AuditId, T1.Audit_EntityName, T1.Audit_EntityKey, T1.Audit_ChangeSet, T1.Audit_DateCreated, T1.Audit_LastChangeUser, T1.Audit_LastChangeDate)" & vbCrLf &
-                "    FROM (" & vbCrLf &
-                "        SELECT " & vbCrLf &
-                "            T.AuditId AS Audit_AuditId, " & vbCrLf &
-                "            T.EntityName AS Audit_EntityName, " & vbCrLf &
-                "            T.EntityKey AS Audit_EntityKey, " & vbCrLf &
-                "            T.ChangeSet AS Audit_ChangeSet, " & vbCrLf &
-                "            T.DateCreated AS Audit_DateCreated, " & vbCrLf &
-                "            T.LastChangeUser AS Audit_LastChangeUser, " & vbCrLf &
-                "            T.LastChangeDate AS Audit_LastChangeDate, " & vbCrLf &
-                "            True AS _from0" & vbCrLf &
-                "        FROM ReferenceJohnModelStoreContainer.Audit AS T" & vbCrLf &
-                "    ) AS T1")
-        End Function
-
-        ''' <summary>
         ''' Gets the view for ReferenceJohnModelStoreContainer.FileStore.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView28() As DbMappingView
+        Private Shared Function GetView26() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FileStore" & vbCrLf &
@@ -926,7 +880,7 @@ Namespace Edm_EntityMappingGeneratedViews
         ''' Gets the view for Reference_JohnEntities.FileStores.
         ''' </summary>
         ''' <returns>The mapping view.</returns>
-        Private Shared Function GetView29() As DbMappingView
+        Private Shared Function GetView27() As DbMappingView
             Return New DbMappingView(
                 "" & vbCrLf &
                 "    SELECT VALUE -- Constructing FileStores" & vbCrLf &
@@ -943,6 +897,56 @@ Namespace Edm_EntityMappingGeneratedViews
                 "            T.LastChangeDate AS FileStore_LastChangeDate, " & vbCrLf &
                 "            True AS _from0" & vbCrLf &
                 "        FROM ReferenceJohnModelStoreContainer.FileStore AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
+        ''' Gets the view for ReferenceJohnModelStoreContainer.AuditLog.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView28() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
+                "    SELECT VALUE -- Constructing AuditLog" & vbCrLf &
+                "        [Reference.John.Model.Store.AuditLog](T1.AuditLog_AuditLogId, T1.AuditLog_Action, T1.AuditLog_Type, T1.AuditLog_EntityKey, T1.AuditLog_ChangeSet, T1.AuditLog_CountofFieldsModified, T1.AuditLog_DateCreated, T1.AuditLog_LastChangeUser, T1.AuditLog_LastChangeDate)" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.AuditLogId AS AuditLog_AuditLogId, " & vbCrLf &
+                "            T.Action AS AuditLog_Action, " & vbCrLf &
+                "            T.Type AS AuditLog_Type, " & vbCrLf &
+                "            T.EntityKey AS AuditLog_EntityKey, " & vbCrLf &
+                "            T.ChangeSet AS AuditLog_ChangeSet, " & vbCrLf &
+                "            T.CountofFieldsModified AS AuditLog_CountofFieldsModified, " & vbCrLf &
+                "            T.DateCreated AS AuditLog_DateCreated, " & vbCrLf &
+                "            T.LastChangeUser AS AuditLog_LastChangeUser, " & vbCrLf &
+                "            T.LastChangeDate AS AuditLog_LastChangeDate, " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM Reference_JohnEntities.AuditLogs AS T" & vbCrLf &
+                "    ) AS T1")
+        End Function
+
+        ''' <summary>
+        ''' Gets the view for Reference_JohnEntities.AuditLogs.
+        ''' </summary>
+        ''' <returns>The mapping view.</returns>
+        Private Shared Function GetView29() As DbMappingView
+            Return New DbMappingView(
+                "" & vbCrLf &
+                "    SELECT VALUE -- Constructing AuditLogs" & vbCrLf &
+                "        [Reference.John.Model.AuditLog](T1.AuditLog_AuditLogId, T1.AuditLog_Action, T1.AuditLog_Type, T1.AuditLog_EntityKey, T1.AuditLog_ChangeSet, T1.AuditLog_CountofFieldsModified, T1.AuditLog_DateCreated, T1.AuditLog_LastChangeUser, T1.AuditLog_LastChangeDate)" & vbCrLf &
+                "    FROM (" & vbCrLf &
+                "        SELECT " & vbCrLf &
+                "            T.AuditLogId AS AuditLog_AuditLogId, " & vbCrLf &
+                "            T.Action AS AuditLog_Action, " & vbCrLf &
+                "            T.Type AS AuditLog_Type, " & vbCrLf &
+                "            T.EntityKey AS AuditLog_EntityKey, " & vbCrLf &
+                "            T.ChangeSet AS AuditLog_ChangeSet, " & vbCrLf &
+                "            T.CountofFieldsModified AS AuditLog_CountofFieldsModified, " & vbCrLf &
+                "            T.DateCreated AS AuditLog_DateCreated, " & vbCrLf &
+                "            T.LastChangeUser AS AuditLog_LastChangeUser, " & vbCrLf &
+                "            T.LastChangeDate AS AuditLog_LastChangeDate, " & vbCrLf &
+                "            True AS _from0" & vbCrLf &
+                "        FROM ReferenceJohnModelStoreContainer.AuditLog AS T" & vbCrLf &
                 "    ) AS T1")
         End Function
     End Class

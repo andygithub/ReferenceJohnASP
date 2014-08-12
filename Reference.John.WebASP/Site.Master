@@ -85,7 +85,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Reference.John.WebAsp - Version <%: gettype(Reference.John.Infrastructure.Logging.ILogger).Assembly.GetName().Version %></p>
             </footer>
         </div>
     </form>

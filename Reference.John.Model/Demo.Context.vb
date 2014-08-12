@@ -50,8 +50,8 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property SearchResults() As DbSet(Of SearchResult)
     Public Overridable Property Entities() As DbSet(Of Entity)
     Public Overridable Property FormEntity_xref() As DbSet(Of FormEntity_xref)
-    Public Overridable Property Audits() As DbSet(Of Audit)
     Public Overridable Property FileStores() As DbSet(Of FileStore)
+    Public Overridable Property AuditLogs() As DbSet(Of AuditLog)
 
     Public Overridable Function GetApplicationProperty(applicationId As String, keyId As String) As ObjectResult(Of String)
         Dim applicationIdParameter As ObjectParameter = If(applicationId IsNot Nothing, New ObjectParameter("ApplicationId", applicationId), New ObjectParameter("ApplicationId", GetType(String)))
@@ -113,6 +113,22 @@ Partial Public Class Reference_JohnEntities
         Dim lastChangeUserParameter As ObjectParameter = If(lastChangeUser IsNot Nothing, New ObjectParameter("LastChangeUser", lastChangeUser), New ObjectParameter("LastChangeUser", GetType(String)))
 
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("InsertAudit", entityNameParameter, entityKeyParameter, changeSetParameter, lastChangeUserParameter)
+    End Function
+
+    Public Overridable Function InsertAuditLog(action As String, type As String, entityKey As Nullable(Of Integer), changeSet As String, countofFieldsModified As Nullable(Of Integer), lastChangeUser As String) As Integer
+        Dim actionParameter As ObjectParameter = If(action IsNot Nothing, New ObjectParameter("Action", action), New ObjectParameter("Action", GetType(String)))
+
+        Dim typeParameter As ObjectParameter = If(type IsNot Nothing, New ObjectParameter("Type", type), New ObjectParameter("Type", GetType(String)))
+
+        Dim entityKeyParameter As ObjectParameter = If(entityKey.HasValue, New ObjectParameter("EntityKey", entityKey), New ObjectParameter("EntityKey", GetType(Integer)))
+
+        Dim changeSetParameter As ObjectParameter = If(changeSet IsNot Nothing, New ObjectParameter("ChangeSet", changeSet), New ObjectParameter("ChangeSet", GetType(String)))
+
+        Dim countofFieldsModifiedParameter As ObjectParameter = If(countofFieldsModified.HasValue, New ObjectParameter("CountofFieldsModified", countofFieldsModified), New ObjectParameter("CountofFieldsModified", GetType(Integer)))
+
+        Dim lastChangeUserParameter As ObjectParameter = If(lastChangeUser IsNot Nothing, New ObjectParameter("LastChangeUser", lastChangeUser), New ObjectParameter("LastChangeUser", GetType(String)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("InsertAuditLog", actionParameter, typeParameter, entityKeyParameter, changeSetParameter, countofFieldsModifiedParameter, lastChangeUserParameter)
     End Function
 
     Public Overrides Function SaveChanges() As Integer

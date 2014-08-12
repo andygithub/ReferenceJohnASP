@@ -84,7 +84,7 @@
     <Compile Include="ApplicationExtendedProperty.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Audit.vb">
+    <Compile Include="AuditLog.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="Demo.vb">

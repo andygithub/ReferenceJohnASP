@@ -132,6 +132,7 @@
     <Compile Include="Core\TypeExtensionFixture.vb" />
     <Compile Include="Domain\InitializeObjects.vb" />
     <Compile Include="EF\Audit\AuditContextFixture.vb" />
+    <Compile Include="EF\Audit\AuditRepositoryFixture.vb" />
     <Compile Include="EF\Context\ContextTraceFixture.vb" />
     <Compile Include="EF\Context\ContextFixture.vb" />
     <Compile Include="EF\Repository\FakeGenericRepositoryFixture.vb" />

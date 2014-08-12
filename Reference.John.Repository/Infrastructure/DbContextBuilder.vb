@@ -8,7 +8,6 @@ Imports System.Data.Entity.Core.Objects
 
 Namespace Infrastructure
 
-    ''ToDo cleanup this class and add rest of settings to context setup.
     Public Class DbContextBuilder(Of T As DbContext)
         'Inherits DbModelBuilder
         Implements IDbContextBuilder(Of T)

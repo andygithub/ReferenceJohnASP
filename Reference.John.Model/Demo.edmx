@@ -50,14 +50,16 @@
           <Property Name="DateExpired" Type="datetime" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Audit">
+        <EntityType Name="AuditLog">
           <Key>
-            <PropertyRef Name="AuditId" />
+            <PropertyRef Name="AuditLogId" />
           </Key>
-          <Property Name="AuditId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EntityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuditLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EntityKey" Type="int" Nullable="false" />
           <Property Name="ChangeSet" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CountofFieldsModified" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
@@ -411,17 +413,19 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Parameter Name="ApplicationId" Type="nvarchar" Mode="In" />
           <Parameter Name="KeyId" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="InsertAudit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="EntityName" Type="nvarchar" Mode="In" />
+        <Function Name="InsertAuditLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar" Mode="In" />
           <Parameter Name="EntityKey" Type="int" Mode="In" />
           <Parameter Name="ChangeSet" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CountofFieldsModified" Type="int" Mode="In" />
           <Parameter Name="LastChangeUser" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="ReferenceJohnModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditLog" EntityType="Self.AuditLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileStore" EntityType="Self.FileStore" Schema="dbo" store:Type="Tables" />
@@ -568,7 +572,6 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
             <End Role="FormEntity_xref" EntitySet="FormEntity_xref" />
           </AssociationSet>
-          <EntitySet Name="Audits" EntityType="Reference.John.Model.Audit" />
           <EntitySet Name="FileStores" EntityType="Reference.John.Model.FileStore" />
           <FunctionImport Name="ELMAH_GetErrorsXml" ReturnType="Collection(String)">
             <Parameter Name="Application" Mode="In" Type="String" />
@@ -596,6 +599,15 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <Parameter Name="EntityName" Mode="In" Type="String" />
             <Parameter Name="EntityKey" Mode="In" Type="Int32" />
             <Parameter Name="ChangeSet" Mode="In" Type="String" />
+            <Parameter Name="LastChangeUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="AuditLogs" EntityType="Reference.John.Model.AuditLog" />
+          <FunctionImport Name="InsertAuditLog">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="EntityKey" Mode="In" Type="Int32" />
+            <Parameter Name="ChangeSet" Mode="In" Type="String" />
+            <Parameter Name="CountofFieldsModified" Mode="In" Type="Int32" />
             <Parameter Name="LastChangeUser" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -976,18 +988,6 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Audit">
-          <Key>
-            <PropertyRef Name="AuditId" />
-          </Key>
-          <Property Name="AuditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EntityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EntityKey" Type="Int32" Nullable="false" />
-          <Property Name="ChangeSet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="FileStore">
           <Key>
             <PropertyRef Name="FileStoreId" />
@@ -997,6 +997,20 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="EntityKey" Type="Int32" Nullable="false" />
           <Property Name="File" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AuditLog">
+          <Key>
+            <PropertyRef Name="AuditLogId" />
+          </Key>
+          <Property Name="AuditLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EntityKey" Type="Int32" Nullable="false" />
+          <Property Name="ChangeSet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountofFieldsModified" Type="Int32" Nullable="false" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1218,19 +1232,6 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Audits">
-            <EntityTypeMapping TypeName="Reference.John.Model.Audit">
-              <MappingFragment StoreEntitySet="Audit">
-                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
-                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ChangeSet" ColumnName="ChangeSet" />
-                <ScalarProperty Name="EntityKey" ColumnName="EntityKey" />
-                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
-                <ScalarProperty Name="AuditId" ColumnName="AuditId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FileStores">
             <EntityTypeMapping TypeName="Reference.John.Model.FileStore">
               <MappingFragment StoreEntitySet="FileStore">
@@ -1248,7 +1249,22 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <FunctionImportMapping FunctionImportName="ELMAH_GetErrorsXml" FunctionName="Reference.John.Model.Store.ELMAH_GetErrorsXml" />
           <FunctionImportMapping FunctionImportName="ELMAH_GetErrorXml" FunctionName="Reference.John.Model.Store.ELMAH_GetErrorXml" />
           <FunctionImportMapping FunctionImportName="ELMAH_LogError" FunctionName="Reference.John.Model.Store.ELMAH_LogError" />
-          <FunctionImportMapping FunctionImportName="InsertAudit" FunctionName="Reference.John.Model.Store.InsertAudit" />
+          <EntitySetMapping Name="AuditLogs">
+            <EntityTypeMapping TypeName="Reference.John.Model.AuditLog">
+              <MappingFragment StoreEntitySet="AuditLog">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CountofFieldsModified" ColumnName="CountofFieldsModified" />
+                <ScalarProperty Name="ChangeSet" ColumnName="ChangeSet" />
+                <ScalarProperty Name="EntityKey" ColumnName="EntityKey" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="AuditLogId" ColumnName="AuditLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertAuditLog" FunctionName="Reference.John.Model.Store.InsertAuditLog" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

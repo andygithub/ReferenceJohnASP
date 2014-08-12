@@ -167,9 +167,9 @@ Public Class GenericRepository
         If DirectCast(DbContext, IObjectContextAdapter).ObjectContext.TryGetObjectByKey(key, originalItem) Then
             DirectCast(DbContext, IObjectContextAdapter).ObjectContext.ApplyCurrentValues(key.EntitySetName, entity)
         End If
-        Dim _item = DbContext.Entry(entity)
-        Dim _val = _item.State
-        Dim _val2 = _item.Property("RowVersion")
+        'Dim _item = DbContext.Entry(entity)
+        'Dim _val = _item.State
+        'Dim _val2 = _item.Property("RowVersion")
         'Dim _item = DirectCast(DbContext, IObjectContextAdapter).ObjectContext.ge
     End Sub
 
