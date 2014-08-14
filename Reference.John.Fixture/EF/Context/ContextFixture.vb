@@ -16,6 +16,7 @@ Imports Reference.John
         DoAction(Sub() FindContactWithInclude())
         DoAction(Sub() FindContactWithInclude())
         DoAction(Sub() CreateBinaryRecord())
+        DoAction(Sub() SharedContextBetweenClasses())
         Console.WriteLine("Test Ending EF Context:" & Now)
     End Sub
 
@@ -148,6 +149,34 @@ Imports Reference.John
 
     End Sub
 
+    Private Sub SharedContextBetweenClasses()
+        Const Street1 As String = "unique name"
+        Using _context As New Model.Reference_JohnEntities
+            _context.Configuration.LazyLoadingEnabled = False
+            _context.Database.Log = Sub(val) Console.Write(val)
+            Dim _service As New TestService(_context)
+            'get contact to use to relate new address to 
+            Dim _item = (From c In _context.FormSimpleZeroes).FirstOrDefault
+            'performing this operation in seperate class
+            _service.Execute(_item, Street1)
+
+            _context.SaveChanges()
+            Console.Write("Saved one address")
+            'check to see that the record was added
+            Dim _list = (From c In _context.Addresses Where c.AddressLine1 = Street1).ToList
+            Assert.AreNotEqual(0, _list.Count)
+            'remove the found record
+            _list.ForEach(Sub(x)
+                              _context.Addresses.Remove(x)
+                          End Sub)
+            _context.SaveChanges()
+            Console.Write("Removed one address")
+            'check to see that the record was added
+            Dim _listempty = (From c In _context.Addresses Where c.AddressLine1 = Street1)
+            Assert.AreEqual(0, _listempty.Count)
+        End Using
+    End Sub
+
     Private Shared Sub DoAction(action As Expression(Of Action))
         Console.Write("Executing {0} ... ", action.Body.ToString())
 
@@ -155,6 +184,21 @@ Imports Reference.John
         act.Invoke()
 
         Console.WriteLine()
+    End Sub
+
+End Class
+
+Public Class TestService
+
+    Dim _context As Model.Reference_JohnEntities
+
+    Sub New(context As Model.Reference_JohnEntities)
+        _context = context
+    End Sub
+
+    Public Sub Execute(item As Reference.John.Domain.FormSimpleZero, street1 As String)
+        'append an address record
+        item.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
     End Sub
 
 End Class

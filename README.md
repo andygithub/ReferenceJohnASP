@@ -8,6 +8,8 @@ A database project is present for the SQL Server DML.
 
 A custom caching implemntation is present leveraging Unity's interception capabilities.
 
+A dependency was taken on EntityFramework.Extended ideally for Future and Audit capability.  Unfortunately Futures doesn't work within the logging and interception capabilities of EF 6.1 so it probably won't be used.  The audit capability was embedded in the unit of work implementation.
+
 Outstanding items:
 
 	more unit tests and documentation
