@@ -154,7 +154,7 @@ Imports Reference.John
         Using _context As New Model.Reference_JohnEntities
             _context.Configuration.LazyLoadingEnabled = False
             _context.Database.Log = Sub(val) Console.Write(val)
-            Dim _service As New TestService(_context)
+            Dim _service As New TestService()
             'get contact to use to relate new address to 
             Dim _item = (From c In _context.FormSimpleZeroes).FirstOrDefault
             'performing this operation in seperate class
@@ -190,15 +190,9 @@ End Class
 
 Public Class TestService
 
-    Dim _context As Model.Reference_JohnEntities
-
-    Sub New(context As Model.Reference_JohnEntities)
-        _context = context
-    End Sub
-
     Public Sub Execute(item As Reference.John.Domain.FormSimpleZero, street1 As String)
         'append an address record
-        item.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
+        item.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = street1})
     End Sub
 
 End Class

@@ -43,6 +43,7 @@ Imports Reference.John.Repository.Infrastructure
         DoAction(Sub() FindAddressByForm())
         DoAction(Sub() FindAddressByFormInclude())
         DoAction(Sub() GetFormsWithPaging())
+        DoAction(Sub() SharedContextBetweenClasses())
         Console.WriteLine("Test Ending Repository:" & Now)
     End Sub
 
@@ -134,6 +135,31 @@ Imports Reference.John.Repository.Infrastructure
         Console.Write("Pulled page set of record: {0}", output.Count)
     End Sub
 
+    Private Sub SharedContextBetweenClasses()
+        Const Street1 As String = "unique name"
+
+        Dim _service As New TestService()
+        'get item to use to relate new address to 
+        Dim _item = repository.GetQuery(Of Domain.FormSimpleZero)().FirstOrDefault
+        'performing this operation in seperate class
+        _service.Execute(_item, Street1)
+
+        formRepository.UnitOfWork.SaveChanges()
+        Console.Write("Saved one address")
+        'check to see that the record was added
+        Dim _list = (From c In repository.GetQuery(Of Domain.Address)() Where c.AddressLine1 = Street1).ToList
+        Assert.AreNotEqual(0, _list.Count)
+        'remove the found record
+        _list.ForEach(Sub(x)
+                          repository.Delete(x)
+                      End Sub)
+        repository.UnitOfWork.SaveChanges()
+        Console.Write("Removed one address")
+        'check to see that the record was added
+        Dim _listempty = (From c In repository.GetQuery(Of Domain.Address)() Where c.AddressLine1 = Street1).ToList
+        Assert.AreEqual(0, _listempty.Count)
+    End Sub
+
     Private Shared Sub DoAction(action As Expression(Of Action))
         Console.Write("Executing {0} ... ", action.Body.ToString())
 
@@ -147,5 +173,7 @@ Imports Reference.John.Repository.Infrastructure
     Public Shared Sub TearDown()
         DbContextManager.CloseAllDbContexts()
     End Sub
+
+
 
 End Class

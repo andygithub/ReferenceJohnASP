@@ -184,6 +184,95 @@ Namespace Reference.John.CodedUI.Fixture
             Keyboard.SendKeys(uIAddressandsearchbarEdit, Me.RecordedMethodControlSelectionParams.UIAddressandsearchbarEditSendKeys, true)
         End Sub
         
+        '''<summary>
+        '''htmlwthreecontrols - Use 'htmlwthreecontrolsParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub htmlwthreecontrols()
+            Dim uIDesktopClient As WinClient = Me.UIItemWindow.UIItemWindow1.UIDesktopClient
+            Dim uIAddressandsearchbarEdit As WinEdit = Me.UINewTabGoogleChromeWindow.UIAddressandsearchbarGroup.UIAddressandsearchbarEdit
+            Dim uIChromeLegacyWindowClient As WinClient = Me.UINewTabGoogleChromeWindow.UIChromeLegacyWindowWindow.UIChromeLegacyWindowClient
+
+            'Click 'Desktop' client
+            Mouse.Click(uIDesktopClient, New Point(0, 39))
+
+            'Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+            Dim uINewTabGoogleChromeWindow As ApplicationUnderTest = ApplicationUnderTest.Launch(Me.htmlwthreecontrolsParams.UINewTabGoogleChromeWindowExePath, Me.htmlwthreecontrolsParams.UINewTabGoogleChromeWindowAlternateExePath)
+
+            'Type '********' in 'Address and search bar' text box
+            Keyboard.SendKeys(uIAddressandsearchbarEdit, Me.htmlwthreecontrolsParams.UIAddressandsearchbarEditSendKeys, ModifierKeys.Control, true)
+
+            'Type '{Enter}' in 'Address and search bar' text box
+            Keyboard.SendKeys(uIAddressandsearchbarEdit, Me.htmlwthreecontrolsParams.UIAddressandsearchbarEditSendKeys1, ModifierKeys.None)
+
+            'Move 'Chrome Legacy Window' client
+            Mouse.StartDragging(uIChromeLegacyWindowClient, New Point(1104, 78))
+            Mouse.StopDragging(uIChromeLegacyWindowClient, -6, 111)
+        End Sub
+        
+        '''<summary>
+        '''Testthree - Use 'TestthreeParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub Testthree()
+            Dim uIAddressandsearchbarEdit As WinEdit = Me.UINewTabGoogleChromeWindow.UIAddressandsearchbarGroup.UIAddressandsearchbarEdit
+
+            'Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+            Dim uINewTabGoogleChromeWindow As ApplicationUnderTest = ApplicationUnderTest.Launch(Me.TestthreeParams.UINewTabGoogleChromeWindowExePath, Me.TestthreeParams.UINewTabGoogleChromeWindowAlternateExePath)
+
+            'Type '********' in 'Address and search bar' text box
+            Keyboard.SendKeys(uIAddressandsearchbarEdit, Me.TestthreeParams.UIAddressandsearchbarEditSendKeys, ModifierKeys.Control, true)
+
+            'Type '{Enter}' in 'Address and search bar' text box
+            Keyboard.SendKeys(uIAddressandsearchbarEdit, Me.TestthreeParams.UIAddressandsearchbarEditSendKeys1, ModifierKeys.None)
+        End Sub
+        
+        '''<summary>
+        '''daf - Use 'dafParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub daf()
+            Dim uIItemWindow As WinWindow = Me.UILoginWindowsInternetWindow.UIItemWindow.UIItemClient.UIItemWindow
+            Dim uIItemWindow1 As WinWindow = Me.UILoginWindowsInternetWindow.UIAddressBarClient.UIItemWindow
+            Dim uIUsernameEdit As HtmlEdit = Me.UILoginWindowsInternetWindow.UILoginDocument.UIUsernameEdit
+
+            'Go to web page 'https://home.compaid.com/' using new browser instance
+            Me.UILoginWindowsInternetWindow.LaunchUrl(New System.Uri(Me.dafParams.UILoginWindowsInternetWindowUrl))
+
+            'Double-Click window
+            Mouse.DoubleClick(uIItemWindow, New Point(313, 8))
+
+            'The control is not available or not valid.
+
+            'Click window
+            Mouse.Click(uIItemWindow1, New Point(214, 9))
+
+            'Type 'Control + v' in 'Username:' text box
+            Keyboard.SendKeys(uIUsernameEdit, Me.dafParams.UIUsernameEditSendKeys, ModifierKeys.Control)
+
+            'Type '{Enter}' in 'Username:' text box
+            Keyboard.SendKeys(uIUsernameEdit, Me.dafParams.UIUsernameEditSendKeys1, ModifierKeys.None)
+        End Sub
+        
+        '''<summary>
+        '''dafdfadsf - Use 'dafdfadsfParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub dafdfadsf()
+            Dim uIRunningapplicationsWindow As WinWindow = Me.UIRunningapplicationsWindow.UIRunningapplicationsClient.UIRunningapplicationsWindow
+            Dim uIItemWindow1 As WinWindow = Me.UILoginWindowsInternetWindow.UIAddressBarClient.UIItemWindow1
+            Dim uIItemWindow As WinWindow = Me.UILoginWindowsInternetWindow.UIAddressBarClient.UIItemWindow
+            Dim uILastnameEdit As HtmlEdit = Me.UILoginWindowsInternetWindow.UIHTMLFormsandInputDocument.UILastnameEdit
+
+            'Click 'Running applications' window
+            Mouse.Click(uIRunningapplicationsWindow, New Point(58, 17))
+
+            'Click window
+            Mouse.Click(uIItemWindow1, New Point(302, 5))
+
+            'Click window
+            Mouse.Click(uIItemWindow, New Point(302, 5))
+
+            'Type '{Enter}' in 'lastname' text box
+            Keyboard.SendKeys(uILastnameEdit, Me.dafdfadsfParams.UILastnameEditSendKeys, ModifierKeys.None)
+        End Sub
+        
         #Region "Properties"
         Public Overridable ReadOnly Property SimpleGoogleSearchParams() As SimpleGoogleSearchParams
             Get
@@ -248,6 +337,42 @@ Namespace Reference.John.CodedUI.Fixture
             End Get
         End Property
         
+        Public Overridable ReadOnly Property htmlwthreecontrolsParams() As htmlwthreecontrolsParams
+            Get
+                If (Me.mhtmlwthreecontrolsParams Is Nothing) Then
+                    Me.mhtmlwthreecontrolsParams = New htmlwthreecontrolsParams()
+                End If
+                Return Me.mhtmlwthreecontrolsParams
+            End Get
+        End Property
+        
+        Public Overridable ReadOnly Property TestthreeParams() As TestthreeParams
+            Get
+                If (Me.mTestthreeParams Is Nothing) Then
+                    Me.mTestthreeParams = New TestthreeParams()
+                End If
+                Return Me.mTestthreeParams
+            End Get
+        End Property
+        
+        Public Overridable ReadOnly Property dafParams() As dafParams
+            Get
+                If (Me.mdafParams Is Nothing) Then
+                    Me.mdafParams = New dafParams()
+                End If
+                Return Me.mdafParams
+            End Get
+        End Property
+        
+        Public Overridable ReadOnly Property dafdfadsfParams() As dafdfadsfParams
+            Get
+                If (Me.mdafdfadsfParams Is Nothing) Then
+                    Me.mdafdfadsfParams = New dafdfadsfParams()
+                End If
+                Return Me.mdafdfadsfParams
+            End Get
+        End Property
+        
         Public ReadOnly Property UIRunningapplicationsWindow() As UIRunningapplicationsWindow
             Get
                 If (Me.mUIRunningapplicationsWindow Is Nothing) Then
@@ -274,6 +399,24 @@ Namespace Reference.John.CodedUI.Fixture
                 Return Me.mUIChromeGoogleChromeWindow
             End Get
         End Property
+        
+        Public ReadOnly Property UIItemWindow() As UIItemWindow2
+            Get
+                If (Me.mUIItemWindow Is Nothing) Then
+                    Me.mUIItemWindow = New UIItemWindow2()
+                End If
+                Return Me.mUIItemWindow
+            End Get
+        End Property
+        
+        Public ReadOnly Property UINewTabGoogleChromeWindow() As UINewTabGoogleChromeWindow
+            Get
+                If (Me.mUINewTabGoogleChromeWindow Is Nothing) Then
+                    Me.mUINewTabGoogleChromeWindow = New UINewTabGoogleChromeWindow()
+                End If
+                Return Me.mUINewTabGoogleChromeWindow
+            End Get
+        End Property
         #End Region
         
         #Region "Fields"
@@ -291,11 +434,23 @@ Namespace Reference.John.CodedUI.Fixture
         
         Private mRecordedMethodControlSelectionParams As RecordedMethodControlSelectionParams
         
+        Private mhtmlwthreecontrolsParams As htmlwthreecontrolsParams
+        
+        Private mTestthreeParams As TestthreeParams
+        
+        Private mdafParams As dafParams
+        
+        Private mdafdfadsfParams As dafdfadsfParams
+        
         Private mUIRunningapplicationsWindow As UIRunningapplicationsWindow
         
         Private mUILoginWindowsInternetWindow As UILoginWindowsInternetWindow
         
         Private mUIChromeGoogleChromeWindow As UIChromeGoogleChromeWindow
+        
+        Private mUIItemWindow As UIItemWindow2
+        
+        Private mUINewTabGoogleChromeWindow As UINewTabGoogleChromeWindow
         #End Region
     End Class
     
@@ -472,6 +627,102 @@ Namespace Reference.John.CodedUI.Fixture
         #End Region
     End Class
     
+    '''<summary>
+    '''Parameters to be passed into 'htmlwthreecontrols'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class htmlwthreecontrolsParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+        '''</summary>
+        Public UINewTabGoogleChromeWindowExePath As String = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+        
+        '''<summary>
+        '''Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+        '''</summary>
+        Public UINewTabGoogleChromeWindowAlternateExePath As String = "%ProgramFiles%\Google\Chrome\Application\chrome.exe"
+        
+        '''<summary>
+        '''Type '********' in 'Address and search bar' text box
+        '''</summary>
+        Public UIAddressandsearchbarEditSendKeys As String = "uAC2C/piouHi8hWw0aYkUg=="
+        
+        '''<summary>
+        '''Type '{Enter}' in 'Address and search bar' text box
+        '''</summary>
+        Public UIAddressandsearchbarEditSendKeys1 As String = "{Enter}"
+        #End Region
+    End Class
+    
+    '''<summary>
+    '''Parameters to be passed into 'Testthree'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class TestthreeParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+        '''</summary>
+        Public UINewTabGoogleChromeWindowExePath As String = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+        
+        '''<summary>
+        '''Launch '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+        '''</summary>
+        Public UINewTabGoogleChromeWindowAlternateExePath As String = "%ProgramFiles%\Google\Chrome\Application\chrome.exe"
+        
+        '''<summary>
+        '''Type '********' in 'Address and search bar' text box
+        '''</summary>
+        Public UIAddressandsearchbarEditSendKeys As String = "uAC2C/piouHi8hWw0aYkUg=="
+        
+        '''<summary>
+        '''Type '{Enter}' in 'Address and search bar' text box
+        '''</summary>
+        Public UIAddressandsearchbarEditSendKeys1 As String = "{Enter}"
+        #End Region
+    End Class
+    
+    '''<summary>
+    '''Parameters to be passed into 'daf'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class dafParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Go to web page 'https://home.compaid.com/' using new browser instance
+        '''</summary>
+        Public UILoginWindowsInternetWindowUrl As String = "https://home.compaid.com/"
+        
+        '''<summary>
+        '''Type 'Control + v' in 'Username:' text box
+        '''</summary>
+        Public UIUsernameEditSendKeys As String = "v"
+        
+        '''<summary>
+        '''Type '{Enter}' in 'Username:' text box
+        '''</summary>
+        Public UIUsernameEditSendKeys1 As String = "{Enter}"
+        #End Region
+    End Class
+    
+    '''<summary>
+    '''Parameters to be passed into 'dafdfadsf'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class dafdfadsfParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Type '{Enter}' in 'lastname' text box
+        '''</summary>
+        Public UILastnameEditSendKeys As String = "{Enter}"
+        #End Region
+    End Class
+    
     <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
     Public Class UIRunningapplicationsWindow
         Inherits WinWindow
@@ -539,6 +790,8 @@ Namespace Reference.John.CodedUI.Fixture
             Me.WindowTitles.Add("Login")
             Me.WindowTitles.Add("Google")
             Me.WindowTitles.Add("coded ui testing - Google Search")
+            Me.WindowTitles.Add("https://home.compaid.com/")
+            Me.WindowTitles.Add("HTML Forms and Input")
         End Sub
         
         Public Sub LaunchUrl(ByVal url As System.Uri)
@@ -581,6 +834,24 @@ Namespace Reference.John.CodedUI.Fixture
                 Return Me.mUICodeduitestingGoogleDocument
             End Get
         End Property
+        
+        Public ReadOnly Property UIItemWindow() As UIItemWindow
+            Get
+                If (Me.mUIItemWindow Is Nothing) Then
+                    Me.mUIItemWindow = New UIItemWindow(Me)
+                End If
+                Return Me.mUIItemWindow
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIHTMLFormsandInputDocument() As UIHTMLFormsandInputDocument
+            Get
+                If (Me.mUIHTMLFormsandInputDocument Is Nothing) Then
+                    Me.mUIHTMLFormsandInputDocument = New UIHTMLFormsandInputDocument(Me)
+                End If
+                Return Me.mUIHTMLFormsandInputDocument
+            End Get
+        End Property
         #End Region
         
         #Region "Fields"
@@ -591,6 +862,10 @@ Namespace Reference.John.CodedUI.Fixture
         Private mUIGoogleDocument As UIGoogleDocument
         
         Private mUICodeduitestingGoogleDocument As UICodeduitestingGoogleDocument
+        
+        Private mUIItemWindow As UIItemWindow
+        
+        Private mUIHTMLFormsandInputDocument As UIHTMLFormsandInputDocument
         #End Region
     End Class
     
@@ -602,6 +877,7 @@ Namespace Reference.John.CodedUI.Fixture
             MyBase.New(searchLimitContainer)
             Me.SearchProperties(WinControl.PropertyNames.Name) = "Address Bar"
             Me.WindowTitles.Add("Login")
+            Me.WindowTitles.Add("HTML Forms and Input")
         End Sub
         
         #Region "Properties"
@@ -615,10 +891,23 @@ Namespace Reference.John.CodedUI.Fixture
                 Return Me.mUIItemWindow
             End Get
         End Property
+        
+        Public ReadOnly Property UIItemWindow1() As WinWindow
+            Get
+                If (Me.mUIItemWindow1 Is Nothing) Then
+                    Me.mUIItemWindow1 = New WinWindow(Me)
+                    Me.mUIItemWindow1.SearchProperties(WinWindow.PropertyNames.ClassName) = "AddressDisplay Control"
+                    Me.mUIItemWindow1.WindowTitles.Add("HTML Forms and Input")
+                End If
+                Return Me.mUIItemWindow1
+            End Get
+        End Property
         #End Region
         
         #Region "Fields"
         Private mUIItemWindow As WinWindow
+        
+        Private mUIItemWindow1 As WinWindow
         #End Region
     End Class
     
@@ -832,6 +1121,99 @@ Namespace Reference.John.CodedUI.Fixture
     End Class
     
     <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIItemWindow
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ClassName) = "TabBandClass"
+            Me.WindowTitles.Add("https://home.compaid.com/")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIItemClient() As UIItemClient
+            Get
+                If (Me.mUIItemClient Is Nothing) Then
+                    Me.mUIItemClient = New UIItemClient(Me)
+                End If
+                Return Me.mUIItemClient
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIItemClient As UIItemClient
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIItemClient
+        Inherits WinClient
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.WindowTitles.Add("https://home.compaid.com/")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIItemWindow() As WinWindow
+            Get
+                If (Me.mUIItemWindow Is Nothing) Then
+                    Me.mUIItemWindow = New WinWindow(Me)
+                    Me.mUIItemWindow.SearchProperties(WinWindow.PropertyNames.ClassName) = "DirectUIHWND"
+                    Me.mUIItemWindow.WindowTitles.Add("https://home.compaid.com/")
+                End If
+                Return Me.mUIItemWindow
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIItemWindow As WinWindow
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIHTMLFormsandInputDocument
+        Inherits HtmlDocument
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(HtmlDocument.PropertyNames.Id) = Nothing
+            Me.SearchProperties(HtmlDocument.PropertyNames.RedirectingPage) = "False"
+            Me.SearchProperties(HtmlDocument.PropertyNames.FrameDocument) = "False"
+            Me.FilterProperties(HtmlDocument.PropertyNames.Title) = "HTML Forms and Input"
+            Me.FilterProperties(HtmlDocument.PropertyNames.AbsolutePath) = "/html/html_forms.asp"
+            Me.FilterProperties(HtmlDocument.PropertyNames.PageUrl) = "http://www.w3schools.com/html/html_forms.asp"
+            Me.WindowTitles.Add("HTML Forms and Input")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UILastnameEdit() As HtmlEdit
+            Get
+                If (Me.mUILastnameEdit Is Nothing) Then
+                    Me.mUILastnameEdit = New HtmlEdit(Me)
+                    Me.mUILastnameEdit.SearchProperties(HtmlEdit.PropertyNames.Id) = Nothing
+                    Me.mUILastnameEdit.SearchProperties(HtmlEdit.PropertyNames.Name) = "lastname"
+                    Me.mUILastnameEdit.SearchProperties(HtmlEdit.PropertyNames.LabeledBy) = Nothing
+                    Me.mUILastnameEdit.SearchProperties(HtmlEdit.PropertyNames.Type) = "SINGLELINE"
+                    Me.mUILastnameEdit.FilterProperties(HtmlEdit.PropertyNames.Title) = Nothing
+                    Me.mUILastnameEdit.FilterProperties(HtmlEdit.PropertyNames.Class) = Nothing
+                    Me.mUILastnameEdit.FilterProperties(HtmlEdit.PropertyNames.ControlDefinition) = "name=""lastname"" type=""text"" size=""20"""
+                    Me.mUILastnameEdit.FilterProperties(HtmlEdit.PropertyNames.TagInstance) = "2"
+                    Me.mUILastnameEdit.WindowTitles.Add("HTML Forms and Input")
+                End If
+                Return Me.mUILastnameEdit
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUILastnameEdit As HtmlEdit
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
     Public Class UIChromeGoogleChromeWindow
         Inherits WinWindow
         
@@ -976,6 +1358,152 @@ Namespace Reference.John.CodedUI.Fixture
         #Region "Fields"
         Private mUIGoogleChromeToolbarToolBar As WinToolBar
         
+        Private mUIChromeLegacyWindowClient As WinClient
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIItemWindow2
+        Inherits WinWindow
+        
+        Public Sub New()
+            MyBase.New
+            Me.SearchProperties(WinWindow.PropertyNames.AccessibleName) = "Desktop"
+            Me.SearchProperties(WinWindow.PropertyNames.ClassName) = "#32769"
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIItemWindow1() As UIItemWindow1
+            Get
+                If (Me.mUIItemWindow1 Is Nothing) Then
+                    Me.mUIItemWindow1 = New UIItemWindow1(Me)
+                End If
+                Return Me.mUIItemWindow1
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIItemWindow1 As UIItemWindow1
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIItemWindow1
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ClassName) = "Shell_TrayWnd"
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIDesktopClient() As WinClient
+            Get
+                If (Me.mUIDesktopClient Is Nothing) Then
+                    Me.mUIDesktopClient = New WinClient(Me)
+                End If
+                Return Me.mUIDesktopClient
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIDesktopClient As WinClient
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UINewTabGoogleChromeWindow
+        Inherits WinWindow
+        
+        Public Sub New()
+            MyBase.New
+            Me.SearchProperties(WinWindow.PropertyNames.Name) = "New Tab - Google Chrome"
+            Me.SearchProperties(WinWindow.PropertyNames.ClassName) = "Chrome_WidgetWin_1"
+            Me.WindowTitles.Add("New Tab - Google Chrome")
+            Me.WindowTitles.Add("HTML Forms and Input - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIAddressandsearchbarGroup() As UIAddressandsearchbarGroup1
+            Get
+                If (Me.mUIAddressandsearchbarGroup Is Nothing) Then
+                    Me.mUIAddressandsearchbarGroup = New UIAddressandsearchbarGroup1(Me)
+                End If
+                Return Me.mUIAddressandsearchbarGroup
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow() As UIChromeLegacyWindowWindow1
+            Get
+                If (Me.mUIChromeLegacyWindowWindow Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow = New UIChromeLegacyWindowWindow1(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIAddressandsearchbarGroup As UIAddressandsearchbarGroup1
+        
+        Private mUIChromeLegacyWindowWindow As UIChromeLegacyWindowWindow1
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIAddressandsearchbarGroup1
+        Inherits WinGroup
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinControl.PropertyNames.Name) = "Address and search bar"
+            Me.WindowTitles.Add("New Tab - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIAddressandsearchbarEdit() As WinEdit
+            Get
+                If (Me.mUIAddressandsearchbarEdit Is Nothing) Then
+                    Me.mUIAddressandsearchbarEdit = New WinEdit(Me)
+                    Me.mUIAddressandsearchbarEdit.SearchProperties(WinEdit.PropertyNames.Name) = "Address and search bar"
+                    Me.mUIAddressandsearchbarEdit.WindowTitles.Add("New Tab - Google Chrome")
+                End If
+                Return Me.mUIAddressandsearchbarEdit
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIAddressandsearchbarEdit As WinEdit
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "12.0.30501.0")>  _
+    Public Class UIChromeLegacyWindowWindow1
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "135080384"
+            Me.WindowTitles.Add("HTML Forms and Input - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowClient() As WinClient
+            Get
+                If (Me.mUIChromeLegacyWindowClient Is Nothing) Then
+                    Me.mUIChromeLegacyWindowClient = New WinClient(Me)
+                    Me.mUIChromeLegacyWindowClient.SearchProperties(WinControl.PropertyNames.Name) = "Chrome Legacy Window"
+                    Me.mUIChromeLegacyWindowClient.WindowTitles.Add("HTML Forms and Input - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowClient
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
         Private mUIChromeLegacyWindowClient As WinClient
         #End Region
     End Class
