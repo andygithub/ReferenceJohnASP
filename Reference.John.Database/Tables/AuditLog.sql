@@ -4,6 +4,7 @@
 	[Action] NVARCHAR(50) NOT NULL, 
 	[Type] NVARCHAR(50) NOT NULL, 
 	[EntityKey] int not null,
+	[EntityKey1] int null,
 	[ChangeSet] NVARCHAR(MAX) NOT NULL, 
 	[CountofFieldsModified] int not null,
 	[DateCreated] DATETIME NOT NULL DEFAULT GETDATE() , 

@@ -129,6 +129,9 @@
   <data name="AddressTypeId" xml:space="preserve">
     <value>Address Type Id</value>
   </data>
+  <data name="AlertTemplateId" xml:space="preserve">
+    <value>Alert Template Id</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>City</value>
   </data>
@@ -137,6 +140,12 @@
   </data>
   <data name="DateCreated" xml:space="preserve">
     <value>Date Created</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>EndDate</value>
+  </data>
+  <data name="EntityId" xml:space="preserve">
+    <value>Entity Id</value>
   </data>
   <data name="EntityKey" xml:space="preserve">
     <value>Entity Key</value>
@@ -156,6 +165,9 @@
   <data name="FirstName" xml:space="preserve">
     <value>First Name</value>
   </data>
+  <data name="FormId" xml:space="preserve">
+    <value>Form Id</value>
+  </data>
   <data name="FormSimpleZeroId" xml:space="preserve">
     <value>Form Simple Zero Id</value>
   </data>
@@ -164,6 +176,9 @@
   </data>
   <data name="Id" xml:space="preserve">
     <value>Id</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active</value>
   </data>
   <data name="LastChangeDate" xml:space="preserve">
     <value>Last Change Date</value>
@@ -174,6 +189,9 @@
   <data name="LastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="RaceId" xml:space="preserve">
     <value>Race</value>
   </data>
@@ -183,8 +201,14 @@
   <data name="RowVersion" xml:space="preserve">
     <value>Row Version</value>
   </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
   <data name="State" xml:space="preserve">
     <value>State</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>User Id</value>
   </data>
   <data name="Zip" xml:space="preserve">
     <value>Zip</value>

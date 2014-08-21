@@ -83,6 +83,11 @@
     <Build Include="Tables\RegionOptionList.sql" />
     <Build Include="Views\SearchResults.sql" />
     <Build Include="Tables\UserExtendedProperties.sql" />
+    <Build Include="Tables\AlertTypeOptionList.sql" />
+    <Build Include="Tables\AlertTemplate.sql" />
+    <Build Include="Tables\FormAlertTemplate_xref.sql" />
+    <Build Include="Tables\ActionTypeOptionList.sql" />
+    <Build Include="Tables\UserEntity_xref.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Reference.John.Database.refactorlog" />

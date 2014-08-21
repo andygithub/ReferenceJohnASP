@@ -99,5 +99,6 @@ Partial Public Class Entity
 <Display(resourceType:=GetType(Reference.John.Resources.Resources.Names), name:="RowVersion")>
     Public Property RowVersion As Byte()
     Public Overridable Property FormEntity_xref As ICollection(Of FormEntity_xref) = New HashSet(Of FormEntity_xref)
+    Public Overridable Property UserEntity_xref As ICollection(Of UserEntity_xref) = New HashSet(Of UserEntity_xref)
 
 End Class

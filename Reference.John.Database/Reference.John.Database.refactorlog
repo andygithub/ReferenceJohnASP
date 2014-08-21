@@ -35,4 +35,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="FormId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="aa98cc8b-8d8b-48e5-ab4f-97e366acc5e9" ChangeDateTime="08/15/2014 01:25:59">
+    <Property Name="ElementName" Value="[dbo].[AlertTemplate].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AlertTemplate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AlertTemplateId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4151f8e3-001b-4fed-bc9b-64f0bbbd4a44" ChangeDateTime="08/21/2014 00:06:15">
+    <Property Name="ElementName" Value="[dbo].[FormEntity_xref].[FormId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FormEntity_xref]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
 </Operations>

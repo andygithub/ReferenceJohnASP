@@ -7,7 +7,7 @@
       <Diagram DiagramId="1615a289b860478f87fa260e1f34e271" Name="Diagram1">
         <EntityTypeShape EntityType="Reference.John.Model.Address" Width="1.5" PointX="8.25" PointY="5.25" />
         <EntityTypeShape EntityType="Reference.John.Model.AddressTypeOptionList" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="Reference.John.Model.ApplicationExtendedProperty" Width="1.5" PointX="2.75" PointY="2.25" />
+        <EntityTypeShape EntityType="Reference.John.Model.ApplicationExtendedProperty" Width="1.5" PointX="2.75" PointY="2" />
         <EntityTypeShape EntityType="Reference.John.Model.EthnicityOptionList" Width="1.5" PointX="0.75" PointY="11.125" />
         <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZero" Width="1.5" PointX="3" PointY="5.125" />
         <EntityTypeShape EntityType="Reference.John.Model.FormSimpleZeroHistory" Width="1.5" PointX="6" PointY="5.125" />
@@ -32,6 +32,15 @@
         <AssociationConnector Association="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" />
         <EntityTypeShape EntityType="Reference.John.Model.FileStore" Width="1.5" PointX="9.375" PointY="10.75" />
         <EntityTypeShape EntityType="Reference.John.Model.AuditLog" Width="1.5" PointX="10.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Reference.John.Model.AlertTemplate" Width="1.5" PointX="9" PointY="16" />
+        <EntityTypeShape EntityType="Reference.John.Model.AlertTypeOptionList" Width="1.5" PointX="6.75" PointY="16.125" />
+        <EntityTypeShape EntityType="Reference.John.Model.FormAlertTemplate_xref" Width="1.5" PointX="11.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Reference.John.Model.UserEntity_xref" Width="1.5" PointX="5.25" PointY="20.75" />
+        <AssociationConnector Association="Reference.John.Model.FK_AlertTemplate_AlertTypeOptionList" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormAlertTemplate_xref_AlertTemplate" />
+        <AssociationConnector Association="Reference.John.Model.FK_UserEntity_xref_Entity" />
+        <AssociationConnector Association="Reference.John.Model.FK_FormAlertTemplate_xref_FormSImpleZero" />
+        <EntityTypeShape EntityType="Reference.John.Model.ActionTypeOptionList" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

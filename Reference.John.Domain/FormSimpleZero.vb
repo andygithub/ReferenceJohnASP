@@ -119,5 +119,6 @@ Partial Public Class FormSimpleZero
     Public Overridable Property RaceOptionList As RaceOptionList
     Public Overridable Property RegionOptionList As RegionOptionList
     Public Overridable Property FormEntity_xref As ICollection(Of FormEntity_xref) = New HashSet(Of FormEntity_xref)
+    Public Overridable Property FormAlertTemplate_xref As ICollection(Of FormAlertTemplate_xref) = New HashSet(Of FormAlertTemplate_xref)
 
 End Class

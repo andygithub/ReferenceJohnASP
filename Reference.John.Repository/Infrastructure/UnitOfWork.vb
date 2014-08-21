@@ -193,8 +193,11 @@ Namespace Infrastructure
                                        Dim _params As New List(Of Object)
                                        _params.Add(New SqlClient.SqlParameter("Action", x.Action))
                                        _params.Add(New SqlClient.SqlParameter("Type", x.EntityType.FullName))
-                                       If x.Keys.Count > 1 Then Throw New ArgumentOutOfRangeException("keys")
+                                       If x.Keys.Count > 2 Then Throw New ArgumentOutOfRangeException("keys")
                                        _params.Add(New SqlClient.SqlParameter("EntityKey", x.Keys(0).Value))
+                                       If x.Keys.Count = 2 Then
+                                           _params.Add(New SqlClient.SqlParameter("EntityKey1", x.Keys(1).Value))
+                                       End If
                                        _params.Add(New SqlClient.SqlParameter("ChangeSet", items.ToXml))
                                        _params.Add(New SqlClient.SqlParameter("CountofFieldsModified", x.Properties.Count))
                                        _params.Add(New SqlClient.SqlParameter("LastChangeUser", items.Username))

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Entity]
 (
-	[EntityId] INT NOT NULL PRIMARY KEY,
+	[EntityId] INT NOT NULL PRIMARY KEY IDENTITY,
 	[EntityName] nvarchar(50) not null,
 	[IsActive] INT NOT NULL DEFAULT 1, 
 	[StartDate] DATETIME NOT NULL, 

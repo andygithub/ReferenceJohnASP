@@ -75,10 +75,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionTypeOptionList.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Address.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="AddressTypeOptionList.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlertTemplate.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlertTypeOptionList.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="ApplicationExtendedProperty.vb">
@@ -101,6 +110,9 @@
     <Compile Include="FileStore.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormAlertTemplate_xref.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormEntity_xref.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
@@ -114,8 +126,10 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="Interfaces\IAlertEntity.vb" />
     <Compile Include="Interfaces\IEntityDates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Partials\FormAlertTemplate_xref.vb" />
     <Compile Include="Partials\Address.vb" />
     <Compile Include="Partials\FileStore.vb" />
     <Compile Include="Partials\FormSimpleZero.vb" />
@@ -128,6 +142,9 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="SearchResult.vb">
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserEntity_xref.vb">
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="UserExtendedProperty.vb">

@@ -52,6 +52,11 @@ Partial Public Class Reference_JohnEntities
     Public Overridable Property FormEntity_xref() As DbSet(Of FormEntity_xref)
     Public Overridable Property FileStores() As DbSet(Of FileStore)
     Public Overridable Property AuditLogs() As DbSet(Of AuditLog)
+    Public Overridable Property AlertTemplates() As DbSet(Of AlertTemplate)
+    Public Overridable Property AlertTypeOptionLists() As DbSet(Of AlertTypeOptionList)
+    Public Overridable Property FormAlertTemplate_xref() As DbSet(Of FormAlertTemplate_xref)
+    Public Overridable Property UserEntity_xref() As DbSet(Of UserEntity_xref)
+    Public Overridable Property ActionTypeOptionLists() As DbSet(Of ActionTypeOptionList)
 
     Public Overridable Function GetApplicationProperty(applicationId As String, keyId As String) As ObjectResult(Of String)
         Dim applicationIdParameter As ObjectParameter = If(applicationId IsNot Nothing, New ObjectParameter("ApplicationId", applicationId), New ObjectParameter("ApplicationId", GetType(String)))

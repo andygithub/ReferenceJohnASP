@@ -101,6 +101,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Alert Template Id.
+        '''</summary>
+        Public Shared ReadOnly Property AlertTemplateId() As String
+            Get
+                Return ResourceManager.GetString("AlertTemplateId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to City.
         '''</summary>
         Public Shared ReadOnly Property City() As String
@@ -124,6 +133,24 @@ Namespace Resources
         Public Shared ReadOnly Property DateCreated() As String
             Get
                 Return ResourceManager.GetString("DateCreated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to EndDate.
+        '''</summary>
+        Public Shared ReadOnly Property EndDate() As String
+            Get
+                Return ResourceManager.GetString("EndDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Entity Id.
+        '''</summary>
+        Public Shared ReadOnly Property EntityId() As String
+            Get
+                Return ResourceManager.GetString("EntityId", resourceCulture)
             End Get
         End Property
         
@@ -182,6 +209,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Form Id.
+        '''</summary>
+        Public Shared ReadOnly Property FormId() As String
+            Get
+                Return ResourceManager.GetString("FormId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Form Simple Zero Id.
         '''</summary>
         Public Shared ReadOnly Property FormSimpleZeroId() As String
@@ -205,6 +241,15 @@ Namespace Resources
         Public Shared ReadOnly Property Id() As String
             Get
                 Return ResourceManager.GetString("Id", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Is Active.
+        '''</summary>
+        Public Shared ReadOnly Property IsActive() As String
+            Get
+                Return ResourceManager.GetString("IsActive", resourceCulture)
             End Get
         End Property
         
@@ -236,6 +281,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Name.
+        '''</summary>
+        Public Shared ReadOnly Property Name() As String
+            Get
+                Return ResourceManager.GetString("Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Race.
         '''</summary>
         Public Shared ReadOnly Property RaceId() As String
@@ -263,11 +317,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Start Date.
+        '''</summary>
+        Public Shared ReadOnly Property StartDate() As String
+            Get
+                Return ResourceManager.GetString("StartDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to State.
         '''</summary>
         Public Shared ReadOnly Property State() As String
             Get
                 Return ResourceManager.GetString("State", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to User Id.
+        '''</summary>
+        Public Shared ReadOnly Property UserId() As String
+            Get
+                Return ResourceManager.GetString("UserId", resourceCulture)
             End Get
         End Property
         

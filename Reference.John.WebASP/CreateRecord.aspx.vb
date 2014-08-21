@@ -4,6 +4,7 @@
     Private _lazyrepository As Lazy(Of Reference.John.Repository.IRepository)
     Private _lazylogger As Lazy(Of Reference.John.Infrastructure.Logging.ILogger)
     Private _lazyservice As Lazy(Of Reference.John.Services.IWorkFlowService)
+    Private _lazyAlertService As Lazy(Of Reference.John.Services.IAlertService)
 
     'have these properties to hide the lazy usage from within class 
     Private ReadOnly Property _repository As Reference.John.Repository.IRepository
@@ -24,10 +25,17 @@
         End Get
     End Property
 
+    Private ReadOnly Property _alertService As Reference.John.Services.IAlertService
+        Get
+            Return _lazyAlertService.Value
+        End Get
+    End Property
+
     Private Sub ListRecord_Init(sender As Object, e As EventArgs) Handles Me.Init
         _lazyrepository = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Lazy(Of Reference.John.Repository.IRepository))()
         _lazylogger = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Lazy(Of Reference.John.Infrastructure.Logging.ILogger))()
         _lazyservice = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Lazy(Of Reference.John.Services.IWorkFlowService))()
+        _lazyAlertService = Reference.John.Infrastructure.Container.ContainerFactory.GetConfiguredContainer.Resolve(Of Lazy(Of Reference.John.Services.IAlertService))()
         _logger.Info(Reference.John.Resources.Resources.LogMessages.PageInitEnded)
     End Sub
 
@@ -41,15 +49,20 @@
         _lazyrepository = Nothing
         _lazylogger = Nothing
         _lazyservice = Nothing
+        _lazyAlertService = Nothing
     End Sub
 
     Public Sub InsertFormItem(item As Reference.John.Domain.FormSimpleZero)
 
         If ModelState.IsValid Then
             item.LastChangeUser = "as"
-            'map form view properties into domain object
 
+            'would expect the action type option list to be load from the db, could be an enumeration instead
+            _alertService.ProcessAlerts(New Reference.John.Domain.ActionTypeOptionList With {.ActionTypeId = 1}, New Reference.John.Domain.AlertEntity With {.EntityId = -500, .LastChangeUser = item.LastChangeUser}).ToList.ForEach(Sub(x)
+                                                                                                                                                                                                                                          item.FormAlertTemplate_xref.Add(x)
+                                                                                                                                                                                                                                      End Sub)
             _repository.Add(item)
+            
             Try
                 _repository.UnitOfWork.SaveChanges()
                 'redirect here or show success message

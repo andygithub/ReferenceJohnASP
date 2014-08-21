@@ -68,10 +68,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IValidationService.vb" />
+    <Compile Include="Interfaces\IAlertService.vb" />
+    <Compile Include="Interfaces\IValidationService.vb" />
+    <Compile Include="AlertService.vb" />
     <Compile Include="ValidationService.vb" />
     <Compile Include="WorkFlowService.vb" />
-    <Compile Include="IWorkFlowService.vb" />
+    <Compile Include="Interfaces\IWorkFlowService.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>

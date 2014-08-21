@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Reference.John.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionTypeOptionList">
+          <Key>
+            <PropertyRef Name="ActionTypeId" />
+          </Key>
+          <Property Name="ActionTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="Id" />
@@ -29,6 +43,34 @@
             <PropertyRef Name="AddressTypeId" />
           </Key>
           <Property Name="AddressTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertTemplate">
+          <Key>
+            <PropertyRef Name="AlertTemplateId" />
+          </Key>
+          <Property Name="AlertTemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertTypeId" Type="int" Nullable="false" />
+          <Property Name="TemplateText" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertTypeOptionList">
+          <Key>
+            <PropertyRef Name="AlertTypeId" />
+          </Key>
+          <Property Name="AlertTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="int" Nullable="false" />
@@ -105,6 +147,24 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormAlertTemplate_xref">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="AlertTemplateId" />
+          </Key>
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="AlertTemplateId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="FormEntity_xref">
           <Key>
@@ -202,6 +262,25 @@
           <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserEntity_xref">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="RelationshipType" Type="int" Nullable="false" />
+          <Property Name="RelationshipStatus" Type="int" Nullable="false" />
+          <Property Name="RelationshipDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="LastChangeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="UserExtendedProperties">
           <Key>
             <PropertyRef Name="UserId" />
@@ -264,6 +343,42 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="FormSimpleZeroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlertTemplate_AlertTypeOptionList">
+          <End Role="AlertTypeOptionList" Type="Self.AlertTypeOptionList" Multiplicity="1" />
+          <End Role="AlertTemplate" Type="Self.AlertTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertTypeOptionList">
+              <PropertyRef Name="AlertTypeId" />
+            </Principal>
+            <Dependent Role="AlertTemplate">
+              <PropertyRef Name="AlertTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormAlertTemplate_xref_AlertTemplate">
+          <End Role="AlertTemplate" Type="Self.AlertTemplate" Multiplicity="1" />
+          <End Role="FormAlertTemplate_xref" Type="Self.FormAlertTemplate_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertTemplate">
+              <PropertyRef Name="AlertTemplateId" />
+            </Principal>
+            <Dependent Role="FormAlertTemplate_xref">
+              <PropertyRef Name="AlertTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormAlertTemplate_xref_FormSImpleZero">
+          <End Role="FormSimpleZero" Type="Self.FormSimpleZero" Multiplicity="1" />
+          <End Role="FormAlertTemplate_xref" Type="Self.FormAlertTemplate_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormAlertTemplate_xref">
+              <PropertyRef Name="FormId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -387,6 +502,18 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserEntity_xref_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="UserEntity_xref" Type="Self.UserEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EntityId" />
+            </Principal>
+            <Dependent Role="UserEntity_xref">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="ELMAH_GetErrorsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Application" Type="nvarchar" Mode="In" />
           <Parameter Name="PageIndex" Type="int" Mode="In" />
@@ -422,19 +549,24 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Parameter Name="LastChangeUser" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="ReferenceJohnModelStoreContainer">
+          <EntitySet Name="ActionTypeOptionList" EntityType="Self.ActionTypeOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddressTypeOptionList" EntityType="Self.AddressTypeOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlertTemplate" EntityType="Self.AlertTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlertTypeOptionList" EntityType="Self.AlertTypeOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationExtendedProperties" EntityType="Self.ApplicationExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AuditLog" EntityType="Self.AuditLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EthnicityOptionList" EntityType="Self.EthnicityOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileStore" EntityType="Self.FileStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormAlertTemplate_xref" EntityType="Self.FormAlertTemplate_xref" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormEntity_xref" EntityType="Self.FormEntity_xref" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZero" EntityType="Self.FormSimpleZero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormSimpleZeroHistory" EntityType="Self.FormSimpleZeroHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderOptionList" EntityType="Self.GenderOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceOptionList" EntityType="Self.RaceOptionList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionOptionList" EntityType="Self.RegionOptionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEntity_xref" EntityType="Self.UserEntity_xref" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserExtendedProperties" EntityType="Self.UserExtendedProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SearchResults" EntityType="Self.SearchResults" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -460,6 +592,18 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <AssociationSet Name="FK_Address_FormSimpleZeroId" Association="Self.FK_Address_FormSimpleZeroId">
             <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
             <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlertTemplate_AlertTypeOptionList" Association="Self.FK_AlertTemplate_AlertTypeOptionList">
+            <End Role="AlertTypeOptionList" EntitySet="AlertTypeOptionList" />
+            <End Role="AlertTemplate" EntitySet="AlertTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormAlertTemplate_xref_AlertTemplate" Association="Self.FK_FormAlertTemplate_xref_AlertTemplate">
+            <End Role="AlertTemplate" EntitySet="AlertTemplate" />
+            <End Role="FormAlertTemplate_xref" EntitySet="FormAlertTemplate_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormAlertTemplate_xref_FormSImpleZero" Association="Self.FK_FormAlertTemplate_xref_FormSImpleZero">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZero" />
+            <End Role="FormAlertTemplate_xref" EntitySet="FormAlertTemplate_xref" />
           </AssociationSet>
           <AssociationSet Name="FK_FormEntity_xref_Entity" Association="Self.FK_FormEntity_xref_Entity">
             <End Role="Entity" EntitySet="Entity" />
@@ -500,6 +644,10 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <AssociationSet Name="FK_FormSimpleZeroHistory_RegionOptionList" Association="Self.FK_FormSimpleZeroHistory_RegionOptionList">
             <End Role="RegionOptionList" EntitySet="RegionOptionList" />
             <End Role="FormSimpleZeroHistory" EntitySet="FormSimpleZeroHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEntity_xref_Entity" Association="Self.FK_UserEntity_xref_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="UserEntity_xref" EntitySet="UserEntity_xref" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -610,6 +758,27 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             <Parameter Name="CountofFieldsModified" Mode="In" Type="Int32" />
             <Parameter Name="LastChangeUser" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="AlertTemplates" EntityType="Reference.John.Model.AlertTemplate" />
+          <EntitySet Name="AlertTypeOptionLists" EntityType="Reference.John.Model.AlertTypeOptionList" />
+          <EntitySet Name="FormAlertTemplate_xref" EntityType="Reference.John.Model.FormAlertTemplate_xref" />
+          <EntitySet Name="UserEntity_xref" EntityType="Reference.John.Model.UserEntity_xref" />
+          <AssociationSet Name="FK_AlertTemplate_AlertTypeOptionList" Association="Reference.John.Model.FK_AlertTemplate_AlertTypeOptionList">
+            <End Role="AlertTypeOptionList" EntitySet="AlertTypeOptionLists" />
+            <End Role="AlertTemplate" EntitySet="AlertTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormAlertTemplate_xref_AlertTemplate" Association="Reference.John.Model.FK_FormAlertTemplate_xref_AlertTemplate">
+            <End Role="AlertTemplate" EntitySet="AlertTemplates" />
+            <End Role="FormAlertTemplate_xref" EntitySet="FormAlertTemplate_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEntity_xref_Entity" Association="Reference.John.Model.FK_UserEntity_xref_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="UserEntity_xref" EntitySet="UserEntity_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormAlertTemplate_xref_FormSImpleZero" Association="Reference.John.Model.FK_FormAlertTemplate_xref_FormSImpleZero">
+            <End Role="FormSimpleZero" EntitySet="FormSimpleZeroes" />
+            <End Role="FormAlertTemplate_xref" EntitySet="FormAlertTemplate_xref" />
+          </AssociationSet>
+          <EntitySet Name="ActionTypeOptionLists" EntityType="Reference.John.Model.ActionTypeOptionList" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -697,6 +866,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <NavigationProperty Name="RegionOptionList" Relationship="Reference.John.Model.FK_FormSimpleZero_RegionOptionList" FromRole="FormSimpleZero" ToRole="RegionOptionList" />
           <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_FormSImpleZero" FromRole="FormSimpleZero" ToRole="FormEntity_xref" />
+          <NavigationProperty Name="FormAlertTemplate_xref" Relationship="Reference.John.Model.FK_FormAlertTemplate_xref_FormSImpleZero" FromRole="FormSimpleZero" ToRole="FormAlertTemplate_xref" />
         </EntityType>
         <EntityType Name="FormSimpleZeroHistory">
           <Key>
@@ -942,6 +1112,7 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="ClientToken" Type="Guid" Nullable="false" />
           <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <NavigationProperty Name="FormEntity_xref" Relationship="Reference.John.Model.FK_FormEntity_xref_Entity" FromRole="Entity" ToRole="FormEntity_xref" />
+          <NavigationProperty Name="UserEntity_xref" Relationship="Reference.John.Model.FK_UserEntity_xref_Entity" FromRole="Entity" ToRole="UserEntity_xref" />
         </EntityType>
         <EntityType Name="FormEntity_xref">
           <Key>
@@ -1011,6 +1182,139 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
           <Property Name="EntityKey" Type="Int32" Nullable="false" />
           <Property Name="ChangeSet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CountofFieldsModified" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AlertTemplate">
+          <Key>
+            <PropertyRef Name="AlertTemplateId" />
+          </Key>
+          <Property Name="AlertTemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TemplateText" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="AlertTypeOptionList" Relationship="Reference.John.Model.FK_AlertTemplate_AlertTypeOptionList" FromRole="AlertTemplate" ToRole="AlertTypeOptionList" />
+          <NavigationProperty Name="FormAlertTemplate_xref" Relationship="Reference.John.Model.FK_FormAlertTemplate_xref_AlertTemplate" FromRole="AlertTemplate" ToRole="FormAlertTemplate_xref" />
+        </EntityType>
+        <EntityType Name="AlertTypeOptionList">
+          <Key>
+            <PropertyRef Name="AlertTypeId" />
+          </Key>
+          <Property Name="AlertTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AlertTemplates" Relationship="Reference.John.Model.FK_AlertTemplate_AlertTypeOptionList" FromRole="AlertTypeOptionList" ToRole="AlertTemplate" />
+        </EntityType>
+        <EntityType Name="FormAlertTemplate_xref">
+          <Key>
+            <PropertyRef Name="FormId" />
+            <PropertyRef Name="AlertTemplateId" />
+          </Key>
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="AlertTemplateId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlertTemplate" Relationship="Reference.John.Model.FK_FormAlertTemplate_xref_AlertTemplate" FromRole="FormAlertTemplate_xref" ToRole="AlertTemplate" />
+          <NavigationProperty Name="FormSimpleZero" Relationship="Reference.John.Model.FK_FormAlertTemplate_xref_FormSImpleZero" FromRole="FormAlertTemplate_xref" ToRole="FormSimpleZero" />
+        </EntityType>
+        <EntityType Name="UserEntity_xref">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipType" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipStatus" Type="Int32" Nullable="false" />
+          <Property Name="RelationshipDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientToken" Type="Guid" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Entity" Relationship="Reference.John.Model.FK_UserEntity_xref_Entity" FromRole="UserEntity_xref" ToRole="Entity" />
+        </EntityType>
+        <Association Name="FK_AlertTemplate_AlertTypeOptionList">
+          <End Type="Reference.John.Model.AlertTypeOptionList" Role="AlertTypeOptionList" Multiplicity="1" />
+          <End Type="Reference.John.Model.AlertTemplate" Role="AlertTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertTypeOptionList">
+              <PropertyRef Name="AlertTypeId" />
+            </Principal>
+            <Dependent Role="AlertTemplate">
+              <PropertyRef Name="AlertTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormAlertTemplate_xref_AlertTemplate">
+          <End Type="Reference.John.Model.AlertTemplate" Role="AlertTemplate" Multiplicity="1" />
+          <End Type="Reference.John.Model.FormAlertTemplate_xref" Role="FormAlertTemplate_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertTemplate">
+              <PropertyRef Name="AlertTemplateId" />
+            </Principal>
+            <Dependent Role="FormAlertTemplate_xref">
+              <PropertyRef Name="AlertTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEntity_xref_Entity">
+          <End Type="Reference.John.Model.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Reference.John.Model.UserEntity_xref" Role="UserEntity_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EntityId" />
+            </Principal>
+            <Dependent Role="UserEntity_xref">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormAlertTemplate_xref_FormSImpleZero">
+          <End Type="Reference.John.Model.FormSimpleZero" Role="FormSimpleZero" Multiplicity="1" />
+          <End Type="Reference.John.Model.FormAlertTemplate_xref" Role="FormAlertTemplate_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormSimpleZero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormAlertTemplate_xref">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActionTypeOptionList">
+          <Key>
+            <PropertyRef Name="ActionTypeId" />
+          </Key>
+          <Property Name="ActionTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastChangeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1265,6 +1569,88 @@ warning 6002: The table/view 'Reference_John.dbo.SearchResults' does not have a 
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="InsertAuditLog" FunctionName="Reference.John.Model.Store.InsertAuditLog" />
+          <EntitySetMapping Name="AlertTemplates">
+            <EntityTypeMapping TypeName="Reference.John.Model.AlertTemplate">
+              <MappingFragment StoreEntitySet="AlertTemplate">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
+                <ScalarProperty Name="AlertTypeId" ColumnName="AlertTypeId" />
+                <ScalarProperty Name="AlertTemplateId" ColumnName="AlertTemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertTypeOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.AlertTypeOptionList">
+              <MappingFragment StoreEntitySet="AlertTypeOptionList">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AlertTypeId" ColumnName="AlertTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormAlertTemplate_xref">
+            <EntityTypeMapping TypeName="Reference.John.Model.FormAlertTemplate_xref">
+              <MappingFragment StoreEntitySet="FormAlertTemplate_xref">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AlertTemplateId" ColumnName="AlertTemplateId" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEntity_xref">
+            <EntityTypeMapping TypeName="Reference.John.Model.UserEntity_xref">
+              <MappingFragment StoreEntitySet="UserEntity_xref">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientToken" ColumnName="ClientToken" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RelationshipDescription" ColumnName="RelationshipDescription" />
+                <ScalarProperty Name="RelationshipStatus" ColumnName="RelationshipStatus" />
+                <ScalarProperty Name="RelationshipType" ColumnName="RelationshipType" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionTypeOptionLists">
+            <EntityTypeMapping TypeName="Reference.John.Model.ActionTypeOptionList">
+              <MappingFragment StoreEntitySet="ActionTypeOptionList">
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ActionTypeId" ColumnName="ActionTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
