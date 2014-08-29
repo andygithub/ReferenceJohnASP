@@ -1,0 +1,6 @@
+echo StartingAllTestPreSteps
+echo %TF_BUILD_SOURCESDIRECTORY%\ReferenceJohnASP\Build\TestPre\BuildTestDatabase.bat
+%TF_BUILD_SOURCESDIRECTORY%\ReferenceJohnASP\Build\TestPre\BuildTestDatabase.bat
+echo %TF_BUILD_SOURCESDIRECTORY%\ReferenceJohnASP\Build\TestPreStartAppFabric.ps1
+%TF_BUILD_SOURCESDIRECTORY%\ReferenceJohnASP\Build\TestPreStartAppFabric.ps1
+echo EndedAllTestPreSteps

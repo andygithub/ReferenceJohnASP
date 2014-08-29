@@ -4,6 +4,12 @@ Imports Reference.John
 
 <TestClass()> Public Class ContextFixture
 
+    <TestInitialize()>
+    Public Sub Init()
+        InitData()
+    End Sub
+
+
     <TestMethod()>
     Public Sub ContextUsage()
         Console.WriteLine("Test Starting EF Context:" & Now)
@@ -72,10 +78,15 @@ Imports Reference.John
     End Sub
 
     Private Sub CreateAddress()
+        Const FirstName As String = "CreatFirst"
         Const Street1 As String = "unique name"
         Using _context As New Model.Reference_JohnEntities
             'get contact to use to relate new address to 
             Dim _contact = (From c In _context.FormSimpleZeroes).FirstOrDefault
+            If _contact Is Nothing Then
+                _contact = New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = FirstName, .EthnicityId = 1, .GenderId = 1, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1}
+                _context.FormSimpleZeroes.Add(_contact)
+            End If
             _contact.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
             _context.SaveChanges()
             Console.Write("Saved one address")
@@ -96,6 +107,7 @@ Imports Reference.John
 
     Private Sub FindOneContact()
         Using _context As New Model.Reference_JohnEntities
+            'put at least one record into db if doesn't exist
             _context.Configuration.LazyLoadingEnabled = False
             Dim _list = (From c In _context.FormSimpleZeroes Where c.FirstName = "Robert").FirstOrDefault
             Assert.IsNotNull(_list)
@@ -174,6 +186,17 @@ Imports Reference.John
             'check to see that the record was added
             Dim _listempty = (From c In _context.Addresses Where c.AddressLine1 = Street1)
             Assert.AreEqual(0, _listempty.Count)
+        End Using
+    End Sub
+
+    Private Sub InitData()
+        Using _context As New Model.Reference_JohnEntities
+            _context.Configuration.LazyLoadingEnabled = False
+            'if there isn't any records create one
+            If Not (From c In _context.FormSimpleZeroes Where c.FirstName = "Robert").Any Then
+                _context.FormSimpleZeroes.Add(New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = "Robert", .EthnicityId = 1, .GenderId = 1, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1})
+                _context.SaveChanges()
+            End If
         End Using
     End Sub
 

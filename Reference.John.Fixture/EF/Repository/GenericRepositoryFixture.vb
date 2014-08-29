@@ -30,6 +30,7 @@ Imports Reference.John.Repository.Infrastructure
 
         formRepository = New FormContactZeroRepository()
         repository = New GenericRepository()
+        Datainit()
     End Sub
 
     <TestMethod()>
@@ -158,6 +159,24 @@ Imports Reference.John.Repository.Infrastructure
         'check to see that the record was added
         Dim _listempty = (From c In repository.GetQuery(Of Domain.Address)() Where c.AddressLine1 = Street1).ToList
         Assert.AreEqual(0, _listempty.Count)
+    End Sub
+
+    Private Sub DataInit()       '
+        If Not (From c In formRepository.GetQuery(Of Domain.FormSimpleZero)() Where c.FirstName = "Eric" AndAlso c.LastName = "Lang").Any Then
+            formRepository.Add(New Domain.FormSimpleZero With {.LastName = "Lang", .FirstName = "Eric", .DateCreated = Now, .EthnicityId = 1, .GenderId = 1, .LastChangeDate = Now, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1})
+            formRepository.UnitOfWork.SaveChanges()
+        End If
+        If Not (From c In formRepository.GetQuery(Of Domain.FormSimpleZero)() Where c.FirstName = "Robert").Any Then
+            formRepository.Add(New Domain.FormSimpleZero With {.LastName = "Lang", .FirstName = "Robert", .DateCreated = Now, .EthnicityId = 1, .GenderId = 1, .LastChangeDate = Now, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1,
+                                                               .Addresses = New List(Of Domain.Address) From {New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = "adr1"}}})
+            formRepository.UnitOfWork.SaveChanges()
+        End If
+        'attach an address to the first item
+        Dim _list = (From c In repository.GetQuery(Of Domain.FormSimpleZero).Include(Function(x) x.Addresses) Where c.FirstName = "Robert").ToList
+        If _list(0).Addresses.Count = 0 Then
+            _list(0).Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = "adr1"})
+            formRepository.Update(_list(0))
+        End If
     End Sub
 
     Private Shared Sub DoAction(action As Expression(Of Action))

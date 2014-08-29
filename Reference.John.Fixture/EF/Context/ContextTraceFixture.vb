@@ -6,6 +6,10 @@ Imports Reference.John
 
     'For logging from EF 6 context see - http://msdn.microsoft.com/en-us/data/dn469464.aspx 
 
+    <TestInitialize()>
+    Public Sub Init()
+        InitData()
+    End Sub
 
 
     <TestMethod()>
@@ -77,11 +81,16 @@ Imports Reference.John
     End Sub
 
     Private Sub CreateAddress()
+        Const FirstName As String = "CreatFirst"
         Const Street1 As String = "unique name"
         Using _context As New Model.Reference_JohnEntities
             _context.Database.Log = Sub(val) Console.Write(val)
             'get contact to use to relate new address to 
             Dim _contact = (From c In _context.FormSimpleZeroes).FirstOrDefault
+            If _contact Is Nothing Then
+                _contact = New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = FirstName, .EthnicityId = 1, .GenderId = 1, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1}
+                _context.FormSimpleZeroes.Add(_contact)
+            End If
             _contact.Addresses.Add(New Domain.Address With {.AddressTypeId = 2, .City = "Camp Hill", .LastChangeUser = "unit test", .State = "PA", .Zip = "17011", .AddressLine1 = Street1})
             _context.SaveChanges()
             Console.Write("Saved one address")
@@ -119,6 +128,17 @@ Imports Reference.John
             Console.Write("Pulled page set of record: {0}", _list.Count)
         End Using
 
+    End Sub
+
+    Private Sub InitData()
+        Using _context As New Model.Reference_JohnEntities
+            _context.Configuration.LazyLoadingEnabled = False
+            'if there isn't any records create one
+            If Not (From c In _context.FormSimpleZeroes Where c.FirstName = "Robert").Any Then
+                _context.FormSimpleZeroes.Add(New Domain.FormSimpleZero With {.LastName = "CreateTest", .FirstName = "Robert", .EthnicityId = 1, .GenderId = 1, .LastChangeUser = "unit test", .RaceId = 1, .RegionId = 1})
+                _context.SaveChanges()
+            End If
+        End Using
     End Sub
 
     Private Shared Sub DoAction(action As Expression(Of Action))

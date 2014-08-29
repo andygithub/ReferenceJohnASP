@@ -197,11 +197,13 @@ Namespace Infrastructure
                                        _params.Add(New SqlClient.SqlParameter("EntityKey", x.Keys(0).Value))
                                        If x.Keys.Count = 2 Then
                                            _params.Add(New SqlClient.SqlParameter("EntityKey1", x.Keys(1).Value))
+                                       Else
+                                           _params.Add(New SqlClient.SqlParameter("EntityKey1", DBNull.Value))
                                        End If
                                        _params.Add(New SqlClient.SqlParameter("ChangeSet", items.ToXml))
                                        _params.Add(New SqlClient.SqlParameter("CountofFieldsModified", x.Properties.Count))
                                        _params.Add(New SqlClient.SqlParameter("LastChangeUser", items.Username))
-                                       _dbContext.Database.ExecuteSqlCommand("InsertAuditLog @Action,@Type, @EntityKey,@ChangeSet, @CountofFieldsModified, @LastChangeUser", _params.ToArray)
+                                       _dbContext.Database.ExecuteSqlCommand("InsertAuditLog @Action,@Type, @EntityKey,@EntityKey1,@ChangeSet, @CountofFieldsModified, @LastChangeUser", _params.ToArray)
                                    End Sub)
             'other option would be to have the audit table mapped to EF and perform the "adds" to the audit table before save changes takes place
             'keep in mind that if performing this option any new records created would not have the correct sequence values present because they wouldn't have the database sequence number present. and client side guids generated would be present.
