@@ -126,7 +126,7 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.vb" />
-    <Compile Include="Interfaces\IAlertEntity.vb" />
+    <Compile Include="Interfaces\IEventEntity.vb" />
     <Compile Include="Interfaces\IEntityDates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Partials\FormAlertTemplate_xref.vb" />

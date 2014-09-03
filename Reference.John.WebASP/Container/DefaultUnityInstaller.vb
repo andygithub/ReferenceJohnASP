@@ -33,7 +33,7 @@ Namespace Container
             'simple registration attached to an interceptor
             Me.Container.RegisterType(GetType(Reference.John.Services.IValidationService), GetType(Reference.John.Services.ValidationSesrvice), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of Reference.John.Infrastructure.Container.LoggingInterceptorBehavior)())
             Me.Container.RegisterType(GetType(Reference.John.Services.IWorkFlowService), GetType(Reference.John.Services.WorkFlowService), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of Reference.John.Infrastructure.Container.LoggingInterceptorBehavior)())
-            Me.Container.RegisterType(GetType(Reference.John.Services.IAlertService), GetType(Reference.John.Services.AlertSesrvice), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of Reference.John.Infrastructure.Container.LoggingInterceptorBehavior)())
+            Me.Container.RegisterType(GetType(Reference.John.Services.IEventService), GetType(Reference.John.Services.EventSesrvice), New HierarchicalLifetimeManager, New Interceptor(Of InterfaceInterceptor)(), New InterceptionBehavior(Of Reference.John.Infrastructure.Container.LoggingInterceptorBehavior)())
             'registering the connection string instance that would be passed to any repository
             'Me.Container.RegisterInstance(Of String)("connectionStringName", Constants.ConnectionStringKey)
             'factory should only be called the first time and then the instance should be returned all times thereafter.
