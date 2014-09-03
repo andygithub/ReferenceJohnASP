@@ -19,18 +19,20 @@ Write-Verbose "Start cache instance"
 
 Write-host "End AppFrabric Section $(Get-Date -Format o)";
 
-Write-host "Start Database Init Section $(Get-Date -Format o)";
-Write-host "Build Number: " + $Env:TF_BUILD_BUILDNUMBER 
+Write-host "Start Database Unit Test Init Section $(Get-Date -Format o)";
+Write-host "Build Number: $($Env:TF_BUILD_BUILDNUMBER)" 
+
+Import-Module (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Definition) 'Pathing.psm1') 
 
 #start the database initialize step
 #will run the vs data project deployment.  note that there is a custom deployment configuration setup for unit tests.
 
-$sqlexecpath = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\120\SqlPackage.exe";
-$sqlGeneratedDb = "Reference_John_UnitTestRun_" + $Env:TF_BUILD_BUILDNUMBER;
-$sqlGeneratedDbWithToken = "=" + $sqlGeneratedDb + ";";
-$sqlexecArgs = "/a:Publish /pr:" + $Env:TF_BUILD_BINARIESDIRECTORY + "\Reference_John_UnitTestRun.publish.xml /sf:" + $Env:TF_BUILD_BINARIESDIRECTORY + "\Reference.John.Database.dacpac /tdn:" + $sqlGeneratedDb;
+$sqlexecpath = Get-SQLPackagePath; 
+$sqlGeneratedDb = Get-DatabaseNameUnitTestAndBuildNumber; 
+$sqlGeneratedDbWithToken = Get-ConnectionStringDatabaseToken; 
+$sqlexecArgs =Get-SQLPackageArguements; 
 
-$ConnectionStringDBNameToReplace = "=Reference_John;";
+$ConnectionStringDBNameToReplace =Get-ConnectionStringDatabaseTokenToReplace; 
 
 if (!(Test-Path -path $sqlexecpath))
 {
@@ -53,9 +55,9 @@ $ps.WaitForExit();
 
 Write-host $OutSQLValue;
 
-Write-host "End Database Init Section $(Get-Date -Format o)";
+Write-host "End Database Unit Test Init Section $(Get-Date -Format o)";
 
-Write-host "Start Configuration Customization Section $(Get-Date -Format o)";
+Write-host "Start Unit Test Configuration Customization Section $(Get-Date -Format o)";
 
 #this section will look for various test configuration files in the binaries directory
 #each configuration file will then have customized environmental changes made. 
@@ -66,7 +68,7 @@ Write-host "Searching Folder $Env:TF_BUILD_BINARIESDIRECTORY"
 $files = gci $Env:TF_BUILD_BINARIESDIRECTORY -filter "*.Fixture.dll.config" | Select-Object FullName
 if($files)
 {
-	Write-Verbose "Will apply customization to $($files.count) files."
+	Write-host "Will apply customization to $($files.count) files."
 	
 	foreach ($file in $files) {
 			
@@ -78,7 +80,7 @@ if($files)
             #System.Configuration.ConfigurationErrorsException: '.', hexadecimal value 0x00, is an invalid character.
             #ansi is the default depending on the system and .net is expecting utf8
 			$filecontent -replace $ConnectionStringDBNameToReplace, $sqlGeneratedDbWithToken  | Out-File $file.FullName -Encoding utf8
-			Write-Verbose "$file.FullName - database name updated"
+			Write-host "$($file.FullName) - database name updated"
 		}
 	}
 }
@@ -87,6 +89,6 @@ else
 	Write-Warning "Found no files."
 }
 
-Write-host "End Configuration Customization Section $(Get-Date -Format o)";
+Write-host "End Unit Test Configuration Customization Section $(Get-Date -Format o)";
 
 Write-host "End PreTest Script $(Get-Date -Format o)";
