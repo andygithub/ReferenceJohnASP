@@ -37,7 +37,10 @@ Namespace Controllers
 
         ' GET: api/FormSimpleEF
         Public Function GetValues() As IQueryable(Of Reference.John.UI.Model.SearchResult)
-            System.Threading.Thread.Sleep(3000)
+            'System.Threading.Thread.Sleep(3000)
+
+            'add paging sorting and filtering - possibly connect to odata service - http://nadeemkhedr.wordpress.com/2013/09/01/build-angularjs-grid-with-server-side-paging-sorting-filtering/
+            'or get http://angular-ui.github.io/bootstrap/
             Return _repository.GetQuery(Of Reference.John.Domain.SearchResult).AsNoTracking.Project.To(Of Reference.John.UI.Model.SearchResult)()
         End Function
 

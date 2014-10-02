@@ -23,7 +23,7 @@
                     <td>{{item.LastName}}</td>
                     <td>{{item.GenderName}}</td>
                     <td>{{item.EthnicityName}}</td>
-                    <td>{{item.DateCreated}}</td>
+                    <td>{{item.DateCreated | date:'medium'}}</td>
                     <td><a ng-href="/EditForm?ClientToken={{item.ClientToken}}" class="btn btn-warning">Edit</a></td>
                     <td><a ng-href="/DeleteForm?ClientToken={{item.ClientToken}}" class="btn btn-danger">Delete</a></td>
                 </tr>

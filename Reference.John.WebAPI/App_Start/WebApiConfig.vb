@@ -34,6 +34,14 @@ Public Module WebApiConfig
         builder.EntitySet(Of Reference.John.Domain.GenderOptionList)("GenderOptionLists")
         builder.EntitySet(Of Reference.John.Domain.RaceOptionList)("RaceOptionLists")
         builder.EntitySet(Of Reference.John.Domain.RegionOptionList)("RegionOptionLists")
+
+        builder.EntitySet(Of Reference.John.Domain.FormAlertTemplate_xref)("FormSimpleZero_Alert")
+        builder.EntitySet(Of Reference.John.Domain.AlertTemplate)("AlertTemplate")
+        builder.EntitySet(Of Reference.John.Domain.AlertTypeOptionList)("AlertTemplateOptionLists")
+
+        builder.EntitySet(Of Reference.John.Domain.Entity)("EntityForm_xref")
+        builder.EntitySet(Of Reference.John.Domain.UserEntity_xref)("UserEntity_xref")
+
         config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel())
     End Sub
 End Module
