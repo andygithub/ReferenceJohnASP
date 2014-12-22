@@ -78,3 +78,5 @@ C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\D
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.dll
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.xml
 C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\obj\Debug\Reference.John.Services.pdb
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\log4net.dll
+C:\Users\maurera\Documents\GitHub\ReferenceJohnASP\Reference.John.Services\bin\Debug\log4net.xml

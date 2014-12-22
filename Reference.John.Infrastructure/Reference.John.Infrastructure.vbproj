@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\ServerAppFabric.Client.1.1.2106\lib\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
@@ -112,6 +115,7 @@
     <Compile Include="Container\ContainerFactory.vb" />
     <Compile Include="Extensions\TypeExtensions.vb" />
     <Compile Include="Logging\BaseLogger.vb" />
+    <Compile Include="Logging\Log4NetLogger.vb" />
     <Compile Include="Logging\ELLogger.vb" />
     <Compile Include="Logging\ILogger.vb" />
     <Compile Include="Container\LoggingInterceptorBehavior.vb" />
